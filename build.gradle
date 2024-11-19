@@ -17,6 +17,12 @@ dependencies {
     //barcode reader zxing
     implementation("com.google.zxing:core:3.5.3")
     implementation("com.google.zxing:javase:3.5.3")
+    implementation("org.boofcv:boofcv-core:1.1.6")
+
+    //barcode reader BoofCV
+    implementation("org.boofcv:boofcv-core:1.1.6")
+    implementation("org.boofcv:boofcv-recognition:1.1.6")
+    //implementation("org.boofcv:boofcv-ip:1.1.6")
 }
 
 tasks.test {
