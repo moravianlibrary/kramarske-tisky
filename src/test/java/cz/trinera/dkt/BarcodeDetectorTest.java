@@ -1,5 +1,8 @@
 package cz.trinera.dkt;
 
+import cz.trinera.dkt.barcode.BarcodeDetector;
+import cz.trinera.dkt.barcode.BarcodeDetectorImplBoofCv;
+import cz.trinera.dkt.barcode.BarcodeDetectorImplZxing;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

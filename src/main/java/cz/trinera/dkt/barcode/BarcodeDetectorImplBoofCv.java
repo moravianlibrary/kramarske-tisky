@@ -1,13 +1,10 @@
-package cz.trinera.dkt;
+package cz.trinera.dkt.barcode;
 
-import boofcv.abst.fiducial.QrCodeDetector;
 import boofcv.alg.feature.detect.edge.GGradientToEdgeFeatures;
 import boofcv.alg.filter.binary.BinaryImageOps;
 import boofcv.alg.filter.binary.Contour;
-import boofcv.factory.fiducial.FactoryFiducial;
 import boofcv.factory.filter.binary.FactoryThresholdBinary;
 import boofcv.io.image.ConvertBufferedImage;
-import boofcv.io.image.UtilImageIO;
 import boofcv.struct.ConnectRule;
 import boofcv.struct.image.GrayU8;
 

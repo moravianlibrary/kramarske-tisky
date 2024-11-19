@@ -1,8 +1,8 @@
 package cz.trinera.dkt;
 
+import cz.trinera.dkt.barcode.BarcodeDetector;
+
 import java.io.File;
-import java.io.FileFilter;
-import java.io.FilenameFilter;
 
 public class DigitizationWorkflow {
 

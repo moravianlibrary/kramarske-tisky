@@ -1,5 +1,8 @@
 package cz.trinera.dkt;
 
+import cz.trinera.dkt.barcode.BarcodeDetector;
+import cz.trinera.dkt.barcode.BarcodeDetectorMock;
+
 import java.io.File;
 
 public class Main {

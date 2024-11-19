@@ -1,4 +1,4 @@
-package cz.trinera.dkt;
+package cz.trinera.dkt.barcode;
 
 import java.io.File;
 
