@@ -1,13 +1,18 @@
 package cz.trinera.dkt.barcode;
 
 import java.io.File;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class BarcodeDetectorMock implements BarcodeDetector {
+
+    private final Random random = new Random();
 
     @Override
     public Barcode detect(File file) {
 
-        String[] barcodeFiles = new String[]{
+        Set<String> barcodeFiles = Set.of(
                 "0001.png",
                 "0010.png",
                 "0019.png",
@@ -18,11 +23,26 @@ public class BarcodeDetectorMock implements BarcodeDetector {
                 "0064.png",
                 "0073.png",
                 "0082.png"
-        };
-        if (file.getName().equals(barcodeFiles[0])) {
-            return new Barcode("mock", "123");
+        );
+        if (barcodeFiles.contains(file.getName())) {
+            return new Barcode("mock", file.getName() + "_" + randomString(5));
         } else {
             return null;
         }
+    }
+
+    private String randomString(int length) {
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                + "abcdefghijklmnopqrstuvwxyz"
+                + "0123456789";
+
+        StringBuilder sb = new StringBuilder(length);
+
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(chars.length());
+            sb.append(chars.charAt(index));
+        }
+
+        return sb.toString();
     }
 }
