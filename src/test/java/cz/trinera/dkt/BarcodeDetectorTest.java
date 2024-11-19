@@ -1,0 +1,94 @@
+package cz.trinera.dkt;
+
+import org.junit.jupiter.api.Test;
+
+import java.io.File;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BarcodeDetectorTest {
+
+    private final String sampleDir = "/Users/martinrehanek/TrineraProjects/KramarskeTisky/data/input/orezane";
+    private final BarcodeDetector barcodeDetector = new BarcodeDetector();
+
+    @Test
+    public void testBarcodeYes1() {
+        File file = new File(sampleDir + "/0001.tif");
+        System.out.println("file = " + file);
+        BarcodeDetector.Barcode detected = barcodeDetector.detect(file);
+        assertNotNull(detected);
+    }
+
+    @Test
+    public void testBarcodeYes2() {
+        File file = new File(sampleDir + "/0010.tif");
+        System.out.println("file = " + file);
+        BarcodeDetector.Barcode detected = barcodeDetector.detect(file);
+        assertNotNull(detected);
+    }
+
+    @Test
+    public void testBarcodeYes3() {
+        File file = new File(sampleDir + "/0019.tif");
+        System.out.println("file = " + file);
+        BarcodeDetector.Barcode detected = barcodeDetector.detect(file);
+        assertNotNull(detected);
+    }
+
+    @Test
+    public void testBarcodeYes4() {
+        File file = new File(sampleDir + "/0028.tif");
+        System.out.println("file = " + file);
+        BarcodeDetector.Barcode detected = barcodeDetector.detect(file);
+        assertNotNull(detected);
+    }
+
+    @Test
+    public void testBarcodeYes5() {
+        File file = new File(sampleDir + "/0037.tif");
+        System.out.println("file = " + file);
+        BarcodeDetector.Barcode detected = barcodeDetector.detect(file);
+        assertNotNull(detected);
+    }
+
+    @Test
+    public void testBarcodeNo1() {
+        File file = new File(sampleDir + "/0002.tif");
+        System.out.println("file = " + file);
+        BarcodeDetector.Barcode detected = barcodeDetector.detect(file);
+        assertNull(detected);
+    }
+
+    @Test
+    public void testBarcodeNo2() {
+        File file = new File(sampleDir + "/0003.tif");
+        System.out.println("file = " + file);
+        BarcodeDetector.Barcode detected = barcodeDetector.detect(file);
+        assertNull(detected);
+    }
+
+    @Test
+    public void testBarcodeNo3() {
+        File file = new File(sampleDir + "/0004.tif");
+        System.out.println("file = " + file);
+        BarcodeDetector.Barcode detected = barcodeDetector.detect(file);
+        assertNull(detected);
+    }
+
+    @Test
+    public void testBarcodeNo4() {
+        File file = new File(sampleDir + "/0005.tif");
+        System.out.println("file = " + file);
+        BarcodeDetector.Barcode detected = barcodeDetector.detect(file);
+        assertNull(detected);
+    }
+
+    @Test
+    public void testBarcodeNo5() {
+        File file = new File(sampleDir + "/0006.tif");
+        System.out.println("file = " + file);
+        BarcodeDetector.Barcode detected = barcodeDetector.detect(file);
+        assertNull(detected);
+    }
+
+}
