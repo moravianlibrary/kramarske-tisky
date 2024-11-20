@@ -28,7 +28,7 @@ public class BarcodeDetectorImplBoofCv implements BarcodeDetector {
         // Load the image
         BufferedImage bufferedImage;
         try {
-            bufferedImage = ImageIO.read(new File("path_to_your_image.jpg"));
+            bufferedImage = ImageIO.read(file);
         } catch (IOException e) {
             System.err.println("Failed to load image.");
             e.printStackTrace();

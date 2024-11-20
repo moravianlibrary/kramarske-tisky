@@ -7,11 +7,12 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class BarcodeDetectorTest {
 
-    private final String sampleDir = "/Users/martinrehanek/TrineraProjects/KramarskeTisky/data/input/orezane-png";
+    private final String sampleDir = new File(System.getProperty("user.home")).getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png";
     //private final BarcodeDetector barcodeDetector = new BarcodeDetectorImplZxing();
     private final BarcodeDetector barcodeDetector = new BarcodeDetectorImplBoofCv();
 

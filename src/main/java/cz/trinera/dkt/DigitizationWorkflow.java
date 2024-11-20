@@ -1,11 +1,12 @@
 package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
+import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
 
 import java.io.File;
-import java.util.*;
-
-import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class DigitizationWorkflow {
 
@@ -61,12 +62,16 @@ public class DigitizationWorkflow {
     }
 
     private File[] listImageFiles(File inputDir) {
-        return Arrays.stream(Objects.requireNonNull(
-                inputDir.listFiles((dir, name) -> name.matches("\\d+\\.png")))
-        ).sorted((first, second) -> {
-            int nFirst = Integer.parseInt(first.getName().split("\\.")[0]);
-            int nSecond = Integer.parseInt(second.getName().split("\\.")[0]);
-            return Integer.compare(nFirst, nSecond);
-        }).toArray(File[]::new);
+        //System.out.println("Listing files in " + inputDir);
+        if (inputDir == null || !inputDir.exists() || !inputDir.isDirectory()) {
+            throw new IllegalArgumentException("Input directory does not exist or is not a directory: " + inputDir);
+        }
+        return Arrays
+                .stream(inputDir.listFiles((dir, name) -> name.matches("\\d+\\.png")))
+                .sorted((first, second) -> {
+                    int nFirst = Integer.parseInt(first.getName().split("\\.")[0]);
+                    int nSecond = Integer.parseInt(second.getName().split("\\.")[0]);
+                    return Integer.compare(nFirst, nSecond);
+                }).toArray(File[]::new);
     }
 }
