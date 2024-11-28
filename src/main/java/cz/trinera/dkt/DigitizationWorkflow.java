@@ -57,8 +57,30 @@ public class DigitizationWorkflow {
     private void processBlock(List<File> toBeProcessed, BarcodeDetector.Barcode barcode) {
         String filesStr = toBeProcessed.stream().map(File::getName).reduce((a, b) -> a + ", " + b).orElse("");
         System.out.println("Processing " + toBeProcessed.size() + " files with barcode " + barcode.getValue() + ": " + filesStr);
-        //TODO: test, if correct number of files (4, 8, 16)
-        //TODO: process files
+        //test if correct number of pages
+        int[] expectedNumbersOfPages = {4, 8, 16}; //musí být sudý počet stránek
+        if (Arrays.stream(expectedNumbersOfPages).noneMatch(count -> count == toBeProcessed.size())) {
+            System.out.println("Invalid number of pages in block: " + toBeProcessed.size() + ", ignoring block with barcode " + barcode.getValue());
+            return;
+        }
+        //name pages: 1r, 1v, 2r, 2v, ...
+        List<NamedPage> pages = new ArrayList<>();
+        for (int i = 0, num = 1; i < toBeProcessed.size(); i++) {
+            char side = i % 2 == 0 ? 'r' : 'v';
+            String pageName = "" + num + side;
+            pages.add(new NamedPage(i + 1, pageName, toBeProcessed.get(i)));
+            if (i % 2 == 1) {
+                num++;
+            }
+        }
+        //fetch OCR
+        for (NamedPage page : pages) {
+            //TODO: fetch OCR from Pero and enrich NamedPage
+        }
+        //TODO: convert each page to jp2k (archivni, uzivatelska kopie)
+
+        //TODO: for whole block: fetch MARC21 from Aleph (Z39.50) by barcode and convert to MODS (vcetne rozsirene sablony)
+        //TODO: build NDK package, move to outputDir
     }
 
     private File[] listImageFiles(File inputDir) {
