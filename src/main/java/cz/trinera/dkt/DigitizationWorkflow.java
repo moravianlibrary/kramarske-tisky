@@ -2,6 +2,8 @@ package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
+import cz.trinera.dkt.jp2k.Jp2kConvertor;
+import cz.trinera.dkt.ocr.OcrProvider;
 
 import java.io.File;
 import java.sql.Timestamp;
@@ -12,11 +14,16 @@ import java.util.List;
 
 public class DigitizationWorkflow {
 
-    private final BarcodeDetector barcodeDetector;
     private final Integer MAX_BLOCKS_TO_PROCESS = 1; //TODO: set to NULL in production
 
-    public DigitizationWorkflow(BarcodeDetector barcodeDetector) {
+    private final BarcodeDetector barcodeDetector;
+    private final OcrProvider ocrProvider;
+    private final Jp2kConvertor jp2kConvertor;
+
+    public DigitizationWorkflow(BarcodeDetector barcodeDetector, OcrProvider ocrProvider, Jp2kConvertor jp2kConvertor) {
         this.barcodeDetector = barcodeDetector;
+        this.ocrProvider = ocrProvider;
+        this.jp2kConvertor = jp2kConvertor;
     }
 
     /**
@@ -45,7 +52,7 @@ public class DigitizationWorkflow {
                 return;
             }
             if (file.getName().endsWith(".png")) {
-                System.out.println("Listing " + file.getName());
+                //System.out.println("Listing " + file.getName());
                 BarcodeDetector.Barcode barcode = barcodeDetector.detect(file);
                 if (barcode != null) {
                     if (lastBarcode == null) {
@@ -117,7 +124,7 @@ public class DigitizationWorkflow {
         makeSureReadableWritableDirExists(blockWorkingDirImagesDir);
         List<NamedPage> pagesInWorkingDir = new ArrayList<>();
         for (NamedPage page : pages) {
-            File pageDestFile = new File(blockWorkingDirImagesDir, page.getName() + ".png");
+            File pageDestFile = new File(blockWorkingDirImagesDir, page.getPosition() + ".png");
             //System.out.println("Copying " + page.getImageFile().getAbsolutePath() + " to " + pageDestFile.getAbsolutePath());
             Utils.copyFile(page.getImageFile(), pageDestFile);
             pagesInWorkingDir.add(page.withDifferentFile(pageDestFile));
@@ -131,13 +138,29 @@ public class DigitizationWorkflow {
      * Process images in working dir (copy of original images)
      */
     private void processBlockPhase2(List<NamedPage> pages, Barcode barcode, File blockWorkingDir, File outputDir) {
-        //fetch OCR
+        //fetch OCR (text, alto) for each page
+        File ocrTextDir = new File(blockWorkingDir, "ocr-text");
+        makeSureReadableWritableDirExists(ocrTextDir);
+        File ocrAltoDir = new File(blockWorkingDir, "ocr-alto");
+        makeSureReadableWritableDirExists(ocrAltoDir);
         for (NamedPage page : pages) {
-            System.out.println(page);
-            //System.out.println("Fetching OCR for " + page.getName());
-            //TODO: fetch OCR from Pero and save to file(s) in working dir (OCR text, OCR XML)
+            //System.out.println(page);
+            File ocrTextFile = new File(ocrTextDir, page.getPosition() + ".txt");
+            File ocrAltoFile = new File(ocrAltoDir, page.getPosition() + ".xml");
+            ocrProvider.fetchOcr(page.getImageFile(), ocrTextFile, ocrAltoFile);
         }
-        //TODO: convert each page to jp2k (archivni, uzivatelska kopie)
+
+        //convert each page to jp2k (user copy, archive copy)
+        File jp2kUserCopyDir = new File(blockWorkingDir, "jp2k-usercopy");
+        makeSureReadableWritableDirExists(jp2kUserCopyDir);
+        File jp2kArchiveCopyDir = new File(blockWorkingDir, "jp2k-archivecopy");
+        makeSureReadableWritableDirExists(jp2kArchiveCopyDir);
+        for (NamedPage page : pages) {
+            File jp2kUserCopyFile = new File(jp2kUserCopyDir, page.getPosition() + ".jp2");
+            File jp2kArchiveCopyFile = new File(jp2kArchiveCopyDir, page.getPosition() + ".jp2");
+            jp2kConvertor.convertToJp2k(page.getImageFile(), jp2kUserCopyFile, jp2kArchiveCopyFile);
+        }
+
 
         //TODO: for whole block: fetch MARC21 from Aleph (Z39.50) by barcode and convert to MODS (vcetne rozsirene sablony)
         //TODO: build NDK package, move to outputDir

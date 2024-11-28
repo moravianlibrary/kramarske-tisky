@@ -1,0 +1,18 @@
+package cz.trinera.dkt.jp2k;
+
+import java.io.File;
+import java.io.IOException;
+
+public class Jp2kConvertorMock implements Jp2kConvertor {
+
+    @Override
+    public void convertToJp2k(File inPngFile, File outUsercopyJp2kFile, File outArchivecopyJp2kFile) {
+        System.out.println("Converting to jp2k image " + inPngFile.getName());
+        try {
+            outUsercopyJp2kFile.createNewFile();
+            outArchivecopyJp2kFile.createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

@@ -2,6 +2,10 @@ package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetectorMock;
+import cz.trinera.dkt.jp2k.Jp2kConvertor;
+import cz.trinera.dkt.jp2k.Jp2kConvertorMock;
+import cz.trinera.dkt.ocr.OcrProvider;
+import cz.trinera.dkt.ocr.OcrProviderMock;
 
 import java.io.File;
 
@@ -13,7 +17,9 @@ public class Main {
         File outputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-results");
 
         BarcodeDetector barcodeDetector = new BarcodeDetectorMock();
-        DigitizationWorkflow digitizationWorkflow = new DigitizationWorkflow(barcodeDetector);
+        OcrProvider ocrProvider = new OcrProviderMock();
+        Jp2kConvertor jp2kConvertor = new Jp2kConvertorMock();
+        DigitizationWorkflow digitizationWorkflow = new DigitizationWorkflow(barcodeDetector, ocrProvider, jp2kConvertor);
         digitizationWorkflow.run(inputDir, workingDir, outputDir);
     }
 }
