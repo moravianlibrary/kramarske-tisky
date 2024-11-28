@@ -22,12 +22,18 @@ public class DigitizationWorkflow {
      *
      * @param inputDir directory with png files
      */
-    public void run(File inputDir) {
-        System.out.println("Running digitization workflow on " + inputDir);
+    public void run(File inputDir, File workingDir, File outputDir) {
+        System.out.println("Running digitization workflow ");
+        System.out.println("Input dir: " + inputDir.getAbsolutePath());
+        makeSureReadableWritableDirExists(inputDir);
+        System.out.println("Working dir: " + workingDir.getAbsolutePath());
+        makeSureReadableWritableDirExists(workingDir);
+        System.out.println("Output dir: " + outputDir.getAbsolutePath());
+        makeSureReadableWritableDirExists(outputDir);
 
         //process all png files in the directory inputDir
         Barcode lastBarcode = null;
-        List<File> toBeProcessed = new ArrayList<>();
+        List<File> imagesToBeProcessed = new ArrayList<>();
 
         for (File file : listImageFiles(inputDir)) {
             if (file.getName().endsWith(".png")) {
@@ -38,22 +44,34 @@ public class DigitizationWorkflow {
                         lastBarcode = barcode;
                     } else {
                         //found next barcode
-                        processBlock(toBeProcessed, lastBarcode);
+                        processBlock(imagesToBeProcessed, lastBarcode);
                         //reset and save the new barcode
                         lastBarcode = barcode;
-                        toBeProcessed.clear();
+                        imagesToBeProcessed.clear();
                     }
                 } else {
-                    toBeProcessed.add(file);
+                    imagesToBeProcessed.add(file);
                 }
             }
         }
         if (lastBarcode != null) {
-            processBlock(toBeProcessed, lastBarcode);
+            processBlock(imagesToBeProcessed, lastBarcode);
         }
     }
 
-    //TODO: tohle bude kramarsky tisk
+    private void makeSureReadableWritableDirExists(File dir) {
+        if (!dir.exists()) {
+            System.out.println("Creating directory: " + dir);
+            if (!dir.mkdirs()) {
+                throw new IllegalArgumentException("Cannot create directory: " + dir);
+            }
+        }
+        //check access rights: can read, write
+        if (!dir.canRead() || !dir.canWrite()) {
+            throw new IllegalArgumentException("Cannot read or write to directory: " + dir);
+        }
+    }
+
     private void processBlock(List<File> toBeProcessed, BarcodeDetector.Barcode barcode) {
         String filesStr = toBeProcessed.stream().map(File::getName).reduce((a, b) -> a + ", " + b).orElse("");
         System.out.println("Processing " + toBeProcessed.size() + " files with barcode " + barcode.getValue() + ": " + filesStr);
