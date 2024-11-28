@@ -4,6 +4,8 @@ import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
 
 import java.io.File;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
 public class DigitizationWorkflow {
 
     private final BarcodeDetector barcodeDetector;
+    private final Integer MAX_BLOCKS_TO_PROCESS = 1; //TODO: set to NULL in production
 
     public DigitizationWorkflow(BarcodeDetector barcodeDetector) {
         this.barcodeDetector = barcodeDetector;
@@ -35,7 +38,12 @@ public class DigitizationWorkflow {
         Barcode lastBarcode = null;
         List<File> imagesToBeProcessed = new ArrayList<>();
 
+        int processedBlocks = 0;
         for (File file : listImageFiles(inputDir)) {
+            if (MAX_BLOCKS_TO_PROCESS != null && processedBlocks >= MAX_BLOCKS_TO_PROCESS) {
+                System.out.println("Limit MAX_BLOCKS_TO_PROCESS reached (" + MAX_BLOCKS_TO_PROCESS + " blocks), quitting now");
+                return;
+            }
             if (file.getName().endsWith(".png")) {
                 System.out.println("Listing " + file.getName());
                 BarcodeDetector.Barcode barcode = barcodeDetector.detect(file);
@@ -43,9 +51,12 @@ public class DigitizationWorkflow {
                     if (lastBarcode == null) {
                         lastBarcode = barcode;
                     } else {
-                        //found next barcode
-                        processBlock(imagesToBeProcessed, lastBarcode);
-                        //reset and save the new barcode
+                        //next barcode found - process the block of all images before that
+                        if (MAX_BLOCKS_TO_PROCESS == null || processedBlocks < MAX_BLOCKS_TO_PROCESS) {
+                            processBlockPhase1(imagesToBeProcessed, lastBarcode, workingDir, outputDir);
+                            processedBlocks++;
+                        }
+                        //set new barcode as last and reset images to be processed
                         lastBarcode = barcode;
                         imagesToBeProcessed.clear();
                     }
@@ -54,8 +65,10 @@ public class DigitizationWorkflow {
                 }
             }
         }
-        if (lastBarcode != null) {
-            processBlock(imagesToBeProcessed, lastBarcode);
+        if (lastBarcode != null) { //process the last block
+            if (MAX_BLOCKS_TO_PROCESS == null || processedBlocks < MAX_BLOCKS_TO_PROCESS) {
+                processBlockPhase1(imagesToBeProcessed, lastBarcode, workingDir, outputDir);
+            }
         }
     }
 
@@ -72,28 +85,57 @@ public class DigitizationWorkflow {
         }
     }
 
-    private void processBlock(List<File> toBeProcessed, BarcodeDetector.Barcode barcode) {
-        String filesStr = toBeProcessed.stream().map(File::getName).reduce((a, b) -> a + ", " + b).orElse("");
-        System.out.println("Processing " + toBeProcessed.size() + " files with barcode " + barcode.getValue() + ": " + filesStr);
+    /**
+     * Checks image files, if they are valid block of pages (4, 8, 16 pages), create
+     */
+    private void processBlockPhase1(List<File> imagesToBeProcessed, BarcodeDetector.Barcode barcode, File workingDir, File outputDir) {
+        String imageFilesStr = imagesToBeProcessed.stream().map(File::getName).reduce((a, b) -> a + ", " + b).orElse("");
+        System.out.println("Processing " + imagesToBeProcessed.size() + " files with barcode " + barcode.getValue() + ": " + imageFilesStr);
         //test if correct number of pages
         int[] expectedNumbersOfPages = {4, 8, 16}; //musí být sudý počet stránek
-        if (Arrays.stream(expectedNumbersOfPages).noneMatch(count -> count == toBeProcessed.size())) {
-            System.out.println("Invalid number of pages in block: " + toBeProcessed.size() + ", ignoring block with barcode " + barcode.getValue());
+        if (Arrays.stream(expectedNumbersOfPages).noneMatch(count -> count == imagesToBeProcessed.size())) {
+            System.out.println("Invalid number of pages in block: " + imagesToBeProcessed.size() + ", ignoring block with barcode " + barcode.getValue());
             return;
         }
         //name pages: 1r, 1v, 2r, 2v, ...
         List<NamedPage> pages = new ArrayList<>();
-        for (int i = 0, num = 1; i < toBeProcessed.size(); i++) {
+        for (int i = 0, num = 1; i < imagesToBeProcessed.size(); i++) {
             char side = i % 2 == 0 ? 'r' : 'v';
             String pageName = "" + num + side;
-            pages.add(new NamedPage(i + 1, pageName, toBeProcessed.get(i)));
+            pages.add(new NamedPage(i + 1, pageName, imagesToBeProcessed.get(i)));
             if (i % 2 == 1) {
                 num++;
             }
         }
+
+        //create working dir and fill with copies of original images
+        Timestamp ts = Timestamp.from(Instant.now());
+        String timestampFormatted = ts.toLocalDateTime().format(java.time.format.DateTimeFormatter.ofPattern("yyyy_MM_dd-HH_mm_ss,SSS"));
+        File blockWorkingDir = new File(workingDir, barcode.getValue() + "-" + timestampFormatted);
+        makeSureReadableWritableDirExists(blockWorkingDir);
+        File blockWorkingDirImagesDir = new File(blockWorkingDir, "images-in");
+        makeSureReadableWritableDirExists(blockWorkingDirImagesDir);
+        List<NamedPage> pagesInWorkingDir = new ArrayList<>();
+        for (NamedPage page : pages) {
+            File pageDestFile = new File(blockWorkingDirImagesDir, page.getName() + ".png");
+            //System.out.println("Copying " + page.getImageFile().getAbsolutePath() + " to " + pageDestFile.getAbsolutePath());
+            Utils.copyFile(page.getImageFile(), pageDestFile);
+            pagesInWorkingDir.add(page.withDifferentFile(pageDestFile));
+        }
+
+        //continue with phase 2
+        processBlockPhase2(pagesInWorkingDir, barcode, blockWorkingDir, outputDir);
+    }
+
+    /*
+     * Process images in working dir (copy of original images)
+     */
+    private void processBlockPhase2(List<NamedPage> pages, Barcode barcode, File blockWorkingDir, File outputDir) {
         //fetch OCR
         for (NamedPage page : pages) {
-            //TODO: fetch OCR from Pero and enrich NamedPage
+            System.out.println(page);
+            //System.out.println("Fetching OCR for " + page.getName());
+            //TODO: fetch OCR from Pero and save to file(s) in working dir (OCR text, OCR XML)
         }
         //TODO: convert each page to jp2k (archivni, uzivatelska kopie)
 

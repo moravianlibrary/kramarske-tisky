@@ -25,10 +25,19 @@ public class BarcodeDetectorMock implements BarcodeDetector {
                 "0082.png"
         );
         if (barcodeFiles.contains(file.getName())) {
-            return new Barcode("mock", file.getName() + "_" + randomString(5));
+            //return new Barcode("mock", file.getName() + "_" + randomString(5));
+            return new Barcode("mock", randomNumbers(10));
         } else {
             return null;
         }
+    }
+
+    private String randomNumbers(int count) {
+        StringBuilder sb = new StringBuilder(count);
+        for (int i = 0; i < count; i++) {
+            sb.append(random.nextInt(10));
+        }
+        return sb.toString();
     }
 
     private String randomString(int length) {

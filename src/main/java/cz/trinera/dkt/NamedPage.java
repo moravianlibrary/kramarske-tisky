@@ -25,4 +25,17 @@ public class NamedPage {
     public File getImageFile() {
         return imageFile;
     }
+
+    public NamedPage withDifferentFile(File destFile) {
+        return new NamedPage(position, name, destFile);
+    }
+
+    @Override
+    public String toString() {
+        return "NamedPage{" +
+                "position=" + position +
+                ", name='" + name + '\'' +
+                ", imageFile=" + imageFile.getAbsolutePath() +
+                '}';
+    }
 }
