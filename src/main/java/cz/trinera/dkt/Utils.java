@@ -1,5 +1,9 @@
 package cz.trinera.dkt;
 
+import nu.xom.Builder;
+import nu.xom.Document;
+import nu.xom.ParsingException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -22,6 +26,28 @@ public class Utils {
             }
         } catch (IOException e) {
             System.err.println("Error while copying file: " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Document loadXmlFromFile(File file) {
+        try {
+            Builder builder = new Builder();
+            return builder.build(file);
+        } catch (ParsingException e) {
+            System.err.println("Parsing error: " + e.getMessage());
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.err.println("I/O error: " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void saveDocumentToFile(Document document, File file) {
+        try (FileOutputStream outputStream = new FileOutputStream(file)) {
+            outputStream.write(document.toXML().getBytes());
+        } catch (IOException e) {
+            System.err.println("Error while saving document to file: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }

@@ -3,7 +3,9 @@ package cz.trinera.dkt;
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
 import cz.trinera.dkt.jp2k.Jp2kConvertor;
+import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.ocr.OcrProvider;
+import nu.xom.Document;
 
 import java.io.File;
 import java.sql.Timestamp;
@@ -19,11 +21,13 @@ public class DigitizationWorkflow {
     private final BarcodeDetector barcodeDetector;
     private final OcrProvider ocrProvider;
     private final Jp2kConvertor jp2kConvertor;
+    private final MarcXmlProvider marcXmlProvider;
 
-    public DigitizationWorkflow(BarcodeDetector barcodeDetector, OcrProvider ocrProvider, Jp2kConvertor jp2kConvertor) {
+    public DigitizationWorkflow(BarcodeDetector barcodeDetector, OcrProvider ocrProvider, Jp2kConvertor jp2kConvertor, MarcXmlProvider marcXmlProvider) {
         this.barcodeDetector = barcodeDetector;
         this.ocrProvider = ocrProvider;
         this.jp2kConvertor = jp2kConvertor;
+        this.marcXmlProvider = marcXmlProvider;
     }
 
     /**
@@ -161,8 +165,13 @@ public class DigitizationWorkflow {
             jp2kConvertor.convertToJp2k(page.getImageFile(), jp2kUserCopyFile, jp2kArchiveCopyFile);
         }
 
+        //marc xml
+        Document marcXml = marcXmlProvider.getMarcXml(barcode.getValue());
+        File marcXmlFile = new File(blockWorkingDir, "marc.xml");
+        Utils.saveDocumentToFile(marcXml, marcXmlFile);
+        //TODO: convert marc to MODS with extended xls
 
-        //TODO: for whole block: fetch MARC21 from Aleph (Z39.50) by barcode and convert to MODS (vcetne rozsirene sablony)
+
         //TODO: build NDK package, move to outputDir
     }
 
