@@ -18,7 +18,8 @@ public class Main {
         File homeDir = new File(System.getProperty("user.home"));
         File inputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png");
         File workingDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-processing");
-        File outputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-results");
+        File ndkPackageWorkingDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-ndk-package");
+        File resultsDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-results");
 
         BarcodeDetector barcodeDetector = new BarcodeDetectorMock(); //TODO: use proper implementation in production
         OcrProvider ocrProvider = new OcrProviderMock(); //TODO: use proper implementation in production
@@ -28,6 +29,6 @@ public class Main {
         MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(marcToModsXsltFile);
 
         DigitizationWorkflow digitizationWorkflow = new DigitizationWorkflow(barcodeDetector, ocrProvider, jp2kConvertor, marcXmlProvider, marcToModsConvertor);
-        digitizationWorkflow.run(inputDir, workingDir, outputDir);
+        digitizationWorkflow.run(inputDir, workingDir, ndkPackageWorkingDir, resultsDir);
     }
 }

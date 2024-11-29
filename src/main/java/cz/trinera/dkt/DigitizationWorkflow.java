@@ -9,6 +9,7 @@ import cz.trinera.dkt.ocr.OcrProvider;
 import nu.xom.Document;
 
 import java.io.File;
+import java.sql.SQLOutput;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -39,14 +40,16 @@ public class DigitizationWorkflow {
      *
      * @param inputDir directory with png files
      */
-    public void run(File inputDir, File workingDir, File outputDir) {
+    public void run(File inputDir, File workingDir, File ndkPackageWorkingDir, File resultsDir) {
         System.out.println("Running digitization workflow ");
         System.out.println("Input dir: " + inputDir.getAbsolutePath());
         makeSureReadableWritableDirExists(inputDir);
         System.out.println("Working dir: " + workingDir.getAbsolutePath());
         makeSureReadableWritableDirExists(workingDir);
-        System.out.println("Output dir: " + outputDir.getAbsolutePath());
-        makeSureReadableWritableDirExists(outputDir);
+        System.out.println("NDK package working dir: " + ndkPackageWorkingDir.getAbsolutePath());
+        makeSureReadableWritableDirExists(ndkPackageWorkingDir);
+        System.out.println("Kramerius import dir: " + resultsDir.getAbsolutePath());
+        makeSureReadableWritableDirExists(resultsDir);
 
         //process all png files in the directory inputDir
         Barcode lastBarcode = null;
@@ -67,7 +70,7 @@ public class DigitizationWorkflow {
                     } else {
                         //next barcode found - process the block of all images before that
                         if (MAX_BLOCKS_TO_PROCESS == null || processedBlocks < MAX_BLOCKS_TO_PROCESS) {
-                            processBlockPhase1(imagesToBeProcessed, lastBarcode, workingDir, outputDir);
+                            processBlock(imagesToBeProcessed, lastBarcode, workingDir, ndkPackageWorkingDir, resultsDir);
                             processedBlocks++;
                         }
                         //set new barcode as last and reset images to be processed
@@ -81,7 +84,7 @@ public class DigitizationWorkflow {
         }
         if (lastBarcode != null) { //process the last block
             if (MAX_BLOCKS_TO_PROCESS == null || processedBlocks < MAX_BLOCKS_TO_PROCESS) {
-                processBlockPhase1(imagesToBeProcessed, lastBarcode, workingDir, outputDir);
+                processBlock(imagesToBeProcessed, lastBarcode, workingDir, ndkPackageWorkingDir, resultsDir);
             }
         }
     }
@@ -99,17 +102,49 @@ public class DigitizationWorkflow {
         }
     }
 
+
+    private void processBlock(List<File> imagesToBeProcessed, BarcodeDetector.Barcode barcode, File workingDir, File ndkPackageWorkingDir, File resultsDir) {
+        System.out.println("PHASE 0");
+        //blockId
+        Timestamp ts = Timestamp.from(Instant.now());
+        String timestampFormatted = ts.toLocalDateTime().format(java.time.format.DateTimeFormatter.ofPattern("yyyy_MM_dd-HH_mm_ss,SSS"));
+        String blockId = barcode.getValue() + "-" + timestampFormatted;
+
+        System.out.println("Processing block with barcode " + barcode.getValue() + ", blockId " + blockId);
+
+        //prepare block dirs
+        File workingDirForBlock = new File(workingDir, blockId);
+        File ndkPackageWorkingDirForBlock = new File(ndkPackageWorkingDir, blockId);
+        File resultsDirForBlock = new File(resultsDir, blockId);
+
+        //phase 1 - check number of pages, name pages, copy to working dir
+        List<NamedPage> namedPages = processBlockPhase1(imagesToBeProcessed, barcode, workingDirForBlock);
+        if (namedPages == null) {
+            return;
+        }
+        //phase 2 - fetch OCR, convert to jp2k, fetch marc, convert to MODS, convert images to jp2k
+        processBlockPhase2(namedPages, barcode, workingDirForBlock);
+
+        //phase 3 - build NDK package
+        processBlockPhase3(namedPages, barcode, workingDirForBlock, ndkPackageWorkingDirForBlock);
+
+        //TODO: phase 4: copy result to resultsDir, cleanup
+    }
+
+
     /**
      * Checks image files, if they are valid block of pages (4, 8, 16 pages), create
      */
-    private void processBlockPhase1(List<File> imagesToBeProcessed, BarcodeDetector.Barcode barcode, File workingDir, File outputDir) {
+    private List<NamedPage> processBlockPhase1(List<File> imagesToBeProcessed, BarcodeDetector.Barcode barcode, File workingDirForBlock) {
+        System.out.println("PHASE 1");
+        makeSureReadableWritableDirExists(workingDirForBlock);
         String imageFilesStr = imagesToBeProcessed.stream().map(File::getName).reduce((a, b) -> a + ", " + b).orElse("");
         System.out.println("Processing " + imagesToBeProcessed.size() + " files with barcode " + barcode.getValue() + ": " + imageFilesStr);
         //test if correct number of pages
         int[] expectedNumbersOfPages = {4, 8, 16}; //musí být sudý počet stránek
         if (Arrays.stream(expectedNumbersOfPages).noneMatch(count -> count == imagesToBeProcessed.size())) {
             System.out.println("Invalid number of pages in block: " + imagesToBeProcessed.size() + ", ignoring block with barcode " + barcode.getValue());
-            return;
+            return null;
         }
         //name pages: 1r, 1v, 2r, 2v, ...
         List<NamedPage> pages = new ArrayList<>();
@@ -123,11 +158,9 @@ public class DigitizationWorkflow {
         }
 
         //create working dir and fill with copies of original images
-        Timestamp ts = Timestamp.from(Instant.now());
-        String timestampFormatted = ts.toLocalDateTime().format(java.time.format.DateTimeFormatter.ofPattern("yyyy_MM_dd-HH_mm_ss,SSS"));
-        File blockWorkingDir = new File(workingDir, barcode.getValue() + "-" + timestampFormatted);
-        makeSureReadableWritableDirExists(blockWorkingDir);
-        File blockWorkingDirImagesDir = new File(blockWorkingDir, "images-in");
+
+        makeSureReadableWritableDirExists(workingDirForBlock);
+        File blockWorkingDirImagesDir = new File(workingDirForBlock, "images-in");
         makeSureReadableWritableDirExists(blockWorkingDirImagesDir);
         List<NamedPage> pagesInWorkingDir = new ArrayList<>();
         for (NamedPage page : pages) {
@@ -136,19 +169,17 @@ public class DigitizationWorkflow {
             Utils.copyFile(page.getImageFile(), pageDestFile);
             pagesInWorkingDir.add(page.withDifferentFile(pageDestFile));
         }
-
-        //continue with phase 2
-        processBlockPhase2(pagesInWorkingDir, barcode, blockWorkingDir, outputDir);
+        return pagesInWorkingDir;
     }
 
     /*
-     * Process images in working dir (copy of original images)
+     * Process images in working dir (copy of original images), fetch marc and convert to MODS, fetch OCR, convert images to jp2k
      */
-    private void processBlockPhase2(List<NamedPage> pages, Barcode barcode, File blockWorkingDir, File outputDir) {
+    private void processBlockPhase2(List<NamedPage> pages, Barcode barcode, File workingDirBlock) {
         //fetch OCR (text, alto) for each page
-        File ocrTextDir = new File(blockWorkingDir, "ocr-text");
+        File ocrTextDir = new File(workingDirBlock, "ocr-text");
         makeSureReadableWritableDirExists(ocrTextDir);
-        File ocrAltoDir = new File(blockWorkingDir, "ocr-alto");
+        File ocrAltoDir = new File(workingDirBlock, "ocr-alto");
         makeSureReadableWritableDirExists(ocrAltoDir);
         for (NamedPage page : pages) {
             //System.out.println(page);
@@ -158,9 +189,9 @@ public class DigitizationWorkflow {
         }
 
         //convert each page to jp2k (user copy, archive copy)
-        File jp2kUserCopyDir = new File(blockWorkingDir, "jp2k-usercopy");
+        File jp2kUserCopyDir = new File(workingDirBlock, "jp2k-usercopy");
         makeSureReadableWritableDirExists(jp2kUserCopyDir);
-        File jp2kArchiveCopyDir = new File(blockWorkingDir, "jp2k-archivecopy");
+        File jp2kArchiveCopyDir = new File(workingDirBlock, "jp2k-archivecopy");
         makeSureReadableWritableDirExists(jp2kArchiveCopyDir);
         for (NamedPage page : pages) {
             File jp2kUserCopyFile = new File(jp2kUserCopyDir, page.getPosition() + ".jp2");
@@ -170,19 +201,23 @@ public class DigitizationWorkflow {
 
         //marc xml
         Document marcXml = marcXmlProvider.getMarcXml(barcode.getValue());
-        File marcXmlFile = new File(blockWorkingDir, "marc.xml");
+        File marcXmlFile = new File(workingDirBlock, "marc.xml");
         Utils.saveDocumentToFile(marcXml, marcXmlFile);
-        //TODO: convert marc to MODS with extended xls
 
         //marcxml to MODS
         Document modsDoc = marcToModsConvertor.convertMarcToMods(marcXml);
-        File modsFile = new File(blockWorkingDir, "mods.xml");
+        File modsFile = new File(workingDirBlock, "mods.xml");
         Utils.saveDocumentToFile(modsDoc, modsFile);
         //System.out.println(Utils.prettyPrintDocument(modsDoc));
+    }
 
-
-        //TODO: phase 3: build NDK package, move to outputDir
-        //TODO: phase 4: send results to kramerius-import-dir, cleanup
+    /**
+     * Builds NDK package from data in blockWorkingDir into ndkPackageWorkingDir
+     */
+    private void processBlockPhase3(List<NamedPage> pages, Barcode barcode, File blockWorkingDir, File ndkPackageWorkingDir) {
+        System.out.println("PHASE 3");
+        makeSureReadableWritableDirExists(ndkPackageWorkingDir);
+        System.out.println("TODO: create NDK package");
     }
 
     private File[] listImageFiles(File inputDir) {
