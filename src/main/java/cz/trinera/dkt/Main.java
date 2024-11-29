@@ -6,6 +6,8 @@ import cz.trinera.dkt.jp2k.Jp2kConvertor;
 import cz.trinera.dkt.jp2k.Jp2kConvertorMock;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc21.MarcXmlProviderMock;
+import cz.trinera.dkt.marc2mods.MarcToModsConvertor;
+import cz.trinera.dkt.marc2mods.MarcToModsConvertorImpl;
 import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.ocr.OcrProviderMock;
 
@@ -22,8 +24,10 @@ public class Main {
         OcrProvider ocrProvider = new OcrProviderMock(); //TODO: use proper implementation in production
         Jp2kConvertor jp2kConvertor = new Jp2kConvertorMock(); //TODO: use proper implementation in production
         MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock(); //TODO: use proper implementation in production
+        File marcToModsXsltFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/xslt/MARC21slim2MODS3.xsl");
+        MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(marcToModsXsltFile);
 
-        DigitizationWorkflow digitizationWorkflow = new DigitizationWorkflow(barcodeDetector, ocrProvider, jp2kConvertor, marcXmlProvider);
+        DigitizationWorkflow digitizationWorkflow = new DigitizationWorkflow(barcodeDetector, ocrProvider, jp2kConvertor, marcXmlProvider, marcToModsConvertor);
         digitizationWorkflow.run(inputDir, workingDir, outputDir);
     }
 }

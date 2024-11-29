@@ -1,0 +1,6 @@
+
+zakladni xslt
+https://github.com/proarc/proarc/tree/master/proarc-common/src/main/resources/xml
+
+rozsireni:
+https://docs.google.com/document/d/1QN58q7gVIskWlK4lA8o4mc2Sh-hLROZxDEAK-Q52yWA/edit?tab=t.0

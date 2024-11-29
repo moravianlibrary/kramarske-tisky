@@ -4,6 +4,7 @@ import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
 import cz.trinera.dkt.jp2k.Jp2kConvertor;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
+import cz.trinera.dkt.marc2mods.MarcToModsConvertor;
 import cz.trinera.dkt.ocr.OcrProvider;
 import nu.xom.Document;
 
@@ -22,12 +23,14 @@ public class DigitizationWorkflow {
     private final OcrProvider ocrProvider;
     private final Jp2kConvertor jp2kConvertor;
     private final MarcXmlProvider marcXmlProvider;
+    private final MarcToModsConvertor marcToModsConvertor;
 
-    public DigitizationWorkflow(BarcodeDetector barcodeDetector, OcrProvider ocrProvider, Jp2kConvertor jp2kConvertor, MarcXmlProvider marcXmlProvider) {
+    public DigitizationWorkflow(BarcodeDetector barcodeDetector, OcrProvider ocrProvider, Jp2kConvertor jp2kConvertor, MarcXmlProvider marcXmlProvider, MarcToModsConvertor marcToModsConvertor) {
         this.barcodeDetector = barcodeDetector;
         this.ocrProvider = ocrProvider;
         this.jp2kConvertor = jp2kConvertor;
         this.marcXmlProvider = marcXmlProvider;
+        this.marcToModsConvertor = marcToModsConvertor;
     }
 
     /**
@@ -171,8 +174,15 @@ public class DigitizationWorkflow {
         Utils.saveDocumentToFile(marcXml, marcXmlFile);
         //TODO: convert marc to MODS with extended xls
 
+        //marcxml to MODS
+        Document modsDoc = marcToModsConvertor.convertMarcToMods(marcXml);
+        File modsFile = new File(blockWorkingDir, "mods.xml");
+        Utils.saveDocumentToFile(modsDoc, modsFile);
+        //System.out.println(Utils.prettyPrintDocument(modsDoc));
 
-        //TODO: build NDK package, move to outputDir
+
+        //TODO: phase 3: build NDK package, move to outputDir
+        //TODO: phase 4: send results to kramerius-import-dir, cleanup
     }
 
     private File[] listImageFiles(File inputDir) {
