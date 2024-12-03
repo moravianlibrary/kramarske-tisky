@@ -3,6 +3,7 @@ package cz.trinera.dkt;
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetectorImplBoofCv;
 import cz.trinera.dkt.barcode.BarcodeDetectorImplZxing;
+import cz.trinera.dkt.barcode.BarcodeDetectorPyzbar;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -14,7 +15,8 @@ public class BarcodeDetectorTest {
 
     private final String sampleDir = new File(System.getProperty("user.home")).getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png";
     //private final BarcodeDetector barcodeDetector = new BarcodeDetectorImplZxing();
-    private final BarcodeDetector barcodeDetector = new BarcodeDetectorImplBoofCv();
+    //private final BarcodeDetector barcodeDetector = new BarcodeDetectorImplBoofCv();
+    private final BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar("src/main/resources/barcode/detect_barcode.py");
 
     @Test
     public void testBarcodeYes1() {
