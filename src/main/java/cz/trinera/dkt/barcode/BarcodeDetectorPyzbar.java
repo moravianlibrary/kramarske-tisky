@@ -10,6 +10,10 @@ import java.util.List;
 
 public class BarcodeDetectorPyzbar implements BarcodeDetector {
 
+    //TODO: make configurable
+    //private final String pythonBinary = "python3";
+    private final String pythonBinary = "src/main/resources/barcode/venv/bin/python3";
+
     private final String pythonCheckScriptPath;
     private final String pythonScriptPath;
 
@@ -27,7 +31,7 @@ public class BarcodeDetectorPyzbar implements BarcodeDetector {
         try {
             // Build the command to run the Python script
             List<String> command = new ArrayList<>();
-            command.add("python3");
+            command.add(pythonBinary);
             command.add(pythonScriptPath);
             command.add(imagePngFile.getAbsolutePath());
 
@@ -86,11 +90,12 @@ public class BarcodeDetectorPyzbar implements BarcodeDetector {
         // run the check script to verify the availability of the required Python packages
         try {
             // Command to run the Python script
-            ProcessBuilder processBuilder = new ProcessBuilder("python3", pythonCheckScriptPath);
+            ProcessBuilder processBuilder = new ProcessBuilder(pythonBinary, pythonCheckScriptPath);
             // Start the process
             Process process = processBuilder.start();
             // Wait for the process to finish
             int exitCode = process.waitFor();
+            System.out.println("exit code:  " + exitCode);
             if (exitCode != 0) {
                 throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with exit code " + exitCode);
             }
@@ -98,6 +103,7 @@ public class BarcodeDetectorPyzbar implements BarcodeDetector {
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
             if ((line = reader.readLine()) != null) {
+                System.out.println("line: " + line);
                 if (line.startsWith("pyzbar is not installed")) {
                     throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with output: " + line);
                 }

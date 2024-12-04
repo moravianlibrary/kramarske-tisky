@@ -32,39 +32,71 @@ public class BarcodeDetectorTest {
         System.out.println("file = " + file);
         Barcode detected = barcodeDetector.detect(file);
         assertNotNull(detected);
+        assertEquals("CODE39", detected.getFormat());
+        assertEquals("2610798805", detected.getValue());
     }
 
     @Test
-    public void testBarcodeYes2() {
+    public void testBarcodeYes10() {
         File file = new File(sampleDir + "/0010.png");
         System.out.println("file = " + file);
         Barcode detected = barcodeDetector.detect(file);
         assertNotNull(detected);
+        assertEquals("CODE39", detected.getFormat());
+        assertEquals("2610798806", detected.getValue());
     }
 
     @Test
-    public void testBarcodeYes3() {
+    public void testBarcodeYes19() {
         File file = new File(sampleDir + "/0019.png");
         System.out.println("file = " + file);
         Barcode detected = barcodeDetector.detect(file);
         assertNotNull(detected);
+        assertEquals("CODE39", detected.getFormat());
+        assertEquals("2610798810", detected.getValue());
     }
 
     @Test
-    public void testBarcodeYes4() {
+    public void testBarcodeYes28() {
         File file = new File(sampleDir + "/0028.png");
         System.out.println("file = " + file);
         Barcode detected = barcodeDetector.detect(file);
         assertNotNull(detected);
+        assertEquals("CODE39", detected.getFormat());
+        assertEquals("2610798809", detected.getValue());
     }
 
     @Test
-    public void testBarcodeYes5() {
+    public void testBarcodeYes37() {
         File file = new File(sampleDir + "/0037.png");
         System.out.println("file = " + file);
         Barcode detected = barcodeDetector.detect(file);
         assertNotNull(detected);
+        assertEquals("CODE39", detected.getFormat());
+        assertEquals("2610798808", detected.getValue());
     }
+
+    @Test
+    public void testBarcodeYes46() {
+        File file = new File(sampleDir + "/0046.png");
+        System.out.println("file = " + file);
+        Barcode detected = barcodeDetector.detect(file);
+        assertNotNull(detected);
+        assertEquals("CODE39", detected.getFormat());
+        assertEquals("2610798807", detected.getValue());
+    }
+
+    @Test
+    public void testBarcodeYes55() {
+        File file = new File(sampleDir + "/0046.png");
+        System.out.println("file = " + file);
+        Barcode detected = barcodeDetector.detect(file);
+        assertNotNull(detected);
+        assertEquals("CODE39", detected.getFormat());
+        assertEquals("2610798803", detected.getValue());
+    }
+
+    //TODO: remaining
 
     @Test
     public void testBarcodeNo1() {
@@ -73,6 +105,7 @@ public class BarcodeDetectorTest {
         Barcode detected = barcodeDetector.detect(file);
         assertNull(detected);
     }
+
 
     @Test
     public void testBarcodeNo2() {
