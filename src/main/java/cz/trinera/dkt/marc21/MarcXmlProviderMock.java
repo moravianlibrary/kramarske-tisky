@@ -1,6 +1,6 @@
 package cz.trinera.dkt.marc21;
 
-import cz.trinera.dkt.AvailabilityError;
+import cz.trinera.dkt.ToolAvailabilityError;
 import cz.trinera.dkt.Utils;
 import nu.xom.Document;
 
@@ -15,7 +15,7 @@ public class MarcXmlProviderMock implements MarcXmlProvider {
     }
 
     @Override
-    public void checkAvailable() throws AvailabilityError {
+    public void checkAvailable() throws ToolAvailabilityError {
         //do nothing in mock implementation
     }
 }

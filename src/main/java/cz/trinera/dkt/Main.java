@@ -1,7 +1,7 @@
 package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
-import cz.trinera.dkt.barcode.BarcodeDetectorMock;
+import cz.trinera.dkt.barcode.BarcodeDetectorPyzbar;
 import cz.trinera.dkt.jp2k.Jp2kConvertor;
 import cz.trinera.dkt.jp2k.Jp2kConvertorMock;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
@@ -32,14 +32,15 @@ public class Main {
             DigitizationWorkflow digitizationWorkflow = getDigitizationWorkflow(homeDir);
             System.out.println("Running digitization workflow");
             digitizationWorkflow.run(inputDir, workingDir, ndkPackageWorkingDir, resultsDir);
-        } catch (AvailabilityError e) {
+        } catch (ToolAvailabilityError e) {
             System.err.println("Availability error: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-    private static DigitizationWorkflow getDigitizationWorkflow(File homeDir) throws AvailabilityError {
-        BarcodeDetector barcodeDetector = new BarcodeDetectorMock(); //TODO: use proper implementation in production
+    private static DigitizationWorkflow getDigitizationWorkflow(File homeDir) throws ToolAvailabilityError {
+        //BarcodeDetector barcodeDetector = new BarcodeDetectorMock();
+        BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar("src/main/resources/barcode/check_pyzbar.py", "src/main/resources/barcode/detect_barcode.py");
         OcrProvider ocrProvider = new OcrProviderMock(); //TODO: use proper implementation in production
         Jp2kConvertor jp2kConvertor = new Jp2kConvertorMock(); //TODO: use proper implementation in production
         MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock(); //TODO: use proper implementation in production

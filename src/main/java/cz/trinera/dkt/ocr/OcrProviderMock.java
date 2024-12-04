@@ -1,6 +1,6 @@
 package cz.trinera.dkt.ocr;
 
-import cz.trinera.dkt.AvailabilityError;
+import cz.trinera.dkt.ToolAvailabilityError;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class OcrProviderMock implements OcrProvider {
     }
 
     @Override
-    public void checkAvailable() throws AvailabilityError {
+    public void checkAvailable() throws ToolAvailabilityError {
         //do nothing in mock implementation
     }
 }
