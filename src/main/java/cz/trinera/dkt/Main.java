@@ -22,25 +22,38 @@ public class Main {
             File ndkPackageWorkingDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-ndk-package");
             File resultsDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-results");
 
-            BarcodeDetector barcodeDetector = new BarcodeDetectorMock(); //TODO: use proper implementation in production
-            OcrProvider ocrProvider = new OcrProviderMock(); //TODO: use proper implementation in production
-            Jp2kConvertor jp2kConvertor = new Jp2kConvertorMock(); //TODO: use proper implementation in production
-            MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock(); //TODO: use proper implementation in production
-            File marcToModsXsltFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/xslt/MARC21slim2MODS3.xsl");
-            MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(marcToModsXsltFile);
+            System.out.println("Preparing digitization workflow");
+            System.out.println("Input dir: " + inputDir.getAbsolutePath());
+            System.out.println("Working dir: " + workingDir.getAbsolutePath());
+            System.out.println("NDK package working dir: " + ndkPackageWorkingDir.getAbsolutePath());
+            System.out.println("Kramerius import dir: " + resultsDir.getAbsolutePath());
+            System.out.println();
 
-            //check availability of all components
-            barcodeDetector.checkAvailable();
-            ocrProvider.checkAvailable();
-            jp2kConvertor.checkAvailable();
-            marcXmlProvider.checkAvailable();
-            marcToModsConvertor.checkAvailable();
-
-            DigitizationWorkflow digitizationWorkflow = new DigitizationWorkflow(barcodeDetector, ocrProvider, jp2kConvertor, marcXmlProvider, marcToModsConvertor);
+            DigitizationWorkflow digitizationWorkflow = getDigitizationWorkflow(homeDir);
+            System.out.println("Running digitization workflow");
             digitizationWorkflow.run(inputDir, workingDir, ndkPackageWorkingDir, resultsDir);
         } catch (AvailabilityError e) {
             System.err.println("Availability error: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    private static DigitizationWorkflow getDigitizationWorkflow(File homeDir) throws AvailabilityError {
+        BarcodeDetector barcodeDetector = new BarcodeDetectorMock(); //TODO: use proper implementation in production
+        OcrProvider ocrProvider = new OcrProviderMock(); //TODO: use proper implementation in production
+        Jp2kConvertor jp2kConvertor = new Jp2kConvertorMock(); //TODO: use proper implementation in production
+        MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock(); //TODO: use proper implementation in production
+        File marcToModsXsltFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/xslt/MARC21slim2MODS3.xsl");
+        MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(marcToModsXsltFile);
+
+        //check availability of all components
+        barcodeDetector.checkAvailable();
+        ocrProvider.checkAvailable();
+        jp2kConvertor.checkAvailable();
+        marcXmlProvider.checkAvailable();
+        marcToModsConvertor.checkAvailable();
+
+        DigitizationWorkflow digitizationWorkflow = new DigitizationWorkflow(barcodeDetector, ocrProvider, jp2kConvertor, marcXmlProvider, marcToModsConvertor);
+        return digitizationWorkflow;
     }
 }

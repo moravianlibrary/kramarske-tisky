@@ -9,7 +9,6 @@ import cz.trinera.dkt.ocr.OcrProvider;
 import nu.xom.Document;
 
 import java.io.File;
-import java.sql.SQLOutput;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -41,14 +40,9 @@ public class DigitizationWorkflow {
      * @param inputDir directory with png files
      */
     public void run(File inputDir, File workingDir, File ndkPackageWorkingDir, File resultsDir) {
-        System.out.println("Running digitization workflow ");
-        System.out.println("Input dir: " + inputDir.getAbsolutePath());
         makeSureReadableWritableDirExists(inputDir);
-        System.out.println("Working dir: " + workingDir.getAbsolutePath());
         makeSureReadableWritableDirExists(workingDir);
-        System.out.println("NDK package working dir: " + ndkPackageWorkingDir.getAbsolutePath());
         makeSureReadableWritableDirExists(ndkPackageWorkingDir);
-        System.out.println("Kramerius import dir: " + resultsDir.getAbsolutePath());
         makeSureReadableWritableDirExists(resultsDir);
 
         //process all png files in the directory inputDir
@@ -104,6 +98,8 @@ public class DigitizationWorkflow {
 
 
     private void processBlock(List<File> imagesToBeProcessed, BarcodeDetector.Barcode barcode, File workingDir, File ndkPackageWorkingDir, File resultsDir) {
+        System.out.println();
+        System.out.println("Processing new block");
         System.out.println("PHASE 0");
         //blockId
         Timestamp ts = Timestamp.from(Instant.now());
