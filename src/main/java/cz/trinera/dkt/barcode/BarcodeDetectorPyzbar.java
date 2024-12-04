@@ -1,5 +1,7 @@
 package cz.trinera.dkt.barcode;
 
+import cz.trinera.dkt.AvailabilityError;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
@@ -61,5 +63,10 @@ public class BarcodeDetectorPyzbar implements BarcodeDetector {
         } catch (Exception e) {
             throw new RuntimeException("Error while executing Python script", e);
         }
+    }
+
+    @Override
+    public void checkAvailable() throws AvailabilityError {
+        throw new AvailabilityError("BarcodeDetectorPyzbar is not available.");
     }
 }

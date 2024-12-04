@@ -1,10 +1,14 @@
 package cz.trinera.dkt.barcode;
 
+import cz.trinera.dkt.AvailabilityError;
+
 import java.io.File;
 
 public interface BarcodeDetector {
 
     public Barcode detect(File file);
+
+    public void checkAvailable() throws AvailabilityError;
 
     public class Barcode {
         private final String format;

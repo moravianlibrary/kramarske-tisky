@@ -1,7 +1,8 @@
 package cz.trinera.dkt.barcode;
 
+import cz.trinera.dkt.AvailabilityError;
+
 import java.io.File;
-import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
@@ -54,4 +55,12 @@ public class BarcodeDetectorMock implements BarcodeDetector {
 
         return sb.toString();
     }
+
+    @Override
+    public void checkAvailable() throws AvailabilityError {
+        // Do nothing
+        throw new AvailabilityError("Barcode mock detector is not available.");
+    }
 }
+
+

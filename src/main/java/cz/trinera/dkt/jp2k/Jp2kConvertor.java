@@ -6,4 +6,6 @@ public interface Jp2kConvertor {
 
     public void convertToJp2k(File inPngFile, File outUsercopyJp2kFile, File outArchivecopyJp2kFile);
 
+    //TODO
+    //public void checkAvailable() throws AvailabilityError;
 }

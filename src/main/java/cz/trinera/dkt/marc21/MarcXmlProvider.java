@@ -6,4 +6,6 @@ public interface MarcXmlProvider {
 
     public Document getMarcXml(String barcode);
 
+    //TODO
+    //public void checkAvailable() throws AvailabilityError;
 }

@@ -3,6 +3,7 @@ package cz.trinera.dkt.barcode;
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
+import cz.trinera.dkt.AvailabilityError;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -36,6 +37,11 @@ public class BarcodeDetectorImplZxing implements BarcodeDetector {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public void checkAvailable() throws AvailabilityError {
+        // TODO: Check if the required libraries are available
     }
 
 }

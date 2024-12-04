@@ -1,0 +1,29 @@
+https://pypi.org/project/pyzbar/
+
+macos:
+brew install zbar
+pip3 install pyzbar pillow
+
+
+1. Install in a Virtual Environment (Preferred)
+This isolates your dependencies and avoids interfering with the system:
+
+python3 -m venv venv
+source venv/bin/activate
+pip install pyzbar pillow
+
+2. Then run your script from the activated environment:
+
+python detect_barcode.py
+
+
+
+https://online-barcode-reader.inliteresearch.com/
+typ caroveho kodu: Code39
+
+
+anebo:
+
+brew install pipx
+pipx ensurepath
+pipx install pyzbar pillow

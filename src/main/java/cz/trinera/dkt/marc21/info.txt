@@ -1,0 +1,39 @@
+yaz-client aleph.library.edu 210
+
+yaz-client
+open aleph.mzk.cz:9991
+base MZK01CPK
+format xml
+
+
+nebo
+base MZK03CPK
+format marc21
+
+carovy kod:
+pole 996 b
+
+find "2619817153"
+- nefunguje, carak se neindexuje
+
+find "Nábožná Pjseň"
+- funguje
+
+find "mzk03000001479"
+- nefunguje
+
+
+
+
+jestli v MZK stahují ze Z39.50 netuším, kromě níže zmíněných mají nakonfigurovaný i X server.
+
+Máme ale v konfiguraci následující
+
+katalog: aleph.mzk.cz:9991
+
+báze_a: MZK01CPK
+
+báze_b: MZK03CPK
+
+
+https://github.com/search?q=repo%3Amoravianlibrary%2Fproarc+Z39.50&type=code

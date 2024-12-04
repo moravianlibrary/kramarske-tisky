@@ -5,4 +5,7 @@ import java.io.File;
 public interface OcrProvider {
 
     public void fetchOcr(File inImgFile, File outTextFile, File outAltoFile);
+
+    //TODO
+    //public void checkAvailable() throws AvailabilityError;
 }

@@ -7,6 +7,7 @@ import boofcv.factory.filter.binary.FactoryThresholdBinary;
 import boofcv.io.image.ConvertBufferedImage;
 import boofcv.struct.ConnectRule;
 import boofcv.struct.image.GrayU8;
+import cz.trinera.dkt.AvailabilityError;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -102,5 +103,10 @@ public class BarcodeDetectorImplBoofCv implements BarcodeDetector {
         });*/
 
         return null;
+    }
+
+    @Override
+    public void checkAvailable() throws AvailabilityError {
+        // TODO: Check if the required libraries are available
     }
 }
