@@ -59,7 +59,7 @@ public class BarcodeDetectorMock implements BarcodeDetector {
     @Override
     public void checkAvailable() throws AvailabilityError {
         // Do nothing
-        throw new AvailabilityError("Barcode mock detector is not available.");
+        //throw new AvailabilityError("Barcode mock detector is not available.");
     }
 }
 

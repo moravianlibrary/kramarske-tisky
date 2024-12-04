@@ -1,0 +1,29 @@
+Z> show
+Sent presentRequest (1+1).
+Records: 1
+[MZK03CPK]Record type: USmarc
+01360nam a2200313 a 4500
+001 mzk03000001479
+003 CZ BrMZK
+005 20130816155459.0
+008 010907s1730    xr     fr|||||00| ||gerod
+020    $c 900.00
+040    $a BOA001 $b cze
+072  7 $a 094 $x Staré tisky $2 Konspekt $9 12
+080    $a (0.068)094 $2 MRF
+100 1  $a Balde, Henricus, $d 1619-1690 $7 jo2008429122 $4 aut
+245 10 $a Christliche Warheiten, Recht zu leben, Und Wol zu sterben : $b Anjetzo zu sonderbarem Nutzen, nicht allein Geistlicher, sondern auch Weltlicher der wahren Vollkommenheit befliessenen Seelen, in das Teutsche übersetzet von einem bemeldter Societät Priester. / $c In Latein beschrieben Von R.P. Henrico Balde Der Societät Jesu
+260    $a Prag : $b in der Carolo.Ferdin. Universitäts Buchdruckerey im Coll. der Soc.Jesu, $c 1730
+300    $a [12], 483, [9] s. ; $c 12°
+563    $a Původní kožená vazba
+500    $a Výzdoba: Vlysy z tiskař. ozdůbek, viněty
+655  7 $a staré tisky $7 fd422076 $2 czenas
+903    $a RP
+910    $a BOA001 $b ST1-1002.511
+978    $b Tiskárna jezuitská $a Praha $c 1730
+984    $a Praha $b Česko
+985    $a 1701-1750
+990    $a BK
+993    $a Y
+991    $k mzk
+996 6  $b 2610013080 $c ST1-1002.511 $l Stud. starých tisků/4.patro $r Sklad / do násl. otevíracího dne $n 0 $p kup $w 000001479 $u 000010 $a 1 $e BOA001 $j MZK50 $s P

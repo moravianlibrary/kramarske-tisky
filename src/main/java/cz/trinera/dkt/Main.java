@@ -31,7 +31,10 @@ public class Main {
 
             //check availability of all components
             barcodeDetector.checkAvailable();
-            //TODO: check remaining components
+            ocrProvider.checkAvailable();
+            jp2kConvertor.checkAvailable();
+            marcXmlProvider.checkAvailable();
+            marcToModsConvertor.checkAvailable();
 
             DigitizationWorkflow digitizationWorkflow = new DigitizationWorkflow(barcodeDetector, ocrProvider, jp2kConvertor, marcXmlProvider, marcToModsConvertor);
             digitizationWorkflow.run(inputDir, workingDir, ndkPackageWorkingDir, resultsDir);

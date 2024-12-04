@@ -1,5 +1,6 @@
 package cz.trinera.dkt.marc2mods;
 
+import cz.trinera.dkt.AvailabilityError;
 import cz.trinera.dkt.Utils;
 import nu.xom.Document;
 
@@ -19,5 +20,21 @@ public class MarcToModsConvertorImpl implements MarcToModsConvertor {
         Document modsDoc = Utils.convertDocumentWithXslt(marcXml, xsltFile);
         //TODO: enrich MODS some more
         return modsDoc;
+    }
+
+    @Override
+    public void checkAvailable() throws AvailabilityError {
+        if (!xsltFile.exists()) {
+            throw new AvailabilityError("MarcToModsConvertor: XSLT file " + xsltFile.getAbsolutePath() + " does not exist");
+        } else if (!xsltFile.canRead()) {
+            throw new AvailabilityError("MarcToModsConvertor: XSLT file " + xsltFile.getAbsolutePath() + " is not readable");
+        } else {
+            try {
+                //test parse the xslt file
+                Utils.loadXmlFromFile(xsltFile);
+            } catch (Throwable e) {
+                throw new AvailabilityError("MarcToModsConvertor: XSLT file " + xsltFile.getAbsolutePath() + " is not a valid XML file");
+            }
+        }
     }
 }
