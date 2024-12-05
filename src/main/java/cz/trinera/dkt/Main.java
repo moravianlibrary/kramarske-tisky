@@ -10,6 +10,8 @@ import cz.trinera.dkt.marc2mods.MarcToModsConvertor;
 import cz.trinera.dkt.marc2mods.MarcToModsConvertorImpl;
 import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.ocr.OcrProviderMock;
+import cz.trinera.dkt.tif2png.TifToPngConvertor;
+import cz.trinera.dkt.tif2png.TifToPngConvertorImpl;
 
 import java.io.File;
 
@@ -17,12 +19,14 @@ public class Main {
     public static void main(String[] args) {
         try {
             File homeDir = new File(System.getProperty("user.home"));
-            File inputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png");
+            File inputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane");
+            File pngInputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png");
             File workingDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-processing");
             File ndkPackageWorkingDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-ndk-package");
             File resultsDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-results");
 
             System.out.println("Preparing digitization workflow");
+            System.out.println("Input dir: " + inputDir.getAbsolutePath());
             System.out.println("Input dir: " + inputDir.getAbsolutePath());
             System.out.println("Working dir: " + workingDir.getAbsolutePath());
             System.out.println("NDK package working dir: " + ndkPackageWorkingDir.getAbsolutePath());
@@ -31,7 +35,7 @@ public class Main {
 
             DigitizationWorkflow digitizationWorkflow = getDigitizationWorkflow(homeDir);
             System.out.println("Running digitization workflow");
-            digitizationWorkflow.run(inputDir, workingDir, ndkPackageWorkingDir, resultsDir);
+            digitizationWorkflow.run(inputDir, pngInputDir, workingDir, ndkPackageWorkingDir, resultsDir);
         } catch (ToolAvailabilityError e) {
             System.err.println("Availability error: " + e.getMessage());
             e.printStackTrace();
@@ -39,7 +43,7 @@ public class Main {
     }
 
     private static DigitizationWorkflow getDigitizationWorkflow(File homeDir) throws ToolAvailabilityError {
-        //BarcodeDetector barcodeDetector = new BarcodeDetectorMock();
+        TifToPngConvertor tifToPngConvertor = new TifToPngConvertorImpl("src/main/resources/tif2png/check_imagemagick.sh", "src/main/resources/tif2png/convert_tifs_to_pngs.sh");
         BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar("src/main/resources/barcode/check_pyzbar.py", "src/main/resources/barcode/detect_barcode.py");
         OcrProvider ocrProvider = new OcrProviderMock(); //TODO: use proper implementation in production
         Jp2kConvertor jp2kConvertor = new Jp2kConvertorMock(); //TODO: use proper implementation in production
@@ -48,13 +52,13 @@ public class Main {
         MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(marcToModsXsltFile);
 
         //check availability of all components
+        tifToPngConvertor.checkAvailable();
         barcodeDetector.checkAvailable();
         ocrProvider.checkAvailable();
         jp2kConvertor.checkAvailable();
         marcXmlProvider.checkAvailable();
         marcToModsConvertor.checkAvailable();
 
-        DigitizationWorkflow digitizationWorkflow = new DigitizationWorkflow(barcodeDetector, ocrProvider, jp2kConvertor, marcXmlProvider, marcToModsConvertor);
-        return digitizationWorkflow;
+        return new DigitizationWorkflow(tifToPngConvertor, barcodeDetector, ocrProvider, jp2kConvertor, marcXmlProvider, marcToModsConvertor);
     }
 }

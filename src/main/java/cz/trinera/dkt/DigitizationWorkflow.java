@@ -6,6 +6,7 @@ import cz.trinera.dkt.jp2k.Jp2kConvertor;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc2mods.MarcToModsConvertor;
 import cz.trinera.dkt.ocr.OcrProvider;
+import cz.trinera.dkt.tif2png.TifToPngConvertor;
 import nu.xom.Document;
 
 import java.io.File;
@@ -19,13 +20,15 @@ public class DigitizationWorkflow {
 
     private final Integer MAX_BLOCKS_TO_PROCESS = 1; //TODO: set to NULL in production
 
+    private final TifToPngConvertor tifToPngConvertor;
     private final BarcodeDetector barcodeDetector;
     private final OcrProvider ocrProvider;
     private final Jp2kConvertor jp2kConvertor;
     private final MarcXmlProvider marcXmlProvider;
     private final MarcToModsConvertor marcToModsConvertor;
 
-    public DigitizationWorkflow(BarcodeDetector barcodeDetector, OcrProvider ocrProvider, Jp2kConvertor jp2kConvertor, MarcXmlProvider marcXmlProvider, MarcToModsConvertor marcToModsConvertor) {
+    public DigitizationWorkflow(TifToPngConvertor tifToPngConvertor, BarcodeDetector barcodeDetector, OcrProvider ocrProvider, Jp2kConvertor jp2kConvertor, MarcXmlProvider marcXmlProvider, MarcToModsConvertor marcToModsConvertor) {
+        this.tifToPngConvertor = tifToPngConvertor;
         this.barcodeDetector = barcodeDetector;
         this.ocrProvider = ocrProvider;
         this.jp2kConvertor = jp2kConvertor;
@@ -39,18 +42,25 @@ public class DigitizationWorkflow {
      *
      * @param inputDir directory with png files
      */
-    public void run(File inputDir, File workingDir, File ndkPackageWorkingDir, File resultsDir) {
+    public void run(File inputDir, File pngInputDir, File workingDir, File ndkPackageWorkingDir, File resultsDir) {
         makeSureReadableWritableDirExists(inputDir);
+        makeSureReadableWritableDirExists(pngInputDir);
         makeSureReadableWritableDirExists(workingDir);
         makeSureReadableWritableDirExists(ndkPackageWorkingDir);
         makeSureReadableWritableDirExists(resultsDir);
+
+        //convert all tif images to png
+        System.out.println("Converting all tif images to png in " + inputDir + " to " + pngInputDir);
+        this.tifToPngConvertor.convertAllTifFilesToPng(inputDir, pngInputDir);
+        System.out.println("All tif images converted to png");
+        System.out.println();
 
         //process all png files in the directory inputDir
         Barcode lastBarcode = null;
         List<File> imagesToBeProcessed = new ArrayList<>();
 
         int processedBlocks = 0;
-        for (File file : listImageFiles(inputDir)) {
+        for (File file : listImageFiles(pngInputDir)) {
             if (MAX_BLOCKS_TO_PROCESS != null && processedBlocks >= MAX_BLOCKS_TO_PROCESS) {
                 System.out.println("Limit MAX_BLOCKS_TO_PROCESS reached (" + MAX_BLOCKS_TO_PROCESS + " blocks), quitting now");
                 return;
