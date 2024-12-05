@@ -18,8 +18,6 @@ import java.util.List;
 
 public class DigitizationWorkflow {
 
-    private final Integer MAX_BLOCKS_TO_PROCESS = 1; //TODO: set to NULL in production
-
     private final TifToPngConvertor tifToPngConvertor;
     private final BarcodeDetector barcodeDetector;
     private final OcrProvider ocrProvider;
@@ -50,7 +48,7 @@ public class DigitizationWorkflow {
         makeSureReadableWritableDirExists(resultsDir);
 
         //convert all tif images to png
-        if (!Config.DISABLE_TIF_TO_PNG_CONVERSION) {
+        if (!Config.instanceOf().isTifToPngConversionDisabled()) {
             System.out.println("Converting all tif images to png in " + inputDir + " to " + pngInputDir);
             this.tifToPngConvertor.convertAllTifFilesToPng(inputDir, pngInputDir);
             System.out.println("All tif images converted to png");
@@ -62,9 +60,10 @@ public class DigitizationWorkflow {
         List<File> imagesToBeProcessed = new ArrayList<>();
 
         int processedBlocks = 0;
+        Integer maxBlocksToProcess = Config.instanceOf().getMaxBlocksToProcess();
         for (File file : listImageFiles(pngInputDir)) {
-            if (MAX_BLOCKS_TO_PROCESS != null && processedBlocks >= MAX_BLOCKS_TO_PROCESS) {
-                System.out.println("Limit MAX_BLOCKS_TO_PROCESS reached (" + MAX_BLOCKS_TO_PROCESS + " blocks), quitting now");
+            if (maxBlocksToProcess != null && processedBlocks >= maxBlocksToProcess) {
+                System.out.println("Limit MAX_BLOCKS_TO_PROCESS reached (" + maxBlocksToProcess + " blocks), quitting now");
                 return;
             }
             if (file.getName().endsWith(".png")) {
@@ -75,7 +74,7 @@ public class DigitizationWorkflow {
                         lastBarcode = barcode;
                     } else {
                         //next barcode found - process the block of all images before that
-                        if (MAX_BLOCKS_TO_PROCESS == null || processedBlocks < MAX_BLOCKS_TO_PROCESS) {
+                        if (maxBlocksToProcess == null || processedBlocks < maxBlocksToProcess) {
                             processBlock(imagesToBeProcessed, lastBarcode, workingDir, ndkPackageWorkingDir, resultsDir);
                             processedBlocks++;
                         }
@@ -89,7 +88,7 @@ public class DigitizationWorkflow {
             }
         }
         if (lastBarcode != null) { //process the last block
-            if (MAX_BLOCKS_TO_PROCESS == null || processedBlocks < MAX_BLOCKS_TO_PROCESS) {
+            if (maxBlocksToProcess == null || processedBlocks < maxBlocksToProcess) {
                 processBlock(imagesToBeProcessed, lastBarcode, workingDir, ndkPackageWorkingDir, resultsDir);
             }
         }

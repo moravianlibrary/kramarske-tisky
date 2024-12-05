@@ -20,6 +20,12 @@ public class Main {
         try {
             File homeDir = new File(System.getProperty("user.home"));
 
+            //init configuration
+            File configFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/config.properties");
+            //TODO: use CLI to set config file
+            Config.init(configFile);
+            //System.out.println(Config.instanceOf());
+
             /*File inputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane");
             File pngInputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png");
             File workingDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-processing");
@@ -46,6 +52,9 @@ public class Main {
             digitizationWorkflow.run(inputDir, pngInputDir, workingDir, ndkPackageWorkingDir, resultsDir);
         } catch (ToolAvailabilityError e) {
             System.err.println("Availability error: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
     }
