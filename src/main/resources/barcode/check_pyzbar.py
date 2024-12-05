@@ -4,6 +4,12 @@ except ImportError:
     print("pyzbar is not available")
     exit(1)
 
+try:
+    from PIL import Image
+except ImportError:
+    print("pillow is not available")
+    exit(1)
+
 import ctypes
 from ctypes.util import find_library
 

@@ -22,7 +22,7 @@ public class BarcodeDetectorTest {
         try {
             barcodeDetector.checkAvailable();
         } catch (ToolAvailabilityError e) {
-            fail(e);
+            fail(e.getMessage(), e);
         }
     }
 

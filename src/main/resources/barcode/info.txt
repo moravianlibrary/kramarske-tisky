@@ -1,35 +1,19 @@
+Postup rozjetí knihoven pro detekci čárového kódu
+=================================================
+Více info:
 https://pypi.org/project/pyzbar/
 
-macos:
+
+1. instalace knihovny zbar
+--------------------------
+MacOS:
 brew install zbar
-pip3 install pyzbar pillow
+Linux:
+sudo apt-get install libzbar0
 
 
-1. Install in a Virtual Environment (Preferred)
-This isolates your dependencies and avoids interfering with the system:
-
-python3 -m venv venv
-source venv/bin/activate
-pip install pyzbar pillow
-
-2. Then run your script from the activated environment:
-
-python detect_barcode.py
-
-
-
-https://online-barcode-reader.inliteresearch.com/
-typ caroveho kodu: Code39
-
-
-anebo:
-
-brew install pipx
-pipx ensurepath
-pipx install pyzbar pillow
-
-lokalni prosteredi pres venv:
------------------------------
+2. instalace knihovny pyzbar přes venv
+--------------------------------------
 cd src/main/resources/barcode/
 python3 -m venv venv
 #aktivatovat virtualni prostredi
@@ -39,4 +23,17 @@ pip install pyzbar pillow
 #opustit virtualni prostredi
 deactivate
 
+
+3. otestování instalovaných knihoven
+------------------------------------
+$ venv/bin/python3 check_pyzbar.py
+All dependencies available
+$
+
+
+4. testovací spuštění detekce čárového kódu
+-------------------------------------------
+$ venv/bin/python3 detect_barcode.py ~/TrineraProjects/KramarskeTisky/data/input/orezane-png/0001.png
+Detected Code39 Barcode: 2610798805
+$
 

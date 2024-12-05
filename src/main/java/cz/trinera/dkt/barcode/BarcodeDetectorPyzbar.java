@@ -95,23 +95,24 @@ public class BarcodeDetectorPyzbar implements BarcodeDetector {
             Process process = processBuilder.start();
             // Wait for the process to finish
             int exitCode = process.waitFor();
-            System.out.println("exit code:  " + exitCode);
             if (exitCode != 0) {
-                throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with exit code " + exitCode);
-            }
-            // Read the output of the Python script
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
-            if ((line = reader.readLine()) != null) {
-                System.out.println("line: " + line);
-                if (line.startsWith("pyzbar is not available")) {
-                    throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with output: " + line);
+                // Read the output of the Python script
+                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                String line;
+                if ((line = reader.readLine()) != null) {
+                    System.out.println("line: " + line);
+                    if (line.startsWith("pyzbar is not available")) {
+                        throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with output: " + line);
+                    }
+                    if (line.startsWith("zbar is not available")) {
+                        throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with output: " + line);
+                    }
+                    if (line.startsWith("pillow is not available")) {
+                        throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with output: " + line);
+                    }
+                } else {
+                    throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with empty output");
                 }
-                if (line.startsWith("zbar is not available")) {
-                    throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with output: " + line);
-                }
-            } else {
-                throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with empty output");
             }
         } catch (ToolAvailabilityError e) {
             throw e;
