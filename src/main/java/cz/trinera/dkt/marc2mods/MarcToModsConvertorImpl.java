@@ -10,14 +10,14 @@ public class MarcToModsConvertorImpl implements MarcToModsConvertor {
 
     private final File xsltFile;
 
-    public MarcToModsConvertorImpl(File xsltFile) {
-        this.xsltFile = xsltFile;
+    public MarcToModsConvertorImpl(String xsltFilePath) {
+        this.xsltFile = new File(xsltFilePath);
     }
 
     @Override
     public Document convertMarcToMods(Document marcXml) {
         Document modsDoc = Utils.convertDocumentWithXslt(marcXml, xsltFile);
-        //TODO: enrich MODS some more
+        //TODO: enrich MODS some more (or within the XSLT)
         return modsDoc;
     }
 

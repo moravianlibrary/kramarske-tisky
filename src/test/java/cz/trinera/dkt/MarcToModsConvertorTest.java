@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MarcToModsConvertorTest {
 
-    MarcToModsConvertor convertor = new MarcToModsConvertorImpl(new File("src/main/resources/xslt/MARC21slim2MODS3.xsl"));
-    //MarcToModsConvertor convertor = new MarcToModsConvertorImpl(new File("src/main/resources/xslt/MARC21slim2MODS3NoIncludes.xsl"));
+    MarcToModsConvertor convertor = new MarcToModsConvertorImpl("src/main/resources/xslt/MARC21slim2MODS3.xsl");
+    //MarcToModsConvertor convertor = new MarcToModsConvertorImpl("src/main/resources/xslt/MARC21slim2MODS3NoIncludes.xsl");
 
     @Test
     public void convertSample1() {

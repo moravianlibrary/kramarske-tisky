@@ -48,7 +48,7 @@ public class DigitizationWorkflow {
         makeSureReadableWritableDirExists(resultsDir);
 
         //convert all tif images to png
-        if (!Config.instanceOf().isTifToPngConversionDisabled()) {
+        if (!Config.instanceOf().isDevTifToPngConversionDisabled()) {
             System.out.println("Converting all tif images to png in " + inputDir + " to " + pngInputDir);
             this.tifToPngConvertor.convertAllTifFilesToPng(inputDir, pngInputDir);
             System.out.println("All tif images converted to png");
@@ -60,7 +60,7 @@ public class DigitizationWorkflow {
         List<File> imagesToBeProcessed = new ArrayList<>();
 
         int processedBlocks = 0;
-        Integer maxBlocksToProcess = Config.instanceOf().getMaxBlocksToProcess();
+        Integer maxBlocksToProcess = Config.instanceOf().getDevMaxBlocksToProcess();
         for (File file : listImageFiles(pngInputDir)) {
             if (maxBlocksToProcess != null && processedBlocks >= maxBlocksToProcess) {
                 System.out.println("Limit MAX_BLOCKS_TO_PROCESS reached (" + maxBlocksToProcess + " blocks), quitting now");

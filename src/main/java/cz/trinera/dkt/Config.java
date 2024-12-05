@@ -11,9 +11,16 @@ public class Config {
 
     //prod configuration properties
     private final String pythonExecutable;
+    private final String barcodeDetectorPythonLibrariesCheckScript;
+    private final String barcodeDetectorPythonScript;
+    private final String tifToPngConvertorLibrariesCheckScript;
+    private final String tifToPngConvertorScript;
+    private final String marcxmlToModsConvertorXsltFile;
+
     //dev configuration properties
-    private final boolean disableTifToPngConversion;
-    private final Integer maxBlocksToProcess;
+    private final boolean devDisableTifToPngConversion;
+    private final Integer devMaxBlocksToProcess;
+
 
     public static void init(File propertiesFile) throws IOException {
         instance = new Config(propertiesFile);
@@ -30,36 +37,66 @@ public class Config {
         Properties properties = new Properties();
         properties.load(new FileInputStream(propertiesFile));
         pythonExecutable = properties.getProperty("python_executable");
-        if (properties.containsKey("disable_tif_to_png_conversion")) {
-            disableTifToPngConversion = Boolean.parseBoolean(properties.getProperty("disable_tif_to_png_conversion"));
+        if (properties.containsKey("dev.disable_tif_to_png_conversion")) {
+            devDisableTifToPngConversion = Boolean.parseBoolean(properties.getProperty("dev.disable_tif_to_png_conversion"));
         } else {
-            disableTifToPngConversion = false;
+            devDisableTifToPngConversion = false;
         }
-        if (properties.containsKey("max_blocks_to_process")) {
-            maxBlocksToProcess = Integer.parseInt(properties.getProperty("max_blocks_to_process"));
+        if (properties.containsKey("dev.max_blocks_to_process")) {
+            devMaxBlocksToProcess = Integer.parseInt(properties.getProperty("dev.max_blocks_to_process"));
         } else {
-            maxBlocksToProcess = null;
+            devMaxBlocksToProcess = null;
         }
+        barcodeDetectorPythonLibrariesCheckScript = properties.getProperty("barcode_detector.python_libraries_check_script");
+        barcodeDetectorPythonScript = properties.getProperty("barcode_detector.python_script");
+        tifToPngConvertorLibrariesCheckScript = properties.getProperty("tif_to_png_convertor.libraries_check_script");
+        tifToPngConvertorScript = properties.getProperty("tif_to_png_convertor.script");
+        marcxmlToModsConvertorXsltFile = properties.getProperty("marcxml_to_mods_convertor.xslt_file");
+    }
+
+    public boolean isDevTifToPngConversionDisabled() {
+        return devDisableTifToPngConversion;
+    }
+
+    public Integer getDevMaxBlocksToProcess() {
+        return devMaxBlocksToProcess;
     }
 
     public String getPythonExecutable() {
         return pythonExecutable;
     }
 
-    public boolean isTifToPngConversionDisabled() {
-        return disableTifToPngConversion;
+    public String getBarcodeDetectorPythonLibrariesCheckScript() {
+        return barcodeDetectorPythonLibrariesCheckScript;
     }
 
-    public Integer getMaxBlocksToProcess() {
-        return maxBlocksToProcess;
+    public String getBarcodeDetectorPythonScript() {
+        return barcodeDetectorPythonScript;
+    }
+
+    public String getTifToPngConvertorLibrariesCheckScript() {
+        return tifToPngConvertorLibrariesCheckScript;
+    }
+
+    public String getTifToPngConvertorScript() {
+        return tifToPngConvertorScript;
+    }
+
+    public String getMarcxmlToModsConvertorXsltFile() {
+        return marcxmlToModsConvertorXsltFile;
     }
 
     @Override
     public String toString() {
         return "Config{" +
                 "pythonExecutable='" + pythonExecutable + '\'' +
-                ", disableTifToPngConversion=" + disableTifToPngConversion +
-                ", maxBlocksToProcess=" + maxBlocksToProcess +
+                ", barcodeDetectorPythonLibrariesCheckScript='" + barcodeDetectorPythonLibrariesCheckScript + '\'' +
+                ", barcodeDetectorPythonScript='" + barcodeDetectorPythonScript + '\'' +
+                ", tifToPngConvertorLibrariesCheckScript='" + tifToPngConvertorLibrariesCheckScript + '\'' +
+                ", tifToPngConvertorScript='" + tifToPngConvertorScript + '\'' +
+                ", marcxmlToModsConvertorXsltFile='" + marcxmlToModsConvertorXsltFile + '\'' +
+                ", devDisableTifToPngConversion=" + devDisableTifToPngConversion +
+                ", devMaxBlocksToProcess=" + devMaxBlocksToProcess +
                 '}';
     }
 }

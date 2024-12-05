@@ -24,7 +24,7 @@ public class Main {
             File configFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/config.properties");
             //TODO: use CLI to set config file
             Config.init(configFile);
-            //System.out.println(Config.instanceOf());
+            System.out.println(Config.instanceOf());
 
             /*File inputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane");
             File pngInputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png");
@@ -60,13 +60,27 @@ public class Main {
     }
 
     private static DigitizationWorkflow getDigitizationWorkflow(File homeDir) throws ToolAvailabilityError {
-        TifToPngConvertor tifToPngConvertor = new TifToPngConvertorImpl("src/main/resources/tif2png/check_imagemagick.sh", "src/main/resources/tif2png/convert_tifs_to_pngs.sh");
-        BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar("src/main/resources/barcode/check_pyzbar.py", "src/main/resources/barcode/detect_barcode.py");
+        //TifToPngConvertor tifToPngConvertor = new TifToPngConvertorImpl(Config "src/main/resources/tif2png/check_imagemagick.sh", "src/main/resources/tif2png/convert_tifs_to_pngs.sh");
+        TifToPngConvertor tifToPngConvertor = new TifToPngConvertorImpl(
+                Config.instanceOf().getTifToPngConvertorLibrariesCheckScript(),
+                Config.instanceOf().getTifToPngConvertorScript()
+        );
+
+        //BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar("src/main/resources/barcode/check_pyzbar.py", "src/main/resources/barcode/detect_barcode.py");
+        BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar(
+                Config.instanceOf().getBarcodeDetectorPythonLibrariesCheckScript(),
+                Config.instanceOf().getBarcodeDetectorPythonScript()
+        );
+
         OcrProvider ocrProvider = new OcrProviderMock(); //TODO: use proper implementation in production
         Jp2kConvertor jp2kConvertor = new Jp2kConvertorMock(); //TODO: use proper implementation in production
         MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock(); //TODO: use proper implementation in production
-        File marcToModsXsltFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/xslt/MARC21slim2MODS3.xsl");
-        MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(marcToModsXsltFile);
+
+        //File marcToModsXsltFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/xslt/MARC21slim2MODS3.xsl");
+        //MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(marcToModsXsltFile.getAbsolutePath());
+        MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(
+                Config.instanceOf().getMarcxmlToModsConvertorXsltFile()
+        );
 
         //check availability of all components
         tifToPngConvertor.checkAvailable();
