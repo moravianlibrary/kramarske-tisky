@@ -104,7 +104,10 @@ public class BarcodeDetectorPyzbar implements BarcodeDetector {
             String line;
             if ((line = reader.readLine()) != null) {
                 System.out.println("line: " + line);
-                if (line.startsWith("pyzbar is not installed")) {
+                if (line.startsWith("pyzbar is not available")) {
+                    throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with output: " + line);
+                }
+                if (line.startsWith("zbar is not available")) {
                     throw new ToolAvailabilityError("Barcode detector: Python script " + pythonCheckScriptPath + " failed with output: " + line);
                 }
             } else {

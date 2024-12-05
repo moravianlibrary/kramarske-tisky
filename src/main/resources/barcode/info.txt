@@ -27,3 +27,16 @@ anebo:
 brew install pipx
 pipx ensurepath
 pipx install pyzbar pillow
+
+lokalni prosteredi pres venv:
+-----------------------------
+cd src/main/resources/barcode/
+python3 -m venv venv
+#aktivatovat virtualni prostredi
+source venv/bin/activate
+#instalace knihoven
+pip install pyzbar pillow
+#opustit virtualni prostredi
+deactivate
+
+
