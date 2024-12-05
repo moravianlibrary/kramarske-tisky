@@ -11,10 +11,10 @@ import java.io.File;
 
 public class BarcodeDetectorImplZxing implements BarcodeDetector {
 
-    public Barcode detect(File file) {
+    public Barcode detect(File pngFile) {
         try {
             // Load the image
-            BufferedImage bufferedImage = ImageIO.read(file);
+            BufferedImage bufferedImage = ImageIO.read(pngFile);
 
             // Convert image to binary bitmap source
             LuminanceSource source = new BufferedImageLuminanceSource(bufferedImage);

@@ -23,9 +23,9 @@ public class BarcodeDetectorPyzbar implements BarcodeDetector {
     }
 
     @Override
-    public Barcode detect(File imagePngFile) {
-        if (imagePngFile == null || !imagePngFile.exists()) {
-            throw new IllegalArgumentException("Input file does not exist: " + imagePngFile);
+    public Barcode detect(File pngFile) {
+        if (pngFile == null || !pngFile.exists()) {
+            throw new IllegalArgumentException("Input file does not exist: " + pngFile);
         }
 
         try {
@@ -33,7 +33,7 @@ public class BarcodeDetectorPyzbar implements BarcodeDetector {
             List<String> command = new ArrayList<>();
             command.add(pythonBinary);
             command.add(pythonScriptPath);
-            command.add(imagePngFile.getAbsolutePath());
+            command.add(pngFile.getAbsolutePath());
 
             // Start the process
             ProcessBuilder processBuilder = new ProcessBuilder(command);
@@ -63,7 +63,8 @@ public class BarcodeDetectorPyzbar implements BarcodeDetector {
             } else {
                 // Optionally, check for other barcode formats here (e.g., Code128, EAN13, etc.)
                 // If no barcode detected or any other barcode type, handle accordingly
-                throw new RuntimeException("No barcode detected: " + result);
+                //throw new RuntimeException("No barcode detected: " + result);
+                return null;
             }
 
         } catch (Exception e) {

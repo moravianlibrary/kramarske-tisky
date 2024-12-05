@@ -11,7 +11,7 @@ public class BarcodeDetectorMock implements BarcodeDetector {
     private final Random random = new Random();
 
     @Override
-    public Barcode detect(File file) {
+    public Barcode detect(File pngFile) {
 
         Set<String> barcodeFiles = Set.of(
                 "0001.png",
@@ -25,7 +25,7 @@ public class BarcodeDetectorMock implements BarcodeDetector {
                 "0073.png",
                 "0082.png"
         );
-        if (barcodeFiles.contains(file.getName())) {
+        if (barcodeFiles.contains(pngFile.getName())) {
             //return new Barcode("mock", file.getName() + "_" + randomString(5));
             return new Barcode("mock", randomNumbers(10));
         } else {

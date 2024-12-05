@@ -6,7 +6,13 @@ import java.io.File;
 
 public interface BarcodeDetector {
 
-    public Barcode detect(File file);
+    /**
+     * Searches for a barcode in the given PNG file. Preferably barcode Code39.
+     *
+     * @param pngFile image file possibly containing a barcode
+     * @return Barcode if detected, null otherwise
+     */
+    public Barcode detect(File pngFile);
 
     public void checkAvailable() throws ToolAvailabilityError;
 
@@ -25,6 +31,14 @@ public interface BarcodeDetector {
 
         public String getValue() {
             return value;
+        }
+
+        @Override
+        public String toString() {
+            return "Barcode{" +
+                    "format='" + format + '\'' +
+                    ", value='" + value + '\'' +
+                    '}';
         }
     }
 }

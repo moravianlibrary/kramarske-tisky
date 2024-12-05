@@ -17,7 +17,7 @@ import java.util.List;
 
 public class BarcodeDetectorImplBoofCv implements BarcodeDetector {
 
-    public Barcode detect(File file) {
+    public Barcode detect(File pngFile) {
         // Load the image file
         /*BufferedImage image = UtilImageIO.loadImage(file.getAbsolutePath());
 
@@ -29,7 +29,7 @@ public class BarcodeDetectorImplBoofCv implements BarcodeDetector {
         // Load the image
         BufferedImage bufferedImage;
         try {
-            bufferedImage = ImageIO.read(file);
+            bufferedImage = ImageIO.read(pngFile);
         } catch (IOException e) {
             System.err.println("Failed to load image.");
             e.printStackTrace();
