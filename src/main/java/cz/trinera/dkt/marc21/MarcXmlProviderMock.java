@@ -10,7 +10,7 @@ public class MarcXmlProviderMock implements MarcXmlProvider {
     @Override
     public Document getMarcXml(String barcode) {
         File homeDir = new File(System.getProperty("user.home"));
-        File marcXmlSample = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/marcxml/marcxml-sample.xml");
+        File marcXmlSample = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/marcxml/marcxml-sample-1.xml");
         return Utils.loadXmlFromFile(marcXmlSample);
     }
 

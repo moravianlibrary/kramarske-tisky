@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<collection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"
-            xmlns="http://www.loc.gov/MARC21/slim">
+<collection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" xmlns="http://www.loc.gov/MARC21/slim">
     <record>
         <leader>00000nam a2200000 i 4500</leader>
-        <controlfield tag="001">mzk03001258896</controlfield>
+        <controlfield tag="001">mzk03001258918</controlfield>
         <controlfield tag="003">CZ BrMZK</controlfield>
-        <controlfield tag="005">20211118201142.0</controlfield>
+        <controlfield tag="005">20220428192717.0</controlfield>
         <controlfield tag="007">ta</controlfield>
-        <controlfield tag="008">190320q17811800xr fr|||||00| ||czeod</controlfield>
+        <controlfield tag="008">190320q17811800xr     fr|||||00| ||czeod</controlfield>
         <datafield tag="040" ind1=" " ind2=" ">
             <subfield code="a">BOA001</subfield>
             <subfield code="b">cze</subfield>
@@ -25,10 +23,6 @@
             <subfield code="2">MRF</subfield>
         </datafield>
         <datafield tag="080" ind1=" " ind2=" ">
-            <subfield code="a">27-185.33</subfield>
-            <subfield code="2">MRF</subfield>
-        </datafield>
-        <datafield tag="080" ind1=" " ind2=" ">
             <subfield code="a">(0.068)094</subfield>
             <subfield code="2">MRF</subfield>
         </datafield>
@@ -37,11 +31,11 @@
             <subfield code="2">MRF</subfield>
         </datafield>
         <datafield tag="245" ind1="0" ind2="0">
-            <subfield code="a">Nábožná Pjseň k Pánu Gežjssy, Na Hoře Tabor :</subfield>
-            <subfield code="b">Ach gá hřjssnjk zarmauceny, etc.</subfield>
+            <subfield code="a">Pjseň Postnj ku Pánu Gežjssy :</subfield>
+            <subfield code="b">Ach Gežjssy Lásko moge</subfield>
         </datafield>
         <datafield tag="246" ind1="3" ind2="3">
-            <subfield code="a">Nábožná píseň k Pánu Ježíši, na hoře Tábor</subfield>
+            <subfield code="a">Píseň postní ku Pánu Ježíši</subfield>
         </datafield>
         <datafield tag="264" ind1=" " ind2="1">
             <subfield code="a">[Olomouc?] :</subfield>
@@ -50,7 +44,7 @@
         </datafield>
         <datafield tag="300" ind1=" " ind2=" ">
             <subfield code="a">4 nečíslované listy ;</subfield>
-            <subfield code="c">16° (104 mm)</subfield>
+            <subfield code="c">16° (108 mm)</subfield>
         </datafield>
         <datafield tag="336" ind1=" " ind2=" ">
             <subfield code="a">text</subfield>
@@ -68,36 +62,33 @@
             <subfield code="2">rdacarrier</subfield>
         </datafield>
         <datafield tag="500" ind1=" " ind2=" ">
-            <subfield code="a">Rozsah: 9 arabsky číslovaných slok</subfield>
+            <subfield code="a">Rozsah: 20 arabsky číslovaných slok</subfield>
         </datafield>
         <datafield tag="500" ind1=" " ind2=" ">
-            <subfield code="a">Výzdoba: Na titulní straně dřevořez (41 x 56 mm), linka, na [1b] vlys z typografických
-                ozdob
-            </subfield>
+            <subfield code="a">Na titulní straně rukopisné poznámky</subfield>
+        </datafield>
+        <datafield tag="500" ind1=" " ind2=" ">
+            <subfield code="a">Výzdoba: Na titulní straně dřevořez (25 x 26 mm), na listu [1b] vlys z typografických ozdob</subfield>
         </datafield>
         <datafield tag="500" ind1=" " ind2=" ">
             <subfield code="3">Ilustrace:</subfield>
-            <subfield code="a">Ježíš Kristus (ukřižovaný; dvě postavy)_07_045_H318</subfield>
+            <subfield code="a">Ježíš Kristus (beránek boží)_07_039</subfield>
             <subfield code="5">CZ-BrMZK</subfield>
         </datafield>
         <datafield tag="500" ind1=" " ind2=" ">
             <subfield code="a">Text začíná na rubu titulního listu</subfield>
         </datafield>
         <datafield tag="500" ind1=" " ind2=" ">
-            <subfield code="a">List [2a]: drahau w Ceně, za mé Hrj= || chy wyléwá. [...]</subfield>
+            <subfield code="a">List [2a]: sebe, gá nehodný prosým || tebe. || [...]</subfield>
         </datafield>
         <datafield tag="500" ind1=" " ind2=" ">
-            <subfield code="a">Místo tisku a datace určeno na základě typografie, užité ilustrace a poznámek J. Vobra
-            </subfield>
+            <subfield code="a">Datace a místo určeno na základě typografie a poznámek J. Vobra</subfield>
         </datafield>
         <datafield tag="500" ind1=" " ind2=" ">
             <subfield code="a">Na [1b]: Má powědomau Notu.</subfield>
         </datafield>
         <datafield tag="510" ind1="3" ind2=" ">
             <subfield code="a">Knihopis neuvádí</subfield>
-        </datafield>
-        <datafield tag="590" ind1=" " ind2=" ">
-            <subfield code="a">Titulní list poškozený na okraji</subfield>
         </datafield>
         <datafield tag="600" ind1="0" ind2="7">
             <subfield code="a">Ježíš Kristus</subfield>
@@ -109,16 +100,11 @@
             <subfield code="7">ph138457</subfield>
             <subfield code="2">czenas</subfield>
         </datafield>
-        <datafield tag="650" ind1=" " ind2="7">
-            <subfield code="a">pokání</subfield>
-            <subfield code="7">ph124224</subfield>
-            <subfield code="2">czenas</subfield>
-        </datafield>
         <datafield tag="653" ind1=" " ind2=" ">
             <subfield code="a">písně duchovní</subfield>
         </datafield>
         <datafield tag="653" ind1=" " ind2=" ">
-            <subfield code="a">píseň - Ježíš</subfield>
+            <subfield code="a">píseň - postní</subfield>
         </datafield>
         <datafield tag="655" ind1=" " ind2="7">
             <subfield code="a">staré tisky</subfield>
@@ -131,22 +117,29 @@
             <subfield code="2">czenas</subfield>
         </datafield>
         <datafield tag="740" ind1="0" ind2="2">
-            <subfield code="a">Ach gá hřjssnjk zarmaucený</subfield>
+            <subfield code="a">Ach GEžjssy Lásko moge</subfield>
         </datafield>
         <datafield tag="740" ind1="0" ind2="2">
-            <subfield code="a">Ach, já hříšník zarmoucený a největší v tom světě</subfield>
+            <subfield code="a">Ach Ježíši lásko moje</subfield>
+        </datafield>
+        <datafield tag="740" ind1="0" ind2="2">
+            <subfield code="a">Ach, Ježíši, lásko moje, po tobě touží srdce mé</subfield>
+        </datafield>
+        <datafield tag="856" ind1="4" ind2="1">
+            <subfield code="u">http://www.digitalniknihovna.cz/mzk/view/uuid:7df28ad5-9eed-498c-8b05-bc5723ea63aa</subfield>
+            <subfield code="y">Digitalizovaný dokument</subfield>
         </datafield>
         <datafield tag="903" ind1=" " ind2=" ">
             <subfield code="a">RP</subfield>
         </datafield>
         <datafield tag="910" ind1=" " ind2=" ">
             <subfield code="a">BOA001</subfield>
-            <subfield code="b">VK-0000.824</subfield>
+            <subfield code="b">VK-0000.826</subfield>
         </datafield>
         <datafield tag="924" ind1=" " ind2=" ">
-            <subfield code="a">Ach, já hříšník zarmoucený a největší v tom světě_9 slok (+)</subfield>
-            <subfield code="b">Ach gá hřjssnjk zarmaucený,</subfield>
-            <subfield code="c">a neywětssy w tom Swětě,</subfield>
+            <subfield code="a">Ach, Ježíši, lásko moje, po tobě touží srdce mé_(+)</subfield>
+            <subfield code="b">Ach GEžjssy Lásko moge,</subfield>
+            <subfield code="c">po tobě taužj Srdce mé,</subfield>
         </datafield>
         <datafield tag="978" ind1=" " ind2=" ">
             <subfield code="b">S.n.</subfield>
@@ -170,19 +163,19 @@
             <subfield code="a">Y</subfield>
         </datafield>
         <datafield tag="996" ind1="6" ind2=" ">
-            <subfield code="b">2610798808</subfield>
-            <subfield code="c">VK-0000.824</subfield>
+            <subfield code="b">2610798810</subfield>
+            <subfield code="c">VK-0000.826</subfield>
             <subfield code="l">stud. ST</subfield>
             <subfield code="r">Sklad / do násl. otevíracího dne</subfield>
-            <subfield code="n">1</subfield>
+            <subfield code="n">0</subfield>
             <subfield code="p">dar</subfield>
-            <subfield code="w">001759776</subfield>
+            <subfield code="w">001759778</subfield>
             <subfield code="u">000010</subfield>
             <subfield code="a">1</subfield>
             <subfield code="e">BOA001</subfield>
             <subfield code="s">P</subfield>
             <subfield code="j">MZK50</subfield>
-            <subfield code="t">BOA001.MZK03001258896.MZK50001759776000010</subfield>
+            <subfield code="t">BOA001.MZK03001258918.MZK50001759778000010</subfield>
         </datafield>
     </record>
 </collection>

@@ -4,12 +4,10 @@ import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.ParsingException;
 import nu.xom.Serializer;
-import org.w3c.dom.Node;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.dom.DOMSource;
@@ -60,7 +58,36 @@ public class Utils {
         }
     }
 
+
     public static Document convertDocumentWithXslt(Document document, File xsltFile) {
+        try {
+            // Step 1: Convert XOM Document to String
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            Serializer serializer = new Serializer(outputStream, "UTF-8");
+            serializer.setIndent(2);
+            serializer.write(document);
+            String xmlString = outputStream.toString("UTF-8");
+
+            // Step 2: Prepare XSLT transformer
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer(new StreamSource(xsltFile));
+
+            // Step 3: Perform the transformation
+            StringReader xmlInput = new StringReader(xmlString);
+            StringWriter xmlOutput = new StringWriter();
+            transformer.transform(new StreamSource(xmlInput), new StreamResult(xmlOutput));
+
+            // Step 4: Convert the transformed XML back to a XOM Document
+            Builder builder = new Builder();
+            return builder.build(new StringReader(xmlOutput.toString()));
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error during XSLT transformation: " + e.getMessage(), e);
+        }
+    }
+
+    @Deprecated
+    public static Document convertDocumentWithXsltBak(Document document, File xsltFile) {
         try {
             // Convert XOM Document to W3C DOM Document
             org.w3c.dom.Document w3cDocument = convertXOMToDOM(document);
@@ -88,6 +115,7 @@ public class Utils {
         }
     }
 
+    @Deprecated
     public static org.w3c.dom.Document convertXOMToDOM(Document xomDocument) {
         try {
             // Serialize XOM Document to a byte stream
@@ -104,6 +132,7 @@ public class Utils {
             throw new RuntimeException("Failed to convert XOM Document to W3C DOM Document: " + e.getMessage(), e);
         }
     }
+
 
     private static byte[] toByteArray(org.w3c.dom.Document domDocument) throws Exception {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();

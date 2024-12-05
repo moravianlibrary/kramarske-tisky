@@ -12,7 +12,6 @@ public class MarcToModsConvertorImpl implements MarcToModsConvertor {
 
     public MarcToModsConvertorImpl(File xsltFile) {
         this.xsltFile = xsltFile;
-        //TODO: load and test the file
     }
 
     @Override

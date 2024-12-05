@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<modsCollection xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd">
+    <mods version="3.6">
+        <titleInfo>
+            <title>Pjseň Postnj ku Pánu Gežjssy</title>
+            <subTitle>Ach Gežjssy Lásko moge</subTitle>
+        </titleInfo>
+        <titleInfo type="alternative">
+            <title>Píseň postní ku Pánu Ježíši</title>
+        </titleInfo>
+        <titleInfo type="alternative">
+            <title>Ach GEžjssy Lásko moge</title>
+        </titleInfo>
+        <titleInfo type="alternative">
+            <title>Ach Ježíši lásko moje</title>
+        </titleInfo>
+        <titleInfo type="alternative">
+            <title>Ach, Ježíši, lásko moje, po tobě touží srdce mé</title>
+        </titleInfo>
+        <typeOfResource>text</typeOfResource>
+        <genre authority="marcgt">essay</genre>
+        <genre authority="rdacontent">text</genre>
+        <genre authority="czenas">staré tisky</genre>
+        <genre authority="czenas">kramářské tisky</genre>
+        <originInfo eventType="publication">
+            <place>
+                <placeTerm type="text">[Olomouc?]</placeTerm>
+            </place>
+            <publisher>[nakladatel není známý]</publisher>
+            <dateIssued>[mezi 1781 a 1800?]</dateIssued>
+            <issuance>single unit</issuance>
+        </originInfo>
+        <language>
+            <languageTerm authority="iso639-2b" type="code">d</languageTerm>
+        </language>
+        <physicalDescription>
+            <form authority="marccategory">text</form>
+            <form authority="marcsmd">regular print</form>
+            <extent>4 nečíslované listy ; 16° (108 mm)</extent>
+            <form type="media" authority="rdamedia">bez média</form>
+            <form type="carrier" authority="rdacarrier">svazek</form>
+        </physicalDescription>
+        <note>Rozsah: 20 arabsky číslovaných slok</note>
+        <note>Na titulní straně rukopisné poznámky</note>
+        <note>Výzdoba: Na titulní straně dřevořez (25 x 26 mm), na listu [1b] vlys z typografických ozdob</note>
+        <note>Ježíš Kristus (beránek boží)_07_039</note>
+        <note>Text začíná na rubu titulního listu</note>
+        <note>List [2a]: sebe, gá nehodný prosým || tebe. || [...]</note>
+        <note>Datace a místo určeno na základě typografie a poznámek J. Vobra</note>
+        <note>Na [1b]: Má powědomau Notu.</note>
+        <subject authority="Konspekt">
+            <topic>Staré tisky</topic>
+        </subject>
+        <subject authority="czenas">
+            <name type="personal">
+                <namePart>Ježíš Kristus</namePart>
+                <nameIdentifier>ola2002103454</nameIdentifier>
+            </name>
+        </subject>
+        <subject authority="czenas">
+            <topic>utrpení Ježíše Krista</topic>
+        </subject>
+        <subject>
+            <topic>písně duchovní</topic>
+        </subject>
+        <subject>
+            <topic>píseň - postní</topic>
+        </subject>
+        <classification authority="udc">27-312.8</classification>
+        <classification authority="udc">(0.068)094</classification>
+        <classification authority="udc">(0.068)098</classification>
+        <classification authority="Konspekt">12</classification>
+        <classification authority="udc" edition="Konspekt">094</classification>
+        <location>
+            <url displayLabel="Digitalizovaný dokument" usage="primary display">http://www.digitalniknihovna.cz/mzk/view/uuid:7df28ad5-9eed-498c-8b05-bc5723ea63aa</url>
+        </location>
+        <location>
+            <physicalLocation>BOA001</physicalLocation>
+            <shelfLocator>VK-0000.826</shelfLocator>
+        </location>
+        <relatedItem type="isReferencedBy">
+            <titleInfo>
+                <title>Knihopis neuvádí</title>
+            </titleInfo>
+        </relatedItem>
+        <relatedItem type="constituent">
+            <titleInfo>
+                <title>Ach GEžjssy Lásko moge</title>
+            </titleInfo>
+        </relatedItem>
+        <relatedItem type="constituent">
+            <titleInfo>
+                <title>Ach Ježíši lásko moje</title>
+            </titleInfo>
+        </relatedItem>
+        <relatedItem type="constituent">
+            <titleInfo>
+                <title>Ach, Ježíši, lásko moje, po tobě touží srdce mé</title>
+            </titleInfo>
+        </relatedItem>
+        <identifier type="barcode">2610798810</identifier>
+        <location>
+            <shelfLocator>VK-0000.826</shelfLocator>
+        </location>
+        <recordInfo>
+            <descriptionStandard>rda</descriptionStandard>
+            <recordContentSource authority="marcorg">BOA001</recordContentSource>
+            <recordCreationDate encoding="marc">190320</recordCreationDate>
+            <recordChangeDate encoding="iso8601">20220428192717.0</recordChangeDate>
+            <recordIdentifier source="CZ BrMZK">mzk03001258918</recordIdentifier>
+            <recordOrigin>machine generated</recordOrigin>
+            <recordInfoNote>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3.xsl
+                (Revision 1.98 2018/02/09, ProArc patch 18.1352 2022/10/12)</recordInfoNote>
+            <languageOfCataloging>
+                <languageTerm authority="iso639-2b" type="code">cze</languageTerm>
+            </languageOfCataloging>
+        </recordInfo>
+    </mods>
+</modsCollection>

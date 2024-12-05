@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<modsCollection xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd">
+    <mods version="3.6">
+        <titleInfo>
+            <title>Pjsně dwě k Pánu GEžjssy</title>
+        </titleInfo>
+        <titleInfo type="alternative">
+            <title>Písně dvě k Pánu Ježíši</title>
+        </titleInfo>
+        <titleInfo type="alternative">
+            <title>Ach hřjssný co mám činiti</title>
+        </titleInfo>
+        <titleInfo type="alternative">
+            <title>Ach hříšný co mám činiti</title>
+        </titleInfo>
+        <titleInfo type="alternative">
+            <title>Ach, hříšný, co mám činiti</title>
+        </titleInfo>
+        <titleInfo type="alternative">
+            <title>Mocný BOže politůg sám toho</title>
+        </titleInfo>
+        <titleInfo type="alternative">
+            <title>Mocný Bože polituj sám toho</title>
+        </titleInfo>
+        <titleInfo type="alternative">
+            <title>Mocný Bože, polituj sám toho</title>
+        </titleInfo>
+        <typeOfResource>text</typeOfResource>
+        <genre authority="rdacontent">text</genre>
+        <genre authority="czenas">staré tisky</genre>
+        <genre authority="czenas">kramářské tisky</genre>
+        <originInfo eventType="publication">
+            <place>
+                <placeTerm type="text">[Olomouc?]</placeTerm>
+            </place>
+            <publisher>[Josefa Terezie Hirnleová?]</publisher>
+            <dateIssued>1789</dateIssued>
+            <issuance>single unit</issuance>
+        </originInfo>
+        <physicalDescription>
+            <form authority="marccategory">text</form>
+            <form authority="marcsmd">regular print</form>
+            <extent>4 nečíslované listy ; 16° (111 mm)</extent>
+            <form type="media" authority="rdamedia">bez média</form>
+            <form type="carrier" authority="rdacarrier">svazek</form>
+        </physicalDescription>
+        <note>Rozsah: 22 a 10 nečíslovaných slok</note>
+        <note>Výzdoba: Na titulní straně dřevořez (47 x 33 mm), po jeho stranách typografické ozdoby, linka; na [4b] krátká linka z typografických ozdob</note>
+        <note>Ježíš Kristus (ukřižovaný)_03_046</note>
+        <note>Text začíná na rubu titulního listu</note>
+        <note>List [2a]: lils Krwe pro mně mnoho, kdyžto || z Těla twého tekla, pohleď má || [...]</note>
+        <note>Na [3b]: Gako: Wzhůru wzhůru nedb: etc. || Mocný BOže politůg sám toho, || [...]</note>
+        <subject authority="Konspekt">
+            <topic>Staré tisky</topic>
+        </subject>
+        <subject authority="czenas">
+            <name type="personal">
+                <namePart>Ježíš Kristus</namePart>
+                <nameIdentifier>ola2002103454</nameIdentifier>
+            </name>
+        </subject>
+        <subject authority="czenas">
+            <topic>pokání</topic>
+        </subject>
+        <subject>
+            <topic>písně duchovní</topic>
+        </subject>
+        <subject>
+            <topic>píseň - Ježíš Kristus</topic>
+        </subject>
+        <classification authority="udc">27-185.33</classification>
+        <classification authority="udc">(0.068)094</classification>
+        <classification authority="udc">(0.068)098</classification>
+        <classification authority="Konspekt">12</classification>
+        <classification authority="udc" edition="Konspekt">094</classification>
+        <location>
+            <url displayLabel="Digitalizovaný dokument" usage="primary display">http://www.digitalniknihovna.cz/mzk/view/uuid:1f844c3d-9b0a-4970-bbf1-8d20e1bc7ded</url>
+        </location>
+        <location>
+            <physicalLocation>BOA001</physicalLocation>
+            <shelfLocator>VK-0000.821</shelfLocator>
+        </location>
+        <relatedItem type="isReferencedBy">
+            <titleInfo>
+                <title>Knihopis,</title>
+            </titleInfo>
+            <part>
+                <detail type="part">
+                    <number>K12953</number>
+                </detail>
+            </part>
+        </relatedItem>
+        <relatedItem type="constituent">
+            <titleInfo>
+                <title>Ach hřjssný co mám činiti</title>
+            </titleInfo>
+        </relatedItem>
+        <relatedItem type="constituent">
+            <titleInfo>
+                <title>Ach hříšný co mám činiti</title>
+            </titleInfo>
+        </relatedItem>
+        <relatedItem type="constituent">
+            <titleInfo>
+                <title>Ach, hříšný, co mám činiti</title>
+            </titleInfo>
+        </relatedItem>
+        <relatedItem type="constituent">
+            <titleInfo>
+                <title>Mocný BOže politůg sám toho</title>
+            </titleInfo>
+        </relatedItem>
+        <relatedItem type="constituent">
+            <titleInfo>
+                <title>Mocný Bože polituj sám toho</title>
+            </titleInfo>
+        </relatedItem>
+        <relatedItem type="constituent">
+            <titleInfo>
+                <title>Mocný Bože, polituj sám toho</title>
+            </titleInfo>
+        </relatedItem>
+        <identifier type="barcode">2610798805</identifier>
+        <location>
+            <shelfLocator>VK-0000.821</shelfLocator>
+        </location>
+        <recordInfo>
+            <descriptionStandard>rda</descriptionStandard>
+            <recordContentSource authority="marcorg">BOA001</recordContentSource>
+            <recordCreationDate encoding="marc">190318</recordCreationDate>
+            <recordChangeDate encoding="iso8601">20210104181449.0</recordChangeDate>
+            <recordIdentifier source="CZ BrMZK">mzk03001258835</recordIdentifier>
+            <recordOrigin>machine generated</recordOrigin>
+            <recordInfoNote>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3.xsl (Revision 1.98 2018/02/09, ProArc patch 18.1352 2022/10/12)</recordInfoNote>
+            <languageOfCataloging>
+                <languageTerm authority="iso639-2b" type="code">cze</languageTerm>
+            </languageOfCataloging>
+        </recordInfo>
+    </mods>
+</modsCollection>
