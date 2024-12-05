@@ -50,10 +50,12 @@ public class DigitizationWorkflow {
         makeSureReadableWritableDirExists(resultsDir);
 
         //convert all tif images to png
-        System.out.println("Converting all tif images to png in " + inputDir + " to " + pngInputDir);
-        this.tifToPngConvertor.convertAllTifFilesToPng(inputDir, pngInputDir);
-        System.out.println("All tif images converted to png");
-        System.out.println();
+        if (!Config.DISABLE_TIF_TO_PNG_CONVERSION) {
+            System.out.println("Converting all tif images to png in " + inputDir + " to " + pngInputDir);
+            this.tifToPngConvertor.convertAllTifFilesToPng(inputDir, pngInputDir);
+            System.out.println("All tif images converted to png");
+            System.out.println();
+        }
 
         //process all png files in the directory inputDir
         Barcode lastBarcode = null;
