@@ -68,7 +68,7 @@ public class BarcodeDetectorPyzbar implements BarcodeDetector {
             }
 
         } catch (Exception e) {
-            throw new RuntimeException("Error while executing Python script", e);
+            throw new RuntimeException("Barcode detector: Error while executing Python script " + pythonCheckScriptPath, e);
         }
     }
 
