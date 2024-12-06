@@ -2,13 +2,14 @@ yaz-client aleph.library.edu 210
 
 yaz-client
 open aleph.mzk.cz:9991
-base MZK01CPK
-format xml
-
-
-nebo
 base MZK03CPK
 format marc21
+find @attr 1=1063 2610798805
+- tohle funguje
+
+nebo
+base MZK01CPK
+format xml
 
 carovy kod:
 pole 996 b
