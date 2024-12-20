@@ -116,7 +116,6 @@ public class PeroHelperTest {
             assertEquals("CREATED", page1.getString("state"));
             assertTrue(page1.has("quality"));
             assertEquals(JSONObject.NULL, page1.get("quality"));
-
         } catch (IOException e) {
             fail(e);
         }
@@ -134,18 +133,83 @@ public class PeroHelperTest {
             System.out.println("requestId: " + requestId);
 
             //upload image
-            File inFile = new File(sampleDir + "/0005.png");
-            ApiResponse response = peroHelper.queryPostMultipart("upload_image/" + requestId + "/" + pageId, inFile);
-            System.out.println(response.toString());
+            //Supported formats are jpeg, jpg, tif, jp2, png, jpf, j2c, jpx, bmp, mj2, tiff, jpg2, j2k, jpm, jpc
+            File imageFile = new File(sampleDir + "/0005.png");
+            ApiResponse response = peroHelper.queryPostMultipart("upload_image/" + requestId + "/" + pageId, imageFile);
             String responseData = response.result.toString();
             JSONObject responseDataJson = new JSONObject(responseData);
-            assertTrue(response.isOk());
 
             System.out.println("response data:");
             System.out.println(responseDataJson.toString(2));
             assertTrue(responseDataJson.has("status"));
             assertEquals("success", responseDataJson.getString("status"));
         } catch (IOException e) {
+            fail(e);
+        }
+    }
+
+    private void uploadImageFromFile(String requestId, String pageId, File imageFile) throws IOException {
+        ApiResponse response = peroHelper.queryPostMultipart("upload_image/" + requestId + "/" + pageId, imageFile);
+        String responseData = response.result.toString();
+        JSONObject responseDataJson = new JSONObject(responseData);
+    }
+
+    private JSONObject checkStatus(String requestId) throws IOException {
+        ApiResponse response = peroHelper.queryGet("request_status/" + requestId);
+        assertTrue(response.isOk());
+        String responseData = response.result.toString();
+        return new JSONObject(responseData);
+    }
+
+    @Test
+    public void uploadImageAndFetchResults() {
+        if (testsDisabled) {
+            return;
+        }
+        try {
+            //create request with one page
+            System.out.println("creating request...");
+            String pageId = "page_1";
+            String requestId = createProcessingRequest(1, List.of(pageId));
+            System.out.println("requestId: " + requestId);
+
+            //upload image
+            System.out.println("uploading image...");
+            File inFile = new File(sampleDir + "/0005.png");
+            uploadImageFromFile(requestId, pageId, inFile);
+
+            //check status
+            boolean processingFinished = false;
+            boolean processedOk = false;
+            while (!processingFinished) {
+                System.out.println("checking status...");
+                JSONObject requestStatus = checkStatus(requestId);
+                System.out.println("requestStatus:");
+                System.out.println(requestStatus.toString(2));
+                JSONObject page = requestStatus.getJSONObject("request_status").getJSONObject(pageId);
+                String state = page.getString("state");
+                if (state.equals("PROCESSED")) {
+                    processingFinished = true;
+                    processedOk = true;
+                    System.out.println("processing finished");
+                } else if (state.equals("INVALID_FILE")) {
+                    processingFinished = true;
+                    processedOk = false;
+                    System.out.println("processing finished with error");
+                    fail();
+                } else {
+                    System.out.println("processing not finished (state " + state + "), waiting...");
+                    Thread.sleep(3000);
+                }
+            }
+
+            //fetch results, check them
+            if (processedOk) {
+                //TODO: fetch results, check them
+            }
+        } catch (IOException e) {
+            fail(e);
+        } catch (InterruptedException e) {
             fail(e);
         }
     }

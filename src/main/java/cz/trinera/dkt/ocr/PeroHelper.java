@@ -126,14 +126,11 @@ public class PeroHelper {
     public ApiResponse queryPostMultipart(String urlPath, File inFile) throws IOException {
         try (CloseableHttpClient httpClient = MyApacheHttpClientProvider.getClient()) {
             String url = buildUrl(urlPath);
-            System.out.println("url: " + url);
-
-            // Create the multipart entity with the file
+            //System.out.println("url: " + url);
             HttpEntity multipartEntity = MultipartEntityBuilder.create()
                     .addBinaryBody("file", inFile, ContentType.DEFAULT_BINARY, inFile.getName())
                     .build();
             ClassicHttpRequest httpPost = ClassicRequestBuilder.post(url)
-                    //.setEntity(new StringEntity(body.toString(), ContentType.APPLICATION_JSON))
                     .setEntity(multipartEntity)
                     .setHeader("api-key", this.apiKey)
                     .build();
