@@ -38,3 +38,74 @@ báze_b: MZK03CPK
 
 
 https://github.com/search?q=repo%3Amoravianlibrary%2Fproarc+Z39.50&type=code
+
+
+Postup:
+brew install yaz
+
+git clone https://github.com/indexdata/yaz4j.git
+cd yaz4j
+brew install cmake
+brew install mvn
+brew install swig
+export MAVEN_OPTS="-Dyaz.include=-I/opt/homebrew/Cellar/yaz/5.34.2_2/include"
+export CFLAGS="-I/opt/homebrew/Cellar/yaz/5.34.2_2/include"
+export CPPFLAGS="-I/opt/homebrew/Cellar/yaz/5.34.2_2/include"
+update pom.xml, celou sekci target takhle:
+
+<target>
+    <!-- Compile zoom-extra.cpp -->
+    <exec failonerror="true" executable="${compiler}">
+        <arg value="-I/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home/include" />
+        <arg value="-I/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home/include/darwin" />
+        <arg value="-fPIC" />
+        <arg line="${compiler.flags}" />
+        <arg value="-Wno-deprecated-declarations" />
+        <arg value="-I${java.home}/include" />
+        <arg value="-I${java.home}/include/linux" />
+        <arg value="-I${basedir}/src/main/native" />
+        <arg line="${yaz.cflags}" />
+        <arg value="-c" />
+        <arg value="${basedir}/src/main/native/zoom-extra.cpp" />
+        <arg value="-o" />
+        <arg value="${basedir}/target/zoom-extra.o" />
+    </exec>
+
+    <!-- Compile libyaz4j.cpp -->
+    <exec failonerror="true" executable="${compiler}">
+        <arg value="-I/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home/include" />
+        <arg value="-I/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home/include/darwin" />
+        <arg value="-fPIC" />
+        <arg line="${compiler.flags}" />
+        <arg value="-Wno-deprecated-declarations" />
+        <arg value="-I${java.home}/include" />
+        <arg value="-I${java.home}/include/linux" />
+        <arg value="-I${basedir}/src/main/native" />
+        <arg line="${yaz.cflags}" />
+        <arg value="-c" />
+        <arg value="${basedir}/target/generated-sources/native/libyaz4j.cpp" />
+        <arg value="-o" />
+        <arg value="${basedir}/target/libyaz4j.o" />
+    </exec>
+
+    <!-- Link object files into a shared library -->
+    <exec failonerror="true" executable="${compiler}">
+        <arg value="-shared" />
+        <arg line="${compiler.flags}" />
+        <arg value="-o" />
+        <arg value="${native.dir}/${native.file}" />
+        <arg value="${basedir}/target/libyaz4j.o" />
+        <arg value="${basedir}/target/zoom-extra.o" />
+        <arg line="${yaz.libs}" />
+    </exec>
+</target>
+
+
+mvn -Pbundle install
+- sice neprojdou nejake testy, ale vytvori se soubor target/native/libyaz4j.so
+bez testu:
+mvn -Pbundle install -DskipTests
+
+
+Ale stejne to vypada, ze potrebuje native/Mac OS X/aarch64/libyaz4j.dylib, coz mi to nebuildi.
+Mozna je yaz4j slepa ulicka, alespon na Mac OS.
