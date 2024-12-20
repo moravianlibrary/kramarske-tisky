@@ -1,0 +1,110 @@
+{
+  "engines": {
+    "arabic_handwritten": {
+      "description": null,
+      "engine_version": "2022-08-22",
+      "id": 3,
+      "models": [
+        {
+          "id": 29,
+          "name": "layout_general_2022-04-14"
+        },
+        {
+          "id": 32,
+          "name": "ocr_czech_handwritten.2022-05-25"
+        }
+      ]
+    },
+    "czech_old_handwritten": {
+      "description": "Model for Czech and European handwritten documents (also in Kurrent script). Most suitable for modern and well  legible historical documents, e.g. Czech chronicles from 20. century.  Other partially supported languages are English, German, Slovak and  older German written in Kurent scipt. For other European languages, the  recognition quality may be limited.",
+      "engine_version": "2022-08-22",
+      "id": 2,
+      "models": [
+        {
+          "id": 29,
+          "name": "layout_general_2022-04-14"
+        },
+        {
+          "id": 32,
+          "name": "ocr_czech_handwritten.2022-05-25"
+        }
+      ]
+    },
+    "czech_old_printed": {
+      "description": "Model for Czech and European prints and typewritten documents in standard or \"antiqua\" fonts. Most suitable for modern prints, older newspapers scanned from  microfilms and otherwise corrupted documents. Some European languages  and fonts are supported to a limited extent and recognition quality may vary.",
+      "engine_version": "2022-09-22",
+      "id": 1,
+      "models": [
+        {
+          "id": 33,
+          "name": "layout_print_2022-09-16"
+        },
+        {
+          "id": 31,
+          "name": "ocr_czech_printed.2022-01-12"
+        }
+      ]
+    },
+    "european_printed_modern_german_style": {
+      "description": "General model for european printed documents. Transcribe to modern german characters (e.g. ö, ß).",
+      "engine_version": "2022-06-13",
+      "id": 6,
+      "models": [
+        {
+          "id": 27,
+          "name": "layout_general_2022-04-14"
+        },
+        {
+          "id": 28,
+          "name": "ocr_printed_modern_german_style_2022-05-24"
+        }
+      ]
+    },
+    "german_fraktur_printed": {
+      "description": "OCR model for German printed texts mainly in Fraktur. Most suitable for historical prints in German language. Historic characters, such as historic umlauts or long s, are converted to their modern versions.\n",
+      "engine_version": "2022-09-22",
+      "id": 4,
+      "models": [
+        {
+          "id": 33,
+          "name": "layout_print_2022-09-16"
+        },
+        {
+          "id": 30,
+          "name": "ocr_german_fraktur_printed--visual_transcription_style.2022-01-11"
+        }
+      ]
+    },
+    "german_fraktur_printed--visual_transcription_style": {
+      "description": "OCR model for German printed texts mainly in Fraktur. Most suitable for historical prints in  German. The output transcriptions are  visually accurate, they contain historic umlauts and other special historic characters.\n",
+      "engine_version": "2022-09-22",
+      "id": 5,
+      "models": [
+        {
+          "id": 33,
+          "name": "layout_print_2022-09-16"
+        },
+        {
+          "id": 30,
+          "name": "ocr_german_fraktur_printed--visual_transcription_style.2022-01-11"
+        }
+      ]
+    },
+    "modern_universal_printed": {
+      "description": "For most printed documents",
+      "engine_version": "2024-09-22",
+      "id": 7,
+      "models": [
+        {
+          "id": 33,
+          "name": "layout_print_2022-09-16"
+        },
+        {
+          "id": 34,
+          "name": "ocr_modern_universal_print.2024-09-22"
+        }
+      ]
+    }
+  },
+  "status": "success"
+}

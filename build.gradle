@@ -31,6 +31,12 @@ dependencies {
     //Z39.50 with yaz-client through yaz4j
     //https://github.com/indexdata/yaz4j
     implementation 'org.yaz4j:yaz4j:1.6.0'
+
+    //json
+    implementation 'org.json:json:20220924'
+
+    //http client for REST API calls
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.3.1'
 }
 
 tasks.test {
