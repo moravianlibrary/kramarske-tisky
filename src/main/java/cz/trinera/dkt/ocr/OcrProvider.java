@@ -6,7 +6,8 @@ import java.io.File;
 
 public interface OcrProvider {
 
+    public void checkAvailable() throws ToolAvailabilityError;
+
     public void fetchOcr(File inImgFile, File outTextFile, File outAltoFile);
 
-    public void checkAvailable() throws ToolAvailabilityError;
 }

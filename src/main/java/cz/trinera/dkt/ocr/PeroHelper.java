@@ -2,13 +2,12 @@ package cz.trinera.dkt.ocr;
 
 import cz.trinera.dkt.utils.ApiResponse;
 import cz.trinera.dkt.utils.MyApacheHttpClientProvider;
+import nu.xom.ParsingException;
+import nu.xom.ValidityException;
 import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
-import org.apache.hc.core5.http.ClassicHttpRequest;
-import org.apache.hc.core5.http.ContentType;
-import org.apache.hc.core5.http.HttpEntity;
-import org.apache.hc.core5.http.ParseException;
+import org.apache.hc.core5.http.*;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
@@ -17,7 +16,6 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Base64;
 
 public class PeroHelper {
 
@@ -56,7 +54,17 @@ public class PeroHelper {
                     String responseBody = EntityUtils.toString(entity);
                     //System.out.println("Response: " + responseBody);
                     EntityUtils.consume(entity);//to make sure the connection is released
-                    return new ApiResponse(url, "POST", null, response.getCode(), new JSONObject(responseBody), durationS);
+                    String contentType = response.getHeader("content-type").getValue();
+                    System.out.println("content-type: " + contentType);
+                    if (contentType.startsWith("application/json")) {
+                        return new ApiResponse(url, "GET", null, response.getCode(), new JSONObject(responseBody), durationS);
+                    } else if (contentType.startsWith("application/xml")) {
+                        nu.xom.Builder builder = new nu.xom.Builder();
+                        nu.xom.Document xmlDocument = builder.build(responseBody, null);
+                        return new ApiResponse(url, "GET", null, response.getCode(), xmlDocument, durationS);
+                    } else {
+                        return new ApiResponse(url, "GET", null, response.getCode(), responseBody, durationS);
+                    }
                 } else {
                     JSONObject errorJson = null;
                     String responseBodyStr = EntityUtils.toString(entity);
@@ -74,6 +82,12 @@ public class PeroHelper {
                     return new ApiResponse(url, "POST", null, response.getCode(), null, errorJson, durationS);
                 }
             } catch (ParseException e) {
+                throw new IOException(e);
+            } catch (ProtocolException e) {
+                throw new IOException(e);
+            } catch (ValidityException e) {
+                throw new IOException(e);
+            } catch (ParsingException e) {
                 throw new IOException(e);
             }
         } finally {

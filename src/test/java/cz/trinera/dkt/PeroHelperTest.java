@@ -2,6 +2,7 @@ package cz.trinera.dkt;
 
 import cz.trinera.dkt.ocr.PeroHelper;
 import cz.trinera.dkt.utils.ApiResponse;
+import nu.xom.Document;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
@@ -172,6 +173,7 @@ public class PeroHelperTest {
             String pageId = "page_1";
             String requestId = createProcessingRequest(1, List.of(pageId));
             System.out.println("requestId: " + requestId);
+            System.out.println("pageId: " + pageId);
 
             //upload image
             System.out.println("uploading image...");
@@ -205,11 +207,55 @@ public class PeroHelperTest {
 
             //fetch results, check them
             if (processedOk) {
-                //TODO: fetch results, check them
+                //alto
+                Object resultsAlto = fetchResult(requestId, pageId, "alto");
+                assertTrue(resultsAlto instanceof Document);
+                Document resultsAltoDoc = (Document) resultsAlto;
+                System.out.println("results alto:");
+                System.out.println(resultsAltoDoc.toXML());
+
+                //txt
+                Object resultsTxt = fetchResult(requestId, pageId, "txt");
+                assertTrue(resultsTxt instanceof String);
+                String resultsTxtStr = (String) resultsTxt;
+                assertFalse(resultsTxtStr.isBlank());
+                System.out.println("results txt:");
+                System.out.println(resultsTxt);
             }
         } catch (IOException e) {
             fail(e);
         } catch (InterruptedException e) {
+            fail(e);
+        }
+    }
+
+    private Object fetchResult(String requestId, String pageId, String format) throws IOException {
+        ApiResponse apiResponse = peroHelper.queryGet("download_results/" + requestId + "/" + pageId + "/" + format);
+        assertTrue(apiResponse.isOk());
+        return apiResponse.result;
+    }
+
+    @Test
+    public void fetchResults() {
+        if (testsDisabled) {
+            return;
+        }
+        String requestId = "c478a9aa-7fdc-431b-b3b6-986d20c3d7f8";
+        String pageId = "page_1";
+        try {
+            //alto
+            Object resultsAlto = fetchResult(requestId, pageId, "alto");
+            assertTrue(resultsAlto instanceof Document);
+            Document resultsAltoDoc = (Document) resultsAlto;
+            System.out.println("results alto:");
+            System.out.println(resultsAltoDoc.toXML());
+
+            //txt
+            Object resultsTxt = fetchResult(requestId, pageId, "txt");
+            assertTrue(resultsTxt instanceof String);
+            System.out.println("results txt:");
+            System.out.println(resultsTxt);
+        } catch (IOException e) {
             fail(e);
         }
     }
