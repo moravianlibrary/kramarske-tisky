@@ -209,6 +209,7 @@ public class PeroHelperTest {
             if (processedOk) {
                 //alto
                 Object resultsAlto = fetchResult(requestId, pageId, "alto");
+                assertNotNull(resultsAlto);
                 assertTrue(resultsAlto instanceof Document);
                 Document resultsAltoDoc = (Document) resultsAlto;
                 System.out.println("results alto:");
@@ -216,9 +217,80 @@ public class PeroHelperTest {
 
                 //txt
                 Object resultsTxt = fetchResult(requestId, pageId, "txt");
+                assertNotNull(resultsTxt);
                 assertTrue(resultsTxt instanceof String);
                 String resultsTxtStr = (String) resultsTxt;
                 assertFalse(resultsTxtStr.isBlank());
+                System.out.println("results txt:");
+                System.out.println(resultsTxt);
+            }
+        } catch (IOException e) {
+            fail(e);
+        } catch (InterruptedException e) {
+            fail(e);
+        }
+    }
+
+    @Test
+    public void uploadImageWithoutLettersAndFetchResults() {
+        if (testsDisabled) {
+            return;
+        }
+        try {
+            //create request with one page
+            System.out.println("creating request...");
+            String pageId = "page_1";
+            String requestId = createProcessingRequest(1, List.of(pageId));
+            System.out.println("requestId: " + requestId);
+            System.out.println("pageId: " + pageId);
+
+            //upload image
+            System.out.println("uploading image...");
+            //File inFile = new File(sampleDir + "/0002_no_text.png");
+            File inFile = new File("src/test/resources/pero-helper-test/0002_no_text.png");
+            uploadImageFromFile(requestId, pageId, inFile);
+
+            //check status
+            boolean processingFinished = false;
+            boolean processedOk = false;
+            while (!processingFinished) {
+                System.out.println("checking status...");
+                JSONObject requestStatus = checkStatus(requestId);
+                System.out.println("requestStatus:");
+                System.out.println(requestStatus.toString(2));
+                JSONObject page = requestStatus.getJSONObject("request_status").getJSONObject(pageId);
+                String state = page.getString("state");
+                if (state.equals("PROCESSED")) {
+                    processingFinished = true;
+                    processedOk = true;
+                    System.out.println("processing finished");
+                } else if (state.equals("INVALID_FILE")) {
+                    processingFinished = true;
+                    processedOk = false;
+                    System.out.println("processing finished with error");
+                    fail();
+                } else {
+                    System.out.println("processing not finished (state " + state + "), waiting...");
+                    Thread.sleep(3000);
+                }
+            }
+
+            //fetch results, check them
+            if (processedOk) {
+                //alto
+                Object resultsAlto = fetchResult(requestId, pageId, "alto");
+                assertNotNull(resultsAlto);
+                assertTrue(resultsAlto instanceof Document);
+                Document resultsAltoDoc = (Document) resultsAlto;
+                System.out.println("results alto:");
+                System.out.println(resultsAltoDoc.toXML());
+
+                //txt
+                Object resultsTxt = fetchResult(requestId, pageId, "txt");
+                assertNotNull(resultsTxt);
+                assertTrue(resultsTxt instanceof String);
+                String resultsTxtStr = (String) resultsTxt;
+                assertTrue(resultsTxtStr.isBlank());
                 System.out.println("results txt:");
                 System.out.println(resultsTxt);
             }
