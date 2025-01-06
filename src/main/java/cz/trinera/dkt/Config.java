@@ -16,6 +16,9 @@ public class Config {
     private final String tifToPngConvertorLibrariesCheckScript;
     private final String tifToPngConvertorScript;
     private final String marcxmlToModsConvertorXsltFile;
+    private final String peroBaseUrl;
+    private final String peroApiKey;
+    private final int peroEngieId;
 
     //dev configuration properties
     private final boolean devDisableTifToPngConversion;
@@ -52,6 +55,9 @@ public class Config {
         tifToPngConvertorLibrariesCheckScript = properties.getProperty("tif_to_png_convertor.libraries_check_script");
         tifToPngConvertorScript = properties.getProperty("tif_to_png_convertor.script");
         marcxmlToModsConvertorXsltFile = properties.getProperty("marcxml_to_mods_convertor.xslt_file");
+        peroBaseUrl = properties.getProperty("pero.base_url");
+        peroApiKey = properties.getProperty("pero.api_key");
+        peroEngieId = Integer.parseInt(properties.getProperty("pero.engine_id"));
     }
 
     public boolean isDevTifToPngConversionDisabled() {
@@ -86,6 +92,18 @@ public class Config {
         return marcxmlToModsConvertorXsltFile;
     }
 
+    public String getPeroBaseUrl() {
+        return peroBaseUrl;
+    }
+
+    public String getPeroApiKey() {
+        return peroApiKey;
+    }
+
+    public int getPeroEngineId() {
+        return peroEngieId;
+    }
+
     @Override
     public String toString() {
         return "Config{" +
@@ -95,6 +113,8 @@ public class Config {
                 ", tifToPngConvertorLibrariesCheckScript='" + tifToPngConvertorLibrariesCheckScript + '\'' +
                 ", tifToPngConvertorScript='" + tifToPngConvertorScript + '\'' +
                 ", marcxmlToModsConvertorXsltFile='" + marcxmlToModsConvertorXsltFile + '\'' +
+                ", peroBaseUrl='" + peroBaseUrl + '\'' +
+                ", peroEngieId=" + peroEngieId + '\'' +
                 ", devDisableTifToPngConversion=" + devDisableTifToPngConversion +
                 ", devMaxBlocksToProcess=" + devMaxBlocksToProcess +
                 '}';
