@@ -15,7 +15,10 @@ public class OcrProviderTest {
     private final String sampleDir = new File(System.getProperty("user.home")).getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/ocr-test";
 
     //OcrProvider ocrProvider = new OcrProviderMock();
-    OcrProvider ocrProvider = new OcrProviderImpl(1);
+    OcrProvider ocrProvider = new OcrProviderImpl(
+            "https://pero-ocr.fit.vutbr.cz/api",
+            "API_KEY",
+            1);
 
     @Test
     public void getOcr() {
