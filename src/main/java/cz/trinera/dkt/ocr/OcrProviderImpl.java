@@ -77,9 +77,7 @@ public class OcrProviderImpl implements OcrProvider {
 
             //upload image
             logger.info("uploading image...");
-            //File inFile = new File(sampleDir + "/0002_no_text.png");
-            File inFile = new File("src/test/resources/pero-helper-test/0002_no_text.png");
-            uploadImageFromFile(requestId, pageId, inFile);
+            uploadImageFromFile(requestId, pageId, inImgFile);
 
             //check status
             boolean processingFinished = false;
