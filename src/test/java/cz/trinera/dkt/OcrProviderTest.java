@@ -12,21 +12,28 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class OcrProviderTest {
 
-    private final String sampleDir = new File(System.getProperty("user.home")).getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/ocr-test";
+    private String sampleDir = new File(System.getProperty("user.home")).getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/ocr-test";
+
 
     //OcrProvider ocrProvider = new OcrProviderMock();
     OcrProvider ocrProvider = new OcrProviderImpl(
             "https://pero-ocr.fit.vutbr.cz/api",
             "API_KEY",
-            1);
+            //1); //Engine for czech printed newspapers from the begining of the 20. century.
+            2); //Engine for historical handwritten documents.
+
 
     @Test
     public void getOcr() {
         //prepare
+        //sampleDir = new File("src/test/resources/pero-helper-test").getAbsolutePath();
+        /*File inImageFile = new File(sampleDir + "/noviny_1909.png");
+        File outTextFile = new File(sampleDir + "/noviny_1909.txt");
+        File outAltoFile = new File(sampleDir + "/noviny_1909.xml");*/
         System.out.println(sampleDir);
-        File inImageFile = new File(sampleDir + "/0001.png");
-        File outTextFile = new File(sampleDir + "/0001.txt");
-        File outAltoFile = new File(sampleDir + "/0001.xml");
+        File inImageFile = new File(sampleDir + "/0003.png");
+        File outTextFile = new File(sampleDir + "/0003.txt");
+        File outAltoFile = new File(sampleDir + "/0003.xml");
         //clean up
         outTextFile.delete();
         outAltoFile.delete();
@@ -36,7 +43,7 @@ public class OcrProviderTest {
         assertTrue(outTextFile.exists());
         long textFileBytes = outTextFile.length();
         assertTrue(textFileBytes > 0);
-        //check restuls - alto
+        //check results - alto
         assertTrue(outAltoFile.exists());
         long altoFileBytes = outAltoFile.length();
         assertTrue(altoFileBytes > 0);

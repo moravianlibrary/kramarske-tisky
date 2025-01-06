@@ -55,7 +55,7 @@ public class PeroHelper {
                     //System.out.println("Response: " + responseBody);
                     EntityUtils.consume(entity);//to make sure the connection is released
                     String contentType = response.getHeader("content-type").getValue();
-                    System.out.println("content-type: " + contentType);
+                    //System.out.println("content-type: " + contentType);
                     if (contentType.startsWith("application/json")) {
                         return new ApiResponse(url, "GET", null, response.getCode(), new JSONObject(responseBody), durationS);
                     } else if (contentType.startsWith("application/xml")) {

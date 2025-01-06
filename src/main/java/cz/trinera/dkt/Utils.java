@@ -58,6 +58,14 @@ public class Utils {
         }
     }
 
+    public static void saveStringToFile(String content, File file) {
+        try (FileOutputStream outputStream = new FileOutputStream(file)) {
+            outputStream.write(content.getBytes());
+        } catch (IOException e) {
+            System.err.println("Error while saving string to file: " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
 
     public static Document convertDocumentWithXslt(Document document, File xsltFile) {
         try {
