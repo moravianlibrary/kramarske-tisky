@@ -16,9 +16,9 @@ public class Config {
     private final String tifToPngConvertorLibrariesCheckScript;
     private final String tifToPngConvertorScript;
     private final String marcxmlToModsConvertorXsltFile;
-    private final String peroBaseUrl;
-    private final String peroApiKey;
-    private final int peroEngieId;
+    private final String ocrProviderPeroBaseUrl;
+    private final String ocrProviderPeroApiKey;
+    private final int ocrProviderPeroEngineId;
 
     //dev configuration properties
     private final boolean devDisableTifToPngConversion;
@@ -55,9 +55,9 @@ public class Config {
         tifToPngConvertorLibrariesCheckScript = properties.getProperty("tif_to_png_convertor.libraries_check_script");
         tifToPngConvertorScript = properties.getProperty("tif_to_png_convertor.script");
         marcxmlToModsConvertorXsltFile = properties.getProperty("marcxml_to_mods_convertor.xslt_file");
-        peroBaseUrl = properties.getProperty("pero.base_url");
-        peroApiKey = properties.getProperty("pero.api_key");
-        peroEngieId = Integer.parseInt(properties.getProperty("pero.engine_id"));
+        ocrProviderPeroBaseUrl = properties.getProperty("ocr_provider_pero.base_url");
+        ocrProviderPeroApiKey = properties.getProperty("ocr_provider_pero.api_key");
+        ocrProviderPeroEngineId = Integer.parseInt(properties.getProperty("ocr_provider_pero.engine_id"));
     }
 
     public boolean isDevTifToPngConversionDisabled() {
@@ -92,16 +92,16 @@ public class Config {
         return marcxmlToModsConvertorXsltFile;
     }
 
-    public String getPeroBaseUrl() {
-        return peroBaseUrl;
+    public String getOcrProviderPeroBaseUrl() {
+        return ocrProviderPeroBaseUrl;
     }
 
-    public String getPeroApiKey() {
-        return peroApiKey;
+    public String getOcrProviderPeroApiKey() {
+        return ocrProviderPeroApiKey;
     }
 
-    public int getPeroEngineId() {
-        return peroEngieId;
+    public int getOcrProviderPeroEngineId() {
+        return ocrProviderPeroEngineId;
     }
 
     @Override
@@ -113,8 +113,8 @@ public class Config {
                 ", tifToPngConvertorLibrariesCheckScript='" + tifToPngConvertorLibrariesCheckScript + '\'' +
                 ", tifToPngConvertorScript='" + tifToPngConvertorScript + '\'' +
                 ", marcxmlToModsConvertorXsltFile='" + marcxmlToModsConvertorXsltFile + '\'' +
-                ", peroBaseUrl='" + peroBaseUrl + '\'' +
-                ", peroEngieId=" + peroEngieId + '\'' +
+                ", ocrProviderPeroBaseUrl='" + ocrProviderPeroBaseUrl + '\'' +
+                ", ocrProviderPeroEngieId=" + ocrProviderPeroEngineId + '\'' +
                 ", devDisableTifToPngConversion=" + devDisableTifToPngConversion +
                 ", devMaxBlocksToProcess=" + devMaxBlocksToProcess +
                 '}';

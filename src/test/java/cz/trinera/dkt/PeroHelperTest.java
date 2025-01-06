@@ -14,13 +14,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PeroHelperTest {
 
-    private final boolean testsDisabled = true;
+    private final boolean testsDisabled = false;
     private final String baseUrl = "https://pero-ocr.fit.vutbr.cz/api";
     private final String apiKey = "API_KEY";
     private final String sampleDir = new File(System.getProperty("user.home")).getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/ocr-test";
 
     private final PeroHelper peroHelper = new PeroHelper(baseUrl, apiKey);
-
 
     @Test
     public void getEngines() {

@@ -10,7 +10,6 @@ import cz.trinera.dkt.marc2mods.MarcToModsConvertor;
 import cz.trinera.dkt.marc2mods.MarcToModsConvertorImpl;
 import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.ocr.OcrProviderImpl;
-import cz.trinera.dkt.ocr.OcrProviderMock;
 import cz.trinera.dkt.tif2png.TifToPngConvertor;
 import cz.trinera.dkt.tif2png.TifToPngConvertorImpl;
 
@@ -41,7 +40,6 @@ public class Main {
             File resultsDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample1/_results");
 
             System.out.println("Preparing digitization workflow");
-            System.out.println("Input dir: " + inputDir.getAbsolutePath());
             System.out.println("Input dir: " + inputDir.getAbsolutePath());
             System.out.println("Working dir: " + workingDir.getAbsolutePath());
             System.out.println("NDK package working dir: " + ndkPackageWorkingDir.getAbsolutePath());
@@ -75,9 +73,9 @@ public class Main {
 
         //OcrProvider ocrProvider = new OcrProviderMock();
         OcrProvider ocrProvider = new OcrProviderImpl(
-                Config.instanceOf().getPeroBaseUrl(),
-                Config.instanceOf().getPeroApiKey(),
-                Config.instanceOf().getPeroEngineId()
+                Config.instanceOf().getOcrProviderPeroBaseUrl(),
+                Config.instanceOf().getOcrProviderPeroApiKey(),
+                Config.instanceOf().getOcrProviderPeroEngineId()
         );
 
         Jp2kConvertor jp2kConvertor = new Jp2kConvertorMock(); //TODO: use proper implementation in production
