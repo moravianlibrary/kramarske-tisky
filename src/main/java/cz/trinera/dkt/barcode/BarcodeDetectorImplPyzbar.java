@@ -9,13 +9,13 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BarcodeDetectorPyzbar implements BarcodeDetector {
+public class BarcodeDetectorImplPyzbar implements BarcodeDetector {
 
     private final String pythonExecutable;
     private final String pythonLibrariesCheckScript;
     private final String pythonBarcodeDetectionScript;
 
-    public BarcodeDetectorPyzbar(String pythonLibrariesCheckScript, String pythonBarcodeDetectionScript) {
+    public BarcodeDetectorImplPyzbar(String pythonLibrariesCheckScript, String pythonBarcodeDetectionScript) {
         this.pythonExecutable = Config.instanceOf().getPythonExecutable();
         this.pythonLibrariesCheckScript = pythonLibrariesCheckScript;
         this.pythonBarcodeDetectionScript = pythonBarcodeDetectionScript;

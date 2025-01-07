@@ -1,7 +1,7 @@
 package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
-import cz.trinera.dkt.barcode.BarcodeDetectorPyzbar;
+import cz.trinera.dkt.barcode.BarcodeDetectorImplPyzbar;
 import cz.trinera.dkt.jp2k.Jp2kConvertor;
 import cz.trinera.dkt.jp2k.Jp2kConvertorMock;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
@@ -66,7 +66,7 @@ public class Main {
         );
 
         //BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar("src/main/resources/barcode/check_pyzbar.py", "src/main/resources/barcode/detect_barcode.py");
-        BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar(
+        BarcodeDetector barcodeDetector = new BarcodeDetectorImplPyzbar(
                 Config.instanceOf().getBarcodeDetectorPythonLibrariesCheckScript(),
                 Config.instanceOf().getBarcodeDetectorPythonScript()
         );
