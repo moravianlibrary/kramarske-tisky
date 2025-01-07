@@ -2,9 +2,11 @@ package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetectorImplPyzbar;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,6 +22,13 @@ public class BarcodeDetectorTest {
 
     private static final String FORMAT_CODE39 = "CODE39";
     private static final List<Integer> PAGES_WITH_BARCODE = Arrays.asList(1, 10, 19, 28, 37, 46, 55, 64, 73, 82);
+
+    @BeforeAll
+    public static void setUp() throws IOException {
+        File homeDir = new File(System.getProperty("user.home"));
+        File configFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/config.properties");
+        Config.init(configFile);
+    }
 
     @Test
     public void checkBarcodeDetector() {
