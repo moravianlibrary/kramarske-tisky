@@ -1,6 +1,7 @@
 import subprocess
 import sys
 import re
+import argparse
 
 def search_record(domain, port, base, barcode, debug=False):
     try:
@@ -64,10 +65,18 @@ show
         sys.exit(1)
 
 if __name__ == '__main__':
-    domain = 'aleph.mzk.cz'
-    port = '9991'
-    base = 'MZK03CPK'
-    barcode = '2610798805'
-    debug = False  # Set this to True to enable debug prints
+    # Argument parsing with an example in the help text
+    parser = argparse.ArgumentParser(
+        description="Fetch MARC21 record by barcode using yaz-client.",
+        epilog="Example usage: python3 fetch_marc21_by_barcode.py --domain aleph.mzk.cz --port 9991 --base MZK03CPK --barcode 2610798805"
+    )
+    parser.add_argument('--domain', required=True, help='The domain of the yaz-client server.')
+    parser.add_argument('--port', required=True, help='The port of the yaz-client server.')
+    parser.add_argument('--base', required=True, help='The base to use for the search.')
+    parser.add_argument('--barcode', required=True, help='The barcode to search for.')
+    parser.add_argument('--debug', action='store_true', help='Enable debug output.')
 
-    search_record(domain, port, base, barcode, debug)
+    args = parser.parse_args()
+
+    # Call the search function with the parsed arguments
+    search_record(args.domain, args.port, args.base, args.barcode, args.debug)
