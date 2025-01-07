@@ -3,33 +3,30 @@ import sys
 
 def check_yaz_client():
     try:
-        # Attempt to get the version using a non-interactive flag, if available
+        # Attempt to get the version using a non-interactive flag
         process = subprocess.run(
-            ['yaz-client', '-V'],  # Use the correct flag for version if -V exists
+            ['yaz-client', '-V'],
             check=True,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
-            timeout=10  # Set a timeout to prevent hanging
+            timeout=10
         )
 
-        # Print the version information
-        print(process.stdout)
+        # Print the version information, stripping extra whitespace
+        print(process.stdout.strip())
         sys.exit(0)
 
     except FileNotFoundError:
-        # yaz-client is not found
         print("Error: yaz-client is not installed or not available in the PATH.", file=sys.stderr)
         sys.exit(1)
 
     except subprocess.TimeoutExpired:
-        # yaz-client did not respond in time
         print("Error: yaz-client timed out.", file=sys.stderr)
         sys.exit(1)
 
     except subprocess.CalledProcessError as e:
-        # Handle other errors, like incorrect usage
-        print(f"Error: yaz-client returned an error.\n{e.stderr}", file=sys.stderr)
+        print(f"Error: yaz-client returned an error.\n{e.stderr.strip()}", file=sys.stderr)
         sys.exit(1)
 
 if __name__ == '__main__':

@@ -27,18 +27,15 @@ show
 
         # Check for connection errors
         if 'Connection accepted' not in stdout:
-            if debug:
-                print("Error: Failed to connect to the server.")
+            print("Error: Failed to connect to the server.")
             sys.exit(1)
 
         # Check for search errors
         if 'Number of hits: 0' in stdout:
-            if debug:
-                print("Error: No records found.")
+            print("Error: No records found.")
             sys.exit(1)
         elif 'Number of hits: 1' not in stdout:
-            if debug:
-                print("Error: More than one record found.")
+            print("Error: More than one record found.")
             sys.exit(1)
 
         # Search for the first line that looks like the start of a MARC record
@@ -60,8 +57,7 @@ show
         sys.exit(0)
 
     except Exception as e:
-        if debug:
-            print(f"Error: {str(e)}")
+        print(f"Error: {str(e)}")
         sys.exit(1)
 
 if __name__ == '__main__':
