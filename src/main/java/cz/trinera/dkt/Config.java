@@ -55,19 +55,34 @@ public class Config {
         } else {
             devMaxBlocksToProcess = null;
         }
-        barcodeDetectorPythonDependencyCheckScript = properties.getProperty("barcode_detector.python_dependency_check_script");
-        barcodeDetectorPythonScript = properties.getProperty("barcode_detector.python_script");
-        tifToPngConvertorDependencyCheckScript = properties.getProperty("tif_to_png_convertor.dependency_check_script");
-        tifToPngConvertorScript = properties.getProperty("tif_to_png_convertor.script");
-        marcxmlToModsConvertorXsltFile = properties.getProperty("marcxml_to_mods_convertor.xslt_file");
-        ocrProviderPeroBaseUrl = properties.getProperty("ocr_provider_pero.base_url");
-        ocrProviderPeroApiKey = properties.getProperty("ocr_provider_pero.api_key");
-        ocrProviderPeroEngineId = Integer.parseInt(properties.getProperty("ocr_provider_pero.engine_id"));
-        marcXmlProviderPythonDependencyCheckScript = properties.getProperty("marc_xml_provider.python_dependency_check_script");
-        marcXmlProviderPythonScript = properties.getProperty("marc_xml_provider.python_script");
-        marcXmlProviderHost = properties.getProperty("marc_xml_provider.host");
-        marcXmlProviderPort = Integer.parseInt(properties.getProperty("marc_xml_provider.port"));
-        marcXmlProviderBase = properties.getProperty("marc_xml_provider.base");
+        barcodeDetectorPythonDependencyCheckScript = getNonemptyProperty(properties, "barcode_detector.python_dependency_check_script");
+        barcodeDetectorPythonScript = getNonemptyProperty(properties, "barcode_detector.python_script");
+        tifToPngConvertorDependencyCheckScript = getNonemptyProperty(properties, "tif_to_png_convertor.dependency_check_script");
+        tifToPngConvertorScript = getNonemptyProperty(properties, "tif_to_png_convertor.script");
+        marcxmlToModsConvertorXsltFile = getNonemptyProperty(properties, "marcxml_to_mods_convertor.xslt_file");
+        ocrProviderPeroBaseUrl = getNonemptyProperty(properties, "ocr_provider_pero.base_url");
+        ocrProviderPeroApiKey = getNonemptyProperty(properties, "ocr_provider_pero.api_key");
+        ocrProviderPeroEngineId = Integer.parseInt(getNonemptyProperty(properties, "ocr_provider_pero.engine_id"));
+        marcXmlProviderPythonDependencyCheckScript = getNonemptyProperty(properties, "marc_xml_provider.python_dependency_check_script");
+        marcXmlProviderPythonScript = getNonemptyProperty(properties, "marc_xml_provider.python_script");
+        marcXmlProviderHost = getNonemptyProperty(properties, "marc_xml_provider.host");
+        marcXmlProviderPort = Integer.parseInt(getNonemptyProperty(properties, "marc_xml_provider.port"));
+        marcXmlProviderBase = getNonemptyProperty(properties, "marc_xml_provider.base");
+    }
+
+    private String getNonemptyProperty(Properties properties, String key) {
+        if (!properties.containsKey(key)) {
+            throw new IllegalArgumentException("Missing property: " + key);
+        }
+        String value = properties.getProperty(key);
+        if (value == null) {
+            throw new IllegalArgumentException("Missing property: " + key);
+        }
+        value = value.trim();
+        if (value.isEmpty()) {
+            throw new IllegalArgumentException("Empty property: " + key);
+        }
+        return value;
     }
 
     public boolean isDevTifToPngConversionDisabled() {
