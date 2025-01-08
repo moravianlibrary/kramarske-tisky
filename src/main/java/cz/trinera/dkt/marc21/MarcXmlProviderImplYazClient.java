@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MarcXmlProviderImpl implements MarcXmlProvider {
+public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
 
     private final String pythonExecutable;
     private final String pythonCheckYazClientScript;
@@ -22,7 +22,7 @@ public class MarcXmlProviderImpl implements MarcXmlProvider {
 
     private final Marc21ToMarcXmlConvertor marc21ToMarcXmlConvertor = new Marc21ToMarcXmlConvertor();
 
-    public MarcXmlProviderImpl(String pythonCheckYazClientScript, String pythonMarc21ByBarcodeScript, String host, int port, String base) {
+    public MarcXmlProviderImplYazClient(String pythonCheckYazClientScript, String pythonMarc21ByBarcodeScript, String host, int port, String base) {
         this.pythonExecutable = Config.instanceOf().getPythonExecutable();
         this.pythonCheckYazClientScript = pythonCheckYazClientScript;
         this.pythonMarc21ByBarcodeScript = pythonMarc21ByBarcodeScript;

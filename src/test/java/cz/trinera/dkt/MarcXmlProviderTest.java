@@ -1,8 +1,7 @@
 package cz.trinera.dkt;
 
 import cz.trinera.dkt.marc21.MarcXmlProvider;
-import cz.trinera.dkt.marc21.MarcXmlProviderImpl;
-import cz.trinera.dkt.marc21.MarcXmlProviderMock;
+import cz.trinera.dkt.marc21.MarcXmlProviderImplYazClient;
 import nu.xom.Document;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -22,7 +21,7 @@ public class MarcXmlProviderTest {
     }
 
     //MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock();
-    MarcXmlProvider marcXmlProvider = new MarcXmlProviderImpl(
+    MarcXmlProvider marcXmlProvider = new MarcXmlProviderImplYazClient(
             "src/main/resources/marc21/check_yaz_client.py",
             "src/main/resources/marc21/fetch_marc21_by_barcode.py",
             "aleph.mzk.cz", 9991, "MZK03CPK");
