@@ -1,9 +1,9 @@
 package cz.trinera.dkt;
 
 import cz.trinera.dkt.marc21.Marc21ToMarcXmlConverter;
+import nu.xom.Document;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.text.Document;
 import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.fail;
@@ -18,6 +18,8 @@ public class Marc21ToMarcXmlConvertorTest {
             File inputFile = new File("src/main/resources/marc21ToMarcxml/sample1.txt");
             File outputFile = new File("src/main/resources/marc21ToMarcxml/sample1.xml");
             marc21ToMarcXmlConvertor.convert(inputFile, outputFile);
+            Document marcXml = Utils.loadXmlFromFile(outputFile);
+            //TODO: validate against xsd
         } catch (Exception e) {
             fail(e);
         }

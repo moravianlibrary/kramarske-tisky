@@ -32,8 +32,8 @@ public class MarcXmlProviderTest {
         Document marcDoc = marcXmlProvider.getMarcXml(barcode);
         assertTrue(marcDoc != null);
         assertEquals("record", marcDoc.getRootElement().getLocalName());
-        //TODO: check namespace of root element
-        //TODO: validate with xsd
+        assertEquals("http://www.loc.gov/MARC21/slim", marcDoc.getRootElement().getNamespaceURI());
+        //TODO: validate against xsd
         System.out.println(marcDoc.toXML());
     }
 
@@ -45,6 +45,4 @@ public class MarcXmlProviderTest {
             fail(e.getMessage(), e);
         }
     }
-
-
 }

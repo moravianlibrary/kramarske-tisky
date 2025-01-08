@@ -27,7 +27,7 @@ public class Marc21ToMarcXmlConverter {
         xml.append(">\n");
 
         // Process the leader
-        xml.append("  <leader>").append(lines[0].trim()).append("</leader>\n");
+        xml.append("  <leader>").append(escapeXml(lines[0].trim())).append("</leader>\n");
 
         // Process each MARC field
         for (int i = 1; i < lines.length; i++) {
@@ -39,7 +39,7 @@ public class Marc21ToMarcXmlConverter {
             if (tag.matches("00[1-8]")) {
                 // Control fields (001-008)
                 xml.append("  <controlfield tag=\"").append(tag).append("\">");
-                xml.append(line.substring(4).trim());
+                xml.append(escapeXml(line.substring(4).trim()));
                 xml.append("</controlfield>\n");
             } else {
                 // Data fields (everything else)
@@ -50,7 +50,7 @@ public class Marc21ToMarcXmlConverter {
                 for (String subfield : subfields) {
                     if (subfield.length() > 1) {
                         xml.append("    <subfield code=\"").append(subfield.charAt(0)).append("\">");
-                        xml.append(subfield.substring(1).trim());
+                        xml.append(escapeXml(subfield.substring(1).trim()));
                         xml.append("</subfield>\n");
                     }
                 }
@@ -63,5 +63,15 @@ public class Marc21ToMarcXmlConverter {
 
         String xmlString = xml.toString();
         return Utils.loadXmlFromString(xmlString);
+    }
+
+    // Utility method to escape XML special characters
+    private String escapeXml(String text) {
+        if (text == null) return null;
+        return text.replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("\"", "&quot;")
+                .replace("'", "&apos;");
     }
 }
