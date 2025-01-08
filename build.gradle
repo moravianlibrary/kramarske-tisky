@@ -38,6 +38,10 @@ dependencies {
 
     //http client for REST API calls
     implementation 'org.apache.httpcomponents.client5:httpclient5:5.3.1'
+
+    //cli
+    implementation 'commons-cli:commons-cli:1.4'
+
 }
 
 tasks.test {
@@ -45,6 +49,28 @@ tasks.test {
 }
 
 application {
-    // Define the main class for the application
-    mainClassName = 'cz.trinera.dkt.Main'
+    mainClass = 'cz.trinera.dkt.Main'
 }
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': application.mainClass
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+/*
+
+ ./gradlew clean build -x test
+
+ java -jar build/libs/dkt-workflow-1.0.jar \
+ --config_file /Users/martinrehanek/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/config.properties \
+ --input_dir /Users/martinrehanek/TrineraProjects/KramarskeTisky/data/input/sample1/input \
+ --output_dir /Users/martinrehanek/TrineraProjects/KramarskeTisky/data/output/sample1/output
+
+ */

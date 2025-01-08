@@ -12,32 +12,98 @@ import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.ocr.OcrProviderImpl;
 import cz.trinera.dkt.tif2png.TifToPngConvertor;
 import cz.trinera.dkt.tif2png.TifToPngConvertorImpl;
+import org.apache.commons.cli.*;
+
 
 import java.io.File;
 
 public class Main {
-    public static void main(String[] args) {
-        try {
+
+    private static final String OPT_CONFIG_FILE = "config_file";
+    private static final String OPT_INPUT_DIR = "input_dir";
+    private static final String OPT_OUTPUT_DIR = "output_dir";
+
+    private static final boolean DEV_MODE = true;
+
+    public static void main(String[] args) throws ToolAvailabilityError {
+        if (DEV_MODE) {
             File homeDir = new File(System.getProperty("user.home"));
 
-            //init configuration
+            //config
             File configFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/config.properties");
-            //TODO: use CLI to set config file
-            Config.init(configFile);
-            System.out.println(Config.instanceOf());
-
-            /*File inputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane");
-            File pngInputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png");
-            File workingDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-processing");
-            File ndkPackageWorkingDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-ndk-package");
-            File resultsDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/orezane-png-results");*/
 
             //SAMPLE1: 0001.tif - 0027.tif (3 packages), ~/TrineraProjects/KramarskeTisky/data/input/sample1
             File inputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample1/input");
-            File pngInputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample1/_png-input");
-            File workingDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample1/_working");
-            File ndkPackageWorkingDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample1/_ndk-package");
-            File resultsDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample1/_results");
+            File tmpDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample1/tmp");
+
+            File _pngInputDir = new File(tmpDir, "_png-input");
+            File _workingDir = new File(tmpDir, "_working");
+            File _ndkPackageWorkingDir = new File(tmpDir, "_ndk-package");
+
+            File resultsDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample1/results");
+            run(configFile, inputDir, _pngInputDir, _workingDir, _ndkPackageWorkingDir, resultsDir);
+        } else {
+            // Create Options object
+            Options options = new Options();
+
+            // Define mandatory 'config' option
+            Option optConfig = new Option("c", OPT_CONFIG_FILE, true, "Soubor s konfigurací (config.properties)");
+            optConfig.setRequired(true);
+            options.addOption(optConfig);
+
+            // Define mandatory 'inputDir' option
+            Option optInputDir = new Option("i", OPT_INPUT_DIR, true, "Vstupní adresář s TIFF soubory");
+            optInputDir.setRequired(true);
+            options.addOption(optInputDir);
+
+            // Define mandatory 'resultsDir' option
+            Option optResultsDir = new Option("o", OPT_OUTPUT_DIR, true, "Adresář pro ukládání výsledných balíčků pro import do Krameria");
+            optResultsDir.setRequired(true);
+            options.addOption(optResultsDir);
+
+            //TODO: option "cleanup" for cleaning temporary files afterwards (default true)
+
+            // Parse command line arguments
+            CommandLineParser parser = new DefaultParser();
+            HelpFormatter formatter = new HelpFormatter();
+            CommandLine cmd;
+
+            try {
+                cmd = parser.parse(options, args);
+            } catch (ParseException e) {
+                System.out.println(e.getMessage());
+                formatter.printHelp("java -jar DktCliApp.jar", options);
+                System.exit(1);
+                return;
+            }
+
+            // Retrieve the values of the options
+            String configFilePath = cmd.getOptionValue(OPT_CONFIG_FILE);
+            String inputDirectoryPath = cmd.getOptionValue(OPT_INPUT_DIR);
+            String resultsDirectoryPath = cmd.getOptionValue(OPT_OUTPUT_DIR);
+
+            //config file
+            File configFile = new File(configFilePath);
+            //input directory
+            File inputDir = new File(inputDirectoryPath);
+            //temporary directories
+            File tmpDir = new File(inputDir, "tmp");
+            File _pngInputDir = new File(tmpDir, "_png-input");
+            File _workingDir = new File(tmpDir, "_working");
+            File _ndkPackageWorkingDir = new File(tmpDir, "_ndk-package");
+            //results directory
+            File resultsDir = new File(resultsDirectoryPath);
+
+            run(configFile, inputDir, _pngInputDir, _workingDir, _ndkPackageWorkingDir, resultsDir);
+        }
+    }
+
+
+    public static void run(File configFile, File inputDir, File pngInputDir, File workingDir, File ndkPackageWorkingDir, File resultsDir) throws ToolAvailabilityError {
+        try {
+            //init configuration
+            Config.init(configFile);
+            //System.out.println(Config.instanceOf());
 
             System.out.println("Preparing digitization workflow");
             System.out.println("Input dir: " + inputDir.getAbsolutePath());
@@ -46,7 +112,7 @@ public class Main {
             System.out.println("Kramerius import dir: " + resultsDir.getAbsolutePath());
             System.out.println();
 
-            DigitizationWorkflow digitizationWorkflow = getDigitizationWorkflow(homeDir);
+            DigitizationWorkflow digitizationWorkflow = getDigitizationWorkflow();
             System.out.println("Running digitization workflow");
             digitizationWorkflow.run(inputDir, pngInputDir, workingDir, ndkPackageWorkingDir, resultsDir);
         } catch (ToolAvailabilityError e) {
@@ -58,8 +124,7 @@ public class Main {
         }
     }
 
-    private static DigitizationWorkflow getDigitizationWorkflow(File homeDir) throws ToolAvailabilityError {
-        //TifToPngConvertor tifToPngConvertor = new TifToPngConvertorImpl(Config "src/main/resources/tif2png/check_imagemagick.sh", "src/main/resources/tif2png/convert_tifs_to_pngs.sh");
+    private static DigitizationWorkflow getDigitizationWorkflow() throws ToolAvailabilityError {
         TifToPngConvertor tifToPngConvertor = new TifToPngConvertorImpl(
                 Config.instanceOf().getTifToPngConvertorDependencyCheckScript(),
                 Config.instanceOf().getTifToPngConvertorScript()
@@ -89,7 +154,6 @@ public class Main {
                 Config.instanceOf().getMarcXmlProviderBase()
         );
 
-        //File marcToModsXsltFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/xslt/MARC21slim2MODS3.xsl");
         //MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(marcToModsXsltFile.getAbsolutePath());
         MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(
                 Config.instanceOf().getMarcxmlToModsConvertorXsltFile()
