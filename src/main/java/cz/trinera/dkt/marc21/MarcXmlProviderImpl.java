@@ -3,15 +3,12 @@ package cz.trinera.dkt.marc21;
 import cz.trinera.dkt.Config;
 import cz.trinera.dkt.ToolAvailabilityError;
 import nu.xom.Document;
-import org.yaz4j.Connection;
-import org.yaz4j.PrefixQuery;
-import org.yaz4j.Record;
-import org.yaz4j.ResultSet;
-import org.yaz4j.exception.ZoomException;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MarcXmlProviderImpl implements MarcXmlProvider {
 
@@ -22,6 +19,8 @@ public class MarcXmlProviderImpl implements MarcXmlProvider {
     private final String host;
     private final int port;
     private final String base;
+
+    private final Marc21ToMarcXmlConvertor marc21ToMarcXmlConvertor = new Marc21ToMarcXmlConvertor();
 
     public MarcXmlProviderImpl(String pythonCheckYazClientScript, String pythonMarc21ByBarcodeScript, String host, int port, String base) {
         this.pythonExecutable = Config.instanceOf().getPythonExecutable();
@@ -84,20 +83,48 @@ public class MarcXmlProviderImpl implements MarcXmlProvider {
 
     @Override
     public Document getMarcXml(String barcode) {
-        //TODO: replace with python script
-        try (Connection con = new Connection(host, port)) {
-            //con.setSyntax("usmarc");
-            con.setSyntax("marc21");
-            con.setDatabaseName(base); //TODO: check if this is correct
-            con.connect();
-            ResultSet set = con.search(new PrefixQuery("find @attr 1=1063 " + barcode));
-            Record rec = set.getRecord(0);
-            System.out.println(rec.render());
-            //TODO: extract marc text from record
-            //TODO: convert marc text to marc xml
-            return null;
-        } catch (ZoomException ze) {
-            throw new RuntimeException(ze);
+        try {
+            // Build the command to run the Python script
+            List<String> command = new ArrayList<>();
+            command.add(pythonExecutable);
+            command.add(pythonMarc21ByBarcodeScript);
+            command.add("--hos");
+            command.add(host);
+            command.add("--port");
+            command.add(String.valueOf(port));
+            command.add("--base");
+            command.add(base);
+            command.add("--barcode");
+            command.add(barcode);
+
+            // Start the process
+            ProcessBuilder processBuilder = new ProcessBuilder(command);
+            processBuilder.redirectErrorStream(true); // Redirect error stream to input stream
+            Process process = processBuilder.start();
+
+            // Capture the output
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            StringBuilder output = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                output.append(line).append(System.lineSeparator());
+            }
+
+            // Wait for the process to finish
+            int exitCode = process.waitFor();
+            if (exitCode != 0) {
+                throw new RuntimeException("Python script failed with exit code " + exitCode + ": " + output);
+            }
+
+            // Convert marc21 to marcxml
+            String result = output.toString();
+            //System.out.println("result: ");
+            //System.out.println(result);
+
+            return marc21ToMarcXmlConvertor.convert(result);
+
+        } catch (Exception e) {
+            throw new RuntimeException("MarcXml provider: Error while executing Python script " + pythonMarc21ByBarcodeScript, e);
         }
     }
 }

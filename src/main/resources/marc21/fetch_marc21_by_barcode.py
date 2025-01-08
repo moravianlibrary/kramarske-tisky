@@ -3,13 +3,13 @@ import sys
 import re
 import argparse
 
-def search_record(domain, port, base, barcode, debug=False):
+def search_record(host, port, base, barcode, debug=False):
     try:
         # Start the yaz-client process
         process = subprocess.Popen(['yaz-client'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
         # Commands to run in yaz-client
-        commands = f"""open {domain}:{port}
+        commands = f"""open {host}:{port}
 base {base}
 format marc21
 find @attr 1=1063 {barcode}
@@ -64,9 +64,9 @@ if __name__ == '__main__':
     # Argument parsing with an example in the help text
     parser = argparse.ArgumentParser(
         description="Fetch MARC21 record by barcode using yaz-client.",
-        epilog="Example usage: python3 fetch_marc21_by_barcode.py --domain aleph.mzk.cz --port 9991 --base MZK03CPK --barcode 2610798805"
+        epilog="Example usage: python3 fetch_marc21_by_barcode.py --host aleph.mzk.cz --port 9991 --base MZK03CPK --barcode 2610798805"
     )
-    parser.add_argument('--domain', required=True, help='The domain of the yaz-client server.')
+    parser.add_argument('--host', required=True, help='The host of the yaz-client server.')
     parser.add_argument('--port', required=True, help='The port of the yaz-client server.')
     parser.add_argument('--base', required=True, help='The base to use for the search.')
     parser.add_argument('--barcode', required=True, help='The barcode to search for.')
@@ -75,4 +75,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # Call the search function with the parsed arguments
-    search_record(args.domain, args.port, args.base, args.barcode, args.debug)
+    search_record(args.host, args.port, args.base, args.barcode, args.debug)

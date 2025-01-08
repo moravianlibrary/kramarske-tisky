@@ -30,7 +30,8 @@ dependencies {
 
     //Z39.50 with yaz-client through yaz4j
     //https://github.com/indexdata/yaz4j
-    implementation 'org.yaz4j:yaz4j:1.6.0'
+    //nepouzitelne, namisto toho pouzivam yaz-client přes python skript volaný z javy
+    //implementation 'org.yaz4j:yaz4j:1.6.0'
 
     //json
     implementation 'org.json:json:20220924'
