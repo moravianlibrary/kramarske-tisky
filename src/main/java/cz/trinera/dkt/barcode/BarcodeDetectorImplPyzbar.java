@@ -12,12 +12,12 @@ import java.util.List;
 public class BarcodeDetectorImplPyzbar implements BarcodeDetector {
 
     private final String pythonExecutable;
-    private final String pythonLibrariesCheckScript;
+    private final String pythonDependencyCheckScript;
     private final String pythonBarcodeDetectionScript;
 
-    public BarcodeDetectorImplPyzbar(String pythonLibrariesCheckScript, String pythonBarcodeDetectionScript) {
+    public BarcodeDetectorImplPyzbar(String pythonDependencyCheckScript, String pythonBarcodeDetectionScript) {
         this.pythonExecutable = Config.instanceOf().getPythonExecutable();
-        this.pythonLibrariesCheckScript = pythonLibrariesCheckScript;
+        this.pythonDependencyCheckScript = pythonDependencyCheckScript;
         this.pythonBarcodeDetectionScript = pythonBarcodeDetectionScript;
     }
 
@@ -67,18 +67,18 @@ public class BarcodeDetectorImplPyzbar implements BarcodeDetector {
             }
 
         } catch (Exception e) {
-            throw new RuntimeException("Barcode detector: Error while executing Python script " + pythonLibrariesCheckScript, e);
+            throw new RuntimeException("Barcode detector: Error while executing Python script " + pythonDependencyCheckScript, e);
         }
     }
 
     @Override
     public void checkAvailable() throws ToolAvailabilityError {
-        File pythonLibrariesCheckScriptFile = new File(pythonLibrariesCheckScript);
-        if (!pythonLibrariesCheckScriptFile.exists()) {
-            throw new ToolAvailabilityError("Barcode detector: Python script " + pythonLibrariesCheckScript + " does not exist.");
+        File pythonDependencyCheckScriptFile = new File(pythonDependencyCheckScript);
+        if (!pythonDependencyCheckScriptFile.exists()) {
+            throw new ToolAvailabilityError("Barcode detector: Python script " + pythonDependencyCheckScript + " does not exist.");
         }
-        if (!pythonLibrariesCheckScriptFile.canRead()) {
-            throw new ToolAvailabilityError("Barcode detector: Python script " + pythonLibrariesCheckScript + " is not readable.");
+        if (!pythonDependencyCheckScriptFile.canRead()) {
+            throw new ToolAvailabilityError("Barcode detector: Python script " + pythonDependencyCheckScript + " is not readable.");
         }
         File pythonBarcodeDetectionScriptFile = new File(pythonBarcodeDetectionScript);
         if (!pythonBarcodeDetectionScriptFile.exists()) {
@@ -90,7 +90,7 @@ public class BarcodeDetectorImplPyzbar implements BarcodeDetector {
         // run the check script to verify the availability of the required Python packages
         try {
             // Command to run the Python script
-            ProcessBuilder processBuilder = new ProcessBuilder(pythonExecutable, pythonLibrariesCheckScript);
+            ProcessBuilder processBuilder = new ProcessBuilder(pythonExecutable, pythonDependencyCheckScript);
             // Start the process
             Process process = processBuilder.start();
             // Wait for the process to finish
@@ -102,22 +102,22 @@ public class BarcodeDetectorImplPyzbar implements BarcodeDetector {
                 if ((line = reader.readLine()) != null) {
                     System.out.println("line: " + line);
                     if (line.startsWith("pyzbar is not available")) {
-                        throw new ToolAvailabilityError("Barcode detector: Python script " + pythonLibrariesCheckScript + " failed with output: " + line);
+                        throw new ToolAvailabilityError("Barcode detector: Python script " + pythonDependencyCheckScript + " failed with output: " + line);
                     }
                     if (line.startsWith("zbar is not available")) {
-                        throw new ToolAvailabilityError("Barcode detector: Python script " + pythonLibrariesCheckScript + " failed with output: " + line);
+                        throw new ToolAvailabilityError("Barcode detector: Python script " + pythonDependencyCheckScript + " failed with output: " + line);
                     }
                     if (line.startsWith("pillow is not available")) {
-                        throw new ToolAvailabilityError("Barcode detector: Python script " + pythonLibrariesCheckScript + " failed with output: " + line);
+                        throw new ToolAvailabilityError("Barcode detector: Python script " + pythonDependencyCheckScript + " failed with output: " + line);
                     }
                 } else {
-                    throw new ToolAvailabilityError("Barcode detector: Python script " + pythonLibrariesCheckScript + " failed with empty output");
+                    throw new ToolAvailabilityError("Barcode detector: Python script " + pythonDependencyCheckScript + " failed with empty output");
                 }
             }
         } catch (ToolAvailabilityError e) {
             throw e;
         } catch (Exception e) {
-            throw new ToolAvailabilityError("Barcode detector: Python script " + pythonLibrariesCheckScript + " failed", e);
+            throw new ToolAvailabilityError("Barcode detector: Python script " + pythonDependencyCheckScript + " failed", e);
         }
     }
 }

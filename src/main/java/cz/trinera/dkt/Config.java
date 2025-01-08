@@ -11,14 +11,19 @@ public class Config {
 
     //prod configuration properties
     private final String pythonExecutable;
-    private final String barcodeDetectorPythonLibrariesCheckScript;
+    private final String barcodeDetectorPythonDependencyCheckScript;
     private final String barcodeDetectorPythonScript;
-    private final String tifToPngConvertorLibrariesCheckScript;
+    private final String tifToPngConvertorDependencyCheckScript;
     private final String tifToPngConvertorScript;
     private final String marcxmlToModsConvertorXsltFile;
     private final String ocrProviderPeroBaseUrl;
     private final String ocrProviderPeroApiKey;
     private final int ocrProviderPeroEngineId;
+    private final String marcXmlProviderPythonDependencyCheckScript;
+    private final String marcXmlProviderPythonScript;
+    private final String marcXmlProviderHost;
+    private final int marcXmlProviderPort;
+    private final String marcXmlProviderBase;
 
     //dev configuration properties
     private final boolean devDisableTifToPngConversion;
@@ -50,14 +55,19 @@ public class Config {
         } else {
             devMaxBlocksToProcess = null;
         }
-        barcodeDetectorPythonLibrariesCheckScript = properties.getProperty("barcode_detector.python_libraries_check_script");
+        barcodeDetectorPythonDependencyCheckScript = properties.getProperty("barcode_detector.python_dependency_check_script");
         barcodeDetectorPythonScript = properties.getProperty("barcode_detector.python_script");
-        tifToPngConvertorLibrariesCheckScript = properties.getProperty("tif_to_png_convertor.libraries_check_script");
+        tifToPngConvertorDependencyCheckScript = properties.getProperty("tif_to_png_convertor.dependency_check_script");
         tifToPngConvertorScript = properties.getProperty("tif_to_png_convertor.script");
         marcxmlToModsConvertorXsltFile = properties.getProperty("marcxml_to_mods_convertor.xslt_file");
         ocrProviderPeroBaseUrl = properties.getProperty("ocr_provider_pero.base_url");
         ocrProviderPeroApiKey = properties.getProperty("ocr_provider_pero.api_key");
         ocrProviderPeroEngineId = Integer.parseInt(properties.getProperty("ocr_provider_pero.engine_id"));
+        marcXmlProviderPythonDependencyCheckScript = properties.getProperty("marc_xml_provider.python_dependency_check_script");
+        marcXmlProviderPythonScript = properties.getProperty("marc_xml_provider.python_script");
+        marcXmlProviderHost = properties.getProperty("marc_xml_provider.host");
+        marcXmlProviderPort = Integer.parseInt(properties.getProperty("marc_xml_provider.port"));
+        marcXmlProviderBase = properties.getProperty("marc_xml_provider.base");
     }
 
     public boolean isDevTifToPngConversionDisabled() {
@@ -72,16 +82,16 @@ public class Config {
         return pythonExecutable;
     }
 
-    public String getBarcodeDetectorPythonLibrariesCheckScript() {
-        return barcodeDetectorPythonLibrariesCheckScript;
+    public String getBarcodeDetectorPythonDependencyCheckScript() {
+        return barcodeDetectorPythonDependencyCheckScript;
     }
 
     public String getBarcodeDetectorPythonScript() {
         return barcodeDetectorPythonScript;
     }
 
-    public String getTifToPngConvertorLibrariesCheckScript() {
-        return tifToPngConvertorLibrariesCheckScript;
+    public String getTifToPngConvertorDependencyCheckScript() {
+        return tifToPngConvertorDependencyCheckScript;
     }
 
     public String getTifToPngConvertorScript() {
@@ -104,17 +114,42 @@ public class Config {
         return ocrProviderPeroEngineId;
     }
 
+    public String getMarcXmlProviderPythonDependencyCheckScript() {
+        return marcXmlProviderPythonDependencyCheckScript;
+    }
+
+    public String getMarcXmlProviderPythonScript() {
+        return marcXmlProviderPythonScript;
+    }
+
+    public String getMarcXmlProviderHost() {
+        return marcXmlProviderHost;
+    }
+
+    public int getMarcXmlProviderPort() {
+        return marcXmlProviderPort;
+    }
+
+    public String getMarcXmlProviderBase() {
+        return marcXmlProviderBase;
+    }
+
     @Override
     public String toString() {
         return "Config{" +
                 "pythonExecutable='" + pythonExecutable + '\'' +
-                ", barcodeDetectorPythonLibrariesCheckScript='" + barcodeDetectorPythonLibrariesCheckScript + '\'' +
+                ", barcodeDetectorPythonDependencyCheckScript='" + barcodeDetectorPythonDependencyCheckScript + '\'' +
                 ", barcodeDetectorPythonScript='" + barcodeDetectorPythonScript + '\'' +
-                ", tifToPngConvertorLibrariesCheckScript='" + tifToPngConvertorLibrariesCheckScript + '\'' +
+                ", tifToPngConvertorDependencyCheckScript='" + tifToPngConvertorDependencyCheckScript + '\'' +
                 ", tifToPngConvertorScript='" + tifToPngConvertorScript + '\'' +
                 ", marcxmlToModsConvertorXsltFile='" + marcxmlToModsConvertorXsltFile + '\'' +
                 ", ocrProviderPeroBaseUrl='" + ocrProviderPeroBaseUrl + '\'' +
                 ", ocrProviderPeroEngieId=" + ocrProviderPeroEngineId + '\'' +
+                ", marcXmlProviderPythonDependencyCheckScript='" + marcXmlProviderPythonDependencyCheckScript + '\'' +
+                ", marcXmlProviderPythonScript='" + marcXmlProviderPythonScript + '\'' +
+                ", marcXmlProviderHost='" + marcXmlProviderHost + '\'' +
+                ", marcXmlProviderPort=" + marcXmlProviderPort + '\'' +
+                ", marcXmlProviderBase='" + marcXmlProviderBase + '\'' +
                 ", devDisableTifToPngConversion=" + devDisableTifToPngConversion +
                 ", devMaxBlocksToProcess=" + devMaxBlocksToProcess +
                 '}';

@@ -2,7 +2,6 @@ package cz.trinera.dkt.marc21;
 
 import cz.trinera.dkt.Config;
 import cz.trinera.dkt.ToolAvailabilityError;
-import cz.trinera.dkt.Utils;
 import nu.xom.Document;
 
 import java.io.BufferedReader;
@@ -14,7 +13,7 @@ import java.util.List;
 public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
 
     private final String pythonExecutable;
-    private final String pythonCheckYazClientScript;
+    private final String pythonDependencyCheckScript;
     private final String pythonMarc21ByBarcodeScript;
 
     private final String host;
@@ -23,9 +22,9 @@ public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
 
     private final Marc21ToMarcXmlConverter marc21ToMarcXmlConvertor = new Marc21ToMarcXmlConverter();
 
-    public MarcXmlProviderImplYazClient(String pythonCheckYazClientScript, String pythonMarc21ByBarcodeScript, String host, int port, String base) {
+    public MarcXmlProviderImplYazClient(String pythonDependencyCheckScript, String pythonMarc21ByBarcodeScript, String host, int port, String base) {
         this.pythonExecutable = Config.instanceOf().getPythonExecutable();
-        this.pythonCheckYazClientScript = pythonCheckYazClientScript;
+        this.pythonDependencyCheckScript = pythonDependencyCheckScript;
         this.pythonMarc21ByBarcodeScript = pythonMarc21ByBarcodeScript;
         this.host = host;
         this.port = port;
@@ -34,12 +33,12 @@ public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
 
     @Override
     public void checkAvailable() throws ToolAvailabilityError {
-        File pythonLibrariesCheckScriptFile = new File(pythonCheckYazClientScript);
-        if (!pythonLibrariesCheckScriptFile.exists()) {
-            throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonCheckYazClientScript + " does not exist.");
+        File pythonDependencyCheckScriptFile = new File(pythonDependencyCheckScript);
+        if (!pythonDependencyCheckScriptFile.exists()) {
+            throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonDependencyCheckScript + " does not exist.");
         }
-        if (!pythonLibrariesCheckScriptFile.canRead()) {
-            throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonCheckYazClientScript + " is not readable.");
+        if (!pythonDependencyCheckScriptFile.canRead()) {
+            throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonDependencyCheckScript + " is not readable.");
         }
         File pythonBarcodeDetectionScriptFile = new File(pythonMarc21ByBarcodeScript);
         if (!pythonBarcodeDetectionScriptFile.exists()) {
@@ -51,7 +50,7 @@ public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
         // run the check script to verify the availability of the required Python packages
         try {
             // Command to run the Python script
-            ProcessBuilder processBuilder = new ProcessBuilder(pythonExecutable, pythonCheckYazClientScript);
+            ProcessBuilder processBuilder = new ProcessBuilder(pythonExecutable, pythonDependencyCheckScript);
             // Start the process
             Process process = processBuilder.start();
             // Wait for the process to finish
@@ -63,22 +62,22 @@ public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
                 if ((line = reader.readLine()) != null) {
                     System.out.println("line: " + line);
                     if (line.startsWith("yaz-client is not available")) {
-                        throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonCheckYazClientScript + " failed with output: " + line);
+                        throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonDependencyCheckScript + " failed with output: " + line);
                     }
                     if (line.startsWith("zbar is not available")) {
-                        throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonCheckYazClientScript + " failed with output: " + line);
+                        throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonDependencyCheckScript + " failed with output: " + line);
                     }
                     if (line.startsWith("pillow is not available")) {
-                        throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonCheckYazClientScript + " failed with output: " + line);
+                        throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonDependencyCheckScript + " failed with output: " + line);
                     }
                 } else {
-                    throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonCheckYazClientScript + " failed with empty output");
+                    throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonDependencyCheckScript + " failed with empty output");
                 }
             }
         } catch (ToolAvailabilityError e) {
             throw e;
         } catch (Exception e) {
-            throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonCheckYazClientScript + " failed", e);
+            throw new ToolAvailabilityError("MarcXml provider: Python script " + pythonDependencyCheckScript + " failed", e);
         }
     }
 

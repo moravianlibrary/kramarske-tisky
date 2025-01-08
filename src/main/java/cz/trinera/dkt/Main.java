@@ -5,7 +5,7 @@ import cz.trinera.dkt.barcode.BarcodeDetectorImplPyzbar;
 import cz.trinera.dkt.jp2k.Jp2kConvertor;
 import cz.trinera.dkt.jp2k.Jp2kConvertorMock;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
-import cz.trinera.dkt.marc21.MarcXmlProviderMock;
+import cz.trinera.dkt.marc21.MarcXmlProviderImplYazClient;
 import cz.trinera.dkt.marc2mods.MarcToModsConvertor;
 import cz.trinera.dkt.marc2mods.MarcToModsConvertorImpl;
 import cz.trinera.dkt.ocr.OcrProvider;
@@ -61,13 +61,13 @@ public class Main {
     private static DigitizationWorkflow getDigitizationWorkflow(File homeDir) throws ToolAvailabilityError {
         //TifToPngConvertor tifToPngConvertor = new TifToPngConvertorImpl(Config "src/main/resources/tif2png/check_imagemagick.sh", "src/main/resources/tif2png/convert_tifs_to_pngs.sh");
         TifToPngConvertor tifToPngConvertor = new TifToPngConvertorImpl(
-                Config.instanceOf().getTifToPngConvertorLibrariesCheckScript(),
+                Config.instanceOf().getTifToPngConvertorDependencyCheckScript(),
                 Config.instanceOf().getTifToPngConvertorScript()
         );
 
         //BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar("src/main/resources/barcode/check_pyzbar.py", "src/main/resources/barcode/detect_barcode.py");
         BarcodeDetector barcodeDetector = new BarcodeDetectorImplPyzbar(
-                Config.instanceOf().getBarcodeDetectorPythonLibrariesCheckScript(),
+                Config.instanceOf().getBarcodeDetectorPythonDependencyCheckScript(),
                 Config.instanceOf().getBarcodeDetectorPythonScript()
         );
 
@@ -79,7 +79,15 @@ public class Main {
         );
 
         Jp2kConvertor jp2kConvertor = new Jp2kConvertorMock(); //TODO: use proper implementation in production
-        MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock(); //TODO: use proper implementation in production
+
+        //MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock();
+        MarcXmlProvider marcXmlProvider = new MarcXmlProviderImplYazClient(
+                Config.instanceOf().getMarcXmlProviderPythonDependencyCheckScript(),
+                Config.instanceOf().getMarcXmlProviderPythonScript(),
+                Config.instanceOf().getMarcXmlProviderHost(),
+                Config.instanceOf().getMarcXmlProviderPort(),
+                Config.instanceOf().getMarcXmlProviderBase()
+        );
 
         //File marcToModsXsltFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/xslt/MARC21slim2MODS3.xsl");
         //MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(marcToModsXsltFile.getAbsolutePath());
