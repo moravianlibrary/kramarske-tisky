@@ -4,7 +4,9 @@ import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.ParsingException;
 import nu.xom.Serializer;
+import org.xml.sax.SAXException;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
@@ -13,6 +15,9 @@ import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
 import java.io.*;
 
 public class Utils {
@@ -104,6 +109,29 @@ public class Utils {
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Error during XSLT transformation: " + e.getMessage(), e);
+        }
+    }
+
+    public static boolean validateXmlAgainstXsd(Document xmlDoc, File xsdFile) {
+        try {
+            // Create a SchemaFactory for the W3C XML Schema language
+            SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+
+            // Load the XSD file
+            Schema schema = factory.newSchema(xsdFile);
+
+            // Create a Validator instance
+            Validator validator = schema.newValidator();
+
+            // Validate the XML string
+            validator.validate(new StreamSource(new StringReader(xmlDoc.toXML())));
+
+            // If no exception is thrown, the XML is valid
+            return true;
+        } catch (IOException | SAXException e) {
+            // Handle validation errors
+            System.err.println("XML Validation Error: " + e.getMessage());
+            return false;
         }
     }
 

@@ -27,14 +27,63 @@ public class MarcXmlProviderTest {
             "aleph.mzk.cz", 9991, "MZK03CPK");
 
     @Test
-    public void convertSample1() {
-        String barcode = "2610798805";
+    public void convertSample05() {
+        convertSample("2610798805");
+    }
+
+    @Test
+    public void convertSample806() {
+        convertSample("2610798806");
+    }
+
+    @Test
+    public void convertSample810() {
+        convertSample("2610798810");
+    }
+
+    @Test
+    public void convertSample809() {
+        convertSample("2610798809");
+    }
+
+    @Test
+    public void convertSample808() {
+        convertSample("2610798808");
+    }
+
+    @Test
+    public void convertSample807() {
+        convertSample("2610798807");
+    }
+
+    @Test
+    public void convertSample803() {
+        convertSample("2610798803");
+    }
+
+    @Test
+    public void convertSample804() {
+        convertSample("2610798804");
+    }
+
+    @Test
+    public void convertSample798() {
+        convertSample("2610798798");
+    }
+
+    @Test
+    public void convertSample797() {
+        convertSample("2610798797");
+    }
+
+    private void convertSample(String barcode) {
         Document marcDoc = marcXmlProvider.getMarcXml(barcode);
-        assertTrue(marcDoc != null);
+        assertNotNull(marcDoc);
         assertEquals("record", marcDoc.getRootElement().getLocalName());
         assertEquals("http://www.loc.gov/MARC21/slim", marcDoc.getRootElement().getNamespaceURI());
-        //TODO: validate against xsd
-        System.out.println(marcDoc.toXML());
+        //System.out.println(marcDoc.toXML());
+        boolean valid = Utils.validateXmlAgainstXsd(marcDoc, new File("src/main/resources/marc21ToMarcxml/MARC21slim.xsd"));
+        assertTrue(valid);
     }
 
     @Test

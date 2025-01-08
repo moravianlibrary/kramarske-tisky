@@ -4,9 +4,11 @@ import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.ocr.OcrProviderImpl;
 import cz.trinera.dkt.ocr.OcrProviderMock;
 import nu.xom.Document;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,12 +24,23 @@ public class OcrProviderTest {
     //private final int engineId = 6; //european_printed_modern_german_style
     //private final int engineId = 7; //modern_universal_printed
 
-    //OcrProvider ocrProvider = new OcrProviderMock();
-    OcrProvider ocrProvider = new OcrProviderImpl(
-            "https://pero-ocr.fit.vutbr.cz/api",
-            "API_KEY",
-            engineId);
+    //private final OcrProvider ocrProvider = new OcrProviderMock();
+    private final OcrProvider ocrProvider;// = null;
 
+    public OcrProviderTest() {
+        try {
+            File homeDir = new File(System.getProperty("user.home"));
+            File configFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/config.properties");
+            Config.init(configFile);
+            this.ocrProvider = new OcrProviderImpl(
+                    Config.instanceOf().getOcrProviderPeroBaseUrl(),
+                    Config.instanceOf().getOcrProviderPeroApiKey(),
+                    engineId);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Test
     public void getOcr() {

@@ -15,11 +15,22 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PeroHelperTest {
 
     private final boolean testsDisabled = false;
-    private final String baseUrl = "https://pero-ocr.fit.vutbr.cz/api";
-    private final String apiKey = "API_KEY";
     private final String sampleDir = new File(System.getProperty("user.home")).getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/ocr-test";
 
-    private final PeroHelper peroHelper = new PeroHelper(baseUrl, apiKey);
+    private final PeroHelper peroHelper;
+
+    public PeroHelperTest() {
+        try {
+            File homeDir = new File(System.getProperty("user.home"));
+            File configFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/config.properties");
+            Config.init(configFile);
+            this.peroHelper = new PeroHelper(
+                    Config.instanceOf().getOcrProviderPeroBaseUrl(),
+                    Config.instanceOf().getOcrProviderPeroApiKey());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Test
     public void getEngines() {

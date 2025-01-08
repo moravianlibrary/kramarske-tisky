@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class Marc21ToMarcXmlConvertorTest {
@@ -19,7 +20,8 @@ public class Marc21ToMarcXmlConvertorTest {
             File outputFile = new File("src/main/resources/marc21ToMarcxml/sample1.xml");
             marc21ToMarcXmlConvertor.convert(inputFile, outputFile);
             Document marcXml = Utils.loadXmlFromFile(outputFile);
-            //TODO: validate against xsd
+            boolean valid = Utils.validateXmlAgainstXsd(marcXml, new File("src/main/resources/marc21ToMarcxml/MARC21slim.xsd"));
+            assertTrue(valid);
         } catch (Exception e) {
             fail(e);
         }
