@@ -49,6 +49,19 @@ public class Utils {
         }
     }
 
+    public static Document loadXmlFromString(String xmlString) {
+        try {
+            Builder builder = new Builder();
+            return builder.build(new StringReader(xmlString));
+        } catch (ParsingException e) {
+            System.err.println("Parsing error: " + e.getMessage());
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.err.println("I/O error: " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void saveDocumentToFile(Document document, File file) {
         try (FileOutputStream outputStream = new FileOutputStream(file)) {
             outputStream.write(document.toXML().getBytes());

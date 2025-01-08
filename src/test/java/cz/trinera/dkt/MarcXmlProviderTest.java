@@ -31,7 +31,9 @@ public class MarcXmlProviderTest {
         String barcode = "2610798805";
         Document marcDoc = marcXmlProvider.getMarcXml(barcode);
         assertTrue(marcDoc != null);
-        //TODO: check value
+        assertEquals("record", marcDoc.getRootElement().getLocalName());
+        //TODO: check namespace of root element
+        //TODO: validate with xsd
         System.out.println(marcDoc.toXML());
     }
 

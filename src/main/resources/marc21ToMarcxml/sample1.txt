@@ -1,0 +1,49 @@
+02685nam a2200601 i 4500
+001 mzk03001258835
+003 CZ BrMZK
+005 20210104181449.0
+007 ta
+008 190318s1789    xr     fr|||||00| ||czeod
+040    $a BOA001 $b cze $e rda
+072  7 $a 094 $x Staré tisky $2 Konspekt $9 12
+080    $a 27-185.33 $2 MRF
+080    $a (0.068)094 $2 MRF
+080    $a (0.068)098 $2 MRF
+245 00 $a Pjsně dwě k Pánu GEžjssy
+246 33 $a Písně dvě k Pánu Ježíši
+264  1 $a [Olomouc?] : $b [Josefa Terezie Hirnleová?], $c 1789
+300    $a 4 nečíslované listy ; $c 16° (111 mm)
+336    $a text $b txt $2 rdacontent
+337    $a bez média $b n $2 rdamedia
+338    $a svazek $b nc $2 rdacarrier
+500    $a Rozsah: 22 a 10 nečíslovaných slok
+500    $a Výzdoba: Na titulní straně dřevořez (47 x 33 mm), po jeho stranách typografické ozdoby, linka; na [4b] krátká linka z typografických ozdob
+500    $3 Ilustrace: $a Ježíš Kristus (ukřižovaný)_03_046 $5 CZ-BrMZK
+500    $a Text začíná na rubu titulního listu
+500    $a List [2a]: lils Krwe pro mně mnoho, kdyžto || z Těla twého tekla, pohleď má || [...]
+500    $a Na [3b]: Gako: Wzhůru wzhůru nedb: etc. || Mocný BOže politůg sám toho, || [...]
+510 4  $a Knihopis, $c K12953 $u https://aleph.nkp.cz/F/?func=direct&doc_number=000013011&local_base=KPS
+600 07 $a Ježíš Kristus $7 ola2002103454 $2 czenas
+650 07 $a pokání $7 ph124224 $2 czenas
+653    $a písně duchovní
+653    $a píseň - Ježíš Kristus
+655  7 $a staré tisky $7 fd422076 $2 czenas
+655  7 $a kramářské tisky $7 fd119171 $2 czenas
+740 02 $a Ach hřjssný co mám činiti
+740 02 $a Ach hříšný co mám činiti
+740 02 $a Ach, hříšný, co mám činiti
+740 02 $a Mocný BOže politůg sám toho
+740 02 $a Mocný Bože polituj sám toho
+740 02 $a Mocný Bože, polituj sám toho
+856 41 $u http://www.digitalniknihovna.cz/mzk/view/uuid:1f844c3d-9b0a-4970-bbf1-8d20e1bc7ded $y Digitalizovaný dokument
+903    $a RP
+910    $a BOA001 $b VK-0000.821
+924    $a Ach, hříšný, co mám činiti $b Ach hřjssný co mám činiti, $c musým na sebe taužiti, $d Barboro, panenko svatá
+924    $a Mocný Bože, polituj sám toho $b Mocný BOže politůg sám toho, $c gak na mne přjliss mnoho, $d Vzhůru, vzhůru nedb
+978    $b Hirnleová, Josefa Terezie? $a Olomouc? $c 1789
+984    $a Olomouc $b Česko
+985    $a 1751-1800
+990    $a BK
+993    $a Y
+991    $k mzk
+996 6  $b 2610798805 $c VK-0000.821 $l Stud. starých tisků/4.patro $r Sklad / do násl. otevíracího dne $n 0 $p dar $w 001759770 $u 000010 $a 1 $e BOA001 $j MZK50 $s P
