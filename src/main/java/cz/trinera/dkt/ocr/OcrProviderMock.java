@@ -1,6 +1,7 @@
 package cz.trinera.dkt.ocr;
 
 import cz.trinera.dkt.ToolAvailabilityError;
+import cz.trinera.dkt.Utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,8 +17,15 @@ public class OcrProviderMock implements OcrProvider {
     public void fetchOcr(File inImgFile, File outTextFile, File outAltoFile) {
         System.out.println("Fetching OCR for image " + inImgFile.getName());
         try {
-            outTextFile.createNewFile();
-            outAltoFile.createNewFile();
+            File homeDir = new File(System.getProperty("user.home"));
+            File sampleDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/ocr");
+            if (sampleDir.exists()) {
+                Utils.copyFile(new File(sampleDir, "sample1_page2.txt"), outTextFile);
+                Utils.copyFile(new File(sampleDir, "sample1_page2.xml"), outAltoFile);
+            } else {
+                outTextFile.createNewFile();
+                outAltoFile.createNewFile();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

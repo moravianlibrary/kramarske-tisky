@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -146,6 +147,7 @@ public class PeroHelperTest {
             //upload image
             //Supported formats are jpeg, jpg, tif, jp2, png, jpf, j2c, jpx, bmp, mj2, tiff, jpg2, j2k, jpm, jpc
             File imageFile = new File(sampleDir + "/0005.png");
+            System.out.println("uploading image... " + imageFile.getAbsolutePath());
             ApiResponse response = peroHelper.queryPostMultipart("upload_image/" + requestId + "/" + pageId, imageFile);
             String responseData = response.result.toString();
             JSONObject responseDataJson = new JSONObject(responseData);
@@ -163,6 +165,8 @@ public class PeroHelperTest {
         ApiResponse response = peroHelper.queryPostMultipart("upload_image/" + requestId + "/" + pageId, imageFile);
         String responseData = response.result.toString();
         JSONObject responseDataJson = new JSONObject(responseData);
+        System.out.println("image uploaded: ");
+        System.out.println(responseDataJson.toString(2));
     }
 
     private JSONObject checkStatus(String requestId) throws IOException {

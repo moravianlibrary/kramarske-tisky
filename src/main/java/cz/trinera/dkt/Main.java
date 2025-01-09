@@ -10,6 +10,7 @@ import cz.trinera.dkt.marc2mods.MarcToModsConvertor;
 import cz.trinera.dkt.marc2mods.MarcToModsConvertorImpl;
 import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.ocr.OcrProviderImpl;
+import cz.trinera.dkt.ocr.OcrProviderMock;
 import cz.trinera.dkt.tif2png.TifToPngConvertor;
 import cz.trinera.dkt.tif2png.TifToPngConvertorImpl;
 import org.apache.commons.cli.*;
@@ -136,12 +137,14 @@ public class Main {
                 Config.instanceOf().getBarcodeDetectorPythonScript()
         );
 
-        //OcrProvider ocrProvider = new OcrProviderMock();
         OcrProvider ocrProvider = new OcrProviderImpl(
                 Config.instanceOf().getOcrProviderPeroBaseUrl(),
                 Config.instanceOf().getOcrProviderPeroApiKey(),
                 Config.instanceOf().getOcrProviderPeroEngineId()
         );
+        if (DEV_MODE) {
+            ocrProvider = new OcrProviderMock();
+        }
 
         Jp2kConvertor jp2kConvertor = new Jp2kConvertorMock(); //TODO: use proper implementation in production
 
