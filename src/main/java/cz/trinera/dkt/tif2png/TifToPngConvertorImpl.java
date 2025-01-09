@@ -11,14 +11,12 @@ import java.util.List;
 
 public class TifToPngConvertorImpl implements TifToPngConvertor {
 
-    private final String checkImageMagickScriptPath;
+    private final String dependencyChecScriptPath;
     private final String tifToPngScriptPath;
 
-
-    public TifToPngConvertorImpl(String checkImageMagickScriptPath, String tifToPngScriptPath) {
-        this.checkImageMagickScriptPath = checkImageMagickScriptPath;
+    public TifToPngConvertorImpl(String dependencyChecScriptPath, String tifToPngScriptPath) {
+        this.dependencyChecScriptPath = dependencyChecScriptPath;
         this.tifToPngScriptPath = tifToPngScriptPath;
-
     }
 
     @Override
@@ -65,15 +63,15 @@ public class TifToPngConvertorImpl implements TifToPngConvertor {
 
     @Override
     public void checkAvailable() throws ToolAvailabilityError {
-        File checkImageMagickSkript = new File(checkImageMagickScriptPath);
+        File checkImageMagickSkript = new File(dependencyChecScriptPath);
         if (!checkImageMagickSkript.exists()) {
-            throw new ToolAvailabilityError("Tif2Png detector: Script " + checkImageMagickScriptPath + " does not exist.");
+            throw new ToolAvailabilityError("Tif2Png detector: Script " + dependencyChecScriptPath + " does not exist.");
         }
         if (!checkImageMagickSkript.canRead()) {
-            throw new ToolAvailabilityError("Tif2Png detector: Script " + checkImageMagickScriptPath + " is not readable.");
+            throw new ToolAvailabilityError("Tif2Png detector: Script " + dependencyChecScriptPath + " is not readable.");
         }
         if (!checkImageMagickSkript.canExecute()) {
-            throw new ToolAvailabilityError("Tif2Png detector: Script " + checkImageMagickScriptPath + " is not executable.");
+            throw new ToolAvailabilityError("Tif2Png detector: Script " + dependencyChecScriptPath + " is not executable.");
         }
         File tifToPngScript = new File(tifToPngScriptPath);
         if (!tifToPngScript.exists()) {
@@ -88,7 +86,7 @@ public class TifToPngConvertorImpl implements TifToPngConvertor {
         // run the check script to verify the availability of the required Python packages
         try {
             // Command to run the Python script
-            ProcessBuilder processBuilder = new ProcessBuilder(checkImageMagickScriptPath);
+            ProcessBuilder processBuilder = new ProcessBuilder(dependencyChecScriptPath);
             // Start the process
             Process process = processBuilder.start();
             // Wait for the process to finish
@@ -99,16 +97,16 @@ public class TifToPngConvertorImpl implements TifToPngConvertor {
                 String line;
                 if ((line = reader.readLine()) != null) {
                     System.out.println("line: " + line);
-                    throw new ToolAvailabilityError("Tif2Png detector: Script " + checkImageMagickScriptPath + " failed: " + line);
+                    throw new ToolAvailabilityError("Tif2Png detector: Script " + dependencyChecScriptPath + " failed: " + line);
                 } else {
-                    throw new ToolAvailabilityError("Tif2Png detector: Script " + checkImageMagickScriptPath + " failed");
+                    throw new ToolAvailabilityError("Tif2Png detector: Script " + dependencyChecScriptPath + " failed");
 
                 }
             }
         } catch (ToolAvailabilityError e) {
             throw e;
         } catch (Exception e) {
-            throw new ToolAvailabilityError("Tif2Png detector: Script " + checkImageMagickScriptPath + " failed", e);
+            throw new ToolAvailabilityError("Tif2Png detector: Script " + dependencyChecScriptPath + " failed", e);
         }
     }
 }

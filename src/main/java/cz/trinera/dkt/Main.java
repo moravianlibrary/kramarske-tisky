@@ -13,6 +13,7 @@ import cz.trinera.dkt.ocr.OcrProviderImpl;
 import cz.trinera.dkt.ocr.OcrProviderMock;
 import cz.trinera.dkt.tif2png.TifToPngConvertor;
 import cz.trinera.dkt.tif2png.TifToPngConvertorImpl;
+import cz.trinera.dkt.tif2png.TifToPngConvertorMock;
 import org.apache.commons.cli.*;
 
 
@@ -130,6 +131,9 @@ public class Main {
                 Config.instanceOf().getTifToPngConvertorDependencyCheckScript(),
                 Config.instanceOf().getTifToPngConvertorScript()
         );
+        if (DEV_MODE) {
+            tifToPngConvertor = new TifToPngConvertorMock();
+        }
 
         //BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar("src/main/resources/barcode/check_pyzbar.py", "src/main/resources/barcode/detect_barcode.py");
         BarcodeDetector barcodeDetector = new BarcodeDetectorImplPyzbar(
