@@ -4,7 +4,7 @@ import cz.trinera.dkt.ToolAvailabilityError;
 
 import java.io.File;
 
-public interface Jp2kConvertor {
+public interface Jp2kConverter {
 
     public void convertToJp2k(File inPngFile, File outUsercopyJp2kFile, File outArchivecopyJp2kFile);
 

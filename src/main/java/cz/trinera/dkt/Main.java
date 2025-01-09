@@ -2,21 +2,19 @@ package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetectorImplPyzbar;
-import cz.trinera.dkt.jp2k.Jp2kConvertor;
-import cz.trinera.dkt.jp2k.Jp2kConvertorMock;
+import cz.trinera.dkt.jp2k.Jp2kConverter;
+import cz.trinera.dkt.jp2k.Jp2KConverterMock;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc21.MarcXmlProviderImplYazClient;
-import cz.trinera.dkt.marc2mods.MarcToModsConvertor;
-import cz.trinera.dkt.marc2mods.MarcToModsConvertorImpl;
+import cz.trinera.dkt.marc2mods.MarcToModsConverter;
+import cz.trinera.dkt.marc2mods.MarcToModsConverterImpl;
 import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.ocr.OcrProviderImpl;
 import cz.trinera.dkt.ocr.OcrProviderMock;
-import cz.trinera.dkt.tif2png.TifToPngConvertor;
-import cz.trinera.dkt.tif2png.TifToPngConvertorImpl;
-import cz.trinera.dkt.tif2png.TifToPngConvertorMock;
+import cz.trinera.dkt.tif2png.TifToPngConverter;
+import cz.trinera.dkt.tif2png.TifToPngConverterImpl;
+import cz.trinera.dkt.tif2png.TifToPngConverterMock;
 import org.apache.commons.cli.*;
-
-
 import java.io.File;
 
 public class Main {
@@ -127,12 +125,12 @@ public class Main {
     }
 
     private static DigitizationWorkflow getDigitizationWorkflow() throws ToolAvailabilityError {
-        TifToPngConvertor tifToPngConvertor = new TifToPngConvertorImpl(
-                Config.instanceOf().getTifToPngConvertorDependencyCheckScript(),
-                Config.instanceOf().getTifToPngConvertorScript()
+        TifToPngConverter tifToPngConverter = new TifToPngConverterImpl(
+                Config.instanceOf().getTifToPngConverterDependencyCheckScript(),
+                Config.instanceOf().getTifToPngConverterScript()
         );
         if (DEV_MODE) {
-            tifToPngConvertor = new TifToPngConvertorMock();
+            tifToPngConverter = new TifToPngConverterMock();
         }
 
         //BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar("src/main/resources/barcode/check_pyzbar.py", "src/main/resources/barcode/detect_barcode.py");
@@ -150,7 +148,7 @@ public class Main {
             ocrProvider = new OcrProviderMock();
         }
 
-        Jp2kConvertor jp2kConvertor = new Jp2kConvertorMock(); //TODO: use proper implementation in production
+        Jp2kConverter jp2KConverter = new Jp2KConverterMock(); //TODO: use proper implementation in production
 
         //MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock();
         MarcXmlProvider marcXmlProvider = new MarcXmlProviderImplYazClient(
@@ -161,19 +159,19 @@ public class Main {
                 Config.instanceOf().getMarcXmlProviderBase()
         );
 
-        //MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(marcToModsXsltFile.getAbsolutePath());
-        MarcToModsConvertor marcToModsConvertor = new MarcToModsConvertorImpl(
-                Config.instanceOf().getMarcxmlToModsConvertorXsltFile()
+        //MarcToModsConverter marcToModsConverter = new MarcToModsConverterImpl(marcToModsXsltFile.getAbsolutePath());
+        MarcToModsConverter marcToModsConverter = new MarcToModsConverterImpl(
+                Config.instanceOf().getMarcxmlToModsConverterXsltFile()
         );
 
         //check availability of all components
-        tifToPngConvertor.checkAvailable();
+        tifToPngConverter.checkAvailable();
         barcodeDetector.checkAvailable();
         ocrProvider.checkAvailable();
-        jp2kConvertor.checkAvailable();
+        jp2KConverter.checkAvailable();
         marcXmlProvider.checkAvailable();
-        marcToModsConvertor.checkAvailable();
+        marcToModsConverter.checkAvailable();
 
-        return new DigitizationWorkflow(tifToPngConvertor, barcodeDetector, ocrProvider, jp2kConvertor, marcXmlProvider, marcToModsConvertor);
+        return new DigitizationWorkflow(tifToPngConverter, barcodeDetector, ocrProvider, jp2KConverter, marcXmlProvider, marcToModsConverter);
     }
 }

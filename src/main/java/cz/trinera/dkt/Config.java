@@ -13,9 +13,9 @@ public class Config {
     private final String pythonExecutable;
     private final String barcodeDetectorPythonDependencyCheckScript;
     private final String barcodeDetectorPythonScript;
-    private final String tifToPngConvertorDependencyCheckScript;
-    private final String tifToPngConvertorScript;
-    private final String marcxmlToModsConvertorXsltFile;
+    private final String tifToPngConverterDependencyCheckScript;
+    private final String tifToPngConverterScript;
+    private final String marcxmlToModsConverterXsltFile;
     private final String ocrProviderPeroBaseUrl;
     private final String ocrProviderPeroApiKey;
     private final int ocrProviderPeroEngineId;
@@ -57,9 +57,9 @@ public class Config {
         }
         barcodeDetectorPythonDependencyCheckScript = getNonemptyProperty(properties, "barcode_detector.python_dependency_check_script");
         barcodeDetectorPythonScript = getNonemptyProperty(properties, "barcode_detector.python_script");
-        tifToPngConvertorDependencyCheckScript = getNonemptyProperty(properties, "tif_to_png_convertor.dependency_check_script");
-        tifToPngConvertorScript = getNonemptyProperty(properties, "tif_to_png_convertor.script");
-        marcxmlToModsConvertorXsltFile = getNonemptyProperty(properties, "marcxml_to_mods_convertor.xslt_file");
+        tifToPngConverterDependencyCheckScript = getNonemptyProperty(properties, "tif_to_png_converter.dependency_check_script");
+        tifToPngConverterScript = getNonemptyProperty(properties, "tif_to_png_converter.script");
+        marcxmlToModsConverterXsltFile = getNonemptyProperty(properties, "marcxml_to_mods_converter.xslt_file");
         ocrProviderPeroBaseUrl = getNonemptyProperty(properties, "ocr_provider_pero.base_url");
         ocrProviderPeroApiKey = getNonemptyProperty(properties, "ocr_provider_pero.api_key");
         ocrProviderPeroEngineId = Integer.parseInt(getNonemptyProperty(properties, "ocr_provider_pero.engine_id"));
@@ -105,16 +105,16 @@ public class Config {
         return barcodeDetectorPythonScript;
     }
 
-    public String getTifToPngConvertorDependencyCheckScript() {
-        return tifToPngConvertorDependencyCheckScript;
+    public String getTifToPngConverterDependencyCheckScript() {
+        return tifToPngConverterDependencyCheckScript;
     }
 
-    public String getTifToPngConvertorScript() {
-        return tifToPngConvertorScript;
+    public String getTifToPngConverterScript() {
+        return tifToPngConverterScript;
     }
 
-    public String getMarcxmlToModsConvertorXsltFile() {
-        return marcxmlToModsConvertorXsltFile;
+    public String getMarcxmlToModsConverterXsltFile() {
+        return marcxmlToModsConverterXsltFile;
     }
 
     public String getOcrProviderPeroBaseUrl() {
@@ -155,9 +155,9 @@ public class Config {
                 "pythonExecutable='" + pythonExecutable + '\'' +
                 ", barcodeDetectorPythonDependencyCheckScript='" + barcodeDetectorPythonDependencyCheckScript + '\'' +
                 ", barcodeDetectorPythonScript='" + barcodeDetectorPythonScript + '\'' +
-                ", tifToPngConvertorDependencyCheckScript='" + tifToPngConvertorDependencyCheckScript + '\'' +
-                ", tifToPngConvertorScript='" + tifToPngConvertorScript + '\'' +
-                ", marcxmlToModsConvertorXsltFile='" + marcxmlToModsConvertorXsltFile + '\'' +
+                ", tifToPngConverterDependencyCheckScript='" + tifToPngConverterDependencyCheckScript + '\'' +
+                ", tifToPngConverterScript='" + tifToPngConverterScript + '\'' +
+                ", marcxmlToModsConverterXsltFile='" + marcxmlToModsConverterXsltFile + '\'' +
                 ", ocrProviderPeroBaseUrl='" + ocrProviderPeroBaseUrl + '\'' +
                 ", ocrProviderPeroEngieId=" + ocrProviderPeroEngineId + '\'' +
                 ", marcXmlProviderPythonDependencyCheckScript='" + marcXmlProviderPythonDependencyCheckScript + '\'' +

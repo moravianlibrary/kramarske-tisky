@@ -6,11 +6,11 @@ import nu.xom.Document;
 
 import java.io.File;
 
-public class MarcToModsConvertorImpl implements MarcToModsConvertor {
+public class MarcToModsConverterImpl implements MarcToModsConverter {
 
     private final File xsltFile;
 
-    public MarcToModsConvertorImpl(String xsltFilePath) {
+    public MarcToModsConverterImpl(String xsltFilePath) {
         this.xsltFile = new File(xsltFilePath);
     }
 
@@ -24,15 +24,15 @@ public class MarcToModsConvertorImpl implements MarcToModsConvertor {
     @Override
     public void checkAvailable() throws ToolAvailabilityError {
         if (!xsltFile.exists()) {
-            throw new ToolAvailabilityError("MarcToModsConvertor: XSLT file " + xsltFile.getAbsolutePath() + " does not exist");
+            throw new ToolAvailabilityError("MarcToModsConverter: XSLT file " + xsltFile.getAbsolutePath() + " does not exist");
         } else if (!xsltFile.canRead()) {
-            throw new ToolAvailabilityError("MarcToModsConvertor: XSLT file " + xsltFile.getAbsolutePath() + " is not readable");
+            throw new ToolAvailabilityError("MarcToModsConverter: XSLT file " + xsltFile.getAbsolutePath() + " is not readable");
         } else {
             try {
                 //test parse the xslt file
                 Utils.loadXmlFromFile(xsltFile);
             } catch (Throwable e) {
-                throw new ToolAvailabilityError("MarcToModsConvertor: XSLT file " + xsltFile.getAbsolutePath() + " is not a valid XML file", e);
+                throw new ToolAvailabilityError("MarcToModsConverter: XSLT file " + xsltFile.getAbsolutePath() + " is not a valid XML file", e);
             }
         }
     }

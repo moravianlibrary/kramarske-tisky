@@ -4,7 +4,7 @@ import cz.trinera.dkt.ToolAvailabilityError;
 
 import java.io.File;
 
-public interface TifToPngConvertor {
+public interface TifToPngConverter {
 
     public void convertAllTifFilesToPng(File inputDir, File outputDir);
 

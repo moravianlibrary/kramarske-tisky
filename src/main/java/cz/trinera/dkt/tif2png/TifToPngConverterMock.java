@@ -1,12 +1,11 @@
 package cz.trinera.dkt.tif2png;
 
 import cz.trinera.dkt.ToolAvailabilityError;
-import cz.trinera.dkt.Utils;
 
 import java.io.File;
 import java.io.IOException;
 
-public class TifToPngConvertorMock implements TifToPngConvertor {
+public class TifToPngConverterMock implements TifToPngConverter {
 
     @Override
     public void convertAllTifFilesToPng(File inputDir, File outputDir) {

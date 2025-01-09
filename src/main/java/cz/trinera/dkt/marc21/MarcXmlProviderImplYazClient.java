@@ -20,7 +20,7 @@ public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
     private final int port;
     private final String base;
 
-    private final Marc21ToMarcXmlConverter marc21ToMarcXmlConvertor = new Marc21ToMarcXmlConverter();
+    private final Marc21ToMarcXmlConverter marc21ToMarcXmlConverter = new Marc21ToMarcXmlConverter();
 
     public MarcXmlProviderImplYazClient(String pythonDependencyCheckScript, String pythonMarc21ByBarcodeScript, String host, int port, String base) {
         this.pythonExecutable = Config.instanceOf().getPythonExecutable();
@@ -121,7 +121,7 @@ public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
             //System.out.println("result: ");
             //System.out.println(result);
 
-            return marc21ToMarcXmlConvertor.convert(result);
+            return marc21ToMarcXmlConverter.convert(result);
         } catch (Exception e) {
             throw new RuntimeException("MarcXml provider: Error while executing Python script " + pythonMarc21ByBarcodeScript, e);
         }

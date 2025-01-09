@@ -2,11 +2,11 @@ package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
-import cz.trinera.dkt.jp2k.Jp2kConvertor;
+import cz.trinera.dkt.jp2k.Jp2kConverter;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
-import cz.trinera.dkt.marc2mods.MarcToModsConvertor;
+import cz.trinera.dkt.marc2mods.MarcToModsConverter;
 import cz.trinera.dkt.ocr.OcrProvider;
-import cz.trinera.dkt.tif2png.TifToPngConvertor;
+import cz.trinera.dkt.tif2png.TifToPngConverter;
 import nu.xom.Document;
 
 import java.io.File;
@@ -18,20 +18,20 @@ import java.util.List;
 
 public class DigitizationWorkflow {
 
-    private final TifToPngConvertor tifToPngConvertor;
+    private final TifToPngConverter tifToPngConverter;
     private final BarcodeDetector barcodeDetector;
     private final OcrProvider ocrProvider;
-    private final Jp2kConvertor jp2kConvertor;
+    private final Jp2kConverter jp2KConverter;
     private final MarcXmlProvider marcXmlProvider;
-    private final MarcToModsConvertor marcToModsConvertor;
+    private final MarcToModsConverter marcToModsConverter;
 
-    public DigitizationWorkflow(TifToPngConvertor tifToPngConvertor, BarcodeDetector barcodeDetector, OcrProvider ocrProvider, Jp2kConvertor jp2kConvertor, MarcXmlProvider marcXmlProvider, MarcToModsConvertor marcToModsConvertor) {
-        this.tifToPngConvertor = tifToPngConvertor;
+    public DigitizationWorkflow(TifToPngConverter tifToPngConverter, BarcodeDetector barcodeDetector, OcrProvider ocrProvider, Jp2kConverter jp2KConverter, MarcXmlProvider marcXmlProvider, MarcToModsConverter marcToModsConverter) {
+        this.tifToPngConverter = tifToPngConverter;
         this.barcodeDetector = barcodeDetector;
         this.ocrProvider = ocrProvider;
-        this.jp2kConvertor = jp2kConvertor;
+        this.jp2KConverter = jp2KConverter;
         this.marcXmlProvider = marcXmlProvider;
-        this.marcToModsConvertor = marcToModsConvertor;
+        this.marcToModsConverter = marcToModsConverter;
     }
 
     /**
@@ -50,7 +50,7 @@ public class DigitizationWorkflow {
         //convert all tif images to png
         if (!Config.instanceOf().isDevTifToPngConversionDisabled()) {
             System.out.println("Converting all tif images to png in " + inputDir + " to " + pngInputDir);
-            this.tifToPngConvertor.convertAllTifFilesToPng(inputDir, pngInputDir);
+            this.tifToPngConverter.convertAllTifFilesToPng(inputDir, pngInputDir);
             System.out.println("All tif images converted to png");
             System.out.println();
         }
@@ -203,7 +203,7 @@ public class DigitizationWorkflow {
         for (NamedPage page : pages) {
             File jp2kUserCopyFile = new File(jp2kUserCopyDir, page.getPosition() + ".jp2");
             File jp2kArchiveCopyFile = new File(jp2kArchiveCopyDir, page.getPosition() + ".jp2");
-            jp2kConvertor.convertToJp2k(page.getImageFile(), jp2kUserCopyFile, jp2kArchiveCopyFile);
+            jp2KConverter.convertToJp2k(page.getImageFile(), jp2kUserCopyFile, jp2kArchiveCopyFile);
         }
 
         //marc xml
@@ -212,7 +212,7 @@ public class DigitizationWorkflow {
         Utils.saveDocumentToFile(marcXml, marcXmlFile);
 
         //marcxml to MODS
-        Document modsDoc = marcToModsConvertor.convertMarcToMods(marcXml);
+        Document modsDoc = marcToModsConverter.convertMarcToMods(marcXml);
         File modsFile = new File(workingDirBlock, "mods.xml");
         Utils.saveDocumentToFile(modsDoc, modsFile);
         //System.out.println(Utils.prettyPrintDocument(modsDoc));

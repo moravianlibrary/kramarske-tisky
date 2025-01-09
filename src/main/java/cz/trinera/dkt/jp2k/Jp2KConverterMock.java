@@ -5,7 +5,7 @@ import cz.trinera.dkt.ToolAvailabilityError;
 import java.io.File;
 import java.io.IOException;
 
-public class Jp2kConvertorMock implements Jp2kConvertor {
+public class Jp2KConverterMock implements Jp2kConverter {
 
     @Override
     public void convertToJp2k(File inPngFile, File outUsercopyJp2kFile, File outArchivecopyJp2kFile) {

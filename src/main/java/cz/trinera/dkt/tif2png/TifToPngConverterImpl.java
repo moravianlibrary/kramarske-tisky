@@ -9,12 +9,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TifToPngConvertorImpl implements TifToPngConvertor {
+public class TifToPngConverterImpl implements TifToPngConverter {
 
     private final String dependencyChecScriptPath;
     private final String tifToPngScriptPath;
 
-    public TifToPngConvertorImpl(String dependencyChecScriptPath, String tifToPngScriptPath) {
+    public TifToPngConverterImpl(String dependencyChecScriptPath, String tifToPngScriptPath) {
         this.dependencyChecScriptPath = dependencyChecScriptPath;
         this.tifToPngScriptPath = tifToPngScriptPath;
     }
@@ -54,10 +54,10 @@ public class TifToPngConvertorImpl implements TifToPngConvertor {
             // Wait for the process to finish
             int exitCode = process.waitFor();
             if (exitCode != 0) {
-                throw new RuntimeException("Tif2Png convertor: Script " + tifToPngScriptPath + " failed with exit code " + exitCode + ": " + output);
+                throw new RuntimeException("Tif2Png converter: Script " + tifToPngScriptPath + " failed with exit code " + exitCode + ": " + output);
             }
         } catch (Exception e) {
-            throw new RuntimeException("Tif2Png convertor: Error while executing script " + tifToPngScriptPath, e);
+            throw new RuntimeException("Tif2Png converter: Error while executing script " + tifToPngScriptPath, e);
         }
     }
 
