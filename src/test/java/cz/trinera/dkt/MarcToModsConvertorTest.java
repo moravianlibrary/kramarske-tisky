@@ -37,4 +37,16 @@ public class MarcToModsConvertorTest {
         //assertEquals(expectedResult.toXML(), converted.toXML());
         assertEquals(Utils.prettyPrintDocument(expectedResult), Utils.prettyPrintDocument(converted));
     }
+
+    @Test
+    public void convertSample3() {
+        //converted from marc21
+        File marcxmlInputFile = new File("src/main/resources/marc21ToMarcxml/sample1.xml");
+        Document marcDoc = Utils.loadXmlFromFile(marcxmlInputFile);
+        Document converted = convertor.convertMarcToMods(marcDoc);
+        //System.out.println(converted.toXML());
+        Document expectedResult = Utils.loadXmlFromFile(new File("src/main/resources/marc21ToMarcxml/sample1_mods.xml"));
+        //assertEquals(expectedResult.toXML(), converted.toXML());
+        assertEquals(Utils.prettyPrintDocument(expectedResult), Utils.prettyPrintDocument(converted));
+    }
 }
