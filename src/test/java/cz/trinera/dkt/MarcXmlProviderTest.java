@@ -77,13 +77,17 @@ public class MarcXmlProviderTest {
     }
 
     private void convertSample(String barcode) {
-        Document marcDoc = marcXmlProvider.getMarcXml(barcode);
-        assertNotNull(marcDoc);
-        assertEquals("record", marcDoc.getRootElement().getLocalName());
-        assertEquals("http://www.loc.gov/MARC21/slim", marcDoc.getRootElement().getNamespaceURI());
-        //System.out.println(marcDoc.toXML());
-        boolean valid = Utils.validateXmlAgainstXsd(marcDoc, new File("src/main/resources/marc21ToMarcxml/MARC21slim.xsd"));
-        assertTrue(valid);
+        try {
+            Document marcDoc = marcXmlProvider.getMarcXml(barcode);
+            assertNotNull(marcDoc);
+            assertEquals("record", marcDoc.getRootElement().getLocalName());
+            assertEquals("http://www.loc.gov/MARC21/slim", marcDoc.getRootElement().getNamespaceURI());
+            //System.out.println(marcDoc.toXML());
+            boolean valid = Utils.validateXmlAgainstXsd(marcDoc, new File("src/main/resources/marc21ToMarcxml/MARC21slim.xsd"));
+            assertTrue(valid);
+        } catch (Throwable e) {
+            fail(e);
+        }
     }
 
     @Test

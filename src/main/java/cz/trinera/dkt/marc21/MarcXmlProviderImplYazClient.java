@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
@@ -88,7 +89,7 @@ public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
             List<String> command = new ArrayList<>();
             command.add(pythonExecutable);
             command.add(pythonMarc21ByBarcodeScript);
-            command.add("--hos");
+            command.add("--host");
             command.add(host);
             command.add("--port");
             command.add(String.valueOf(port));
@@ -96,6 +97,10 @@ public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
             command.add(base);
             command.add("--barcode");
             command.add(barcode);
+
+            //print command as string
+            String commandStr = Arrays.toString(command.toArray()).substring(1, Arrays.toString(command.toArray()).length() - 1).replaceAll(",", "");
+            //System.out.println("command: " + commandStr);
 
             // Start the process
             ProcessBuilder processBuilder = new ProcessBuilder(command);

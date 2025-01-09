@@ -5,15 +5,21 @@ import argparse
 
 def search_record(host, port, base, barcode, debug=False):
     try:
+        if debug:
+            print(f"DEBUG: Host: {host}")
+            print(f"DEBUG: Port: {port}")
+            print(f"DEBUG: Base: {base}")
+            print(f"DEBUG: Barcode: {barcode}")
         # Start the yaz-client process
         process = subprocess.Popen(['yaz-client'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-
+        if debug:
+            print("DEBUG: yaz-client process started.")
         # Commands to run in yaz-client
         commands = f"""open {host}:{port}
 base {base}
 format marc21
 find @attr 1=1063 {barcode}
-show
+show\n
 """
 
         # Communicate with the yaz-client process
