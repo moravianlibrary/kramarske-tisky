@@ -15,6 +15,8 @@ public class Config {
     private final String barcodeDetectorPythonScript;
     private final String tifToPngConverterDependencyCheckScript;
     private final String tifToPngConverterScript;
+    private final String tifToJp2ConverterDependencyCheckScript;
+    private final String tifToJp2ConverterScript;
     private final String marcxmlToModsConverterXsltFile;
     private final String ocrProviderPeroBaseUrl;
     private final String ocrProviderPeroApiKey;
@@ -59,6 +61,8 @@ public class Config {
         barcodeDetectorPythonScript = getNonemptyProperty(properties, "barcode_detector.python_script");
         tifToPngConverterDependencyCheckScript = getNonemptyProperty(properties, "tif_to_png_converter.dependency_check_script");
         tifToPngConverterScript = getNonemptyProperty(properties, "tif_to_png_converter.script");
+        tifToJp2ConverterDependencyCheckScript = getNonemptyProperty(properties, "tif_to_jp2_converter.dependency_check_script");
+        tifToJp2ConverterScript = getNonemptyProperty(properties, "tif_to_jp2_converter.script");
         marcxmlToModsConverterXsltFile = getNonemptyProperty(properties, "marcxml_to_mods_converter.xslt_file");
         ocrProviderPeroBaseUrl = getNonemptyProperty(properties, "ocr_provider_pero.base_url");
         ocrProviderPeroApiKey = getNonemptyProperty(properties, "ocr_provider_pero.api_key");
@@ -113,6 +117,14 @@ public class Config {
         return tifToPngConverterScript;
     }
 
+    public String getTifToJp2ConverterDependencyCheckScript() {
+        return tifToJp2ConverterDependencyCheckScript;
+    }
+
+    public String getTifToJp2ConverterScript() {
+        return tifToJp2ConverterScript;
+    }
+
     public String getMarcxmlToModsConverterXsltFile() {
         return marcxmlToModsConverterXsltFile;
     }
@@ -157,6 +169,8 @@ public class Config {
                 ", barcodeDetectorPythonScript='" + barcodeDetectorPythonScript + '\'' +
                 ", tifToPngConverterDependencyCheckScript='" + tifToPngConverterDependencyCheckScript + '\'' +
                 ", tifToPngConverterScript='" + tifToPngConverterScript + '\'' +
+                ", tifToJp2ConverterDependencyCheckScript='" + tifToJp2ConverterDependencyCheckScript + '\'' +
+                ", tifToJp2ConverterScript='" + tifToJp2ConverterScript + '\'' +
                 ", marcxmlToModsConverterXsltFile='" + marcxmlToModsConverterXsltFile + '\'' +
                 ", ocrProviderPeroBaseUrl='" + ocrProviderPeroBaseUrl + '\'' +
                 ", ocrProviderPeroEngieId=" + ocrProviderPeroEngineId + '\'' +

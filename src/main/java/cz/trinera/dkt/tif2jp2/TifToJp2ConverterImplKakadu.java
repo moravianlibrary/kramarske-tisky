@@ -67,13 +67,15 @@ public class TifToJp2ConverterImplKakadu implements TifToJp2Converter {
 
     @Override
     public void convertToJp2(File inPngFile, File outArchivecopyJp2File, File outUsercopyJp2File) {
-        //TODO: implement properly
         System.out.println("Converting to jp2 images " + inPngFile.getName());
-        try {
+        //TODO: implement properly
+        throw new UnsupportedOperationException("Not implemented properly yet");
+        /*try {
             outArchivecopyJp2File.createNewFile();
             outUsercopyJp2File.createNewFile();
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
+        }*/
+
     }
 }

@@ -150,9 +150,9 @@ public class Main {
         }
 
         //TifToJp2Converter tifToJp2Converter = new TifToJp2ConverterMock();
-        TifToJp2Converter tifToJp2Converter = new TifToJp2ConverterImplKakadu(//TODO: from config
-                "/Users/martinrehanek/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/tif2jp2/check_kakadu.py",
-                "/Users/martinrehanek/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/tif2jp2/convert_tif_to_jp2_mc_uc.sh"
+        TifToJp2Converter tifToJp2Converter = new TifToJp2ConverterImplKakadu(
+                Config.instanceOf().getTifToJp2ConverterDependencyCheckScript(),
+                Config.instanceOf().getTifToJp2ConverterScript()
         );
 
         //MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock();
