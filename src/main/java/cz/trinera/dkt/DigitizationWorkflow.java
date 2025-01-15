@@ -18,6 +18,16 @@ import java.util.List;
 
 public class DigitizationWorkflow {
 
+    private static class InputImage {
+        final File pngFile;
+        final File tifFile;
+
+        InputImage(File pngFile, File tifFile) {
+            this.pngFile = pngFile;
+            this.tifFile = tifFile;
+        }
+    }
+
     private final TifToPngConverter tifToPngConverter;
     private final BarcodeDetector barcodeDetector;
     private final OcrProvider ocrProvider;
@@ -55,20 +65,20 @@ public class DigitizationWorkflow {
             System.out.println();
         }
 
-        //process all png files in the directory inputDir
+        //process all png files in the directory pngInputDir
         Barcode lastBarcode = null;
-        List<File> imagesToBeProcessed = new ArrayList<>();
+        List<InputImage> imagesToBeProcessed = new ArrayList<>();
 
         int processedBlocks = 0;
         Integer maxBlocksToProcess = Config.instanceOf().getDevMaxBlocksToProcess();
-        for (File file : listImageFiles(pngInputDir)) {
+        for (File pngFile : listImageFiles(pngInputDir)) {
             if (maxBlocksToProcess != null && processedBlocks >= maxBlocksToProcess) {
                 System.out.println("Limit MAX_BLOCKS_TO_PROCESS reached (" + maxBlocksToProcess + " blocks), quitting now");
                 return;
             }
-            if (file.getName().endsWith(".png")) {
+            if (pngFile.getName().endsWith(".png")) {
                 //System.out.println("Listing " + file.getName());
-                BarcodeDetector.Barcode barcode = barcodeDetector.detect(file);
+                BarcodeDetector.Barcode barcode = barcodeDetector.detect(pngFile);
                 if (barcode != null) {
                     if (lastBarcode == null) {
                         lastBarcode = barcode;
@@ -83,7 +93,7 @@ public class DigitizationWorkflow {
                         imagesToBeProcessed.clear();
                     }
                 } else {
-                    imagesToBeProcessed.add(file);
+                    imagesToBeProcessed.add(new InputImage(pngFile, new File(inputDir, pngFile.getName().replace(".png", ".tif"))));
                 }
             }
         }
@@ -108,7 +118,7 @@ public class DigitizationWorkflow {
     }
 
 
-    private void processBlock(List<File> imagesToBeProcessed, BarcodeDetector.Barcode barcode, File workingDir, File ndkPackageWorkingDir, File resultsDir) {
+    private void processBlock(List<InputImage> imagesToBeProcessed, BarcodeDetector.Barcode barcode, File workingDir, File ndkPackageWorkingDir, File resultsDir) {
         System.out.println();
         System.out.println("Processing new block");
         System.out.println("PHASE 0");
@@ -129,7 +139,7 @@ public class DigitizationWorkflow {
         if (namedPages == null) {
             return;
         }
-        //phase 2 - fetch OCR, fetch marc, convert to MODS, convert images to jp2
+        //phase 2 - fetch OCR, fetch marc, convert to MODS, convert tif images to jp2
         processBlockPhase2(namedPages, barcode, workingDirForBlock);
 
         //phase 3 - build NDK package
@@ -142,11 +152,11 @@ public class DigitizationWorkflow {
     /**
      * Checks image files, if they are valid block of pages (4, 8, 16 pages), create
      */
-    private List<NamedPage> processBlockPhase1(List<File> imagesToBeProcessed, BarcodeDetector.Barcode barcode, File workingDirForBlock) {
+    private List<NamedPage> processBlockPhase1(List<InputImage> imagesToBeProcessed, BarcodeDetector.Barcode barcode, File workingDirForBlock) {
         System.out.println("PHASE 1");
         makeSureReadableWritableDirExists(workingDirForBlock);
-        String imageFilesStr = imagesToBeProcessed.stream().map(File::getName).reduce((a, b) -> a + ", " + b).orElse("");
-        System.out.println("Processing " + imagesToBeProcessed.size() + " files with barcode " + barcode.getValue() + ": " + imageFilesStr);
+        String pngImageFilesStr = imagesToBeProcessed.stream().map((InputImage t) -> t.pngFile.getName()).reduce((a, b) -> a + ", " + b).orElse("");
+        System.out.println("Processing " + imagesToBeProcessed.size() + " files with barcode " + barcode.getValue() + ": " + pngImageFilesStr);
         //test if correct number of pages
         int[] expectedNumbersOfPages = {4, 8, 16}; //musí být sudý počet stránek
         if (Arrays.stream(expectedNumbersOfPages).noneMatch(count -> count == imagesToBeProcessed.size())) {
@@ -158,7 +168,7 @@ public class DigitizationWorkflow {
         for (int i = 0, num = 1; i < imagesToBeProcessed.size(); i++) {
             char side = i % 2 == 0 ? 'r' : 'v';
             String pageName = "" + num + side;
-            pages.add(new NamedPage(i + 1, pageName, imagesToBeProcessed.get(i)));
+            pages.add(new NamedPage(i + 1, pageName, imagesToBeProcessed.get(i).pngFile, imagesToBeProcessed.get(i).tifFile));
             if (i % 2 == 1) {
                 num++;
             }
@@ -173,14 +183,14 @@ public class DigitizationWorkflow {
         for (NamedPage page : pages) {
             File pageDestFile = new File(blockWorkingDirImagesDir, page.getPosition() + ".png");
             //System.out.println("Copying " + page.getImageFile().getAbsolutePath() + " to " + pageDestFile.getAbsolutePath());
-            Utils.copyFile(page.getImageFile(), pageDestFile);
-            pagesInWorkingDir.add(page.withDifferentFile(pageDestFile));
+            Utils.copyFile(page.getPngImageFile(), pageDestFile);
+            pagesInWorkingDir.add(page.withDifferentPngImageFile(pageDestFile));
         }
         return pagesInWorkingDir;
     }
 
     /*
-     * Process images in working dir (copy of original images), fetch marc and convert to MODS, fetch OCR, convert images to jp2
+     * Process images in working dir (copy of original images), fetch marc and convert to MODS, fetch OCR, convert images (original tif versions) to jp2
      */
     private void processBlockPhase2(List<NamedPage> pages, Barcode barcode, File workingDirBlock) {
         //fetch OCR (text, alto) for each page
@@ -192,7 +202,7 @@ public class DigitizationWorkflow {
             //System.out.println(page);
             File ocrTextFile = new File(ocrTextDir, page.getPosition() + ".txt");
             File ocrAltoFile = new File(ocrAltoDir, page.getPosition() + ".xml");
-            ocrProvider.fetchOcr(page.getImageFile(), ocrTextFile, ocrAltoFile);
+            ocrProvider.fetchOcr(page.getPngImageFile(), ocrTextFile, ocrAltoFile);
         }
 
         //convert each page to jp2 (archive copy, user copy)
@@ -203,7 +213,7 @@ public class DigitizationWorkflow {
         for (NamedPage page : pages) {
             File jp2ArchiveCopyFile = new File(jp2ArchiveCopyDir, page.getPosition() + ".jp2");
             File jp2UserCopyFile = new File(jp2UserCopyDir, page.getPosition() + ".jp2");
-            tifToJp2Converter.convertToJp2(page.getImageFile(), jp2UserCopyFile, jp2ArchiveCopyFile);
+            tifToJp2Converter.convertToJp2(page.getTifImageFile(), jp2UserCopyFile, jp2ArchiveCopyFile);
         }
 
         //marc xml
@@ -241,3 +251,4 @@ public class DigitizationWorkflow {
                 }).toArray(File[]::new);
     }
 }
+

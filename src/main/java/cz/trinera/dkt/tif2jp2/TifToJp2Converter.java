@@ -8,6 +8,6 @@ public interface TifToJp2Converter {
 
     public void checkAvailable() throws ToolAvailabilityError;
 
-    public void convertToJp2(File inPngFile, File outArchivecopyJp2File, File outUsercopyJp2File);
+    public void convertToJp2(File inTifFile, File outArchivecopyJp2File, File outUsercopyJp2File);
 
 }

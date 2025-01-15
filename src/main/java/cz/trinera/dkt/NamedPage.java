@@ -6,12 +6,14 @@ public class NamedPage {
 
     private final int position;
     private final String name;
-    private final File imageFile;
+    private final File pngImageFile;
+    private final File tifImageFile;
 
-    public NamedPage(int position, String name, File imageFile) {
+    public NamedPage(int position, String name, File pngImageFile, File tifImageFile) {
         this.position = position;
         this.name = name;
-        this.imageFile = imageFile;
+        this.pngImageFile = pngImageFile;
+        this.tifImageFile = tifImageFile;
     }
 
     public int getPosition() {
@@ -22,12 +24,16 @@ public class NamedPage {
         return name;
     }
 
-    public File getImageFile() {
-        return imageFile;
+    public File getPngImageFile() {
+        return pngImageFile;
     }
 
-    public NamedPage withDifferentFile(File destFile) {
-        return new NamedPage(position, name, destFile);
+    public File getTifImageFile() {
+        return tifImageFile;
+    }
+
+    public NamedPage withDifferentPngImageFile(File destPngImageFile) {
+        return new NamedPage(position, name, destPngImageFile, tifImageFile);
     }
 
     @Override
@@ -35,7 +41,8 @@ public class NamedPage {
         return "NamedPage{" +
                 "position=" + position +
                 ", name='" + name + '\'' +
-                ", imageFile=" + imageFile.getAbsolutePath() +
+                ", pngImageFile=" + pngImageFile.getAbsolutePath() +
+                ", tifImageFile=" + tifImageFile.getAbsolutePath() +
                 '}';
     }
 }
