@@ -213,7 +213,7 @@ public class DigitizationWorkflow {
         for (NamedPage page : pages) {
             File jp2ArchiveCopyFile = new File(jp2ArchiveCopyDir, page.getPosition() + ".jp2");
             File jp2UserCopyFile = new File(jp2UserCopyDir, page.getPosition() + ".jp2");
-            tifToJp2Converter.convertToJp2(page.getTifImageFile(), jp2UserCopyFile, jp2ArchiveCopyFile);
+            tifToJp2Converter.convertToJp2(page.getTifImageFile(), jp2ArchiveCopyFile, jp2UserCopyFile);
         }
 
         //marc xml

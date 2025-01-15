@@ -14,7 +14,7 @@ public class TifToJp2ConverterMock implements TifToJp2Converter {
 
     @Override
     public void convertToJp2(File inTifFile, File outArchivecopyJp2File, File outUsercopyJp2File) {
-        System.out.println("Converting to jp2 images from " + inTifFile.getName());
+        System.out.println("Converting to jp2 (ac, mc) image " + inTifFile.getName());
         try {
             outArchivecopyJp2File.createNewFile();
             outUsercopyJp2File.createNewFile();
