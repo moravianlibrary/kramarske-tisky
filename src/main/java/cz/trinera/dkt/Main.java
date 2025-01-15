@@ -11,6 +11,7 @@ import cz.trinera.dkt.marc2mods.MarcToModsConverterImpl;
 import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.ocr.OcrProviderImpl;
 import cz.trinera.dkt.ocr.OcrProviderMock;
+import cz.trinera.dkt.tif2jp2.TifToJp2ConverterMock;
 import cz.trinera.dkt.tif2png.TifToPngConverter;
 import cz.trinera.dkt.tif2png.TifToPngConverterImpl;
 import cz.trinera.dkt.tif2png.TifToPngConverterMock;
@@ -149,11 +150,13 @@ public class Main {
             ocrProvider = new OcrProviderMock();
         }
 
-        //TifToJp2Converter tifToJp2Converter = new TifToJp2ConverterMock();
         TifToJp2Converter tifToJp2Converter = new TifToJp2ConverterImplKakadu(
                 Config.instanceOf().getTifToJp2ConverterDependencyCheckScript(),
                 Config.instanceOf().getTifToJp2ConverterScript()
         );
+        if (DEV_MODE) {
+            tifToJp2Converter = new TifToJp2ConverterMock();
+        }
 
         //MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock();
         MarcXmlProvider marcXmlProvider = new MarcXmlProviderImplYazClient(
