@@ -8,6 +8,11 @@ import java.io.IOException;
 public class Jp2KConverterMock implements Jp2kConverter {
 
     @Override
+    public void checkAvailable() throws ToolAvailabilityError {
+        //do nothing in mock implementation
+    }
+
+    @Override
     public void convertToJp2k(File inPngFile, File outUsercopyJp2kFile, File outArchivecopyJp2kFile) {
         System.out.println("Converting to jp2k image " + inPngFile.getName());
         try {
@@ -18,8 +23,4 @@ public class Jp2KConverterMock implements Jp2kConverter {
         }
     }
 
-    @Override
-    public void checkAvailable() throws ToolAvailabilityError {
-        //do nothing in mock implementation
-    }
 }

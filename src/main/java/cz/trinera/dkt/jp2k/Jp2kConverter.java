@@ -6,7 +6,8 @@ import java.io.File;
 
 public interface Jp2kConverter {
 
+    public void checkAvailable() throws ToolAvailabilityError;
+
     public void convertToJp2k(File inPngFile, File outUsercopyJp2kFile, File outArchivecopyJp2kFile);
 
-    public void checkAvailable() throws ToolAvailabilityError;
 }

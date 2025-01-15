@@ -4,6 +4,7 @@ import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetectorImplPyzbar;
 import cz.trinera.dkt.jp2k.Jp2kConverter;
 import cz.trinera.dkt.jp2k.Jp2KConverterMock;
+import cz.trinera.dkt.jp2k.Jp2kConverterImplKakadu;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc21.MarcXmlProviderImplYazClient;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
@@ -15,6 +16,7 @@ import cz.trinera.dkt.tif2png.TifToPngConverter;
 import cz.trinera.dkt.tif2png.TifToPngConverterImpl;
 import cz.trinera.dkt.tif2png.TifToPngConverterMock;
 import org.apache.commons.cli.*;
+
 import java.io.File;
 
 public class Main {
@@ -148,7 +150,11 @@ public class Main {
             ocrProvider = new OcrProviderMock();
         }
 
-        Jp2kConverter jp2KConverter = new Jp2KConverterMock(); //TODO: use proper implementation in production
+        //Jp2kConverter jp2KConverter = new Jp2KConverterMock();
+        Jp2kConverter jp2KConverter = new Jp2kConverterImplKakadu(//TODO: from config
+                "/Users/martinrehanek/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/jp2k/check_kakadu.py",
+                "/Users/martinrehanek/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/jp2k/convert_tif_to_jp2k_mc_uc.sh"
+        );
 
         //MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock();
         MarcXmlProvider marcXmlProvider = new MarcXmlProviderImplYazClient(
