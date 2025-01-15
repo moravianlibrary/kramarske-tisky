@@ -2,9 +2,8 @@ package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetectorImplPyzbar;
-import cz.trinera.dkt.jp2k.Jp2kConverter;
-import cz.trinera.dkt.jp2k.Jp2KConverterMock;
-import cz.trinera.dkt.jp2k.Jp2kConverterImplKakadu;
+import cz.trinera.dkt.tif2jp2.TifToJp2Converter;
+import cz.trinera.dkt.tif2jp2.TifToJp2ConverterImplKakadu;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc21.MarcXmlProviderImplYazClient;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
@@ -150,10 +149,10 @@ public class Main {
             ocrProvider = new OcrProviderMock();
         }
 
-        //Jp2kConverter jp2KConverter = new Jp2KConverterMock();
-        Jp2kConverter jp2KConverter = new Jp2kConverterImplKakadu(//TODO: from config
-                "/Users/martinrehanek/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/jp2k/check_kakadu.py",
-                "/Users/martinrehanek/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/jp2k/convert_tif_to_jp2k_mc_uc.sh"
+        //TifToJp2Converter tifToJp2Converter = new TifToJp2ConverterMock();
+        TifToJp2Converter tifToJp2Converter = new TifToJp2ConverterImplKakadu(//TODO: from config
+                "/Users/martinrehanek/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/tif2jp2/check_kakadu.py",
+                "/Users/martinrehanek/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/tif2jp2/convert_tif_to_jp2_mc_uc.sh"
         );
 
         //MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock();
@@ -174,10 +173,10 @@ public class Main {
         tifToPngConverter.checkAvailable();
         barcodeDetector.checkAvailable();
         ocrProvider.checkAvailable();
-        jp2KConverter.checkAvailable();
+        tifToJp2Converter.checkAvailable();
         marcXmlProvider.checkAvailable();
         marcToModsConverter.checkAvailable();
 
-        return new DigitizationWorkflow(tifToPngConverter, barcodeDetector, ocrProvider, jp2KConverter, marcXmlProvider, marcToModsConverter);
+        return new DigitizationWorkflow(tifToPngConverter, barcodeDetector, ocrProvider, tifToJp2Converter, marcXmlProvider, marcToModsConverter);
     }
 }

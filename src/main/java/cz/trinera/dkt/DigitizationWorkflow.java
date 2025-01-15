@@ -2,7 +2,7 @@ package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
-import cz.trinera.dkt.jp2k.Jp2kConverter;
+import cz.trinera.dkt.tif2jp2.TifToJp2Converter;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
 import cz.trinera.dkt.ocr.OcrProvider;
@@ -21,15 +21,15 @@ public class DigitizationWorkflow {
     private final TifToPngConverter tifToPngConverter;
     private final BarcodeDetector barcodeDetector;
     private final OcrProvider ocrProvider;
-    private final Jp2kConverter jp2KConverter;
+    private final TifToJp2Converter tifToJp2Converter;
     private final MarcXmlProvider marcXmlProvider;
     private final MarcToModsConverter marcToModsConverter;
 
-    public DigitizationWorkflow(TifToPngConverter tifToPngConverter, BarcodeDetector barcodeDetector, OcrProvider ocrProvider, Jp2kConverter jp2KConverter, MarcXmlProvider marcXmlProvider, MarcToModsConverter marcToModsConverter) {
+    public DigitizationWorkflow(TifToPngConverter tifToPngConverter, BarcodeDetector barcodeDetector, OcrProvider ocrProvider, TifToJp2Converter tifToJp2Converter, MarcXmlProvider marcXmlProvider, MarcToModsConverter marcToModsConverter) {
         this.tifToPngConverter = tifToPngConverter;
         this.barcodeDetector = barcodeDetector;
         this.ocrProvider = ocrProvider;
-        this.jp2KConverter = jp2KConverter;
+        this.tifToJp2Converter = tifToJp2Converter;
         this.marcXmlProvider = marcXmlProvider;
         this.marcToModsConverter = marcToModsConverter;
     }
@@ -129,7 +129,7 @@ public class DigitizationWorkflow {
         if (namedPages == null) {
             return;
         }
-        //phase 2 - fetch OCR, convert to jp2k, fetch marc, convert to MODS, convert images to jp2k
+        //phase 2 - fetch OCR, fetch marc, convert to MODS, convert images to jp2
         processBlockPhase2(namedPages, barcode, workingDirForBlock);
 
         //phase 3 - build NDK package
@@ -180,7 +180,7 @@ public class DigitizationWorkflow {
     }
 
     /*
-     * Process images in working dir (copy of original images), fetch marc and convert to MODS, fetch OCR, convert images to jp2k
+     * Process images in working dir (copy of original images), fetch marc and convert to MODS, fetch OCR, convert images to jp2
      */
     private void processBlockPhase2(List<NamedPage> pages, Barcode barcode, File workingDirBlock) {
         //fetch OCR (text, alto) for each page
@@ -195,15 +195,15 @@ public class DigitizationWorkflow {
             ocrProvider.fetchOcr(page.getImageFile(), ocrTextFile, ocrAltoFile);
         }
 
-        //convert each page to jp2k (user copy, archive copy)
-        File jp2kUserCopyDir = new File(workingDirBlock, "jp2k-usercopy");
-        makeSureReadableWritableDirExists(jp2kUserCopyDir);
-        File jp2kArchiveCopyDir = new File(workingDirBlock, "jp2k-archivecopy");
-        makeSureReadableWritableDirExists(jp2kArchiveCopyDir);
+        //convert each page to jp2 (archive copy, user copy)
+        File jp2ArchiveCopyDir = new File(workingDirBlock, "jp2-archivecopy");
+        makeSureReadableWritableDirExists(jp2ArchiveCopyDir);
+        File jp2UserCopyDir = new File(workingDirBlock, "jp2-usercopy");
+        makeSureReadableWritableDirExists(jp2UserCopyDir);
         for (NamedPage page : pages) {
-            File jp2kUserCopyFile = new File(jp2kUserCopyDir, page.getPosition() + ".jp2");
-            File jp2kArchiveCopyFile = new File(jp2kArchiveCopyDir, page.getPosition() + ".jp2");
-            jp2KConverter.convertToJp2k(page.getImageFile(), jp2kUserCopyFile, jp2kArchiveCopyFile);
+            File jp2ArchiveCopyFile = new File(jp2ArchiveCopyDir, page.getPosition() + ".jp2");
+            File jp2UserCopyFile = new File(jp2UserCopyDir, page.getPosition() + ".jp2");
+            tifToJp2Converter.convertToJp2(page.getImageFile(), jp2UserCopyFile, jp2ArchiveCopyFile);
         }
 
         //marc xml
