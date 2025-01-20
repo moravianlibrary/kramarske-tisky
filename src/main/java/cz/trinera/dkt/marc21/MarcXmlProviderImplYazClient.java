@@ -97,14 +97,19 @@ public class MarcXmlProviderImplYazClient implements MarcXmlProvider {
             command.add(base);
             command.add("--barcode");
             command.add(barcode);
+            //command.add("--debug");
 
             //print command as string
-            String commandStr = Arrays.toString(command.toArray()).substring(1, Arrays.toString(command.toArray()).length() - 1).replaceAll(",", "");
+            String commandStr = Arrays
+                    .toString(command.toArray())
+                    .substring(1, Arrays.toString(command.toArray()).length() - 1) // remove brackets
+                    .replaceAll(", ", " "); // remove commas
             //System.out.println("command: " + commandStr);
 
             // Start the process
             ProcessBuilder processBuilder = new ProcessBuilder(command);
             processBuilder.redirectErrorStream(true); // Redirect error stream to input stream
+            processBuilder.environment().put("PATH", System.getenv("PATH"));
             Process process = processBuilder.start();
 
             // Capture the output

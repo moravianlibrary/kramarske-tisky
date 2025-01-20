@@ -38,10 +38,10 @@ show\n
 
         # Check for search errors
         if 'Number of hits: 0' in stdout:
-            print("Error: No records found.")
+            print(f"Error: No records found for barcode {barcode}")
             sys.exit(1)
         elif 'Number of hits: 1' not in stdout:
-            print("Error: More than one record found.")
+            print(f"Error: More than one record found for barcode {barcode}")
             sys.exit(1)
 
         # Search for the first line that looks like the start of a MARC record
