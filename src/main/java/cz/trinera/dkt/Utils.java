@@ -19,6 +19,8 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Utils {
 
@@ -227,5 +229,39 @@ public class Utils {
 
     public static String to4CharNumber(int number) {
         return String.format("%04d", number);
+    }
+
+    public static String computeMD5Checksum(File file) {
+        try {
+            // Create an instance of MessageDigest with MD5 algorithm
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            // Read the file in chunks
+            try (FileInputStream fis = new FileInputStream(file)) {
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+                while ((bytesRead = fis.read(buffer)) != -1) {
+                    md.update(buffer, 0, bytesRead);
+                }
+            }
+
+            // Compute the MD5 hash
+            byte[] digest = md.digest();
+
+            // Convert the byte array to a hexadecimal string
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : digest) {
+                String hex = Integer.toHexString(0xFF & b);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (IOException | NoSuchAlgorithmException e) {
+            System.err.println("Error while computing MD5 checksum: " + e.getMessage());
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -4,6 +4,7 @@ import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
+import cz.trinera.dkt.ndk.InfoXmlBuilder;
 import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.tif2jp2.TifToJp2Converter;
 import cz.trinera.dkt.tif2png.TifToPngConverter;
@@ -13,10 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class DigitizationWorkflow {
 
@@ -145,7 +143,7 @@ public class DigitizationWorkflow {
         processBlockPhase2(namedPages, barcode, workingDirForBlock);
 
         //phase 3 - build NDK package
-        processBlockPhase3(namedPages, barcode, workingDirForBlock, ndkPackageWorkingDirForBlock);
+        processBlockPhase3(namedPages, barcode, workingDirForBlock, ndkPackageWorkingDirForBlock, ts);
 
         //TODO: phase 4: copy result to resultsDir, cleanup
     }
@@ -233,7 +231,7 @@ public class DigitizationWorkflow {
     /**
      * Builds NDK package from data in blockWorkingDir into ndkPackageWorkingDir
      */
-    private void processBlockPhase3(List<NamedPage> pages, Barcode barcode, File blockWorkingDir, File ndkPackageWorkingDir) {
+    private void processBlockPhase3(List<NamedPage> pages, Barcode barcode, File blockWorkingDir, File ndkPackageWorkingDir, Timestamp now) {
         System.out.println("PHASE 3");
         try {
             makeSureReadableWritableDirExists(ndkPackageWorkingDir);
@@ -294,10 +292,10 @@ public class DigitizationWorkflow {
                     }
             );
 
-            //INFO
-            File infoXmlFile = new File(ndkPackageDir, "info_" + packageUuid + ".xml");
-            infoXmlFile.createNewFile();
-            //TODO: fill info.xml
+            //AMDSEC (dir and files)
+            File amdsecDir = new File(ndkPackageDir, "amdsec");
+            amdsecDir.mkdirs();
+            //TODO: create amdsec files
 
             //MAIN METS
             File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
@@ -309,10 +307,20 @@ public class DigitizationWorkflow {
             md5File.createNewFile();
             //TODO: fill md5
 
-            File amdsecDir = new File(ndkPackageDir, "amdsec");
-            amdsecDir.mkdirs();
-            //TODO: create amdsec files
-
+            //INFO
+            File infoXmlFile = new File(ndkPackageDir, "info_" + packageUuid + ".xml");
+            InfoXmlBuilder infoXmlBuilder = new InfoXmlBuilder();
+            Set<String> allPaths = new HashSet<>();
+            allPaths.add("/info_" + packageUuid + ".xml");
+            allPaths.add("/mets_" + packageUuid + ".xml");
+            allPaths.add("/md5_" + packageUuid + ".md5");
+            Arrays.stream(masterCopyDir.listFiles()).forEach(file -> allPaths.add("/mastercopy/" + file.getName()));
+            Arrays.stream(userCopyDir.listFiles()).forEach(file -> allPaths.add("/usercopy/" + file.getName()));
+            Arrays.stream(altoDir.listFiles()).forEach(file -> allPaths.add("/alto/" + file.getName()));
+            Arrays.stream(txtDir.listFiles()).forEach(file -> allPaths.add("/txt/" + file.getName()));
+            Arrays.stream(amdsecDir.listFiles()).forEach(file -> allPaths.add("/amdsec/" + file.getName()));
+            Document infoXmlDoc = infoXmlBuilder.build(now, packageUuid, allPaths, md5File);
+            Utils.saveDocumentToFile(infoXmlDoc, infoXmlFile);
         } catch (IOException e) {
             System.err.println("Error while creating NDK package: " + e.getMessage());
             e.printStackTrace();
