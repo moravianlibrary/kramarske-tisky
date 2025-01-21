@@ -2,8 +2,6 @@ package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetectorImplPyzbar;
-import cz.trinera.dkt.tif2jp2.TifToJp2Converter;
-import cz.trinera.dkt.tif2jp2.TifToJp2ConverterImplKakadu;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc21.MarcXmlProviderImplYazClient;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
@@ -11,6 +9,8 @@ import cz.trinera.dkt.marc2mods.MarcToModsConverterImpl;
 import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.ocr.OcrProviderImpl;
 import cz.trinera.dkt.ocr.OcrProviderMock;
+import cz.trinera.dkt.tif2jp2.TifToJp2Converter;
+import cz.trinera.dkt.tif2jp2.TifToJp2ConverterImplKakadu;
 import cz.trinera.dkt.tif2jp2.TifToJp2ConverterMock;
 import cz.trinera.dkt.tif2png.TifToPngConverter;
 import cz.trinera.dkt.tif2png.TifToPngConverterImpl;

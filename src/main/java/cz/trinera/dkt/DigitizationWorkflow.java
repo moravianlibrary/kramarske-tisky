@@ -2,19 +2,21 @@ package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
-import cz.trinera.dkt.tif2jp2.TifToJp2Converter;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
 import cz.trinera.dkt.ocr.OcrProvider;
+import cz.trinera.dkt.tif2jp2.TifToJp2Converter;
 import cz.trinera.dkt.tif2png.TifToPngConverter;
 import nu.xom.Document;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 public class DigitizationWorkflow {
 
@@ -233,8 +235,88 @@ public class DigitizationWorkflow {
      */
     private void processBlockPhase3(List<NamedPage> pages, Barcode barcode, File blockWorkingDir, File ndkPackageWorkingDir) {
         System.out.println("PHASE 3");
-        makeSureReadableWritableDirExists(ndkPackageWorkingDir);
-        System.out.println("TODO: create NDK package");
+        try {
+            makeSureReadableWritableDirExists(ndkPackageWorkingDir);
+            UUID packageUuid = UUID.randomUUID();
+            System.out.println("Creating NDK package " + packageUuid);
+            File ndkPackageDir = new File(ndkPackageWorkingDir, packageUuid.toString());
+            ndkPackageDir.mkdirs();
+
+            //MASTERCOPY
+            File masterCopyDir = new File(ndkPackageDir, "mastercopy");
+            masterCopyDir.mkdirs();
+            File masterCopyInputDir = new File(blockWorkingDir, "jp2-archivecopy");
+            Arrays.stream(masterCopyInputDir.listFiles((dir, name) -> name.endsWith(".jp2"))).forEach(
+                    file -> {
+                        int pageNumber = Integer.valueOf(file.getName().split("\\.")[0]);
+                        String newName = "mc_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".jp2";
+                        File newFile = new File(masterCopyDir, newName);
+                        Utils.copyFile(file, newFile);
+                    }
+            );
+
+            //USERCOPY (dir and files)
+            File userCopyDir = new File(ndkPackageDir, "usercopy");
+            userCopyDir.mkdirs();
+            File userCopyInputDir = new File(blockWorkingDir, "jp2-usercopy");
+            Arrays.stream(userCopyInputDir.listFiles((dir, name) -> name.endsWith(".jp2"))).forEach(
+                    file -> {
+                        int pageNumber = Integer.valueOf(file.getName().split("\\.")[0]);
+                        String newName = "uc_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".jp2";
+                        File newFile = new File(userCopyDir, newName);
+                        Utils.copyFile(file, newFile);
+                    }
+            );
+
+            //ALTO (dir and files)
+            File altoDir = new File(ndkPackageDir, "alto");
+            altoDir.mkdirs();
+            File altoInputDir = new File(blockWorkingDir, "ocr-alto");
+            Arrays.stream(altoInputDir.listFiles((dir, name) -> name.endsWith(".xml"))).forEach(
+                    file -> {
+                        int pageNumber = Integer.valueOf(file.getName().split("\\.")[0]);
+                        String newName = "alto_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".xml";
+                        File newFile = new File(altoDir, newName);
+                        Utils.copyFile(file, newFile);
+                    }
+            );
+
+            //TXT (dir and files)
+            File txtDir = new File(ndkPackageDir, "txt");
+            txtDir.mkdirs();
+            File txtInputDir = new File(blockWorkingDir, "ocr-text");
+            Arrays.stream(txtInputDir.listFiles((dir, name) -> name.endsWith(".txt"))).forEach(
+                    file -> {
+                        int pageNumber = Integer.valueOf(file.getName().split("\\.")[0]);
+                        String newName = "txt_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".txt";
+                        File newFile = new File(txtDir, newName);
+                        Utils.copyFile(file, newFile);
+                    }
+            );
+
+            //INFO
+            File infoXmlFile = new File(ndkPackageDir, "info_" + packageUuid + ".xml");
+            infoXmlFile.createNewFile();
+            //TODO: fill info.xml
+
+            //MAIN METS
+            File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
+            mainMetsFile.createNewFile();
+            //TODO: fill mets.xml
+
+            //MD5
+            File md5File = new File(ndkPackageDir, "md5_" + packageUuid + ".md5");
+            md5File.createNewFile();
+            //TODO: fill md5
+
+            File amdsecDir = new File(ndkPackageDir, "amdsec");
+            amdsecDir.mkdirs();
+            //TODO: create amdsec files
+
+        } catch (IOException e) {
+            System.err.println("Error while creating NDK package: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     private File[] listImageFiles(File inputDir) {

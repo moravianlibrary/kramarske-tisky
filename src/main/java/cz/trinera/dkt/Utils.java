@@ -224,4 +224,8 @@ public class Utils {
             throw new RuntimeException("Error while printing indented XML to string: " + e.getMessage(), e);
         }
     }
+
+    public static String to4CharNumber(int number) {
+        return String.format("%04d", number);
+    }
 }
