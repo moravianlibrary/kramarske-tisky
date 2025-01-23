@@ -40,23 +40,32 @@ public class AmdSecBuilder {
         appendMetsHdr(rootEl);
         appendAmdSec(rootEl, pageNumber);
         appendFileSec(rootEl);
-        appendStructMap(rootEl);
+        appendStructMap(rootEl, pageNumber);
         return new Document(rootEl);
     }
 
-    private void appendStructMap(Element parentEl) {
+    private void appendStructMap(Element parentEl, int pageNumber) {
         Element structMapEl = addNewMetsEl(parentEl, "structMap");
-        //TODO: fill structMap
+        structMapEl.addAttribute(new Attribute("TYPE", "PHYSICAL"));
+        Element divEl = addNewMetsEl(structMapEl, "div");
+        divEl.addAttribute(new Attribute("TYPE", "MONOGRAPH_PAGE"));
+        String pageId = Utils.to4CharNumber(pageNumber);
+        addNewMetsEl(divEl, "fptr").addAttribute(new Attribute("FILEID", "mc_" + packageUuid + "_" + pageId));
+        addNewMetsEl(divEl, "fptr").addAttribute(new Attribute("FILEID", "uc_" + packageUuid + "_" + pageId));
+        addNewMetsEl(divEl, "fptr").addAttribute(new Attribute("FILEID", "alto_" + packageUuid + "_" + pageId));
+        addNewMetsEl(divEl, "fptr").addAttribute(new Attribute("FILEID", "txt_" + packageUuid + "_" + pageId));
     }
 
     private void appendFileSec(Element parentEl) {
         Element fileSecEl = addNewMetsEl(parentEl, "fileSec");
-        //TODO: fill fileSec
+        //TODO: fill fileSec (fileGrp)
     }
 
     private void appendAmdSec(Element parentEl, int pageNumber) {
         Element amdSecEl = addNewMetsEl(parentEl, "amdSec");
-        //TODO: fill amdSec
+        String pageId = Utils.to4CharNumber(pageNumber);
+        amdSecEl.addAttribute(new Attribute("ID", "PAGE_" + pageId));
+        //TODO: fill amdSec (techMD, digiprovMD)
     }
 
     private void appendMetsHdr(Element rootEl) {
