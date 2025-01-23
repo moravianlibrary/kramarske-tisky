@@ -4,6 +4,7 @@ import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
+import cz.trinera.dkt.ndk.HashFileBuilder;
 import cz.trinera.dkt.ndk.InfoXmlBuilder;
 import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.tif2jp2.TifToJp2Converter;
@@ -302,14 +303,6 @@ public class DigitizationWorkflow {
             mainMetsFile.createNewFile();
             //TODO: fill mets.xml
 
-            //MD5
-            File md5File = new File(ndkPackageDir, "md5_" + packageUuid + ".md5");
-            md5File.createNewFile();
-            //TODO: fill md5
-
-            //INFO
-            File infoXmlFile = new File(ndkPackageDir, "info_" + packageUuid + ".xml");
-            InfoXmlBuilder infoXmlBuilder = new InfoXmlBuilder();
             Set<String> allPaths = new HashSet<>();
             allPaths.add("/info_" + packageUuid + ".xml");
             allPaths.add("/mets_" + packageUuid + ".xml");
@@ -319,6 +312,15 @@ public class DigitizationWorkflow {
             Arrays.stream(altoDir.listFiles()).forEach(file -> allPaths.add("/alto/" + file.getName()));
             Arrays.stream(txtDir.listFiles()).forEach(file -> allPaths.add("/txt/" + file.getName()));
             Arrays.stream(amdsecDir.listFiles()).forEach(file -> allPaths.add("/amdsec/" + file.getName()));
+
+            //MD5
+            File md5File = new File(ndkPackageDir, "md5_" + packageUuid + ".md5");
+            HashFileBuilder hashFileBuilder = new HashFileBuilder();
+            hashFileBuilder.buildAndSave(ndkPackageDir, allPaths, md5File);
+
+            //INFO
+            File infoXmlFile = new File(ndkPackageDir, "info_" + packageUuid + ".xml");
+            InfoXmlBuilder infoXmlBuilder = new InfoXmlBuilder();
             Document infoXmlDoc = infoXmlBuilder.build(now, packageUuid, allPaths, md5File);
             Utils.saveDocumentToFile(infoXmlDoc, infoXmlFile);
         } catch (IOException e) {
