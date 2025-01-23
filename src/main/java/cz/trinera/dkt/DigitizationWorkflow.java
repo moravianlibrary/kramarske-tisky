@@ -4,6 +4,7 @@ import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
+import cz.trinera.dkt.ndk.AmdSecBuilder;
 import cz.trinera.dkt.ndk.HashFileBuilder;
 import cz.trinera.dkt.ndk.InfoXmlBuilder;
 import cz.trinera.dkt.ocr.OcrProvider;
@@ -296,7 +297,11 @@ public class DigitizationWorkflow {
             //AMDSEC (dir and files)
             File amdsecDir = new File(ndkPackageDir, "amdsec");
             amdsecDir.mkdirs();
-            //TODO: create amdsec files
+            int pageCount = masterCopyDir.listFiles().length;
+            AmdSecBuilder amdSecBuilder = new AmdSecBuilder(ndkPackageDir, packageUuid, now);
+            for (int i = 1; i <= pageCount; i++) {
+                amdSecBuilder.buildAndSavePage(i);
+            }
 
             //MAIN METS
             File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
