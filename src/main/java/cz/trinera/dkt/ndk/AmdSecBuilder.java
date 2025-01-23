@@ -37,21 +37,29 @@ public class AmdSecBuilder {
         Element rootEl = new Element("mets", "http://www.loc.gov/METS/");
         rootEl.addAttribute(new Attribute("LABEL", "TODO: nazev monografie"));
         rootEl.addAttribute(new Attribute("TYPE", "Monograph"));
-        //mets HDR
-        createMetsHdr(rootEl);
-        //amdSec
-        Element amdSecEl = addNewMetsEl(rootEl, "amdSec");
-        //TODO: fill amdSec
-        //fileSec
-        Element fileSecEl = addNewMetsEl(rootEl, "fileSec");
-        //TODO: fill fileSec
-        //structMap
-        Element structMapEl = addNewMetsEl(rootEl, "structMap");
-        //TODO: fill structMap
+        appendMetsHdr(rootEl);
+        appendAmdSec(rootEl, pageNumber);
+        appendFileSec(rootEl);
+        appendStructMap(rootEl);
         return new Document(rootEl);
     }
 
-    private void createMetsHdr(Element rootEl) {
+    private void appendStructMap(Element parentEl) {
+        Element structMapEl = addNewMetsEl(parentEl, "structMap");
+        //TODO: fill structMap
+    }
+
+    private void appendFileSec(Element parentEl) {
+        Element fileSecEl = addNewMetsEl(parentEl, "fileSec");
+        //TODO: fill fileSec
+    }
+
+    private void appendAmdSec(Element parentEl, int pageNumber) {
+        Element amdSecEl = addNewMetsEl(parentEl, "amdSec");
+        //TODO: fill amdSec
+    }
+
+    private void appendMetsHdr(Element rootEl) {
         Element metsHdrEl = addNewMetsEl(rootEl, "metsHdr");
         String nowFormatted = now.toLocalDateTime().format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
         metsHdrEl.addAttribute(new Attribute("CREATEDATE", nowFormatted));
