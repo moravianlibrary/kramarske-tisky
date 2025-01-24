@@ -1,7 +1,5 @@
 package cz.trinera.dkt.ndk;
 
-import cz.trinera.dkt.Utils;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -9,16 +7,13 @@ import java.util.List;
 import java.util.Set;
 
 public class HashFileBuilder {
-    public void buildAndSave(File ndkPackageDir, Set<String> filePaths, File outFile) {
+    public void buildAndSave(File ndkPackageDir, Set<FileInfo> fileInfos, File outFile) {
         List<String> lines = new ArrayList<>();
-        filePaths.stream()
-                .sorted((o1, o2) -> o1.length() == o2.length() ? o1.compareTo(o2) : Integer.compare(o1.length(), o2.length()))
-                .filter(filePath ->
-                        !(filePath.matches("/info.*\\.xml")) //exclude info file
-                                && !(filePath.matches("/md5.*\\.md5")) //exclude md5 file
-
-                )
-                .forEach(filePath -> lines.add(processFilePath(filePath, ndkPackageDir)));
+        fileInfos.stream()
+                .sorted((o1, o2) -> o1.getPathFromNdkPackageRoot().length() == o2.getPathFromNdkPackageRoot().length() ? o1.getPathFromNdkPackageRoot().compareTo(o2.getPathFromNdkPackageRoot()) : Integer.compare(o1.getPathFromNdkPackageRoot().length(), o2.getPathFromNdkPackageRoot().length()))
+                .filter(fileInfo -> !(fileInfo.getFile().getName().matches("info_.*\\.xml"))) //exclude info file
+                .filter(fileInfo -> !(fileInfo.getFile().getName().matches("md5_.*\\.md5"))) //exclude md5 file
+                .forEach(filePath -> lines.add(filePath.getMd5Checksum() + " " + filePath.getPathFromNdkPackageRoot()));
         saveLinesToFile(outFile, lines);
     }
 
@@ -33,8 +28,4 @@ public class HashFileBuilder {
         }
     }
 
-    private String processFilePath(String filePath, File ndkPackageDir) {
-        String hash = Utils.computeMD5Checksum(new File(ndkPackageDir, filePath));
-        return hash + "  " + filePath;
-    }
 }

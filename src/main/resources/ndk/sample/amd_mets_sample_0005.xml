@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<mets xmlns="http://www.loc.gov/METS/" LABEL="TODO: nazev monografie" TYPE="Monograph">
+    <metsHdr CREATEDATE="2025-01-24T11:49:15" LASTMODDATE="2025-01-24T11:49:15">
+        <agent ROLE="CREATOR" TYPE="ORGANIZATION">
+            <name>CreatorMZK</name>
+        </agent>
+        <agent ROLE="ARCHIVIST" TYPE="ORGANIZATION">
+            <name>ArchivistMZK</name>
+        </agent>
+    </metsHdr>
+    <amdSec ID="PAGE_0005"/>
+    <fileSec xmlns:xlink="http://www.w3.org/1999/xlink">
+        <fileGrp ID="MC_IMGGRP" USE="Images">
+            <file CREATED="2025-01-24T11:49:15" CHECKSUMTYPE="MD5" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" SIZE="0" SEQ="4"
+                  ID="mc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005" MIMETYPE="image/jp2"
+                  xlink:href="mastercopy/mc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005.jp2">
+                <FLocat LOCTYPE="URL"/>
+            </file>
+        </fileGrp>
+        <fileGrp ID="UC_IMGGRP" USE="Images">
+            <file CREATED="2025-01-24T11:49:15" CHECKSUMTYPE="MD5" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" SIZE="0" SEQ="4"
+                  ID="uc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005" MIMETYPE="image/jp2">
+                <FLocat LOCTYPE="URL" xlink:href="usercopy/uc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005.jp2"/>
+            </file>
+        </fileGrp>
+        <fileGrp ID="ALTOGRP" USE="Layout">
+            <file CREATED="2025-01-24T11:49:15" CHECKSUMTYPE="MD5" CHECKSUM="ccdf3ae87d83b913ed64d309637244fb" SIZE="8171" SEQ="4"
+                  ID="alto_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005" MIMETYPE="text/xml" xlink:href="alto/alto_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005.xml">
+                <FLocat LOCTYPE="URL"/>
+            </file>
+        </fileGrp>
+        <fileGrp ID="TXTGRP" USE="Text">
+            <file CREATED="2025-01-24T11:49:15" CHECKSUMTYPE="MD5" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" SIZE="204" SEQ="4"
+                  ID="txt_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005" MIMETYPE="text/plain">
+                <FLocat LOCTYPE="URL" xlink:href="txt/txt_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005.txt"/>
+            </file>
+        </fileGrp>
+    </fileSec>
+    <structMap TYPE="PHYSICAL">
+        <div TYPE="MONOGRAPH_PAGE">
+            <fptr FILEID="mc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005"/>
+            <fptr FILEID="uc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005"/>
+            <fptr FILEID="alto_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005"/>
+            <fptr FILEID="txt_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005"/>
+        </div>
+    </structMap>
+</mets>

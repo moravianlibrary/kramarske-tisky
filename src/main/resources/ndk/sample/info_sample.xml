@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<info>
+    <created>2025-01-24T11:49:15</created>
+    <metadataversion>2.2</metadataversion>
+    <packageid>b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46</packageid>
+    <mainmets>mets_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46.xml</mainmets>
+    <validation version="dkt-workflow-1.0">OK</validation>
+    <titleid type="uuid">b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46</titleid>
+    <collection>Kramářské tisky</collection>
+    <institution>MZK</institution>
+    <creator>Trinera</creator>
+    <size>75</size>
+    <itemlist itemtotal="43">
+        <item>/md5_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46.md5</item>
+        <item>/info_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46.xml</item>
+        <item>/mets_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46.xml</item>
+        <item>/txt/txt_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0001.txt</item>
+        <item>/txt/txt_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0002.txt</item>
+        <item>/txt/txt_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0003.txt</item>
+        <item>/txt/txt_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0004.txt</item>
+        <item>/txt/txt_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005.txt</item>
+        <item>/txt/txt_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0006.txt</item>
+        <item>/txt/txt_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0007.txt</item>
+        <item>/txt/txt_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0008.txt</item>
+        <item>/alto/alto_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0001.xml</item>
+        <item>/alto/alto_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0002.xml</item>
+        <item>/alto/alto_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0003.xml</item>
+        <item>/alto/alto_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0004.xml</item>
+        <item>/alto/alto_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005.xml</item>
+        <item>/alto/alto_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0006.xml</item>
+        <item>/alto/alto_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0007.xml</item>
+        <item>/alto/alto_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0008.xml</item>
+        <item>/usercopy/uc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0001.jp2</item>
+        <item>/usercopy/uc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0002.jp2</item>
+        <item>/usercopy/uc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0003.jp2</item>
+        <item>/usercopy/uc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0004.jp2</item>
+        <item>/usercopy/uc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005.jp2</item>
+        <item>/usercopy/uc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0006.jp2</item>
+        <item>/usercopy/uc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0007.jp2</item>
+        <item>/usercopy/uc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0008.jp2</item>
+        <item>/amdsec/amdSec_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0001.xml</item>
+        <item>/amdsec/amdSec_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0002.xml</item>
+        <item>/amdsec/amdSec_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0003.xml</item>
+        <item>/amdsec/amdSec_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0004.xml</item>
+        <item>/amdsec/amdSec_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005.xml</item>
+        <item>/amdsec/amdSec_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0006.xml</item>
+        <item>/amdsec/amdSec_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0007.xml</item>
+        <item>/amdsec/amdSec_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0008.xml</item>
+        <item>/mastercopy/mc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0001.jp2</item>
+        <item>/mastercopy/mc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0002.jp2</item>
+        <item>/mastercopy/mc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0003.jp2</item>
+        <item>/mastercopy/mc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0004.jp2</item>
+        <item>/mastercopy/mc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0005.jp2</item>
+        <item>/mastercopy/mc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0006.jp2</item>
+        <item>/mastercopy/mc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0007.jp2</item>
+        <item>/mastercopy/mc_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46_0008.jp2</item>
+    </itemlist>
+    <checksum type="md5" checksum="d973a406442e81f301af3a4b83609f36">md5_b9c9c5ca-c414-4905-8b90-a8e6c3a3ad46.md5</checksum>
+</info>

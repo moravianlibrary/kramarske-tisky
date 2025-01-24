@@ -5,6 +5,7 @@ import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
 import cz.trinera.dkt.ndk.AmdSecBuilder;
+import cz.trinera.dkt.ndk.FileInfo;
 import cz.trinera.dkt.ndk.HashFileBuilder;
 import cz.trinera.dkt.ndk.InfoXmlBuilder;
 import cz.trinera.dkt.ocr.OcrProvider;
@@ -294,45 +295,47 @@ public class DigitizationWorkflow {
                     }
             );
 
-            //AMDSEC (dir and files)
+            Set<FileInfo> fileInfos = new HashSet<>();
+            fileInfos.add(new FileInfo(ndkPackageDir, "/info_" + packageUuid + ".xml"));
+            fileInfos.add(new FileInfo(ndkPackageDir, "/mets_" + packageUuid + ".xml"));
+            fileInfos.add(new FileInfo(ndkPackageDir, "/md5_" + packageUuid + ".md5"));
+            Arrays.stream(masterCopyDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/mastercopy/" + file.getName())));
+            Arrays.stream(userCopyDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/usercopy/" + file.getName())));
+            Arrays.stream(altoDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/alto/" + file.getName())));
+            Arrays.stream(txtDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/txt/" + file.getName())));
+            String monographTitle = "TODO: nazev monografie";
+
+            //AMDSEC (dir)
             File amdsecDir = new File(ndkPackageDir, "amdsec");
             amdsecDir.mkdirs();
             int pageCount = masterCopyDir.listFiles().length;
-            AmdSecBuilder amdSecBuilder = new AmdSecBuilder(ndkPackageDir, packageUuid, now);
+            AmdSecBuilder amdSecBuilder = new AmdSecBuilder(ndkPackageDir, packageUuid, now, fileInfos, monographTitle);
             for (int i = 1; i <= pageCount; i++) {
                 amdSecBuilder.buildAndSavePage(i);
             }
+            Arrays.stream(amdsecDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/amdsec/" + file.getName())));
 
             //MAIN METS
             File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
             mainMetsFile.createNewFile();
             //TODO: fill mets.xml
 
-            Set<String> allPaths = new HashSet<>();
-            allPaths.add("/info_" + packageUuid + ".xml");
-            allPaths.add("/mets_" + packageUuid + ".xml");
-            allPaths.add("/md5_" + packageUuid + ".md5");
-            Arrays.stream(masterCopyDir.listFiles()).forEach(file -> allPaths.add("/mastercopy/" + file.getName()));
-            Arrays.stream(userCopyDir.listFiles()).forEach(file -> allPaths.add("/usercopy/" + file.getName()));
-            Arrays.stream(altoDir.listFiles()).forEach(file -> allPaths.add("/alto/" + file.getName()));
-            Arrays.stream(txtDir.listFiles()).forEach(file -> allPaths.add("/txt/" + file.getName()));
-            Arrays.stream(amdsecDir.listFiles()).forEach(file -> allPaths.add("/amdsec/" + file.getName()));
-
             //MD5
             File md5File = new File(ndkPackageDir, "md5_" + packageUuid + ".md5");
             HashFileBuilder hashFileBuilder = new HashFileBuilder();
-            hashFileBuilder.buildAndSave(ndkPackageDir, allPaths, md5File);
+            hashFileBuilder.buildAndSave(ndkPackageDir, fileInfos, md5File);
 
             //INFO
             File infoXmlFile = new File(ndkPackageDir, "info_" + packageUuid + ".xml");
             InfoXmlBuilder infoXmlBuilder = new InfoXmlBuilder();
-            Document infoXmlDoc = infoXmlBuilder.build(now, packageUuid, allPaths, md5File);
+            Document infoXmlDoc = infoXmlBuilder.build(now, packageUuid, fileInfos, md5File);
             Utils.saveDocumentToFile(infoXmlDoc, infoXmlFile);
         } catch (IOException e) {
             System.err.println("Error while creating NDK package: " + e.getMessage());
             e.printStackTrace();
         }
     }
+
 
     private File[] listImageFiles(File inputDir) {
         //System.out.println("Listing files in " + inputDir);

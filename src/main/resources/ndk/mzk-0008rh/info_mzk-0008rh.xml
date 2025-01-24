@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<info>
+    <created>2024-09-17T13:24:32.223+02:00</created>
+    <metadataversion>1.4</metadataversion>
+    <packageid>mzk-0008rh</packageid>
+    <mainmets>mets_mzk-0008rh.xml</mainmets>
+    <validation version="4.2">ProArc</validation>
+    <titleid type="urnnbn">urn:nbn:cz:mzk-0008rh</titleid>
+    <creator>CreatorMZK</creator>
+    <size>192211</size>
+    <itemlist itemtotal="43">
+        <item>/txt/txt_mzk-0008rh_0001.txt</item>
+        <item>/usercopy/uc_mzk-0008rh_0001.jp2</item>
+        <item>/alto/alto_mzk-0008rh_0001.xml</item>
+        <item>/mastercopy/mc_mzk-0008rh_0001.jp2</item>
+        <item>/amdsec/amd_mets_mzk-0008rh_0001.xml</item>
+        <item>/txt/txt_mzk-0008rh_0002.txt</item>
+        <item>/usercopy/uc_mzk-0008rh_0002.jp2</item>
+        <item>/alto/alto_mzk-0008rh_0002.xml</item>
+        <item>/mastercopy/mc_mzk-0008rh_0002.jp2</item>
+        <item>/amdsec/amd_mets_mzk-0008rh_0002.xml</item>
+        <item>/txt/txt_mzk-0008rh_0003.txt</item>
+        <item>/usercopy/uc_mzk-0008rh_0003.jp2</item>
+        <item>/alto/alto_mzk-0008rh_0003.xml</item>
+        <item>/mastercopy/mc_mzk-0008rh_0003.jp2</item>
+        <item>/amdsec/amd_mets_mzk-0008rh_0003.xml</item>
+        <item>/txt/txt_mzk-0008rh_0004.txt</item>
+        <item>/usercopy/uc_mzk-0008rh_0004.jp2</item>
+        <item>/alto/alto_mzk-0008rh_0004.xml</item>
+        <item>/mastercopy/mc_mzk-0008rh_0004.jp2</item>
+        <item>/amdsec/amd_mets_mzk-0008rh_0004.xml</item>
+        <item>/txt/txt_mzk-0008rh_0005.txt</item>
+        <item>/usercopy/uc_mzk-0008rh_0005.jp2</item>
+        <item>/alto/alto_mzk-0008rh_0005.xml</item>
+        <item>/mastercopy/mc_mzk-0008rh_0005.jp2</item>
+        <item>/amdsec/amd_mets_mzk-0008rh_0005.xml</item>
+        <item>/txt/txt_mzk-0008rh_0006.txt</item>
+        <item>/usercopy/uc_mzk-0008rh_0006.jp2</item>
+        <item>/alto/alto_mzk-0008rh_0006.xml</item>
+        <item>/mastercopy/mc_mzk-0008rh_0006.jp2</item>
+        <item>/amdsec/amd_mets_mzk-0008rh_0006.xml</item>
+        <item>/txt/txt_mzk-0008rh_0007.txt</item>
+        <item>/usercopy/uc_mzk-0008rh_0007.jp2</item>
+        <item>/alto/alto_mzk-0008rh_0007.xml</item>
+        <item>/mastercopy/mc_mzk-0008rh_0007.jp2</item>
+        <item>/amdsec/amd_mets_mzk-0008rh_0007.xml</item>
+        <item>/txt/txt_mzk-0008rh_0008.txt</item>
+        <item>/usercopy/uc_mzk-0008rh_0008.jp2</item>
+        <item>/alto/alto_mzk-0008rh_0008.xml</item>
+        <item>/mastercopy/mc_mzk-0008rh_0008.jp2</item>
+        <item>/amdsec/amd_mets_mzk-0008rh_0008.xml</item>
+        <item>/mets_mzk-0008rh.xml</item>
+        <item>/md5_mzk-0008rh.md5</item>
+        <item>/info_mzk-0008rh.xml</item>
+    </itemlist>
+    <checksum type="md5" checksum="e3cbb022331e4f3cd9d05dada2bcdc5e">md5_mzk-0008rh.md5</checksum>
+</info>
