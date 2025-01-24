@@ -21,11 +21,13 @@ public class AmdSecBuilder {
     private File ndkPackageDir;
     private UUID packageUuid;
     private Timestamp now;
+    private String nowFormatted;
 
     public AmdSecBuilder(File ndkPackageDir, UUID packageUuid, Timestamp now) {
         this.ndkPackageDir = ndkPackageDir;
         this.packageUuid = packageUuid;
         this.now = now;
+        this.nowFormatted = now.toLocalDateTime().format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
     }
 
     public void buildAndSavePage(int pageNumber) {
@@ -41,7 +43,7 @@ public class AmdSecBuilder {
         rootEl.addAttribute(new Attribute("TYPE", "Monograph"));
         appendMetsHdr(rootEl);
         appendAmdSec(rootEl, pageNumber);
-        appendFileSec(rootEl);
+        appendFileSec(rootEl, pageNumber);
         appendStructMap(rootEl, pageNumber);
         return new Document(rootEl);
     }
@@ -58,9 +60,75 @@ public class AmdSecBuilder {
         addNewMetsEl(divEl, "fptr").addAttribute(new Attribute("FILEID", "txt_" + packageUuid + "_" + pageId));
     }
 
-    private void appendFileSec(Element parentEl) {
+    private void appendFileSec(Element parentEl, int pageNumber) {
         Element fileSecEl = addNewMetsEl(parentEl, "fileSec");
-        //TODO: fill fileSec (fileGrp)
+        fileSecEl.addNamespaceDeclaration("xlink", NS_XLINK);
+
+        //fileGrp (ID=MC_IMGGRP)
+        Element fileGrpMcEl = addNewMetsEl(fileSecEl, "fileGrp");
+        fileGrpMcEl.addAttribute(new Attribute("ID", "MC_IMGGRP"));
+        fileGrpMcEl.addAttribute(new Attribute("USE", "Images"));
+        Element fileMcEl = addNewMetsEl(fileGrpMcEl, "file");
+        fileMcEl.addAttribute(new Attribute("CREATED", nowFormatted));
+        fileMcEl.addAttribute(new Attribute("CHECKSUMTYPE", "MD5"));
+        fileMcEl.addAttribute(new Attribute("CHECKSUM", "TODO: compute"));
+        fileMcEl.addAttribute(new Attribute("SIZE", "TODO: compute"));
+        fileMcEl.addAttribute(new Attribute("SEQ", Integer.toString(pageNumber - 1)));
+        fileMcEl.addAttribute(new Attribute("ID", "mc_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber)));
+        fileMcEl.addAttribute(new Attribute("MIMETYPE", "image/jp2"));
+        //fileMcEl.addAttribute(new Attribute("ADMID", "MIX_002 OBJ_002 EVT_002")); //TODO
+        Element fLocatMcEl = addNewMetsEl(fileMcEl, "FLocat");
+        fLocatMcEl.addAttribute(new Attribute("LOCTYPE", "URL"));
+        fileMcEl.addAttribute(new Attribute("xlink:href", NS_XLINK, "mastercopy/mc_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".jp2"));
+
+        //fileGrp (ID=UC_IMGGRP)
+        Element fileGrpUcEl = addNewMetsEl(fileSecEl, "fileGrp");
+        fileGrpUcEl.addAttribute(new Attribute("ID", "UC_IMGGRP"));
+        fileGrpUcEl.addAttribute(new Attribute("USE", "Images"));
+        Element fileUcEl = addNewMetsEl(fileGrpUcEl, "file");
+        fileUcEl.addAttribute(new Attribute("CREATED", nowFormatted));
+        fileUcEl.addAttribute(new Attribute("CHECKSUMTYPE", "MD5"));
+        fileUcEl.addAttribute(new Attribute("CHECKSUM", "TODO: compute"));
+        fileUcEl.addAttribute(new Attribute("SIZE", "TODO: compute"));
+        fileUcEl.addAttribute(new Attribute("SEQ", Integer.toString(pageNumber - 1)));
+        fileUcEl.addAttribute(new Attribute("ID", "uc_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber)));
+        fileUcEl.addAttribute(new Attribute("MIMETYPE", "image/jp2"));
+        Element fLocatUcEl = addNewMetsEl(fileUcEl, "FLocat");
+        fLocatUcEl.addAttribute(new Attribute("LOCTYPE", "URL"));
+        fLocatUcEl.addAttribute(new Attribute("xlink:href", NS_XLINK, "usercopy/uc_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".jp2"));
+
+        //fileGrp (ID=ALTOGRP)
+        Element fileGrpAltoEl = addNewMetsEl(fileSecEl, "fileGrp");
+        fileGrpAltoEl.addAttribute(new Attribute("ID", "ALTOGRP"));
+        fileGrpAltoEl.addAttribute(new Attribute("USE", "Layout"));
+        Element fileAltoEl = addNewMetsEl(fileGrpAltoEl, "file");
+        fileAltoEl.addAttribute(new Attribute("CREATED", nowFormatted));
+        fileAltoEl.addAttribute(new Attribute("CHECKSUMTYPE", "MD5"));
+        fileAltoEl.addAttribute(new Attribute("CHECKSUM", "TODO: compute"));
+        fileAltoEl.addAttribute(new Attribute("SIZE", "TODO: compute"));
+        fileAltoEl.addAttribute(new Attribute("SEQ", Integer.toString(pageNumber - 1)));
+        fileAltoEl.addAttribute(new Attribute("ID", "alto_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber)));
+        fileAltoEl.addAttribute(new Attribute("MIMETYPE", "text/xml"));
+        //fileGrpAltoEl.addAttribute(new Attribute("ADMID", "OBJ_003 EVT_003")); //TODO
+        Element fLocatAltoEl = addNewMetsEl(fileAltoEl, "FLocat");
+        fLocatAltoEl.addAttribute(new Attribute("LOCTYPE", "URL"));
+        fileAltoEl.addAttribute(new Attribute("xlink:href", NS_XLINK, "alto/alto_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".xml"));
+
+        //fileGrp (ID=TXTGRP)
+        Element fileGrpTxtEl = addNewMetsEl(fileSecEl, "fileGrp");
+        fileGrpTxtEl.addAttribute(new Attribute("ID", "TXTGRP"));
+        fileGrpTxtEl.addAttribute(new Attribute("USE", "Text"));
+        Element fileTxtEl = addNewMetsEl(fileGrpTxtEl, "file");
+        fileTxtEl.addAttribute(new Attribute("CREATED", nowFormatted));
+        fileTxtEl.addAttribute(new Attribute("CHECKSUMTYPE", "MD5"));
+        fileTxtEl.addAttribute(new Attribute("CHECKSUM", "TODO: compute"));
+        fileTxtEl.addAttribute(new Attribute("SIZE", "TODO: compute"));
+        fileTxtEl.addAttribute(new Attribute("SEQ", Integer.toString(pageNumber - 1)));
+        fileTxtEl.addAttribute(new Attribute("ID", "txt_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber)));
+        fileTxtEl.addAttribute(new Attribute("MIMETYPE", "text/plain"));
+        Element fLocatTxtEl = addNewMetsEl(fileTxtEl, "FLocat");
+        fLocatTxtEl.addAttribute(new Attribute("LOCTYPE", "URL"));
+        fLocatTxtEl.addAttribute(new Attribute("xlink:href", NS_XLINK, "txt/txt_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".txt"));
     }
 
     private void appendAmdSec(Element parentEl, int pageNumber) {
@@ -72,7 +140,6 @@ public class AmdSecBuilder {
 
     private void appendMetsHdr(Element rootEl) {
         Element metsHdrEl = addNewMetsEl(rootEl, "metsHdr");
-        String nowFormatted = now.toLocalDateTime().format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
         metsHdrEl.addAttribute(new Attribute("CREATEDATE", nowFormatted));
         metsHdrEl.addAttribute(new Attribute("LASTMODDATE", nowFormatted));
         //agent CREATOR
