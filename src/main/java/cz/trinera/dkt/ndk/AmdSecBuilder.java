@@ -30,7 +30,9 @@ public class AmdSecBuilder {
 
     public void buildAndSavePage(int pageNumber) {
         Document doc = buildAmdSec(pageNumber);
-        Utils.saveDocumentToFile(doc, new File(ndkPackageDir, "amdSec_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".xml"));
+        File amdSecDir = new File(ndkPackageDir, "amdsec");
+        amdSecDir.mkdirs();
+        Utils.saveDocumentToFile(doc, new File(amdSecDir, "amdSec_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".xml"));
     }
 
     private Document buildAmdSec(int pageNumber) {
