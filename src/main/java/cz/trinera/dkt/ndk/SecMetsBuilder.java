@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-public class AmdSecBuilder {
+public class SecMetsBuilder {
 
     private static String NS_DOCMD = "http://www.fcla.edu/docmd";
     private static String NS_METS = "http://www.loc.gov/METS/";
@@ -27,7 +27,7 @@ public class AmdSecBuilder {
     private final Map<String, FileInfo> fileInfoByPath;
     private final String monographTitle;
 
-    public AmdSecBuilder(File ndkPackageDir, UUID packageUuid, Timestamp now, Set<FileInfo> fileInfoSet, String monographTitle) {
+    public SecMetsBuilder(File ndkPackageDir, UUID packageUuid, Timestamp now, Set<FileInfo> fileInfoSet, String monographTitle) {
         this.ndkPackageDir = ndkPackageDir;
         this.packageUuid = packageUuid;
         this.now = now;

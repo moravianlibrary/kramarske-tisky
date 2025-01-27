@@ -11,7 +11,6 @@ import cz.trinera.dkt.tif2png.TifToPngConverter;
 import nu.xom.Document;
 
 import java.io.File;
-import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.*;
@@ -302,13 +301,13 @@ public class DigitizationWorkflow {
             Arrays.stream(txtDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/txt/" + file.getName())));
             String monographTitle = "TODO: nazev monografie";
 
-            //AMDSEC (dir)
+            //SECONDARY METS (dir, files)
             File amdsecDir = new File(ndkPackageDir, "amdsec");
             amdsecDir.mkdirs();
             int pageCount = masterCopyDir.listFiles().length;
-            AmdSecBuilder amdSecBuilder = new AmdSecBuilder(ndkPackageDir, packageUuid, now, fileInfos, monographTitle);
+            SecMetsBuilder secMetsBuilder = new SecMetsBuilder(ndkPackageDir, packageUuid, now, fileInfos, monographTitle);
             for (int i = 1; i <= pageCount; i++) {
-                amdSecBuilder.buildAndSavePage(i);
+                secMetsBuilder.buildAndSavePage(i);
             }
             Arrays.stream(amdsecDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/amdsec/" + file.getName())));
 
