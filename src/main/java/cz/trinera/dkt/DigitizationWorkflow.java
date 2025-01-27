@@ -4,10 +4,7 @@ import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
-import cz.trinera.dkt.ndk.AmdSecBuilder;
-import cz.trinera.dkt.ndk.FileInfo;
-import cz.trinera.dkt.ndk.HashFileBuilder;
-import cz.trinera.dkt.ndk.InfoXmlBuilder;
+import cz.trinera.dkt.ndk.*;
 import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.tif2jp2.TifToJp2Converter;
 import cz.trinera.dkt.tif2png.TifToPngConverter;
@@ -317,8 +314,9 @@ public class DigitizationWorkflow {
 
             //MAIN METS
             File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
-            mainMetsFile.createNewFile();
-            //TODO: fill mets.xml
+            MainMetsBuilder mainMetsBuilder = new MainMetsBuilder(ndkPackageDir, packageUuid, now);
+            Document mainMetsDoc = mainMetsBuilder.build(fileInfos, monographTitle);
+            Utils.saveDocumentToFile(mainMetsDoc, mainMetsFile);
 
             //MD5
             File md5File = new File(ndkPackageDir, "md5_" + packageUuid + ".md5");
@@ -330,7 +328,7 @@ public class DigitizationWorkflow {
             InfoXmlBuilder infoXmlBuilder = new InfoXmlBuilder();
             Document infoXmlDoc = infoXmlBuilder.build(now, packageUuid, fileInfos, md5File);
             Utils.saveDocumentToFile(infoXmlDoc, infoXmlFile);
-        } catch (IOException e) {
+        } catch (Throwable e) {
             System.err.println("Error while creating NDK package: " + e.getMessage());
             e.printStackTrace();
         }

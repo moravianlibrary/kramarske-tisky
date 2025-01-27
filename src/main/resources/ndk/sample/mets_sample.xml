@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<mets xmlns="http://www.loc.gov/METS/" LABEL="TODO: nazev monografie" TYPE="Monograph">
+    <metsHdr CREATEDATE="2025-01-27T19:35:02" LASTMODDATE="2025-01-27T19:35:02">
+        <agent ROLE="CREATOR" TYPE="ORGANIZATION">
+            <name>CreatorMZK</name>
+        </agent>
+        <agent ROLE="ARCHIVIST" TYPE="ORGANIZATION">
+            <name>ArchivistMZK</name>
+        </agent>
+    </metsHdr>
+</mets>
