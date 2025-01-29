@@ -314,7 +314,7 @@ public class DigitizationWorkflow {
             //MAIN METS
             File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
             MainMetsBuilder mainMetsBuilder = new MainMetsBuilder(ndkPackageDir, packageUuid, now);
-            Document mainMetsDoc = mainMetsBuilder.build(fileInfos, monographTitle);
+            Document mainMetsDoc = mainMetsBuilder.build(fileInfos, monographTitle, pages);
             Utils.saveDocumentToFile(mainMetsDoc, mainMetsFile);
 
             //MD5

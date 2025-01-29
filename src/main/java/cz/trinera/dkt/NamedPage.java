@@ -1,6 +1,7 @@
 package cz.trinera.dkt;
 
 import java.io.File;
+import java.util.UUID;
 
 public class NamedPage {
 
@@ -8,6 +9,7 @@ public class NamedPage {
     private final String name;
     private final File pngImageFile;
     private final File tifImageFile;
+    private final UUID uuid = UUID.randomUUID();
 
     public NamedPage(int position, String name, File pngImageFile, File tifImageFile) {
         this.position = position;
@@ -32,6 +34,10 @@ public class NamedPage {
         return tifImageFile;
     }
 
+    public UUID getUuid() {
+        return uuid;
+    }
+
     public NamedPage withDifferentPngImageFile(File destPngImageFile) {
         return new NamedPage(position, name, destPngImageFile, tifImageFile);
     }
@@ -43,6 +49,7 @@ public class NamedPage {
                 ", name='" + name + '\'' +
                 ", pngImageFile=" + pngImageFile.getAbsolutePath() +
                 ", tifImageFile=" + tifImageFile.getAbsolutePath() +
+                ", uuid=" + uuid +
                 '}';
     }
 }

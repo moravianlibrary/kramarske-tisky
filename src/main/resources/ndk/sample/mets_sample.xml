@@ -1,11 +1,101 @@
 <?xml version="1.0"?>
-<mets xmlns="http://www.loc.gov/METS/" LABEL="TODO: nazev monografie" TYPE="Monograph">
-    <metsHdr CREATEDATE="2025-01-27T19:35:02" LASTMODDATE="2025-01-27T19:35:02">
-        <agent ROLE="CREATOR" TYPE="ORGANIZATION">
-            <name>CreatorMZK</name>
-        </agent>
-        <agent ROLE="ARCHIVIST" TYPE="ORGANIZATION">
-            <name>ArchivistMZK</name>
-        </agent>
-    </metsHdr>
-</mets>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:mods="http://www.loc.gov/mods/v3" LABEL="TODO: nazev monografie" TYPE="Monograph">
+    <mets:metsHdr CREATEDATE="2025-01-29T10:52:50" LASTMODDATE="2025-01-29T10:52:50">
+        <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+            <mets:name>CreatorMZK</mets:name>
+        </mets:agent>
+        <mets:agent ROLE="ARCHIVIST" TYPE="ORGANIZATION">
+            <mets:name>ArchivistMZK</mets:name>
+        </mets:agent>
+    </mets:metsHdr>
+    <mets:dmdSec ID="DCMD_PAGE_0001">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[1r]</dc:coverage>
+                    <dc:identifier>uuid:d10a12bd-e320-48b1-9527-aa0a285ee45f</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0002">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[1v]</dc:coverage>
+                    <dc:identifier>uuid:17d717f9-8143-445c-a38b-172f28ae1445</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0003">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[2r]</dc:coverage>
+                    <dc:identifier>uuid:35c5881a-e00c-4310-96e7-010cf77a2f4c</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0004">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[2v]</dc:coverage>
+                    <dc:identifier>uuid:425f4f14-0b13-4793-9083-7cb7312b1645</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0005">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[3r]</dc:coverage>
+                    <dc:identifier>uuid:27f5eb9a-e360-4536-b1c1-7df372e9eb5e</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0006">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[3v]</dc:coverage>
+                    <dc:identifier>uuid:1108283e-42ee-4699-9998-8cdd25d15025</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0007">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[4r]</dc:coverage>
+                    <dc:identifier>uuid:26789d22-dd19-4bb7-a6fd-15f2f4faaad0</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0008">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[4v]</dc:coverage>
+                    <dc:identifier>uuid:ac75c0a3-5e2c-48dc-8619-f88af41ceef3</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+</mets:mets>
