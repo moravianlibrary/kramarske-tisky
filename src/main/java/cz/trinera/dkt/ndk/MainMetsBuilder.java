@@ -61,14 +61,42 @@ public class MainMetsBuilder {
             appendPageDmdSecMODS(rootEl, page);
         }
 
+        //structMap
         appendStructMapLogical(rootEl, monographTitle);
-        //TODO: append structMap (physical)
+        appendStructMapPhysical(rootEl, monographTitle, pages);
 
         //TODO: append fileSec
 
+        //structLink
         appendStructLink(rootEl, pages);
 
         return new Document(rootEl);
+    }
+
+    private void appendStructMapPhysical(Element rootEl, String monographTitle, List<NamedPage> pages) {
+        Element structMapEl = addNewMetsEl(rootEl, "structMap");
+        structMapEl.addAttribute(new Attribute("TYPE", "PHYSICAL"));
+        structMapEl.addAttribute(new Attribute("LABEL", "Physical_Structure"));
+
+        Element volDivEl = addNewMetsEl(structMapEl, "div");
+        volDivEl.addAttribute(new Attribute("ID", "DIV_P_0000"));
+        volDivEl.addAttribute(new Attribute("TYPE", "MONOGRAPH"));
+        volDivEl.addAttribute(new Attribute("DMID", "MODSMD_VOLUME_0001"));
+        volDivEl.addAttribute(new Attribute("LABEL", monographTitle));
+
+        for (NamedPage page : pages) {
+            Element pageDivEl = addNewMetsEl(volDivEl, "div");
+            pageDivEl.addAttribute(new Attribute("ID", "DIV_P_PAGE_" + Utils.to4CharNumber(page.getPosition())));
+            String pageType = page.getPosition() == 1 ? "titlePage" : "normalPage";
+            pageDivEl.addAttribute(new Attribute("TYPE", pageType));
+            pageDivEl.addAttribute(new Attribute("ORDER", page.getPosition() + ""));
+            pageDivEl.addAttribute(new Attribute("ORDERLABEL", "[" + page.getName() + "]"));
+            addNewMetsEl(pageDivEl, "fptr").addAttribute(new Attribute("FILEID", "mc_" + packageUuid + "_" + Utils.to4CharNumber(page.getPosition())));
+            addNewMetsEl(pageDivEl, "fptr").addAttribute(new Attribute("FILEID", "uc_" + packageUuid + "_" + Utils.to4CharNumber(page.getPosition())));
+            addNewMetsEl(pageDivEl, "fptr").addAttribute(new Attribute("FILEID", "txt_" + packageUuid + "_" + Utils.to4CharNumber(page.getPosition())));
+            addNewMetsEl(pageDivEl, "fptr").addAttribute(new Attribute("FILEID", "alt_" + packageUuid + "_" + Utils.to4CharNumber(page.getPosition())));
+            addNewMetsEl(pageDivEl, "fptr").addAttribute(new Attribute("FILEID", "amd_mets_" + packageUuid + "_" + Utils.to4CharNumber(page.getPosition())));
+        }
     }
 
     private void appendStructMapLogical(Element rootEl, String monographTitle) {
