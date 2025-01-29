@@ -78,19 +78,19 @@ public class MainMetsBuilder {
     private void appendFileSec(Element rootEl, Set<FileInfo> fileInfos, List<NamedPage> pages) {
         Element fileSecEl = addNewMetsEl(rootEl, "fileSec");
 
-        //TXTGRP
-        Element fileGrpTxt = addNewMetsEl(fileSecEl, "fileGrp");
-        fileGrpTxt.addAttribute(new Attribute("ID", "TXTGRP"));
-        fileGrpTxt.addAttribute(new Attribute("USE", "Text"));
+        //MC_IMGGRP
+        Element fileGrpMc = addNewMetsEl(fileSecEl, "fileGrp");
+        fileGrpMc.addAttribute(new Attribute("ID", "MC_IMGGRP"));
+        fileGrpMc.addAttribute(new Attribute("USE", "Images"));
         fileInfos.stream()
-                .filter(fileInfo -> fileInfo.getCategory() == FileInfo.Category.TXT)
+                .filter(fileInfo -> fileInfo.getCategory() == FileInfo.Category.MC)
                 .filter(fileInfo -> fileInfo.getPageNumber() != null)
                 .sorted(Comparator.comparing(FileInfo::getPageNumber))
                 .forEach(fileInfo -> {
-                    Element fileEl = addNewMetsEl(fileGrpTxt, "file");
-                    fileEl.addAttribute(new Attribute("ID", "txt_" + packageUuid + "_" + Utils.to4CharNumber(fileInfo.getPageNumber())));
+                    Element fileEl = addNewMetsEl(fileGrpMc, "file");
+                    fileEl.addAttribute(new Attribute("ID", "mc_" + packageUuid + "_" + Utils.to4CharNumber(fileInfo.getPageNumber())));
                     fileEl.addAttribute(new Attribute("SEQ", (fileInfo.getPageNumber() - 1) + ""));
-                    fileEl.addAttribute(new Attribute("MIMETYPE", "text/plain"));
+                    fileEl.addAttribute(new Attribute("MIMETYPE", "image/jp2"));
                     fileEl.addAttribute(new Attribute("SIZE", fileInfo.getFileSizeBytes() + ""));
                     fileEl.addAttribute(new Attribute("CREATED", nowFormatted));
                     fileEl.addAttribute(new Attribute("CHECKSUM", fileInfo.getMd5Checksum()));
@@ -144,6 +144,28 @@ public class MainMetsBuilder {
                     fLocatEl.addAttribute(new Attribute("LOCTYPE", "URL"));
                 });
 
+        //TXTGRP
+        Element fileGrpTxt = addNewMetsEl(fileSecEl, "fileGrp");
+        fileGrpTxt.addAttribute(new Attribute("ID", "TXTGRP"));
+        fileGrpTxt.addAttribute(new Attribute("USE", "Text"));
+        fileInfos.stream()
+                .filter(fileInfo -> fileInfo.getCategory() == FileInfo.Category.TXT)
+                .filter(fileInfo -> fileInfo.getPageNumber() != null)
+                .sorted(Comparator.comparing(FileInfo::getPageNumber))
+                .forEach(fileInfo -> {
+                    Element fileEl = addNewMetsEl(fileGrpTxt, "file");
+                    fileEl.addAttribute(new Attribute("ID", "txt_" + packageUuid + "_" + Utils.to4CharNumber(fileInfo.getPageNumber())));
+                    fileEl.addAttribute(new Attribute("SEQ", (fileInfo.getPageNumber() - 1) + ""));
+                    fileEl.addAttribute(new Attribute("MIMETYPE", "text/plain"));
+                    fileEl.addAttribute(new Attribute("SIZE", fileInfo.getFileSizeBytes() + ""));
+                    fileEl.addAttribute(new Attribute("CREATED", nowFormatted));
+                    fileEl.addAttribute(new Attribute("CHECKSUM", fileInfo.getMd5Checksum()));
+                    fileEl.addAttribute(new Attribute("CHECKSUMTYPE", "MD5"));
+                    Element fLocatEl = addNewMetsEl(fileEl, "FLocat");
+                    fLocatEl.addAttribute(new Attribute("xlink:href", NS_XLINK, fileInfo.getPathFromNdkPackageRoot(false)));
+                    fLocatEl.addAttribute(new Attribute("LOCTYPE", "URL"));
+                });
+
         //TECHMDGRP
         Element fileGrpTechMd = addNewMetsEl(fileSecEl, "fileGrp");
         fileGrpTechMd.addAttribute(new Attribute("ID", "TECHMDGRP"));
@@ -157,28 +179,6 @@ public class MainMetsBuilder {
                     fileEl.addAttribute(new Attribute("ID", "amd_sec_" + packageUuid + "_" + Utils.to4CharNumber(fileInfo.getPageNumber())));
                     fileEl.addAttribute(new Attribute("SEQ", (fileInfo.getPageNumber() - 1) + ""));
                     fileEl.addAttribute(new Attribute("MIMETYPE", "text/xml"));
-                    fileEl.addAttribute(new Attribute("SIZE", fileInfo.getFileSizeBytes() + ""));
-                    fileEl.addAttribute(new Attribute("CREATED", nowFormatted));
-                    fileEl.addAttribute(new Attribute("CHECKSUM", fileInfo.getMd5Checksum()));
-                    fileEl.addAttribute(new Attribute("CHECKSUMTYPE", "MD5"));
-                    Element fLocatEl = addNewMetsEl(fileEl, "FLocat");
-                    fLocatEl.addAttribute(new Attribute("xlink:href", NS_XLINK, fileInfo.getPathFromNdkPackageRoot(false)));
-                    fLocatEl.addAttribute(new Attribute("LOCTYPE", "URL"));
-                });
-
-        //MC_IMGGRP
-        Element fileGrpMc = addNewMetsEl(fileSecEl, "fileGrp");
-        fileGrpMc.addAttribute(new Attribute("ID", "MC_IMGGRP"));
-        fileGrpMc.addAttribute(new Attribute("USE", "Images"));
-        fileInfos.stream()
-                .filter(fileInfo -> fileInfo.getCategory() == FileInfo.Category.MC)
-                .filter(fileInfo -> fileInfo.getPageNumber() != null)
-                .sorted(Comparator.comparing(FileInfo::getPageNumber))
-                .forEach(fileInfo -> {
-                    Element fileEl = addNewMetsEl(fileGrpMc, "file");
-                    fileEl.addAttribute(new Attribute("ID", "mc_" + packageUuid + "_" + Utils.to4CharNumber(fileInfo.getPageNumber())));
-                    fileEl.addAttribute(new Attribute("SEQ", (fileInfo.getPageNumber() - 1) + ""));
-                    fileEl.addAttribute(new Attribute("MIMETYPE", "image/jp2"));
                     fileEl.addAttribute(new Attribute("SIZE", fileInfo.getFileSizeBytes() + ""));
                     fileEl.addAttribute(new Attribute("CREATED", nowFormatted));
                     fileEl.addAttribute(new Attribute("CHECKSUM", fileInfo.getMd5Checksum()));
