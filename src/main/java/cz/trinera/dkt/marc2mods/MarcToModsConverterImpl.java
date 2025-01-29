@@ -15,13 +15,6 @@ public class MarcToModsConverterImpl implements MarcToModsConverter {
     }
 
     @Override
-    public Document convertMarcToMods(Document marcXml) {
-        Document modsDoc = Utils.convertDocumentWithXslt(marcXml, xsltFile);
-        //TODO: enrich MODS some more (or within the XSLT)
-        return modsDoc;
-    }
-
-    @Override
     public void checkAvailable() throws ToolAvailabilityError {
         if (!xsltFile.exists()) {
             throw new ToolAvailabilityError("MarcToModsConverter: XSLT file " + xsltFile.getAbsolutePath() + " does not exist");
@@ -35,5 +28,12 @@ public class MarcToModsConverterImpl implements MarcToModsConverter {
                 throw new ToolAvailabilityError("MarcToModsConverter: XSLT file " + xsltFile.getAbsolutePath() + " is not a valid XML file", e);
             }
         }
+    }
+
+    @Override
+    public Document convertMarcToMods(Document marcXml) {
+        Document modsDoc = Utils.convertDocumentWithXslt(marcXml, xsltFile);
+        //TODO: enrich MODS some more (or within the XSLT)
+        return modsDoc;
     }
 }

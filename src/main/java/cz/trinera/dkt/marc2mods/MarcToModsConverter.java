@@ -5,7 +5,7 @@ import nu.xom.Document;
 
 public interface MarcToModsConverter {
 
-    public Document convertMarcToMods(Document marcXml);
-
     public void checkAvailable() throws ToolAvailabilityError;
+
+    public Document convertMarcToMods(Document marcXml);
 }
