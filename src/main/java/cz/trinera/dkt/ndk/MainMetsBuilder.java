@@ -63,8 +63,19 @@ public class MainMetsBuilder {
 
         //TODO: append structMap (logical, physical)
         //TODO: append fileSec
-        //TODO: append structLink
+
+        appendStructLink(rootEl, pages);
+
         return new Document(rootEl);
+    }
+
+    private void appendStructLink(Element rootEl, List<NamedPage> pages) {
+        Element structLinkEl = addNewMetsEl(rootEl, "structLink");
+        for (NamedPage page : pages) {
+            Element smLinkEl = addNewMetsEl(structLinkEl, "smLink");
+            smLinkEl.addAttribute(new Attribute("xlink:to", NS_XLINK, "DIV_P_PAGE_" + Utils.to4CharNumber(page.getPosition())));
+            smLinkEl.addAttribute(new Attribute("xlink:from", NS_XLINK, "VOLUME_0001"));
+        }
     }
 
     private void appendVolumeDmdSecMods(Element rootEl, File modsFile) {
