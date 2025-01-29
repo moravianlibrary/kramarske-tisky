@@ -2,7 +2,7 @@
 <mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/"
            xmlns:mods="http://www.loc.gov/mods/v3" LABEL="TODO: nazev monografie" TYPE="Monograph">
-    <mets:metsHdr CREATEDATE="2025-01-29T13:26:40" LASTMODDATE="2025-01-29T13:26:40">
+    <mets:metsHdr CREATEDATE="2025-01-29T13:36:43" LASTMODDATE="2025-01-29T13:36:43">
         <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
             <mets:name>CreatorMZK</mets:name>
         </mets:agent>
@@ -234,7 +234,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[1r]</dc:coverage>
-                    <dc:identifier>uuid:6d8e556a-88f7-4bda-ae62-6237668b37b6</dc:identifier>
+                    <dc:identifier>uuid:6ed6de7b-9abc-44af-b2ed-2529faa9cc1b</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -245,7 +245,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0001">
                     <mods:genre type="titlePage">page</mods:genre>
-                    <mods:identifier type="uuid">6d8e556a-88f7-4bda-ae62-6237668b37b6</mods:identifier>
+                    <mods:identifier type="uuid">6ed6de7b-9abc-44af-b2ed-2529faa9cc1b</mods:identifier>
                     <mods:part type="titlePage">
                         <mods:detail type="pageNumber">
                             <mods:number>[1r]</mods:number>
@@ -260,8 +260,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T132640</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T132640</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T133643</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T133643</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -272,7 +272,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[1v]</dc:coverage>
-                    <dc:identifier>uuid:1867d384-553e-4504-84d8-3f840d2b3eb0</dc:identifier>
+                    <dc:identifier>uuid:295c5fc5-e1d1-4285-873a-7d574bc525be</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -283,7 +283,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0002">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">1867d384-553e-4504-84d8-3f840d2b3eb0</mods:identifier>
+                    <mods:identifier type="uuid">295c5fc5-e1d1-4285-873a-7d574bc525be</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[1v]</mods:number>
@@ -298,8 +298,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T132640</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T132640</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T133643</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T133643</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -310,7 +310,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[2r]</dc:coverage>
-                    <dc:identifier>uuid:a0d97c3d-066d-4d4e-9e7a-866eda987bdd</dc:identifier>
+                    <dc:identifier>uuid:9934c121-ac25-4b63-a548-fa72a355e814</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -321,7 +321,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0003">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">a0d97c3d-066d-4d4e-9e7a-866eda987bdd</mods:identifier>
+                    <mods:identifier type="uuid">9934c121-ac25-4b63-a548-fa72a355e814</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[2r]</mods:number>
@@ -336,8 +336,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T132640</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T132640</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T133643</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T133643</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -348,7 +348,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[2v]</dc:coverage>
-                    <dc:identifier>uuid:cea78dfc-c717-4f2f-8ed6-6f51ace8e012</dc:identifier>
+                    <dc:identifier>uuid:604be1dd-6e15-426d-9d54-cd4e8bc8a937</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -359,7 +359,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0004">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">cea78dfc-c717-4f2f-8ed6-6f51ace8e012</mods:identifier>
+                    <mods:identifier type="uuid">604be1dd-6e15-426d-9d54-cd4e8bc8a937</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[2v]</mods:number>
@@ -374,8 +374,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T132640</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T132640</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T133643</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T133643</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -386,7 +386,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[3r]</dc:coverage>
-                    <dc:identifier>uuid:80c99105-c733-410a-b51a-85c709ded9b0</dc:identifier>
+                    <dc:identifier>uuid:ea0a45d9-19bc-47dc-9e22-c4b94827aa0f</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -397,7 +397,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0005">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">80c99105-c733-410a-b51a-85c709ded9b0</mods:identifier>
+                    <mods:identifier type="uuid">ea0a45d9-19bc-47dc-9e22-c4b94827aa0f</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[3r]</mods:number>
@@ -412,8 +412,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T132640</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T132640</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T133643</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T133643</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -424,7 +424,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[3v]</dc:coverage>
-                    <dc:identifier>uuid:43540e51-0075-4a48-8b9d-56a492577915</dc:identifier>
+                    <dc:identifier>uuid:85176fbd-c091-489b-875d-9378f2eea240</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -435,7 +435,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0006">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">43540e51-0075-4a48-8b9d-56a492577915</mods:identifier>
+                    <mods:identifier type="uuid">85176fbd-c091-489b-875d-9378f2eea240</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[3v]</mods:number>
@@ -450,8 +450,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T132640</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T132640</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T133643</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T133643</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -462,7 +462,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[4r]</dc:coverage>
-                    <dc:identifier>uuid:6e2c337a-63f0-47af-b425-fdfa607860a8</dc:identifier>
+                    <dc:identifier>uuid:52b50a00-7c85-4fe6-8889-4e31bb0b4553</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -473,7 +473,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0007">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">6e2c337a-63f0-47af-b425-fdfa607860a8</mods:identifier>
+                    <mods:identifier type="uuid">52b50a00-7c85-4fe6-8889-4e31bb0b4553</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[4r]</mods:number>
@@ -488,8 +488,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T132640</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T132640</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T133643</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T133643</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -500,7 +500,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[4v]</dc:coverage>
-                    <dc:identifier>uuid:e0cd2175-fae1-4975-8b26-ae2a0065003f</dc:identifier>
+                    <dc:identifier>uuid:f7d8f05d-239e-4a56-9407-5c999f7fcf6b</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -511,7 +511,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0008">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">e0cd2175-fae1-4975-8b26-ae2a0065003f</mods:identifier>
+                    <mods:identifier type="uuid">f7d8f05d-239e-4a56-9407-5c999f7fcf6b</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[4v]</mods:number>
@@ -526,21 +526,26 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T132640</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T132640</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T133643</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T133643</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
         </mets:mdWrap>
     </mets:dmdSec>
+    <mets:structMap TYPE="LOGICAL" LABEL="Logical_Structure">
+        <mets:div ID="MONOGRAPH_0001" TYPE="MONOGRAPH" LABEL="TODO: nazev monografie">
+            <mets:div ID="VOLUME_0001" TYPE="VOLUME" DMID="MODSMD_VOLUME_0001" LABEL="TODO: nazev monografie"/>
+        </mets:div>
+    </mets:structMap>
     <mets:structLink>
-        <mets:smLink xlink:to="DIV_P_PAGE_0001" xlink:from="VOLUME_0001"/>
-        <mets:smLink xlink:to="DIV_P_PAGE_0002" xlink:from="VOLUME_0001"/>
-        <mets:smLink xlink:to="DIV_P_PAGE_0003" xlink:from="VOLUME_0001"/>
-        <mets:smLink xlink:to="DIV_P_PAGE_0004" xlink:from="VOLUME_0001"/>
-        <mets:smLink xlink:to="DIV_P_PAGE_0005" xlink:from="VOLUME_0001"/>
-        <mets:smLink xlink:to="DIV_P_PAGE_0006" xlink:from="VOLUME_0001"/>
-        <mets:smLink xlink:to="DIV_P_PAGE_0007" xlink:from="VOLUME_0001"/>
-        <mets:smLink xlink:to="DIV_P_PAGE_0008" xlink:from="VOLUME_0001"/>
+        <mets:smLink xlink:from="VOLUME_0001" xlink:to="DIV_P_PAGE_0001"/>
+        <mets:smLink xlink:from="VOLUME_0001" xlink:to="DIV_P_PAGE_0002"/>
+        <mets:smLink xlink:from="VOLUME_0001" xlink:to="DIV_P_PAGE_0003"/>
+        <mets:smLink xlink:from="VOLUME_0001" xlink:to="DIV_P_PAGE_0004"/>
+        <mets:smLink xlink:from="VOLUME_0001" xlink:to="DIV_P_PAGE_0005"/>
+        <mets:smLink xlink:from="VOLUME_0001" xlink:to="DIV_P_PAGE_0006"/>
+        <mets:smLink xlink:from="VOLUME_0001" xlink:to="DIV_P_PAGE_0007"/>
+        <mets:smLink xlink:from="VOLUME_0001" xlink:to="DIV_P_PAGE_0008"/>
     </mets:structLink>
 </mets:mets>

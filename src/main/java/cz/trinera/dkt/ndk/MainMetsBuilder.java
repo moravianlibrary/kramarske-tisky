@@ -61,7 +61,9 @@ public class MainMetsBuilder {
             appendPageDmdSecMODS(rootEl, page);
         }
 
-        //TODO: append structMap (logical, physical)
+        appendStructMapLogical(rootEl, monographTitle);
+        //TODO: append structMap (physical)
+
         //TODO: append fileSec
 
         appendStructLink(rootEl, pages);
@@ -69,12 +71,29 @@ public class MainMetsBuilder {
         return new Document(rootEl);
     }
 
+    private void appendStructMapLogical(Element rootEl, String monographTitle) {
+        Element structMapEl = addNewMetsEl(rootEl, "structMap");
+        structMapEl.addAttribute(new Attribute("TYPE", "LOGICAL"));
+        structMapEl.addAttribute(new Attribute("LABEL", "Logical_Structure"));
+
+        Element monDivEl = addNewMetsEl(structMapEl, "div");
+        monDivEl.addAttribute(new Attribute("ID", "MONOGRAPH_0001"));
+        monDivEl.addAttribute(new Attribute("TYPE", "MONOGRAPH"));
+        monDivEl.addAttribute(new Attribute("LABEL", monographTitle));
+
+        Element volDivEl = addNewMetsEl(monDivEl, "div");
+        volDivEl.addAttribute(new Attribute("ID", "VOLUME_0001"));
+        volDivEl.addAttribute(new Attribute("TYPE", "VOLUME"));
+        volDivEl.addAttribute(new Attribute("DMID", "MODSMD_VOLUME_0001"));
+        volDivEl.addAttribute(new Attribute("LABEL", monographTitle));
+    }
+
     private void appendStructLink(Element rootEl, List<NamedPage> pages) {
         Element structLinkEl = addNewMetsEl(rootEl, "structLink");
         for (NamedPage page : pages) {
             Element smLinkEl = addNewMetsEl(structLinkEl, "smLink");
-            smLinkEl.addAttribute(new Attribute("xlink:to", NS_XLINK, "DIV_P_PAGE_" + Utils.to4CharNumber(page.getPosition())));
             smLinkEl.addAttribute(new Attribute("xlink:from", NS_XLINK, "VOLUME_0001"));
+            smLinkEl.addAttribute(new Attribute("xlink:to", NS_XLINK, "DIV_P_PAGE_" + Utils.to4CharNumber(page.getPosition())));
         }
     }
 
