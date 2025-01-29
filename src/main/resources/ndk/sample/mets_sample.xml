@@ -2,7 +2,7 @@
 <mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/"
            xmlns:mods="http://www.loc.gov/mods/v3" LABEL="TODO: nazev monografie" TYPE="Monograph">
-    <mets:metsHdr CREATEDATE="2025-01-29T10:52:50" LASTMODDATE="2025-01-29T10:52:50">
+    <mets:metsHdr CREATEDATE="2025-01-29T11:35:57" LASTMODDATE="2025-01-29T11:35:57">
         <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
             <mets:name>CreatorMZK</mets:name>
         </mets:agent>
@@ -15,9 +15,36 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[1r]</dc:coverage>
-                    <dc:identifier>uuid:d10a12bd-e320-48b1-9527-aa0a285ee45f</dc:identifier>
+                    <dc:identifier>uuid:405fa826-d884-4f48-b1e3-e665e8ec593b</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0001">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0001">
+                    <mods:genre type="titlePage">page</mods:genre>
+                    <mods:identifier type="uuid">405fa826-d884-4f48-b1e3-e665e8ec593b</mods:identifier>
+                    <mods:part type="titlePage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[1r]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[1r]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>1</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate>20250129T113557</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T113557</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
             </mets:xmlData>
         </mets:mdWrap>
     </mets:dmdSec>
@@ -26,9 +53,36 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[1v]</dc:coverage>
-                    <dc:identifier>uuid:17d717f9-8143-445c-a38b-172f28ae1445</dc:identifier>
+                    <dc:identifier>uuid:31054c30-0abe-40ab-a4df-eddc38f8e41c</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0002">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0002">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">31054c30-0abe-40ab-a4df-eddc38f8e41c</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[1v]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[1v]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>2</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate>20250129T113557</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T113557</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
             </mets:xmlData>
         </mets:mdWrap>
     </mets:dmdSec>
@@ -37,9 +91,36 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[2r]</dc:coverage>
-                    <dc:identifier>uuid:35c5881a-e00c-4310-96e7-010cf77a2f4c</dc:identifier>
+                    <dc:identifier>uuid:f4dbe4b7-36db-41ba-a3a3-1a6ff6ed5c8a</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0003">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0003">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">f4dbe4b7-36db-41ba-a3a3-1a6ff6ed5c8a</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[2r]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[2r]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>3</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate>20250129T113557</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T113557</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
             </mets:xmlData>
         </mets:mdWrap>
     </mets:dmdSec>
@@ -48,9 +129,36 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[2v]</dc:coverage>
-                    <dc:identifier>uuid:425f4f14-0b13-4793-9083-7cb7312b1645</dc:identifier>
+                    <dc:identifier>uuid:2f8b635f-fa16-436b-8ab8-cf10191e570b</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0004">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0004">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">2f8b635f-fa16-436b-8ab8-cf10191e570b</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[2v]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[2v]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>4</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate>20250129T113557</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T113557</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
             </mets:xmlData>
         </mets:mdWrap>
     </mets:dmdSec>
@@ -59,9 +167,36 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[3r]</dc:coverage>
-                    <dc:identifier>uuid:27f5eb9a-e360-4536-b1c1-7df372e9eb5e</dc:identifier>
+                    <dc:identifier>uuid:5ec986de-64b0-4965-abda-0c342bca0d42</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0005">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0005">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">5ec986de-64b0-4965-abda-0c342bca0d42</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[3r]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[3r]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>5</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate>20250129T113557</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T113557</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
             </mets:xmlData>
         </mets:mdWrap>
     </mets:dmdSec>
@@ -70,9 +205,36 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[3v]</dc:coverage>
-                    <dc:identifier>uuid:1108283e-42ee-4699-9998-8cdd25d15025</dc:identifier>
+                    <dc:identifier>uuid:54706317-8d1a-4be8-84e9-47ff501cb867</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0006">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0006">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">54706317-8d1a-4be8-84e9-47ff501cb867</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[3v]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[3v]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>6</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate>20250129T113557</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T113557</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
             </mets:xmlData>
         </mets:mdWrap>
     </mets:dmdSec>
@@ -81,9 +243,36 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[4r]</dc:coverage>
-                    <dc:identifier>uuid:26789d22-dd19-4bb7-a6fd-15f2f4faaad0</dc:identifier>
+                    <dc:identifier>uuid:25ebfcac-7b5d-475b-9e58-63dae6513bdc</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0007">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0007">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">25ebfcac-7b5d-475b-9e58-63dae6513bdc</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[4r]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[4r]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>7</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate>20250129T113557</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T113557</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
             </mets:xmlData>
         </mets:mdWrap>
     </mets:dmdSec>
@@ -92,9 +281,36 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[4v]</dc:coverage>
-                    <dc:identifier>uuid:ac75c0a3-5e2c-48dc-8619-f88af41ceef3</dc:identifier>
+                    <dc:identifier>uuid:60b8b868-7a24-46c1-bd55-96b7eb112100</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0008">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0008">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">60b8b868-7a24-46c1-bd55-96b7eb112100</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[4v]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[4v]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>8</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate>20250129T113557</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T113557</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
             </mets:xmlData>
         </mets:mdWrap>
     </mets:dmdSec>

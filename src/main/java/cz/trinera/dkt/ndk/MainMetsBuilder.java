@@ -27,12 +27,14 @@ public class MainMetsBuilder {
     private final UUID packageUuid;
     private final Timestamp now;
     private final String nowFormatted;
+    private final String nowFormattedIso8601;
 
     public MainMetsBuilder(File ndkPackageDir, UUID packageUuid, Timestamp now) {
         this.ndkPackageDir = ndkPackageDir;
         this.packageUuid = packageUuid;
         this.now = now;
         this.nowFormatted = now.toLocalDateTime().format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
+        this.nowFormattedIso8601 = now.toLocalDateTime().format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss"));
     }
 
     public Document build(Set<FileInfo> fileInfos, String monographTitle, List<NamedPage> pages) {
@@ -63,7 +65,7 @@ public class MainMetsBuilder {
         return new Document(rootEl);
     }
 
-    private void appendPageDmdSecMODS(Element rootEl, NamedPage page) {
+    private void appendPageDmdSecDC(Element rootEl, NamedPage page) {
         Element dmdSecEl = addNewMetsEl(rootEl, "dmdSec");
         dmdSecEl.addAttribute(new Attribute("ID", "DCMD_PAGE_" + Utils.to4CharNumber(page.getPosition())));
         Element mdWrapEl = addNewMetsEl(dmdSecEl, "mdWrap");
@@ -76,8 +78,48 @@ public class MainMetsBuilder {
         addNewDcEl(dcEl, "type").appendChild("model:page");
     }
 
-    private void appendPageDmdSecDC(Element rootEl, NamedPage page) {
-        //TODO: implement
+    private void appendPageDmdSecMODS(Element rootEl, NamedPage page) {
+        Element dmdSecEl = addNewMetsEl(rootEl, "dmdSec");
+        dmdSecEl.addAttribute(new Attribute("ID", "MODSMD_PAGE_" + Utils.to4CharNumber(page.getPosition())));
+        Element mdWrapEl = addNewMetsEl(dmdSecEl, "mdWrap");
+        mdWrapEl.addAttribute(new Attribute("MIMETYPE", "text/xml"));
+        mdWrapEl.addAttribute(new Attribute("MDTYPE", "MODS"));
+        mdWrapEl.addAttribute(new Attribute("MDTYPEVERSION", "3.6")); //pozor, DMF MON 2.2 vyzaduje 3.8
+        Element xmlDataEl = addNewMetsEl(mdWrapEl, "xmlData");
+        Element modsEl = addNewModsEl(xmlDataEl, "mods");
+        modsEl.addAttribute(new Attribute("ID", "MODS_PAGE_" + Utils.to4CharNumber(page.getPosition())));
+        //genre
+        Element genreEl = addNewModsEl(modsEl, "genre");
+        String pageType = page.getPosition() == 1 ? "titlePage" : "normalPage";
+        genreEl.addAttribute(new Attribute("type", pageType));
+        genreEl.appendChild("page");
+        //identifier
+        Element identifierEl = addNewModsEl(modsEl, "identifier");
+        identifierEl.addAttribute(new Attribute("type", "uuid"));
+        identifierEl.appendChild(page.getUuid().toString());
+        //part (1)
+        Element partEl1 = addNewModsEl(modsEl, "part");
+        partEl1.addAttribute(new Attribute("type", pageType));
+        Element part1DetailEl = addNewModsEl(partEl1, "detail");
+        part1DetailEl.addAttribute(new Attribute("type", "pageNumber"));
+        Element partDetailNumber = addNewModsEl(part1DetailEl, "number");
+        partDetailNumber.appendChild("[" + page.getName() + "]");
+        Element part1ExtentEl = addNewModsEl(partEl1, "extent");
+        part1ExtentEl.addAttribute(new Attribute("unit", "pages"));
+        Element part1ExtentStartEl = addNewModsEl(part1ExtentEl, "start");
+        part1ExtentStartEl.appendChild("[" + page.getName() + "]");
+        //part (2)
+        Element partEl2 = addNewModsEl(modsEl, "part");
+        Element part2DetailEl = addNewModsEl(partEl2, "detail");
+        part2DetailEl.addAttribute(new Attribute("type", "pageIndex"));
+        Element part2DetailNumberEl = addNewModsEl(part2DetailEl, "number");
+        part2DetailNumberEl.appendChild(page.getPosition() + "");
+        //recordInfo
+        Element recordInfoEl = addNewModsEl(modsEl, "recordInfo");
+        Element recordCreationDateEl = addNewModsEl(recordInfoEl, "recordCreationDate");
+        recordCreationDateEl.appendChild(nowFormattedIso8601);
+        Element recordChangeDateEl = addNewModsEl(recordInfoEl, "recordChangeDate");
+        recordChangeDateEl.appendChild(nowFormattedIso8601);
     }
 
     private void appendMetsHdr(Element rootEl) {
@@ -104,6 +146,10 @@ public class MainMetsBuilder {
 
     private Element addNewDcEl(Element parentEl, String elName) {
         return addNewElement(parentEl, "dc:" + elName, NS_DC);
+    }
+
+    private Element addNewModsEl(Element parentEl, String elName) {
+        return addNewElement(parentEl, "mods:" + elName, NS_MODS);
     }
 
     private Element addNewElement(Element parentEl, String elName, String namespace) {
