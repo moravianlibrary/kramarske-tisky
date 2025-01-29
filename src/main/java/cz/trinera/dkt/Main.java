@@ -4,6 +4,8 @@ import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetectorImplPyzbar;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc21.MarcXmlProviderImplYazClient;
+import cz.trinera.dkt.mods2dc.ModsToDcConverter;
+import cz.trinera.dkt.mods2dc.ModsToDcConverterImpl;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
 import cz.trinera.dkt.marc2mods.MarcToModsConverterImpl;
 import cz.trinera.dkt.ocr.OcrProvider;
@@ -167,10 +169,9 @@ public class Main {
                 Config.instanceOf().getMarcXmlProviderBase()
         );
 
-        //MarcToModsConverter marcToModsConverter = new MarcToModsConverterImpl(marcToModsXsltFile.getAbsolutePath());
-        MarcToModsConverter marcToModsConverter = new MarcToModsConverterImpl(
-                Config.instanceOf().getMarcxmlToModsConverterXsltFile()
-        );
+        MarcToModsConverter marcToModsConverter = new MarcToModsConverterImpl(Config.instanceOf().getMarcxmlToModsConverterXsltFile());
+        ModsToDcConverter modsToDcConverter = new ModsToDcConverterImpl(Config.instanceOf().getModsToDcConverterXsltFile());
+
 
         //check availability of all components
         tifToPngConverter.checkAvailable();
@@ -179,7 +180,8 @@ public class Main {
         tifToJp2Converter.checkAvailable();
         marcXmlProvider.checkAvailable();
         marcToModsConverter.checkAvailable();
+        modsToDcConverter.checkAvailable();
 
-        return new DigitizationWorkflow(tifToPngConverter, barcodeDetector, ocrProvider, tifToJp2Converter, marcXmlProvider, marcToModsConverter);
+        return new DigitizationWorkflow(tifToPngConverter, barcodeDetector, ocrProvider, tifToJp2Converter, marcXmlProvider, marcToModsConverter, modsToDcConverter);
     }
 }

@@ -3,6 +3,7 @@ package cz.trinera.dkt;
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetector.Barcode;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
+import cz.trinera.dkt.mods2dc.ModsToDcConverter;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
 import cz.trinera.dkt.ndk.*;
 import cz.trinera.dkt.ocr.OcrProvider;
@@ -33,14 +34,16 @@ public class DigitizationWorkflow {
     private final TifToJp2Converter tifToJp2Converter;
     private final MarcXmlProvider marcXmlProvider;
     private final MarcToModsConverter marcToModsConverter;
+    private final ModsToDcConverter modsToDcConverter;
 
-    public DigitizationWorkflow(TifToPngConverter tifToPngConverter, BarcodeDetector barcodeDetector, OcrProvider ocrProvider, TifToJp2Converter tifToJp2Converter, MarcXmlProvider marcXmlProvider, MarcToModsConverter marcToModsConverter) {
+    public DigitizationWorkflow(TifToPngConverter tifToPngConverter, BarcodeDetector barcodeDetector, OcrProvider ocrProvider, TifToJp2Converter tifToJp2Converter, MarcXmlProvider marcXmlProvider, MarcToModsConverter marcToModsConverter, ModsToDcConverter modsToDcConverter) {
         this.tifToPngConverter = tifToPngConverter;
         this.barcodeDetector = barcodeDetector;
         this.ocrProvider = ocrProvider;
         this.tifToJp2Converter = tifToJp2Converter;
         this.marcXmlProvider = marcXmlProvider;
         this.marcToModsConverter = marcToModsConverter;
+        this.modsToDcConverter = modsToDcConverter;
     }
 
     /**
@@ -225,6 +228,12 @@ public class DigitizationWorkflow {
         File modsFile = new File(workingDirBlock, "mods.xml");
         Utils.saveDocumentToFile(modsDoc, modsFile);
         //System.out.println(Utils.prettyPrintDocument(modsDoc));
+
+        //MODS to DC
+        Document dcDoc = modsToDcConverter.convertModsToDc(modsDoc);
+        File dcFile = new File(workingDirBlock, "dc.xml");
+        Utils.saveDocumentToFile(dcDoc, dcFile);
+        //System.out.println(Utils.prettyPrintDocument(dcDoc));
     }
 
     /**
@@ -312,10 +321,11 @@ public class DigitizationWorkflow {
             Arrays.stream(amdsecDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/amdsec/" + file.getName())));
 
             //MAIN METS
-            File modsFile = new File (blockWorkingDir, "mods.xml");
+            File modsFile = new File(blockWorkingDir, "mods.xml");
+            File dcFile = new File(blockWorkingDir, "dc.xml");
             File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
             MainMetsBuilder mainMetsBuilder = new MainMetsBuilder(ndkPackageDir, packageUuid, now);
-            Document mainMetsDoc = mainMetsBuilder.build(fileInfos, monographTitle, pages, modsFile);
+            Document mainMetsDoc = mainMetsBuilder.build(fileInfos, monographTitle, pages, modsFile, dcFile);
             Utils.saveDocumentToFile(mainMetsDoc, mainMetsFile);
 
             //MD5

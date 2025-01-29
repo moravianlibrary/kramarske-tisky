@@ -37,7 +37,7 @@ public class MainMetsBuilder {
         this.nowFormattedIso8601 = now.toLocalDateTime().format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss"));
     }
 
-    public Document build(Set<FileInfo> fileInfos, String monographTitle, List<NamedPage> pages, File modsFile) {
+    public Document build(Set<FileInfo> fileInfos, String monographTitle, List<NamedPage> pages, File modsFile, File dcFile) {
         //Element rootEl = new Element("mets", "http://www.loc.gov/METS/");
         Element rootEl = addNewMetsEl(null, "mets");
         rootEl.addAttribute(new Attribute("LABEL", monographTitle));
@@ -52,9 +52,8 @@ public class MainMetsBuilder {
         appendMetsHdr(rootEl);
 
         //dmdSec for volume (MODS, DC)
-        Document modsDoc = Utils.loadXmlFromFile(modsFile);
-        appendVolumeDmdSecMods(rootEl, modsDoc);
-        appendVolumeDmdSecDc(rootEl, modsDoc);
+        appendVolumeDmdSecMods(rootEl, modsFile);
+        appendVolumeDmdSecDc(rootEl, dcFile);
 
         //dmdSec for pages (MODS, DC)
         for (NamedPage page : pages) {
@@ -68,7 +67,8 @@ public class MainMetsBuilder {
         return new Document(rootEl);
     }
 
-    private void appendVolumeDmdSecMods(Element rootEl, Document modsDoc) {
+    private void appendVolumeDmdSecMods(Element rootEl, File modsFile) {
+        Document modsDoc = Utils.loadXmlFromFile(modsFile);
         Element dmdSecEl = addNewMetsEl(rootEl, "dmdSec");
         dmdSecEl.addAttribute(new Attribute("ID", "MODSMD_VOLUME_0001"));
         Element mdWrapEl = addNewMetsEl(dmdSecEl, "mdWrap");
@@ -81,8 +81,16 @@ public class MainMetsBuilder {
         xmlDataEl.appendChild(modsRoot);
     }
 
-    private void appendVolumeDmdSecDc(Element rootEl, Document modsDoc) {
-        //TODO: implement
+    private void appendVolumeDmdSecDc(Element rootEl, File modsDoc) {
+        Document dcDoc = Utils.loadXmlFromFile(modsDoc);
+        Element dmdSecEl = addNewMetsEl(rootEl, "dmdSec");
+        dmdSecEl.addAttribute(new Attribute("ID", "DCMD_VOLUME_0001"));
+        Element mdWrapEl = addNewMetsEl(dmdSecEl, "mdWrap");
+        mdWrapEl.addAttribute(new Attribute("MIMETYPE", "text/xml"));
+        mdWrapEl.addAttribute(new Attribute("MDTYPE", "DC"));
+        Element xmlDataEl = addNewMetsEl(mdWrapEl, "xmlData");
+        Element dcRoot = dcDoc.getRootElement().copy();
+        xmlDataEl.appendChild(dcRoot);
     }
 
     private void appendPageDmdSecDC(Element rootEl, NamedPage page) {

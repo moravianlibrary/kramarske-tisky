@@ -18,6 +18,7 @@ public class Config {
     private final String tifToJp2ConverterDependencyCheckScript;
     private final String tifToJp2ConverterScript;
     private final String marcxmlToModsConverterXsltFile;
+    private final String modsToDcConverterXsltFile;
     private final String ocrProviderPeroBaseUrl;
     private final String ocrProviderPeroApiKey;
     private final int ocrProviderPeroEngineId;
@@ -64,6 +65,7 @@ public class Config {
         tifToJp2ConverterDependencyCheckScript = getNonemptyProperty(properties, "tif_to_jp2_converter.dependency_check_script");
         tifToJp2ConverterScript = getNonemptyProperty(properties, "tif_to_jp2_converter.script");
         marcxmlToModsConverterXsltFile = getNonemptyProperty(properties, "marcxml_to_mods_converter.xslt_file");
+        modsToDcConverterXsltFile = getNonemptyProperty(properties, "mods_to_dc_converter.xslt_file");
         ocrProviderPeroBaseUrl = getNonemptyProperty(properties, "ocr_provider_pero.base_url");
         ocrProviderPeroApiKey = getNonemptyProperty(properties, "ocr_provider_pero.api_key");
         ocrProviderPeroEngineId = Integer.parseInt(getNonemptyProperty(properties, "ocr_provider_pero.engine_id"));
@@ -129,6 +131,10 @@ public class Config {
         return marcxmlToModsConverterXsltFile;
     }
 
+    public String getModsToDcConverterXsltFile() {
+        return modsToDcConverterXsltFile;
+    }
+
     public String getOcrProviderPeroBaseUrl() {
         return ocrProviderPeroBaseUrl;
     }
@@ -172,6 +178,7 @@ public class Config {
                 ", tifToJp2ConverterDependencyCheckScript='" + tifToJp2ConverterDependencyCheckScript + '\'' +
                 ", tifToJp2ConverterScript='" + tifToJp2ConverterScript + '\'' +
                 ", marcxmlToModsConverterXsltFile='" + marcxmlToModsConverterXsltFile + '\'' +
+                ", modsToDcConverterXsltFile='" + modsToDcConverterXsltFile + '\'' +
                 ", ocrProviderPeroBaseUrl='" + ocrProviderPeroBaseUrl + '\'' +
                 ", ocrProviderPeroEngieId=" + ocrProviderPeroEngineId + '\'' +
                 ", marcXmlProviderPythonDependencyCheckScript='" + marcXmlProviderPythonDependencyCheckScript + '\'' +
