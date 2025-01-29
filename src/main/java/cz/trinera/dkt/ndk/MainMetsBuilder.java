@@ -8,6 +8,7 @@ import nu.xom.Element;
 
 import java.io.File;
 import java.sql.Timestamp;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -65,12 +66,37 @@ public class MainMetsBuilder {
         appendStructMapLogical(rootEl, monographTitle);
         appendStructMapPhysical(rootEl, monographTitle, pages);
 
-        //TODO: append fileSec
+        //fileSec
+        appendFileSec(rootEl, fileInfos, pages);
 
         //structLink
         appendStructLink(rootEl, pages);
 
         return new Document(rootEl);
+    }
+
+    private void appendFileSec(Element rootEl, Set<FileInfo> fileInfos, List<NamedPage> pages) {
+        //TXTGRP
+        Element fileGrpTxt = addNewMetsEl(rootEl, "fileGrp");
+        fileGrpTxt.addAttribute(new Attribute("ID", "TXTGRP"));
+        fileGrpTxt.addAttribute(new Attribute("USE", "Text"));
+        fileInfos.stream()
+                .filter(fileInfo -> fileInfo.getCategory() == FileInfo.Category.TXT)
+                .filter(fileInfo -> fileInfo.getPageNumber() != null)
+                .sorted(Comparator.comparing(FileInfo::getPageNumber))
+                .forEach(fileInfo -> {
+                    Element fileEl = addNewMetsEl(fileGrpTxt, "file");
+                    fileEl.addAttribute(new Attribute("ID", "txt_" + packageUuid + "_" + Utils.to4CharNumber(fileInfo.getPageNumber())));
+                    fileEl.addAttribute(new Attribute("SEQ", (fileInfo.getPageNumber() - 1) + ""));
+                    fileEl.addAttribute(new Attribute("MIMETYPE", "text/plain"));
+                    fileEl.addAttribute(new Attribute("SIZE", fileInfo.getFileSizeBytes() + ""));
+                    fileEl.addAttribute(new Attribute("CREATED", nowFormatted)); //FIXME: format?
+                    fileEl.addAttribute(new Attribute("CHECKSUM", fileInfo.getMd5Checksum()));
+                    fileEl.addAttribute(new Attribute("CHECKSUMTYPE", "MD5"));
+                    Element fLocatEl = addNewMetsEl(fileEl, "FLocat");
+                    fLocatEl.addAttribute(new Attribute("xlink:href", NS_XLINK, fileInfo.getPathFromNdkPackageRoot(false)));
+                    fLocatEl.addAttribute(new Attribute("LOCTYPE", "URL"));
+                });
     }
 
     private void appendStructMapPhysical(Element rootEl, String monographTitle, List<NamedPage> pages) {

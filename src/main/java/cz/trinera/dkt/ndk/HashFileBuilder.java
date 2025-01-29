@@ -10,10 +10,12 @@ public class HashFileBuilder {
     public void buildAndSave(File ndkPackageDir, Set<FileInfo> fileInfos, File outFile) {
         List<String> lines = new ArrayList<>();
         fileInfos.stream()
-                .sorted((o1, o2) -> o1.getPathFromNdkPackageRoot().length() == o2.getPathFromNdkPackageRoot().length() ? o1.getPathFromNdkPackageRoot().compareTo(o2.getPathFromNdkPackageRoot()) : Integer.compare(o1.getPathFromNdkPackageRoot().length(), o2.getPathFromNdkPackageRoot().length()))
+                .sorted((o1, o2) -> o1.getPathFromNdkPackageRoot(false).length() == o2.getPathFromNdkPackageRoot(false).length()
+                        ? o1.getPathFromNdkPackageRoot(false).compareTo(o2.getPathFromNdkPackageRoot(false))
+                        : Integer.compare(o1.getPathFromNdkPackageRoot(false).length(), o2.getPathFromNdkPackageRoot(false).length()))
                 .filter(fileInfo -> !(fileInfo.getFile().getName().matches("info_.*\\.xml"))) //exclude info file
                 .filter(fileInfo -> !(fileInfo.getFile().getName().matches("md5_.*\\.md5"))) //exclude md5 file
-                .forEach(filePath -> lines.add(filePath.getMd5Checksum() + " " + filePath.getPathFromNdkPackageRoot()));
+                .forEach(filePath -> lines.add(filePath.getMd5Checksum() + " " + filePath.getPathFromNdkPackageRoot(true)));
         saveLinesToFile(outFile, lines);
     }
 

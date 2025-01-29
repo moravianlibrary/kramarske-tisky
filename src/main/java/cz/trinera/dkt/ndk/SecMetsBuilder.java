@@ -39,7 +39,7 @@ public class SecMetsBuilder {
     private Map<String, FileInfo> buildFileInfoByPath(Set<FileInfo> fileInfoSet) {
         Map<String, FileInfo> fileInfoByPath = new java.util.HashMap<>();
         for (FileInfo fileInfo : fileInfoSet) {
-            fileInfoByPath.put(normalizePath(fileInfo.getPathFromNdkPackageRoot()), fileInfo);
+            fileInfoByPath.put(normalizePath(fileInfo.getPathFromNdkPackageRoot(true)), fileInfo);
         }
         return fileInfoByPath;
     }

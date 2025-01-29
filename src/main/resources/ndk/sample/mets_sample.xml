@@ -2,7 +2,7 @@
 <mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/"
            xmlns:mods="http://www.loc.gov/mods/v3" LABEL="TODO: nazev monografie" TYPE="Monograph">
-    <mets:metsHdr CREATEDATE="2025-01-29T13:51:19" LASTMODDATE="2025-01-29T13:51:19">
+    <mets:metsHdr CREATEDATE="2025-01-29T14:38:54" LASTMODDATE="2025-01-29T14:38:54">
         <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
             <mets:name>CreatorMZK</mets:name>
         </mets:agent>
@@ -234,7 +234,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[1r]</dc:coverage>
-                    <dc:identifier>uuid:1f21383f-d3bc-4786-80fa-44e49394011e</dc:identifier>
+                    <dc:identifier>uuid:47c9ae7e-0740-4a88-9074-2803b5783f11</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -245,7 +245,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0001">
                     <mods:genre type="titlePage">page</mods:genre>
-                    <mods:identifier type="uuid">1f21383f-d3bc-4786-80fa-44e49394011e</mods:identifier>
+                    <mods:identifier type="uuid">47c9ae7e-0740-4a88-9074-2803b5783f11</mods:identifier>
                     <mods:part type="titlePage">
                         <mods:detail type="pageNumber">
                             <mods:number>[1r]</mods:number>
@@ -260,8 +260,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T135119</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T135119</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T143854</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T143854</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -272,7 +272,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[1v]</dc:coverage>
-                    <dc:identifier>uuid:cadc72d6-29a2-4841-97b8-56792c1abae1</dc:identifier>
+                    <dc:identifier>uuid:231a7c46-cff9-454e-86d0-e79ace09743a</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -283,7 +283,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0002">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">cadc72d6-29a2-4841-97b8-56792c1abae1</mods:identifier>
+                    <mods:identifier type="uuid">231a7c46-cff9-454e-86d0-e79ace09743a</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[1v]</mods:number>
@@ -298,8 +298,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T135119</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T135119</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T143854</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T143854</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -310,7 +310,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[2r]</dc:coverage>
-                    <dc:identifier>uuid:6d7a050d-2c26-412f-a805-c65d8721c7f3</dc:identifier>
+                    <dc:identifier>uuid:3f4ea44b-b195-4cd1-9974-a5052141c09c</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -321,7 +321,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0003">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">6d7a050d-2c26-412f-a805-c65d8721c7f3</mods:identifier>
+                    <mods:identifier type="uuid">3f4ea44b-b195-4cd1-9974-a5052141c09c</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[2r]</mods:number>
@@ -336,8 +336,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T135119</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T135119</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T143854</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T143854</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -348,7 +348,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[2v]</dc:coverage>
-                    <dc:identifier>uuid:aa0f9528-30d3-4ddc-ac88-c1b3874b0f8d</dc:identifier>
+                    <dc:identifier>uuid:4fb9c827-d1bc-407b-9f1f-2f0a8236a882</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -359,7 +359,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0004">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">aa0f9528-30d3-4ddc-ac88-c1b3874b0f8d</mods:identifier>
+                    <mods:identifier type="uuid">4fb9c827-d1bc-407b-9f1f-2f0a8236a882</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[2v]</mods:number>
@@ -374,8 +374,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T135119</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T135119</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T143854</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T143854</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -386,7 +386,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[3r]</dc:coverage>
-                    <dc:identifier>uuid:ccfaf2c7-0cd7-40f1-bcce-d932257bdce3</dc:identifier>
+                    <dc:identifier>uuid:0b3148cb-e071-4df1-8090-da885fc87784</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -397,7 +397,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0005">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">ccfaf2c7-0cd7-40f1-bcce-d932257bdce3</mods:identifier>
+                    <mods:identifier type="uuid">0b3148cb-e071-4df1-8090-da885fc87784</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[3r]</mods:number>
@@ -412,8 +412,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T135119</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T135119</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T143854</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T143854</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -424,7 +424,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[3v]</dc:coverage>
-                    <dc:identifier>uuid:b3682d8f-2233-439c-8058-fa9d4fbf68bc</dc:identifier>
+                    <dc:identifier>uuid:4b6ac796-cd2b-49df-913e-f9857ed6103c</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -435,7 +435,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0006">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">b3682d8f-2233-439c-8058-fa9d4fbf68bc</mods:identifier>
+                    <mods:identifier type="uuid">4b6ac796-cd2b-49df-913e-f9857ed6103c</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[3v]</mods:number>
@@ -450,8 +450,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T135119</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T135119</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T143854</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T143854</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -462,7 +462,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[4r]</dc:coverage>
-                    <dc:identifier>uuid:8424aa7e-8413-4450-8997-926dbaf6d432</dc:identifier>
+                    <dc:identifier>uuid:04f27898-4abb-41c8-8c50-0e5fecb54a15</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -473,7 +473,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0007">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">8424aa7e-8413-4450-8997-926dbaf6d432</mods:identifier>
+                    <mods:identifier type="uuid">04f27898-4abb-41c8-8c50-0e5fecb54a15</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[4r]</mods:number>
@@ -488,8 +488,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T135119</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T135119</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T143854</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T143854</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -500,7 +500,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[4v]</dc:coverage>
-                    <dc:identifier>uuid:c1856869-5b24-4c7c-ae73-11d8a968b643</dc:identifier>
+                    <dc:identifier>uuid:68586e72-134e-4dac-8968-73798c2341d6</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -511,7 +511,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0008">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">c1856869-5b24-4c7c-ae73-11d8a968b643</mods:identifier>
+                    <mods:identifier type="uuid">68586e72-134e-4dac-8968-73798c2341d6</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[4v]</mods:number>
@@ -526,8 +526,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T135119</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T135119</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250129T143854</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250129T143854</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -541,63 +541,97 @@
     <mets:structMap TYPE="PHYSICAL" LABEL="Physical_Structure">
         <mets:div ID="DIV_P_0000" TYPE="MONOGRAPH" DMID="MODSMD_VOLUME_0001" LABEL="TODO: nazev monografie">
             <mets:div ID="DIV_P_PAGE_0001" TYPE="titlePage" ORDER="1" ORDERLABEL="[1r]">
-                <mets:fptr FILEID="mc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0001"/>
-                <mets:fptr FILEID="uc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0001"/>
-                <mets:fptr FILEID="txt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0001"/>
-                <mets:fptr FILEID="alt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0001"/>
-                <mets:fptr FILEID="amd_mets_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0001"/>
+                <mets:fptr FILEID="mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001"/>
+                <mets:fptr FILEID="uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001"/>
+                <mets:fptr FILEID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001"/>
+                <mets:fptr FILEID="alt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001"/>
+                <mets:fptr FILEID="amd_mets_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0002" TYPE="normalPage" ORDER="2" ORDERLABEL="[1v]">
-                <mets:fptr FILEID="mc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0002"/>
-                <mets:fptr FILEID="uc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0002"/>
-                <mets:fptr FILEID="txt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0002"/>
-                <mets:fptr FILEID="alt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0002"/>
-                <mets:fptr FILEID="amd_mets_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0002"/>
+                <mets:fptr FILEID="mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002"/>
+                <mets:fptr FILEID="uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002"/>
+                <mets:fptr FILEID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002"/>
+                <mets:fptr FILEID="alt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002"/>
+                <mets:fptr FILEID="amd_mets_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0003" TYPE="normalPage" ORDER="3" ORDERLABEL="[2r]">
-                <mets:fptr FILEID="mc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0003"/>
-                <mets:fptr FILEID="uc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0003"/>
-                <mets:fptr FILEID="txt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0003"/>
-                <mets:fptr FILEID="alt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0003"/>
-                <mets:fptr FILEID="amd_mets_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0003"/>
+                <mets:fptr FILEID="mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003"/>
+                <mets:fptr FILEID="uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003"/>
+                <mets:fptr FILEID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003"/>
+                <mets:fptr FILEID="alt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003"/>
+                <mets:fptr FILEID="amd_mets_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0004" TYPE="normalPage" ORDER="4" ORDERLABEL="[2v]">
-                <mets:fptr FILEID="mc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0004"/>
-                <mets:fptr FILEID="uc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0004"/>
-                <mets:fptr FILEID="txt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0004"/>
-                <mets:fptr FILEID="alt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0004"/>
-                <mets:fptr FILEID="amd_mets_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0004"/>
+                <mets:fptr FILEID="mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004"/>
+                <mets:fptr FILEID="uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004"/>
+                <mets:fptr FILEID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004"/>
+                <mets:fptr FILEID="alt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004"/>
+                <mets:fptr FILEID="amd_mets_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0005" TYPE="normalPage" ORDER="5" ORDERLABEL="[3r]">
-                <mets:fptr FILEID="mc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0005"/>
-                <mets:fptr FILEID="uc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0005"/>
-                <mets:fptr FILEID="txt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0005"/>
-                <mets:fptr FILEID="alt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0005"/>
-                <mets:fptr FILEID="amd_mets_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0005"/>
+                <mets:fptr FILEID="mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005"/>
+                <mets:fptr FILEID="uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005"/>
+                <mets:fptr FILEID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005"/>
+                <mets:fptr FILEID="alt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005"/>
+                <mets:fptr FILEID="amd_mets_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0006" TYPE="normalPage" ORDER="6" ORDERLABEL="[3v]">
-                <mets:fptr FILEID="mc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0006"/>
-                <mets:fptr FILEID="uc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0006"/>
-                <mets:fptr FILEID="txt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0006"/>
-                <mets:fptr FILEID="alt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0006"/>
-                <mets:fptr FILEID="amd_mets_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0006"/>
+                <mets:fptr FILEID="mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006"/>
+                <mets:fptr FILEID="uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006"/>
+                <mets:fptr FILEID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006"/>
+                <mets:fptr FILEID="alt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006"/>
+                <mets:fptr FILEID="amd_mets_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0007" TYPE="normalPage" ORDER="7" ORDERLABEL="[4r]">
-                <mets:fptr FILEID="mc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0007"/>
-                <mets:fptr FILEID="uc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0007"/>
-                <mets:fptr FILEID="txt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0007"/>
-                <mets:fptr FILEID="alt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0007"/>
-                <mets:fptr FILEID="amd_mets_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0007"/>
+                <mets:fptr FILEID="mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007"/>
+                <mets:fptr FILEID="uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007"/>
+                <mets:fptr FILEID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007"/>
+                <mets:fptr FILEID="alt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007"/>
+                <mets:fptr FILEID="amd_mets_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0008" TYPE="normalPage" ORDER="8" ORDERLABEL="[4v]">
-                <mets:fptr FILEID="mc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0008"/>
-                <mets:fptr FILEID="uc_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0008"/>
-                <mets:fptr FILEID="txt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0008"/>
-                <mets:fptr FILEID="alt_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0008"/>
-                <mets:fptr FILEID="amd_mets_bfcfaf40-fcec-406c-a0ec-5dcd03c55ef3_0008"/>
+                <mets:fptr FILEID="mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008"/>
+                <mets:fptr FILEID="uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008"/>
+                <mets:fptr FILEID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008"/>
+                <mets:fptr FILEID="alt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008"/>
+                <mets:fptr FILEID="amd_mets_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008"/>
             </mets:div>
         </mets:div>
     </mets:structMap>
+    <mets:fileGrp ID="TXTGRP" USE="Text">
+        <mets:file ID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001" SEQ="0" MIMETYPE="text/plain" SIZE="204"
+                   CREATED="2025-01-29T14:38:54" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
+            <mets:FLocat xlink:href="txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001.txt" LOCTYPE="URL"/>
+        </mets:file>
+        <mets:file ID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002" SEQ="1" MIMETYPE="text/plain" SIZE="204"
+                   CREATED="2025-01-29T14:38:54" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
+            <mets:FLocat xlink:href="txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002.txt" LOCTYPE="URL"/>
+        </mets:file>
+        <mets:file ID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003" SEQ="2" MIMETYPE="text/plain" SIZE="204"
+                   CREATED="2025-01-29T14:38:54" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
+            <mets:FLocat xlink:href="txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003.txt" LOCTYPE="URL"/>
+        </mets:file>
+        <mets:file ID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004" SEQ="3" MIMETYPE="text/plain" SIZE="204"
+                   CREATED="2025-01-29T14:38:54" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
+            <mets:FLocat xlink:href="txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004.txt" LOCTYPE="URL"/>
+        </mets:file>
+        <mets:file ID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005" SEQ="4" MIMETYPE="text/plain" SIZE="204"
+                   CREATED="2025-01-29T14:38:54" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
+            <mets:FLocat xlink:href="txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005.txt" LOCTYPE="URL"/>
+        </mets:file>
+        <mets:file ID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006" SEQ="5" MIMETYPE="text/plain" SIZE="204"
+                   CREATED="2025-01-29T14:38:54" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
+            <mets:FLocat xlink:href="txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006.txt" LOCTYPE="URL"/>
+        </mets:file>
+        <mets:file ID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007" SEQ="6" MIMETYPE="text/plain" SIZE="204"
+                   CREATED="2025-01-29T14:38:54" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
+            <mets:FLocat xlink:href="txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007.txt" LOCTYPE="URL"/>
+        </mets:file>
+        <mets:file ID="txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008" SEQ="7" MIMETYPE="text/plain" SIZE="204"
+                   CREATED="2025-01-29T14:38:54" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
+            <mets:FLocat xlink:href="txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008.txt" LOCTYPE="URL"/>
+        </mets:file>
+    </mets:fileGrp>
     <mets:structLink>
         <mets:smLink xlink:from="VOLUME_0001" xlink:to="DIV_P_PAGE_0001"/>
         <mets:smLink xlink:from="VOLUME_0001" xlink:to="DIV_P_PAGE_0002"/>

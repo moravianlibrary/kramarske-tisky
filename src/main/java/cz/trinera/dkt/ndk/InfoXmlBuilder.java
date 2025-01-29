@@ -51,8 +51,10 @@ public class InfoXmlBuilder {
         rootEl.appendChild(itemListEl);
         itemListEl.addAttribute(new Attribute("itemtotal", Integer.toString(fileInfos.size())));
         fileInfos.stream()
-                .sorted((o1, o2) -> o1.getPathFromNdkPackageRoot().length() == o2.getPathFromNdkPackageRoot().length() ? o1.getPathFromNdkPackageRoot().compareTo(o2.getPathFromNdkPackageRoot()) : Integer.compare(o1.getPathFromNdkPackageRoot().length(), o2.getPathFromNdkPackageRoot().length()))
-                .forEach(fileInfo -> addElement(itemListEl, "item", fileInfo.getPathFromNdkPackageRoot()));
+                .sorted((o1, o2) -> o1.getPathFromNdkPackageRoot(false).length() == o2.getPathFromNdkPackageRoot(false).length()
+                        ? o1.getPathFromNdkPackageRoot(false).compareTo(o2.getPathFromNdkPackageRoot(false))
+                        : Integer.compare(o1.getPathFromNdkPackageRoot(false).length(), o2.getPathFromNdkPackageRoot(false).length()))
+                .forEach(fileInfo -> addElement(itemListEl, "item", fileInfo.getPathFromNdkPackageRoot(true)));
     }
 
     private Element addElement(Element parentElement, String elementName, String elementValue) {
