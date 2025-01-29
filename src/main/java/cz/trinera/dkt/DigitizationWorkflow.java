@@ -312,9 +312,10 @@ public class DigitizationWorkflow {
             Arrays.stream(amdsecDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/amdsec/" + file.getName())));
 
             //MAIN METS
+            File modsFile = new File (blockWorkingDir, "mods.xml");
             File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
             MainMetsBuilder mainMetsBuilder = new MainMetsBuilder(ndkPackageDir, packageUuid, now);
-            Document mainMetsDoc = mainMetsBuilder.build(fileInfos, monographTitle, pages);
+            Document mainMetsDoc = mainMetsBuilder.build(fileInfos, monographTitle, pages, modsFile);
             Utils.saveDocumentToFile(mainMetsDoc, mainMetsFile);
 
             //MD5

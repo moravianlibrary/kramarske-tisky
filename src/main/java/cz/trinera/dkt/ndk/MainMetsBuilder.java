@@ -37,7 +37,7 @@ public class MainMetsBuilder {
         this.nowFormattedIso8601 = now.toLocalDateTime().format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss"));
     }
 
-    public Document build(Set<FileInfo> fileInfos, String monographTitle, List<NamedPage> pages) {
+    public Document build(Set<FileInfo> fileInfos, String monographTitle, List<NamedPage> pages, File modsFile) {
         //Element rootEl = new Element("mets", "http://www.loc.gov/METS/");
         Element rootEl = addNewMetsEl(null, "mets");
         rootEl.addAttribute(new Attribute("LABEL", monographTitle));
@@ -51,7 +51,10 @@ public class MainMetsBuilder {
         //metsHdr
         appendMetsHdr(rootEl);
 
-        //TODO: append dmdSec (volume: MODS, DC)
+        //dmdSec for volume (MODS, DC)
+        Document modsDoc = Utils.loadXmlFromFile(modsFile);
+        appendVolumeDmdSecMods(rootEl, modsDoc);
+        appendVolumeDmdSecDc(rootEl, modsDoc);
 
         //dmdSec for pages (MODS, DC)
         for (NamedPage page : pages) {
@@ -63,6 +66,23 @@ public class MainMetsBuilder {
         //TODO: append fileSec
         //TODO: append structLink
         return new Document(rootEl);
+    }
+
+    private void appendVolumeDmdSecMods(Element rootEl, Document modsDoc) {
+        Element dmdSecEl = addNewMetsEl(rootEl, "dmdSec");
+        dmdSecEl.addAttribute(new Attribute("ID", "MODSMD_VOLUME_0001"));
+        Element mdWrapEl = addNewMetsEl(dmdSecEl, "mdWrap");
+        mdWrapEl.addAttribute(new Attribute("MIMETYPE", "text/xml"));
+        mdWrapEl.addAttribute(new Attribute("MDTYPE", "MODS"));
+        mdWrapEl.addAttribute(new Attribute("MDTYPEVERSION", "3.6")); //pozor, DMF MON 2.2 vyzaduje 3.8
+        Element xmlDataEl = addNewMetsEl(mdWrapEl, "xmlData");
+        Element modsRoot = modsDoc.getRootElement().copy();
+        modsRoot.addAttribute(new Attribute("ID", "MODS_VOLUME_0001"));
+        xmlDataEl.appendChild(modsRoot);
+    }
+
+    private void appendVolumeDmdSecDc(Element rootEl, Document modsDoc) {
+        //TODO: implement
     }
 
     private void appendPageDmdSecDC(Element rootEl, NamedPage page) {
