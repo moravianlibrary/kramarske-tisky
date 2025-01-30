@@ -27,7 +27,7 @@ public class Main {
     private static final String OPT_INPUT_DIR = "input_dir";
     private static final String OPT_OUTPUT_DIR = "output_dir";
 
-    private static final boolean DEV_MODE = true;
+    private static final boolean DEV_MODE = false;
 
     public static void main(String[] args) throws ToolAvailabilityError {
         if (DEV_MODE) {
