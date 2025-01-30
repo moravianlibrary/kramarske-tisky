@@ -1,60 +1,60 @@
 <?xml version="1.0"?>
 <info>
-    <created>2025-01-29T14:38:54</created>
+    <created>2025-01-30T15:26:17</created>
     <metadataversion>2.2</metadataversion>
-    <packageid>3ac695ed-2898-4fe3-8fb8-2edd993324a3</packageid>
-    <mainmets>mets_3ac695ed-2898-4fe3-8fb8-2edd993324a3.xml</mainmets>
+    <packageid>d374b02f-08f6-4017-90b5-ba4ee35e7df2</packageid>
+    <mainmets>mets_d374b02f-08f6-4017-90b5-ba4ee35e7df2.xml</mainmets>
     <validation version="dkt-workflow-1.0">OK</validation>
-    <titleid type="uuid">3ac695ed-2898-4fe3-8fb8-2edd993324a3</titleid>
+    <titleid type="uuid">d374b02f-08f6-4017-90b5-ba4ee35e7df2</titleid>
     <collection>Kramářské tisky</collection>
     <institution>MZK</institution>
     <creator>Trinera</creator>
-    <size>99</size>
+    <size>170205</size>
     <itemlist itemtotal="43">
-        <item>/md5_3ac695ed-2898-4fe3-8fb8-2edd993324a3.md5</item>
-        <item>/info_3ac695ed-2898-4fe3-8fb8-2edd993324a3.xml</item>
-        <item>/mets_3ac695ed-2898-4fe3-8fb8-2edd993324a3.xml</item>
-        <item>/txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001.txt</item>
-        <item>/txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002.txt</item>
-        <item>/txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003.txt</item>
-        <item>/txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004.txt</item>
-        <item>/txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005.txt</item>
-        <item>/txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006.txt</item>
-        <item>/txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007.txt</item>
-        <item>/txt/txt_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008.txt</item>
-        <item>/alto/alto_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001.xml</item>
-        <item>/alto/alto_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002.xml</item>
-        <item>/alto/alto_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003.xml</item>
-        <item>/alto/alto_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004.xml</item>
-        <item>/alto/alto_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005.xml</item>
-        <item>/alto/alto_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006.xml</item>
-        <item>/alto/alto_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007.xml</item>
-        <item>/alto/alto_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008.xml</item>
-        <item>/usercopy/uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001.jp2</item>
-        <item>/usercopy/uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002.jp2</item>
-        <item>/usercopy/uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003.jp2</item>
-        <item>/usercopy/uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004.jp2</item>
-        <item>/usercopy/uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005.jp2</item>
-        <item>/usercopy/uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006.jp2</item>
-        <item>/usercopy/uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007.jp2</item>
-        <item>/usercopy/uc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008.jp2</item>
-        <item>/amdsec/amdSec_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001.xml</item>
-        <item>/amdsec/amdSec_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002.xml</item>
-        <item>/amdsec/amdSec_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003.xml</item>
-        <item>/amdsec/amdSec_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004.xml</item>
-        <item>/amdsec/amdSec_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005.xml</item>
-        <item>/amdsec/amdSec_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006.xml</item>
-        <item>/amdsec/amdSec_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007.xml</item>
-        <item>/amdsec/amdSec_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008.xml</item>
-        <item>/mastercopy/mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0001.jp2</item>
-        <item>/mastercopy/mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0002.jp2</item>
-        <item>/mastercopy/mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0003.jp2</item>
-        <item>/mastercopy/mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0004.jp2</item>
-        <item>/mastercopy/mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0005.jp2</item>
-        <item>/mastercopy/mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0006.jp2</item>
-        <item>/mastercopy/mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0007.jp2</item>
-        <item>/mastercopy/mc_3ac695ed-2898-4fe3-8fb8-2edd993324a3_0008.jp2</item>
+        <item>/md5_d374b02f-08f6-4017-90b5-ba4ee35e7df2.md5</item>
+        <item>/info_d374b02f-08f6-4017-90b5-ba4ee35e7df2.xml</item>
+        <item>/mets_d374b02f-08f6-4017-90b5-ba4ee35e7df2.xml</item>
+        <item>/txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.txt</item>
+        <item>/txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.txt</item>
+        <item>/txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.txt</item>
+        <item>/txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.txt</item>
+        <item>/txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.txt</item>
+        <item>/txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.txt</item>
+        <item>/txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.txt</item>
+        <item>/txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.txt</item>
+        <item>/alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.xml</item>
+        <item>/alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.xml</item>
+        <item>/alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.xml</item>
+        <item>/alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.xml</item>
+        <item>/alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.xml</item>
+        <item>/alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.xml</item>
+        <item>/alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.xml</item>
+        <item>/alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.xml</item>
+        <item>/usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.jp2</item>
+        <item>/usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.jp2</item>
+        <item>/usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.jp2</item>
+        <item>/usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.jp2</item>
+        <item>/usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.jp2</item>
+        <item>/usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.jp2</item>
+        <item>/usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.jp2</item>
+        <item>/usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.jp2</item>
+        <item>/amdsec/amdSec_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.xml</item>
+        <item>/amdsec/amdSec_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.xml</item>
+        <item>/amdsec/amdSec_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.xml</item>
+        <item>/amdsec/amdSec_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.xml</item>
+        <item>/amdsec/amdSec_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.xml</item>
+        <item>/amdsec/amdSec_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.xml</item>
+        <item>/amdsec/amdSec_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.xml</item>
+        <item>/amdsec/amdSec_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.xml</item>
+        <item>/mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.jp2</item>
+        <item>/mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.jp2</item>
+        <item>/mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.jp2</item>
+        <item>/mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.jp2</item>
+        <item>/mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.jp2</item>
+        <item>/mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.jp2</item>
+        <item>/mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.jp2</item>
+        <item>/mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.jp2</item>
     </itemlist>
-    <checksum type="md5" checksum="074febf7399d365a256629c624036332">md5_3ac695ed-2898-4fe3-8fb8-2edd993324a3.md5
+    <checksum type="md5" checksum="6b8ea7fec169bd579bc6f2055dadeac6">md5_d374b02f-08f6-4017-90b5-ba4ee35e7df2.md5
     </checksum>
 </info>

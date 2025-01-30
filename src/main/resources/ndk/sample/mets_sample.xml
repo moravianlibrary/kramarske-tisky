@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/"
-           xmlns:mods="http://www.loc.gov/mods/v3" LABEL="TODO: nazev monografie" TYPE="Monograph">
-    <mets:metsHdr CREATEDATE="2025-01-29T15:02:35" LASTMODDATE="2025-01-29T15:02:35">
+           xmlns:mods="http://www.loc.gov/mods/v3" LABEL="Pjsně dwě k Pánu GEžjssy" TYPE="Monograph">
+    <mets:metsHdr CREATEDATE="2025-01-30T15:26:17" LASTMODDATE="2025-01-30T15:26:17">
         <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
             <mets:name>CreatorMZK</mets:name>
         </mets:agent>
@@ -234,7 +234,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[1r]</dc:coverage>
-                    <dc:identifier>uuid:02614601-9268-458f-85d1-99214b7de71a</dc:identifier>
+                    <dc:identifier>uuid:45dd01e7-e908-4752-96ab-d2cb4b427118</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -245,7 +245,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0001">
                     <mods:genre type="titlePage">page</mods:genre>
-                    <mods:identifier type="uuid">02614601-9268-458f-85d1-99214b7de71a</mods:identifier>
+                    <mods:identifier type="uuid">45dd01e7-e908-4752-96ab-d2cb4b427118</mods:identifier>
                     <mods:part type="titlePage">
                         <mods:detail type="pageNumber">
                             <mods:number>[1r]</mods:number>
@@ -260,8 +260,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T150235</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T150235</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250130T152617</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250130T152617</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -272,7 +272,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[1v]</dc:coverage>
-                    <dc:identifier>uuid:58948373-0ea6-4f0d-814a-aed1faa254be</dc:identifier>
+                    <dc:identifier>uuid:c74ac4af-5ebc-46a2-a01c-1041ad7b20f0</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -283,7 +283,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0002">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">58948373-0ea6-4f0d-814a-aed1faa254be</mods:identifier>
+                    <mods:identifier type="uuid">c74ac4af-5ebc-46a2-a01c-1041ad7b20f0</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[1v]</mods:number>
@@ -298,8 +298,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T150235</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T150235</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250130T152617</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250130T152617</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -310,7 +310,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[2r]</dc:coverage>
-                    <dc:identifier>uuid:9aa012a8-bb7d-4825-904d-4856da199229</dc:identifier>
+                    <dc:identifier>uuid:1fc046aa-adb2-4b74-a1b4-1e8df4aace78</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -321,7 +321,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0003">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">9aa012a8-bb7d-4825-904d-4856da199229</mods:identifier>
+                    <mods:identifier type="uuid">1fc046aa-adb2-4b74-a1b4-1e8df4aace78</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[2r]</mods:number>
@@ -336,8 +336,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T150235</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T150235</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250130T152617</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250130T152617</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -348,7 +348,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[2v]</dc:coverage>
-                    <dc:identifier>uuid:57858f24-f106-4da7-8807-fa3bb184e7d4</dc:identifier>
+                    <dc:identifier>uuid:c756f0d6-2436-4478-858a-adeb5bab79dd</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -359,7 +359,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0004">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">57858f24-f106-4da7-8807-fa3bb184e7d4</mods:identifier>
+                    <mods:identifier type="uuid">c756f0d6-2436-4478-858a-adeb5bab79dd</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[2v]</mods:number>
@@ -374,8 +374,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T150235</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T150235</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250130T152617</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250130T152617</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -386,7 +386,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[3r]</dc:coverage>
-                    <dc:identifier>uuid:00c6b35c-1593-4124-842f-648f8e249eec</dc:identifier>
+                    <dc:identifier>uuid:9594c1c0-8d64-4775-878e-bb5ff16359f1</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -397,7 +397,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0005">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">00c6b35c-1593-4124-842f-648f8e249eec</mods:identifier>
+                    <mods:identifier type="uuid">9594c1c0-8d64-4775-878e-bb5ff16359f1</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[3r]</mods:number>
@@ -412,8 +412,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T150235</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T150235</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250130T152617</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250130T152617</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -424,7 +424,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[3v]</dc:coverage>
-                    <dc:identifier>uuid:80d7db0b-3256-4aab-aa8c-68ec4777a5d3</dc:identifier>
+                    <dc:identifier>uuid:69aab45c-6537-4ff6-aa87-fd69af805c62</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -435,7 +435,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0006">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">80d7db0b-3256-4aab-aa8c-68ec4777a5d3</mods:identifier>
+                    <mods:identifier type="uuid">69aab45c-6537-4ff6-aa87-fd69af805c62</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[3v]</mods:number>
@@ -450,8 +450,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T150235</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T150235</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250130T152617</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250130T152617</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -462,7 +462,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[4r]</dc:coverage>
-                    <dc:identifier>uuid:5319b5c4-3341-417f-ac7f-a3303c868684</dc:identifier>
+                    <dc:identifier>uuid:991335c8-f967-441c-85ba-2de328133401</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -473,7 +473,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0007">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">5319b5c4-3341-417f-ac7f-a3303c868684</mods:identifier>
+                    <mods:identifier type="uuid">991335c8-f967-441c-85ba-2de328133401</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[4r]</mods:number>
@@ -488,8 +488,8 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T150235</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T150235</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250130T152617</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250130T152617</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
@@ -500,7 +500,7 @@
             <mets:xmlData>
                 <oai_dc:dc>
                     <dc:coverage>[4v]</dc:coverage>
-                    <dc:identifier>uuid:816c97ed-369e-4e13-8590-fe575d9c5193</dc:identifier>
+                    <dc:identifier>uuid:df7dcbff-b02d-4a3e-a65d-127ad3030d2d</dc:identifier>
                     <dc:type>model:page</dc:type>
                 </oai_dc:dc>
             </mets:xmlData>
@@ -511,7 +511,7 @@
             <mets:xmlData>
                 <mods:mods ID="MODS_PAGE_0008">
                     <mods:genre type="normalPage">page</mods:genre>
-                    <mods:identifier type="uuid">816c97ed-369e-4e13-8590-fe575d9c5193</mods:identifier>
+                    <mods:identifier type="uuid">df7dcbff-b02d-4a3e-a65d-127ad3030d2d</mods:identifier>
                     <mods:part type="normalPage">
                         <mods:detail type="pageNumber">
                             <mods:number>[4v]</mods:number>
@@ -526,249 +526,216 @@
                         </mods:detail>
                     </mods:part>
                     <mods:recordInfo>
-                        <mods:recordCreationDate>20250129T150235</mods:recordCreationDate>
-                        <mods:recordChangeDate>20250129T150235</mods:recordChangeDate>
+                        <mods:recordCreationDate>20250130T152617</mods:recordCreationDate>
+                        <mods:recordChangeDate>20250130T152617</mods:recordChangeDate>
                     </mods:recordInfo>
                 </mods:mods>
             </mets:xmlData>
         </mets:mdWrap>
     </mets:dmdSec>
     <mets:structMap TYPE="LOGICAL" LABEL="Logical_Structure">
-        <mets:div ID="MONOGRAPH_0001" TYPE="MONOGRAPH" LABEL="TODO: nazev monografie">
-            <mets:div ID="VOLUME_0001" TYPE="VOLUME" DMID="MODSMD_VOLUME_0001" LABEL="TODO: nazev monografie"/>
+        <mets:div ID="MONOGRAPH_0001" TYPE="MONOGRAPH" LABEL="Pjsně dwě k Pánu GEžjssy">
+            <mets:div ID="VOLUME_0001" TYPE="VOLUME" DMID="MODSMD_VOLUME_0001" LABEL="Pjsně dwě k Pánu GEžjssy"/>
         </mets:div>
     </mets:structMap>
     <mets:structMap TYPE="PHYSICAL" LABEL="Physical_Structure">
-        <mets:div ID="DIV_P_0000" TYPE="MONOGRAPH" DMID="MODSMD_VOLUME_0001" LABEL="TODO: nazev monografie">
+        <mets:div ID="DIV_P_0000" TYPE="MONOGRAPH" DMID="MODSMD_VOLUME_0001" LABEL="Pjsně dwě k Pánu GEžjssy">
             <mets:div ID="DIV_P_PAGE_0001" TYPE="titlePage" ORDER="1" ORDERLABEL="[1r]">
-                <mets:fptr FILEID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001"/>
-                <mets:fptr FILEID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001"/>
-                <mets:fptr FILEID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001"/>
-                <mets:fptr FILEID="alt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001"/>
-                <mets:fptr FILEID="amd_mets_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001"/>
+                <mets:fptr FILEID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001"/>
+                <mets:fptr FILEID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001"/>
+                <mets:fptr FILEID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001"/>
+                <mets:fptr FILEID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001"/>
+                <mets:fptr FILEID="amd_mets_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0002" TYPE="normalPage" ORDER="2" ORDERLABEL="[1v]">
-                <mets:fptr FILEID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002"/>
-                <mets:fptr FILEID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002"/>
-                <mets:fptr FILEID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002"/>
-                <mets:fptr FILEID="alt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002"/>
-                <mets:fptr FILEID="amd_mets_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002"/>
+                <mets:fptr FILEID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002"/>
+                <mets:fptr FILEID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002"/>
+                <mets:fptr FILEID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002"/>
+                <mets:fptr FILEID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002"/>
+                <mets:fptr FILEID="amd_mets_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0003" TYPE="normalPage" ORDER="3" ORDERLABEL="[2r]">
-                <mets:fptr FILEID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003"/>
-                <mets:fptr FILEID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003"/>
-                <mets:fptr FILEID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003"/>
-                <mets:fptr FILEID="alt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003"/>
-                <mets:fptr FILEID="amd_mets_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003"/>
+                <mets:fptr FILEID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003"/>
+                <mets:fptr FILEID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003"/>
+                <mets:fptr FILEID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003"/>
+                <mets:fptr FILEID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003"/>
+                <mets:fptr FILEID="amd_mets_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0004" TYPE="normalPage" ORDER="4" ORDERLABEL="[2v]">
-                <mets:fptr FILEID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004"/>
-                <mets:fptr FILEID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004"/>
-                <mets:fptr FILEID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004"/>
-                <mets:fptr FILEID="alt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004"/>
-                <mets:fptr FILEID="amd_mets_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004"/>
+                <mets:fptr FILEID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004"/>
+                <mets:fptr FILEID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004"/>
+                <mets:fptr FILEID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004"/>
+                <mets:fptr FILEID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004"/>
+                <mets:fptr FILEID="amd_mets_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0005" TYPE="normalPage" ORDER="5" ORDERLABEL="[3r]">
-                <mets:fptr FILEID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005"/>
-                <mets:fptr FILEID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005"/>
-                <mets:fptr FILEID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005"/>
-                <mets:fptr FILEID="alt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005"/>
-                <mets:fptr FILEID="amd_mets_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005"/>
+                <mets:fptr FILEID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005"/>
+                <mets:fptr FILEID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005"/>
+                <mets:fptr FILEID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005"/>
+                <mets:fptr FILEID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005"/>
+                <mets:fptr FILEID="amd_mets_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0006" TYPE="normalPage" ORDER="6" ORDERLABEL="[3v]">
-                <mets:fptr FILEID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006"/>
-                <mets:fptr FILEID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006"/>
-                <mets:fptr FILEID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006"/>
-                <mets:fptr FILEID="alt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006"/>
-                <mets:fptr FILEID="amd_mets_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006"/>
+                <mets:fptr FILEID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006"/>
+                <mets:fptr FILEID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006"/>
+                <mets:fptr FILEID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006"/>
+                <mets:fptr FILEID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006"/>
+                <mets:fptr FILEID="amd_mets_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0007" TYPE="normalPage" ORDER="7" ORDERLABEL="[4r]">
-                <mets:fptr FILEID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007"/>
-                <mets:fptr FILEID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007"/>
-                <mets:fptr FILEID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007"/>
-                <mets:fptr FILEID="alt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007"/>
-                <mets:fptr FILEID="amd_mets_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007"/>
+                <mets:fptr FILEID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007"/>
+                <mets:fptr FILEID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007"/>
+                <mets:fptr FILEID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007"/>
+                <mets:fptr FILEID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007"/>
+                <mets:fptr FILEID="amd_mets_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007"/>
             </mets:div>
             <mets:div ID="DIV_P_PAGE_0008" TYPE="normalPage" ORDER="8" ORDERLABEL="[4v]">
-                <mets:fptr FILEID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008"/>
-                <mets:fptr FILEID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008"/>
-                <mets:fptr FILEID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008"/>
-                <mets:fptr FILEID="alt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008"/>
-                <mets:fptr FILEID="amd_mets_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008"/>
+                <mets:fptr FILEID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008"/>
+                <mets:fptr FILEID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008"/>
+                <mets:fptr FILEID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008"/>
+                <mets:fptr FILEID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008"/>
+                <mets:fptr FILEID="amd_mets_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008"/>
             </mets:div>
         </mets:div>
     </mets:structMap>
     <mets:fileSec>
         <mets:fileGrp ID="MC_IMGGRP" USE="Images">
-            <mets:file ID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001" SEQ="0" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="mastercopy/mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001.jp2" LOCTYPE="URL"/>
+            <mets:file ID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001" SEQ="0" MIMETYPE="image/jp2" SIZE="16816770"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="2669ae557b93bdbfca87442cbbd0b013" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002" SEQ="1" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="mastercopy/mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002.jp2" LOCTYPE="URL"/>
+            <mets:file ID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002" SEQ="1" MIMETYPE="image/jp2" SIZE="16933035"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="cafa0588625e54ef493afeaeb5344d8c" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003" SEQ="2" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="mastercopy/mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003.jp2" LOCTYPE="URL"/>
+            <mets:file ID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003" SEQ="2" MIMETYPE="image/jp2" SIZE="16569138"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="611ad03cadc1ca1bab6182b823865e2e" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004" SEQ="3" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="mastercopy/mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004.jp2" LOCTYPE="URL"/>
+            <mets:file ID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004" SEQ="3" MIMETYPE="image/jp2" SIZE="16671179"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="a980c1ba713622b3fdcac894686c6999" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005" SEQ="4" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="mastercopy/mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005.jp2" LOCTYPE="URL"/>
+            <mets:file ID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005" SEQ="4" MIMETYPE="image/jp2" SIZE="16217138"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="7438277bdfdbc8e5689a931d1a6853ae" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006" SEQ="5" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="mastercopy/mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006.jp2" LOCTYPE="URL"/>
+            <mets:file ID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006" SEQ="5" MIMETYPE="image/jp2" SIZE="16332158"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="657f185974a565fa31be3feac12cdd19" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007" SEQ="6" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="mastercopy/mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007.jp2" LOCTYPE="URL"/>
+            <mets:file ID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007" SEQ="6" MIMETYPE="image/jp2" SIZE="16315495"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="84a793af9696fb553ee187d9120325aa" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008" SEQ="7" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="mastercopy/mc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008.jp2" LOCTYPE="URL"/>
+            <mets:file ID="mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008" SEQ="7" MIMETYPE="image/jp2" SIZE="16814281"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="4ca8b96c3819f2c4c8eccc8c14d05203" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.jp2" LOCTYPE="URL"/>
             </mets:file>
         </mets:fileGrp>
         <mets:fileGrp ID="UC_IMGGRP" USE="Images">
-            <mets:file ID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001" SEQ="0" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="usercopy/uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001.jp2" LOCTYPE="URL"/>
+            <mets:file ID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001" SEQ="0" MIMETYPE="image/jp2" SIZE="5219982"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="b82e37319b17528cfcaa19fff83e8d17" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002" SEQ="1" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="usercopy/uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002.jp2" LOCTYPE="URL"/>
+            <mets:file ID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002" SEQ="1" MIMETYPE="image/jp2" SIZE="5217541"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="6e629bde042116aeb672e366a5779d48" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003" SEQ="2" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="usercopy/uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003.jp2" LOCTYPE="URL"/>
+            <mets:file ID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003" SEQ="2" MIMETYPE="image/jp2" SIZE="5122502"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="d5f84be03f49735d78d8338587aa3120" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004" SEQ="3" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="usercopy/uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004.jp2" LOCTYPE="URL"/>
+            <mets:file ID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004" SEQ="3" MIMETYPE="image/jp2" SIZE="5196862"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="1365ab1d2a8f7d85b36477317bc8ea7b" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005" SEQ="4" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="usercopy/uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005.jp2" LOCTYPE="URL"/>
+            <mets:file ID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005" SEQ="4" MIMETYPE="image/jp2" SIZE="5134955"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="61d94327f4923bce2d8e3ab94a34f49e" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006" SEQ="5" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="usercopy/uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006.jp2" LOCTYPE="URL"/>
+            <mets:file ID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006" SEQ="5" MIMETYPE="image/jp2" SIZE="5201706"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="7b9f88cbab6fd57adeeb80e78c2958af" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007" SEQ="6" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="usercopy/uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007.jp2" LOCTYPE="URL"/>
+            <mets:file ID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007" SEQ="6" MIMETYPE="image/jp2" SIZE="5215554"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="0d588b74feea0675ae1442dfdd6d63de" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.jp2" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008" SEQ="7" MIMETYPE="image/jp2" SIZE="0"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="usercopy/uc_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008.jp2" LOCTYPE="URL"/>
+            <mets:file ID="uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008" SEQ="7" MIMETYPE="image/jp2" SIZE="5204667"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="04e07b3e969c75b8a82968d5baf0ba0c" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.jp2" LOCTYPE="URL"/>
             </mets:file>
         </mets:fileGrp>
         <mets:fileGrp ID="ALTOGRP" USE="Layout">
-            <mets:file ID="alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001" SEQ="0" MIMETYPE="text/xml" SIZE="8171"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="ccdf3ae87d83b913ed64d309637244fb" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="alto/alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001.xml" LOCTYPE="URL"/>
+            <mets:file ID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001" SEQ="0" MIMETYPE="text/xml" SIZE="1544"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="107c6d908d1fc06fab2247c5478d7df3" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.xml" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002" SEQ="1" MIMETYPE="text/xml" SIZE="8171"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="ccdf3ae87d83b913ed64d309637244fb" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="alto/alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002.xml" LOCTYPE="URL"/>
+            <mets:file ID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002" SEQ="1" MIMETYPE="text/xml" SIZE="7123"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="0cd39bcaae4f77b361edc4472171b3ef" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.xml" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003" SEQ="2" MIMETYPE="text/xml" SIZE="8171"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="ccdf3ae87d83b913ed64d309637244fb" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="alto/alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003.xml" LOCTYPE="URL"/>
+            <mets:file ID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003" SEQ="2" MIMETYPE="text/xml" SIZE="17305"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="2d2840ab934e3dfba8b685193629e62e" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.xml" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004" SEQ="3" MIMETYPE="text/xml" SIZE="8171"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="ccdf3ae87d83b913ed64d309637244fb" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="alto/alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004.xml" LOCTYPE="URL"/>
+            <mets:file ID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004" SEQ="3" MIMETYPE="text/xml" SIZE="5803"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="aa742d6e6a065247ebea8a1277be70b9" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.xml" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005" SEQ="4" MIMETYPE="text/xml" SIZE="8171"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="ccdf3ae87d83b913ed64d309637244fb" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="alto/alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005.xml" LOCTYPE="URL"/>
+            <mets:file ID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005" SEQ="4" MIMETYPE="text/xml" SIZE="15517"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="bb4e4ec3f15e8be50dd2ab4c8e96242b" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.xml" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006" SEQ="5" MIMETYPE="text/xml" SIZE="8171"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="ccdf3ae87d83b913ed64d309637244fb" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="alto/alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006.xml" LOCTYPE="URL"/>
+            <mets:file ID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006" SEQ="5" MIMETYPE="text/xml" SIZE="8836"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="af0ce5c1cbc1ba228b1890ba3f12b70a" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.xml" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007" SEQ="6" MIMETYPE="text/xml" SIZE="8171"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="ccdf3ae87d83b913ed64d309637244fb" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="alto/alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007.xml" LOCTYPE="URL"/>
+            <mets:file ID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007" SEQ="6" MIMETYPE="text/xml" SIZE="6506"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="3e503cdc0d2303d8a2c3d4f4f79c45b0" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.xml" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008" SEQ="7" MIMETYPE="text/xml" SIZE="8171"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="ccdf3ae87d83b913ed64d309637244fb" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="alto/alto_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008.xml" LOCTYPE="URL"/>
+            <mets:file ID="alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008" SEQ="7" MIMETYPE="text/xml" SIZE="4747"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="8fc5fb42fcf1e930e202b5ca9d2fd8d2" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.xml" LOCTYPE="URL"/>
             </mets:file>
         </mets:fileGrp>
         <mets:fileGrp ID="TXTGRP" USE="Text">
-            <mets:file ID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001" SEQ="0" MIMETYPE="text/plain" SIZE="204"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="txt/txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001.txt" LOCTYPE="URL"/>
+            <mets:file ID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001" SEQ="0" MIMETYPE="text/plain" SIZE="0"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="d41d8cd98f00b204e9800998ecf8427e" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.txt" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002" SEQ="1" MIMETYPE="text/plain" SIZE="204"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="txt/txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002.txt" LOCTYPE="URL"/>
+            <mets:file ID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002" SEQ="1" MIMETYPE="text/plain" SIZE="205"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="63f5af3b51623820c233db10b458da15" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.txt" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003" SEQ="2" MIMETYPE="text/plain" SIZE="204"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="txt/txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003.txt" LOCTYPE="URL"/>
+            <mets:file ID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003" SEQ="2" MIMETYPE="text/plain" SIZE="595"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="cf65e564326e7339145cc95d700473a8" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.txt" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004" SEQ="3" MIMETYPE="text/plain" SIZE="204"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="txt/txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004.txt" LOCTYPE="URL"/>
+            <mets:file ID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004" SEQ="3" MIMETYPE="text/plain" SIZE="154"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="945fdc2d53dfbf3d9dfb6c489d10d926" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.txt" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005" SEQ="4" MIMETYPE="text/plain" SIZE="204"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="txt/txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005.txt" LOCTYPE="URL"/>
+            <mets:file ID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005" SEQ="4" MIMETYPE="text/plain" SIZE="530"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="7c3ca9fdacc0dbbb03c5148298c8b2c0" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.txt" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006" SEQ="5" MIMETYPE="text/plain" SIZE="204"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="txt/txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006.txt" LOCTYPE="URL"/>
+            <mets:file ID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006" SEQ="5" MIMETYPE="text/plain" SIZE="293"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="fed30412e720ec499e5b3d5276b97197" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.txt" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007" SEQ="6" MIMETYPE="text/plain" SIZE="204"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="txt/txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007.txt" LOCTYPE="URL"/>
+            <mets:file ID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007" SEQ="6" MIMETYPE="text/plain" SIZE="186"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="d21f08c88267af7f3ec572369836e503" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.txt" LOCTYPE="URL"/>
             </mets:file>
-            <mets:file ID="txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008" SEQ="7" MIMETYPE="text/plain" SIZE="204"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="d3f3492f2c51c1281a043279b34cf88b" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="txt/txt_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008.txt" LOCTYPE="URL"/>
-            </mets:file>
-        </mets:fileGrp>
-        <mets:fileGrp ID="TECHMDGRP" USE="Technical Metadata">
-            <mets:file ID="amd_sec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001" SEQ="0" MIMETYPE="text/xml" SIZE="2104"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="af91e4311cbdcfeef712d0401a836f31" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="amdsec/amdSec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0001.xml" LOCTYPE="URL"/>
-            </mets:file>
-            <mets:file ID="amd_sec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002" SEQ="1" MIMETYPE="text/xml" SIZE="2104"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="8455c70c1fc5d8d7ccd72b7a6e7f091a" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="amdsec/amdSec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0002.xml" LOCTYPE="URL"/>
-            </mets:file>
-            <mets:file ID="amd_sec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003" SEQ="2" MIMETYPE="text/xml" SIZE="2104"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="63b99b75859f73180b5d6c8fdeb45b8a" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="amdsec/amdSec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0003.xml" LOCTYPE="URL"/>
-            </mets:file>
-            <mets:file ID="amd_sec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004" SEQ="3" MIMETYPE="text/xml" SIZE="2104"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="4b850ea7a48e5e5b85c9f4c7f348591f" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="amdsec/amdSec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0004.xml" LOCTYPE="URL"/>
-            </mets:file>
-            <mets:file ID="amd_sec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005" SEQ="4" MIMETYPE="text/xml" SIZE="2104"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="b3aac1a6ac46343d18ea5a21e8b78ac5" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="amdsec/amdSec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0005.xml" LOCTYPE="URL"/>
-            </mets:file>
-            <mets:file ID="amd_sec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006" SEQ="5" MIMETYPE="text/xml" SIZE="2104"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="225feaef776432a4a8c999e45769c035" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="amdsec/amdSec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0006.xml" LOCTYPE="URL"/>
-            </mets:file>
-            <mets:file ID="amd_sec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007" SEQ="6" MIMETYPE="text/xml" SIZE="2104"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="6c836fea9d4453ade783346e4b074b4a" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="amdsec/amdSec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0007.xml" LOCTYPE="URL"/>
-            </mets:file>
-            <mets:file ID="amd_sec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008" SEQ="7" MIMETYPE="text/xml" SIZE="2104"
-                       CREATED="2025-01-29T15:02:35" CHECKSUM="ee1cab7ea588a964b34b47d4c473ffdc" CHECKSUMTYPE="MD5">
-                <mets:FLocat xlink:href="amdsec/amdSec_d0df15a5-ec23-4219-a8a2-36c4da8f5572_0008.xml" LOCTYPE="URL"/>
+            <mets:file ID="txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008" SEQ="7" MIMETYPE="text/plain" SIZE="87"
+                       CREATED="2025-01-30T15:26:17" CHECKSUM="8698646274edbb100f564b03b89906b1" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.txt" LOCTYPE="URL"/>
             </mets:file>
         </mets:fileGrp>
+        <mets:fileGrp ID="TECHMDGRP" USE="Technical Metadata"/>
     </mets:fileSec>
     <mets:structLink>
         <mets:smLink xlink:from="VOLUME_0001" xlink:to="DIV_P_PAGE_0001"/>

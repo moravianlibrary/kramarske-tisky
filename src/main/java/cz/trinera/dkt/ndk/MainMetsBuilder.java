@@ -210,7 +210,7 @@ public class MainMetsBuilder {
             addNewMetsEl(pageDivEl, "fptr").addAttribute(new Attribute("FILEID", "mc_" + packageUuid + "_" + Utils.to4CharNumber(page.getPosition())));
             addNewMetsEl(pageDivEl, "fptr").addAttribute(new Attribute("FILEID", "uc_" + packageUuid + "_" + Utils.to4CharNumber(page.getPosition())));
             addNewMetsEl(pageDivEl, "fptr").addAttribute(new Attribute("FILEID", "txt_" + packageUuid + "_" + Utils.to4CharNumber(page.getPosition())));
-            addNewMetsEl(pageDivEl, "fptr").addAttribute(new Attribute("FILEID", "alt_" + packageUuid + "_" + Utils.to4CharNumber(page.getPosition())));
+            addNewMetsEl(pageDivEl, "fptr").addAttribute(new Attribute("FILEID", "alto_" + packageUuid + "_" + Utils.to4CharNumber(page.getPosition())));
             addNewMetsEl(pageDivEl, "fptr").addAttribute(new Attribute("FILEID", "amd_mets_" + packageUuid + "_" + Utils.to4CharNumber(page.getPosition())));
         }
     }
