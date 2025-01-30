@@ -9,6 +9,7 @@ import cz.trinera.dkt.ndk.*;
 import cz.trinera.dkt.ocr.OcrProvider;
 import cz.trinera.dkt.tif2jp2.TifToJp2Converter;
 import cz.trinera.dkt.tif2png.TifToPngConverter;
+import cz.trinera.dkt.utils.MonographMetadataExtractor;
 import nu.xom.Document;
 
 import java.io.File;
@@ -308,7 +309,17 @@ public class DigitizationWorkflow {
             Arrays.stream(userCopyDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/usercopy/" + file.getName())));
             Arrays.stream(altoDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/alto/" + file.getName())));
             Arrays.stream(txtDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/txt/" + file.getName())));
-            String monographTitle = "TODO: nazev monografie";
+
+            File modsFile = new File(blockWorkingDir, "mods.xml");
+            File dcFile = new File(blockWorkingDir, "dc.xml");
+            MonographMetadataExtractor monographMetadataExtractor = new MonographMetadataExtractor(modsFile, dcFile);
+            String monographTitle = monographMetadataExtractor.extractTitle();
+
+            //MAIN METS
+            File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
+            MainMetsBuilder mainMetsBuilder = new MainMetsBuilder(ndkPackageDir, packageUuid, now);
+            Document mainMetsDoc = mainMetsBuilder.build(fileInfos, monographTitle, pages, modsFile, dcFile);
+            Utils.saveDocumentToFile(mainMetsDoc, mainMetsFile);
 
             //SECONDARY METS (dir, files)
             File amdsecDir = new File(ndkPackageDir, "amdsec");
@@ -319,14 +330,6 @@ public class DigitizationWorkflow {
                 secMetsBuilder.buildAndSavePage(i);
             }
             Arrays.stream(amdsecDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/amdsec/" + file.getName())));
-
-            //MAIN METS
-            File modsFile = new File(blockWorkingDir, "mods.xml");
-            File dcFile = new File(blockWorkingDir, "dc.xml");
-            File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
-            MainMetsBuilder mainMetsBuilder = new MainMetsBuilder(ndkPackageDir, packageUuid, now);
-            Document mainMetsDoc = mainMetsBuilder.build(fileInfos, monographTitle, pages, modsFile, dcFile);
-            Utils.saveDocumentToFile(mainMetsDoc, mainMetsFile);
 
             //MD5
             File md5File = new File(ndkPackageDir, "md5_" + packageUuid + ".md5");
@@ -343,7 +346,6 @@ public class DigitizationWorkflow {
             e.printStackTrace();
         }
     }
-
 
     private File[] listImageFiles(File inputDir) {
         //System.out.println("Listing files in " + inputDir);
