@@ -61,7 +61,7 @@ public class SecMetsBuilder {
         Document doc = buildMetsDoc(pageNumber);
         File amdSecDir = new File(ndkPackageDir, "amdsec");
         amdSecDir.mkdirs();
-        Utils.saveDocumentToFile(doc, new File(amdSecDir, "amdSec_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".xml"));
+        Utils.saveDocumentToFile(doc, new File(amdSecDir, "amd_mets_" + packageUuid + "_" + Utils.to4CharNumber(pageNumber) + ".xml"));
     }
 
     private Document buildMetsDoc(int pageNumber) {

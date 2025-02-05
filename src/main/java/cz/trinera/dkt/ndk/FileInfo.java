@@ -74,7 +74,7 @@ public class FileInfo {
     }
 
     private Integer extractPageNumber() {
-        //convert txt_mzk-0008rk_0001.txt, uc_mzk-0008rk_0001.txt, mc_mzk-0008rk_0001.txt, amdSec_0008rk_0001.xml to number 1
+        //convert txt_mzk-0008rk_0001.txt, uc_mzk-0008rk_0001.txt, mc_mzk-0008rk_0001.txt, amd_mets_0008rk_0001.xml to number 1
         String filename = file.getName();
         String withoutSuffix = filename.substring(0, filename.lastIndexOf('.'));
         String[] filenameTokens = withoutSuffix.split("_");
