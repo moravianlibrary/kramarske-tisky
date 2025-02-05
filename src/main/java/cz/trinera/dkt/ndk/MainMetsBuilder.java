@@ -248,7 +248,7 @@ public class MainMetsBuilder {
         Element mdWrapEl = addNewMetsEl(dmdSecEl, "mdWrap");
         mdWrapEl.addAttribute(new Attribute("MIMETYPE", "text/xml"));
         mdWrapEl.addAttribute(new Attribute("MDTYPE", "MODS"));
-        mdWrapEl.addAttribute(new Attribute("MDTYPEVERSION", "3.6")); //pozor, DMF MON 2.2 vyzaduje 3.8
+        mdWrapEl.addAttribute(new Attribute("MDTYPEVERSION", "3.6"));
         Element xmlDataEl = addNewMetsEl(mdWrapEl, "xmlData");
         Element modsRoot = modsDoc.getRootElement().copy();
         modsRoot.addAttribute(new Attribute("ID", "MODS_VOLUME_0001"));
@@ -286,7 +286,7 @@ public class MainMetsBuilder {
         Element mdWrapEl = addNewMetsEl(dmdSecEl, "mdWrap");
         mdWrapEl.addAttribute(new Attribute("MIMETYPE", "text/xml"));
         mdWrapEl.addAttribute(new Attribute("MDTYPE", "MODS"));
-        mdWrapEl.addAttribute(new Attribute("MDTYPEVERSION", "3.6")); //pozor, DMF MON 2.2 vyzaduje 3.8
+        mdWrapEl.addAttribute(new Attribute("MDTYPEVERSION", "3.6"));
         Element xmlDataEl = addNewMetsEl(mdWrapEl, "xmlData");
         Element modsEl = addNewModsEl(xmlDataEl, "mods");
         modsEl.addAttribute(new Attribute("ID", "MODS_PAGE_" + Utils.to4CharNumber(page.getPosition())));

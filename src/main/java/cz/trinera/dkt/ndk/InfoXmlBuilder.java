@@ -20,7 +20,7 @@ public class InfoXmlBuilder {
     public Document build(Timestamp now, UUID packageUuid, Set<FileInfo> fileInfos, File md5File) {
         Element rootEl = new Element("info");
         addElement(rootEl, "created", now.toLocalDateTime().format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss")));
-        addElement(rootEl, "metadataversion", "2.2");
+        addElement(rootEl, "metadataversion", "2.1");
         addElement(rootEl, "packageid", packageUuid.toString());
         addElement(rootEl, "mainmets", "mets_" + packageUuid.toString() + ".xml");
         Element validationEl = addElement(rootEl, "validation", "OK");
