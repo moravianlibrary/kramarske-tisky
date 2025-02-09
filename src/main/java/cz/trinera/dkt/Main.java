@@ -20,9 +20,11 @@ import cz.trinera.dkt.tif2png.TifToPngConverterMock;
 import org.apache.commons.cli.*;
 
 import java.io.File;
+import java.util.Map;
 
 public class Main {
 
+    private static final String OPT_TEST_DEPENDENCIES = "test_dependencies";
     private static final String OPT_CONFIG_FILE = "config_file";
     private static final String OPT_INPUT_DIR = "input_dir";
     private static final String OPT_OUTPUT_DIR = "output_dir";
@@ -65,6 +67,11 @@ public class Main {
             optResultsDir.setRequired(true);
             options.addOption(optResultsDir);
 
+            //Define optional 'test_dependencies' option
+            Option optTestDependencies = new Option("t", OPT_TEST_DEPENDENCIES, false, "Test dostupnosti nástrojů");
+            optTestDependencies.setRequired(false);
+            options.addOption(optTestDependencies);
+
             //TODO: option "cleanup" for cleaning temporary files afterwards (default true)
 
             // Parse command line arguments
@@ -76,7 +83,7 @@ public class Main {
                 cmd = parser.parse(options, args);
             } catch (ParseException e) {
                 System.out.println(e.getMessage());
-                formatter.printHelp("java -jar DktCliApp.jar", options);
+                formatter.printHelp("java -jar dkt-workflow-VERSION.jar", options);
                 System.exit(1);
                 return;
             }
@@ -98,10 +105,40 @@ public class Main {
             //results directory
             File resultsDir = new File(resultsDirectoryPath);
 
-            run(configFile, inputDir, _pngInputDir, _workingDir, _ndkPackageWorkingDir, resultsDir);
+            if (cmd.hasOption(OPT_TEST_DEPENDENCIES)) {
+                testDependencies(configFile);
+            } else {
+                run(configFile, inputDir, _pngInputDir, _workingDir, _ndkPackageWorkingDir, resultsDir);
+            }
         }
     }
 
+    private static void testDependencies(File configFile) {
+        try {
+            //init configuration
+            Config.init(configFile);
+
+            DigitizationWorkflow digitizationWorkflow = getDigitizationWorkflow();
+            Map<String, ToolAvailabilityError> errors = digitizationWorkflow.checkAvailabilitiesReturningErrors();
+            System.out.println();
+            System.out.println("Testing dependencies");
+            System.out.println("--------------------");
+            for (String errorKey : errors.keySet()) {
+                ToolAvailabilityError error = errors.get(errorKey);
+                System.out.println(errorKey + " " + (error == null ? "✅" : "❌"));
+            }
+            System.out.println();
+            for (String errorKey : errors.keySet()) {
+                ToolAvailabilityError error = errors.get(errorKey);
+                if (error != null) {
+                    error.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     public static void run(File configFile, File inputDir, File pngInputDir, File workingDir, File ndkPackageWorkingDir, File resultsDir) throws ToolAvailabilityError {
         try {
@@ -117,6 +154,8 @@ public class Main {
             System.out.println();
 
             DigitizationWorkflow digitizationWorkflow = getDigitizationWorkflow();
+            System.out.println("Checking availabilities of all dependencies");
+            digitizationWorkflow.checkAvailabilitiesThrowingException();
             System.out.println("Running digitization workflow");
             digitizationWorkflow.run(inputDir, pngInputDir, workingDir, ndkPackageWorkingDir, resultsDir);
         } catch (ToolAvailabilityError e) {
@@ -128,7 +167,7 @@ public class Main {
         }
     }
 
-    private static DigitizationWorkflow getDigitizationWorkflow() throws ToolAvailabilityError {
+    private static DigitizationWorkflow getDigitizationWorkflow() {
         TifToPngConverter tifToPngConverter = new TifToPngConverterImpl(
                 Config.instanceOf().getTifToPngConverterDependencyCheckScript(),
                 Config.instanceOf().getTifToPngConverterScript()
@@ -171,16 +210,6 @@ public class Main {
 
         MarcToModsConverter marcToModsConverter = new MarcToModsConverterImpl(Config.instanceOf().getMarcxmlToModsConverterXsltFile());
         ModsToDcConverter modsToDcConverter = new ModsToDcConverterImpl(Config.instanceOf().getModsToDcConverterXsltFile());
-
-
-        //check availability of all components
-        tifToPngConverter.checkAvailable();
-        barcodeDetector.checkAvailable();
-        ocrProvider.checkAvailable();
-        tifToJp2Converter.checkAvailable();
-        marcXmlProvider.checkAvailable();
-        marcToModsConverter.checkAvailable();
-        modsToDcConverter.checkAvailable();
 
         return new DigitizationWorkflow(tifToPngConverter, barcodeDetector, ocrProvider, tifToJp2Converter, marcXmlProvider, marcToModsConverter, modsToDcConverter);
     }

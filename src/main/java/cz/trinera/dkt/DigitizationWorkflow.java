@@ -47,6 +47,64 @@ public class DigitizationWorkflow {
         this.modsToDcConverter = modsToDcConverter;
     }
 
+    public void checkAvailabilitiesThrowingException() throws ToolAvailabilityError {
+        tifToPngConverter.checkAvailable();
+        barcodeDetector.checkAvailable();
+        ocrProvider.checkAvailable();
+        tifToJp2Converter.checkAvailable();
+        marcXmlProvider.checkAvailable();
+        marcToModsConverter.checkAvailable();
+        modsToDcConverter.checkAvailable();
+    }
+
+    public Map<String, ToolAvailabilityError> checkAvailabilitiesReturningErrors() {
+        Map<String, ToolAvailabilityError> errors = new HashMap<>();
+        try {
+            tifToPngConverter.checkAvailable();
+            errors.put("TifToPngConverter", null);
+        } catch (ToolAvailabilityError e) {
+            errors.put("TifToPngConverter", e);
+        }
+        try {
+            barcodeDetector.checkAvailable();
+            errors.put("BarcodeDetector", null);
+        } catch (ToolAvailabilityError e) {
+            errors.put("BarcodeDetector", e);
+        }
+        try {
+            ocrProvider.checkAvailable();
+            errors.put("OcrProvider", null);
+        } catch (ToolAvailabilityError e) {
+            errors.put("OcrProvider", e);
+        }
+        try {
+            tifToJp2Converter.checkAvailable();
+            errors.put("TifToJp2Converter", null);
+        } catch (ToolAvailabilityError e) {
+            errors.put("TifToJp2Converter", e);
+        }
+        try {
+            marcXmlProvider.checkAvailable();
+            errors.put("MarcXmlProvider", null);
+        } catch (ToolAvailabilityError e) {
+            errors.put("MarcXmlProvider", e);
+        }
+        try {
+            marcToModsConverter.checkAvailable();
+            errors.put("MarcToModsConverter", null);
+        } catch (ToolAvailabilityError e) {
+            errors.put("MarcToModsConverter", e);
+        }
+        try {
+            modsToDcConverter.checkAvailable();
+            errors.put("ModsToDcConverter", null);
+        } catch (ToolAvailabilityError e) {
+            errors.put("ModsToDcConverter", e);
+        }
+        return errors;
+    }
+
+
     /**
      * Reads file names from inputDir, sorts them by number and processes them
      * File must be named as a number with a .png extension
