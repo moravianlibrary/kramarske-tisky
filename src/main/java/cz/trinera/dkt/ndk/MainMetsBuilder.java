@@ -1,5 +1,6 @@
 package cz.trinera.dkt.ndk;
 
+import com.beust.ah.A;
 import cz.trinera.dkt.NamedPage;
 import cz.trinera.dkt.Utils;
 import nu.xom.Attribute;
@@ -243,6 +244,7 @@ public class MainMetsBuilder {
 
     private void appendVolumeDmdSecMods(Element rootEl, File modsFile) {
         Document modsDoc = Utils.loadXmlFromFile(modsFile);
+        enhanceVolumeMods(modsDoc);
         Element dmdSecEl = addNewMetsEl(rootEl, "dmdSec");
         dmdSecEl.addAttribute(new Attribute("ID", "MODSMD_VOLUME_0001"));
         Element mdWrapEl = addNewMetsEl(dmdSecEl, "mdWrap");
@@ -255,8 +257,16 @@ public class MainMetsBuilder {
         xmlDataEl.appendChild(modsRoot);
     }
 
+    private void enhanceVolumeMods(Document modsDoc) {
+        //append uuid
+        Element identifier = addNewModsEl(modsDoc.getRootElement(), "identifier");
+        identifier.addAttribute(new Attribute("type", "uuid"));
+        identifier.appendChild(packageUuid.toString());
+    }
+
     private void appendVolumeDmdSecDc(Element rootEl, File modsDoc) {
         Document dcDoc = Utils.loadXmlFromFile(modsDoc);
+        enhanceVolumeDc(dcDoc);
         Element dmdSecEl = addNewMetsEl(rootEl, "dmdSec");
         dmdSecEl.addAttribute(new Attribute("ID", "DCMD_VOLUME_0001"));
         Element mdWrapEl = addNewMetsEl(dmdSecEl, "mdWrap");
@@ -265,6 +275,12 @@ public class MainMetsBuilder {
         Element xmlDataEl = addNewMetsEl(mdWrapEl, "xmlData");
         Element dcRoot = dcDoc.getRootElement().copy();
         xmlDataEl.appendChild(dcRoot);
+    }
+
+    private void enhanceVolumeDc(Document dcDoc) {
+        //append uuid
+        Element identifierEl = addNewDcEl(dcDoc.getRootElement(), "identifier");
+        identifierEl.appendChild("uuid:" + packageUuid);
     }
 
     private void appendPageDmdSecDC(Element rootEl, NamedPage page) {
