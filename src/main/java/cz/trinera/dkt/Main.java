@@ -2,8 +2,10 @@ package cz.trinera.dkt;
 
 import cz.trinera.dkt.barcode.BarcodeDetector;
 import cz.trinera.dkt.barcode.BarcodeDetectorImplPyzbar;
+import cz.trinera.dkt.barcode.BarcodeDetectorMock;
 import cz.trinera.dkt.marc21.MarcXmlProvider;
 import cz.trinera.dkt.marc21.MarcXmlProviderImplYazClient;
+import cz.trinera.dkt.marc21.MarcXmlProviderMock;
 import cz.trinera.dkt.mods2dc.ModsToDcConverter;
 import cz.trinera.dkt.mods2dc.ModsToDcConverterImpl;
 import cz.trinera.dkt.marc2mods.MarcToModsConverter;
@@ -168,6 +170,7 @@ public class Main {
     }
 
     private static DigitizationWorkflow getDigitizationWorkflow() {
+        //TIFF to PNG converter
         TifToPngConverter tifToPngConverter = new TifToPngConverterImpl(
                 Config.instanceOf().getTifToPngConverterDependencyCheckScript(),
                 Config.instanceOf().getTifToPngConverterScript()
@@ -176,12 +179,17 @@ public class Main {
             tifToPngConverter = new TifToPngConverterMock();
         }
 
+        //Barcode detector
         //BarcodeDetector barcodeDetector = new BarcodeDetectorPyzbar("src/main/resources/barcode/check_pyzbar.py", "src/main/resources/barcode/detect_barcode.py");
         BarcodeDetector barcodeDetector = new BarcodeDetectorImplPyzbar(
                 Config.instanceOf().getBarcodeDetectorPythonDependencyCheckScript(),
                 Config.instanceOf().getBarcodeDetectorPythonScript()
         );
+        if (DEV_MODE) {
+            barcodeDetector = new BarcodeDetectorMock();
+        }
 
+        //OCR provider
         OcrProvider ocrProvider = new OcrProviderImpl(
                 Config.instanceOf().getOcrProviderPeroBaseUrl(),
                 Config.instanceOf().getOcrProviderPeroApiKey(),
@@ -191,6 +199,7 @@ public class Main {
             ocrProvider = new OcrProviderMock();
         }
 
+        //TIFF to JP2 converter
         TifToJp2Converter tifToJp2Converter = new TifToJp2ConverterImplKakadu(
                 Config.instanceOf().getTifToJp2ConverterDependencyCheckScript(),
                 Config.instanceOf().getTifToJp2ConverterScript()
@@ -199,7 +208,7 @@ public class Main {
             tifToJp2Converter = new TifToJp2ConverterMock();
         }
 
-        //MarcXmlProvider marcXmlProvider = new MarcXmlProviderMock();
+        //MARC XML provider
         MarcXmlProvider marcXmlProvider = new MarcXmlProviderImplYazClient(
                 Config.instanceOf().getMarcXmlProviderPythonDependencyCheckScript(),
                 Config.instanceOf().getMarcXmlProviderPythonScript(),
@@ -207,6 +216,9 @@ public class Main {
                 Config.instanceOf().getMarcXmlProviderPort(),
                 Config.instanceOf().getMarcXmlProviderBase()
         );
+        if (DEV_MODE) {
+            marcXmlProvider = new MarcXmlProviderMock();
+        }
 
         MarcToModsConverter marcToModsConverter = new MarcToModsConverterImpl(Config.instanceOf().getMarcxmlToModsConverterXsltFile());
         ModsToDcConverter modsToDcConverter = new ModsToDcConverterImpl(Config.instanceOf().getModsToDcConverterXsltFile());

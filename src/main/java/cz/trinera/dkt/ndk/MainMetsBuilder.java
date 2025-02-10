@@ -24,6 +24,8 @@ public class MainMetsBuilder {
     private static String NS_OAIDC = "http://www.openarchives.org/OAI/2.0/oai_dc/";
     private static String NS_DC = "http://purl.org/dc/elements/1.1/";
     private static String NS_MODS = "http://www.loc.gov/mods/v3";
+    private static String NS_XSI = "http://www.w3.org/2001/XMLSchema-instance";
+    private static String XSI_SCHEMA_LOCATION = "http://www.w3.org/2001/XMLSchema-instance http://www.w3.org/2001/XMLSchema.xsd http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd http://www.w3.org/1999/xlink http://www.w3.org/1999/xlink.xsd http://www.cdlib.org/groups/rmg/docs/copyrightMD.xsd";
 
     private final File ndkPackageDir;
     private final UUID packageUuid;
@@ -42,6 +44,8 @@ public class MainMetsBuilder {
     public Document build(Set<FileInfo> fileInfos, String monographTitle, List<NamedPage> pages, File modsFile, File dcFile) {
         //Element rootEl = new Element("mets", "http://www.loc.gov/METS/");
         Element rootEl = addNewMetsEl(null, "mets");
+        rootEl.addNamespaceDeclaration("xsi", NS_XSI);
+        rootEl.addAttribute(new Attribute("xsi:schemaLocation", NS_XSI, XSI_SCHEMA_LOCATION));
         rootEl.addAttribute(new Attribute("LABEL", monographTitle));
         rootEl.addAttribute(new Attribute("TYPE", "Monograph"));
         //define namespaces at root
@@ -349,13 +353,15 @@ public class MainMetsBuilder {
         agentCreatorEl.addAttribute(new Attribute("ROLE", "CREATOR"));
         agentCreatorEl.addAttribute(new Attribute("TYPE", "ORGANIZATION"));
         Element agentCreatorNameEl = addNewMetsEl(agentCreatorEl, "name");
-        agentCreatorNameEl.appendChild("CreatorMZK");
+        //agentCreatorNameEl.appendChild("CreatorMZK");
+        agentCreatorNameEl.appendChild("BOA001");
         //agent ARCHIVIST
         Element agentArchivistEl = addNewMetsEl(metsHdrEl, "agent");
         agentArchivistEl.addAttribute(new Attribute("ROLE", "ARCHIVIST"));
         agentArchivistEl.addAttribute(new Attribute("TYPE", "ORGANIZATION"));
         Element agentArchivistNameEl = addNewMetsEl(agentArchivistEl, "name");
-        agentArchivistNameEl.appendChild("ArchivistMZK");
+        //agentArchivistNameEl.appendChild("ArchivistMZK");
+        agentArchivistNameEl.appendChild("BOA001");
     }
 
     private Element addNewMetsEl(Element parentEl, String elName) {

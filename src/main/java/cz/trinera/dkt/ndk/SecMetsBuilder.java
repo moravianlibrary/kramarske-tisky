@@ -19,6 +19,8 @@ public class SecMetsBuilder {
     private static String NS_NK = "info:ndk/xmlns/nk-v1";
     private static String NS_PREMIS = "info:lc/xmlns/premis-v2";
     private static String NS_XLINK = "http://www.w3.org/1999/xlink";
+    private static String NS_XSI = "http://www.w3.org/2001/XMLSchema-instance";
+    private static String XSI_SCHEMA_LOCATION = "http://www.w3.org/2001/XMLSchema-instance http://www.w3.org/2001/XMLSchema.xsd http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd http://www.w3.org/1999/xlink http://www.w3.org/1999/xlink.xsd http://www.cdlib.org/groups/rmg/docs/copyrightMD.xsd";
 
     private final File ndkPackageDir;
     private final UUID packageUuid;
@@ -66,6 +68,8 @@ public class SecMetsBuilder {
 
     private Document buildMetsDoc(int pageNumber) {
         Element rootEl = new Element("mets", "http://www.loc.gov/METS/");
+        rootEl.addNamespaceDeclaration("xsi", NS_XSI);
+        rootEl.addAttribute(new Attribute("xsi:schemaLocation", NS_XSI, XSI_SCHEMA_LOCATION));
         rootEl.addAttribute(new Attribute("LABEL", monographTitle));
         rootEl.addAttribute(new Attribute("TYPE", "Monograph"));
         appendMetsHdr(rootEl);
