@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<alto xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/standards/alto/ns-v2#">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>a3fef1d2-fe39-478d-96ae-8b55269f0bad</fileName>
+    </sourceImageInformation>
+    <OCRProcessing ID="IdOcr">
+      <ocrProcessingStep>
+        <processingDateTime>2024-09-16T07:14:02.568164</processingDateTime>
+        <processingSoftware>
+          <softwareCreator>Project PERO</softwareCreator>
+          <softwareName>czech_old_handwritten</softwareName>
+          <softwareVersion>2022-08-22</softwareVersion>
+        </processingSoftware>
+      </ocrProcessingStep>
+    </OCRProcessing>
+  </Description>
+  <Layout>
+    <Page ID="id_a3fef1d2-fe39-478d-96ae-8b55269f0bad" PHYSICAL_IMG_NR="1" HEIGHT="4974" WIDTH="3498">
+      <TopMargin HEIGHT="238" WIDTH="3498" VPOS="0" HPOS="0"/>
+      <LeftMargin HEIGHT="4974" WIDTH="152" VPOS="0" HPOS="0"/>
+      <RightMargin HEIGHT="4974" WIDTH="0" VPOS="0" HPOS="3498"/>
+      <BottomMargin HEIGHT="0" WIDTH="3498" VPOS="4974" HPOS="0"/>
+      <PrintSpace HEIGHT="4735" WIDTH="3346" VPOS="238" HPOS="152">
+        <TextBlock ID="block_r002" HEIGHT="1082" WIDTH="1968" VPOS="238" HPOS="442">
+          <TextLine BASELINE="516" VPOS="238" HPOS="832" HEIGHT="360" WIDTH="1512">
+            <String CONTENT="Dijně" HEIGHT="359" WIDTH="791" VPOS="239" HPOS="919" WC="0.67"/>
+            <SP WIDTH="4" VPOS="239" HPOS="1711"/>
+            <String CONTENT="dvě" HEIGHT="359" WIDTH="455" VPOS="240" HPOS="1844" WC="0.56"/>
+          </TextLine>
+          <TextLine BASELINE="1036" VPOS="708" HPOS="442" HEIGHT="437" WIDTH="1968">
+            <String CONTENT="Vánu" HEIGHT="396" WIDTH="721" VPOS="719" HPOS="542" WC="0.94"/>
+            <SP WIDTH="4" VPOS="719" HPOS="1263"/>
+            <String CONTENT="Čeji" HEIGHT="397" WIDTH="696" VPOS="741" HPOS="1664" WC="0.41"/>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="block_r003" HEIGHT="231" WIDTH="1928" VPOS="3218" HPOS="592">
+          <TextLine BASELINE="3392" VPOS="3218" HPOS="592" HEIGHT="231" WIDTH="1928">
+            <String CONTENT="Vyciftěná" HEIGHT="221" WIDTH="740" VPOS="3221" HPOS="796" WC="0.96"/>
+            <SP WIDTH="4" VPOS="3221" HPOS="1536"/>
+            <String CONTENT="Kofu" HEIGHT="218" WIDTH="330" VPOS="3227" HPOS="1699" WC="0.62"/>
+            <SP WIDTH="4" VPOS="3227" HPOS="2029"/>
+            <String CONTENT="1789." HEIGHT="218" WIDTH="412" VPOS="3230" HPOS="2109" WC="0.88"/>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="block_r000" HEIGHT="309" WIDTH="88" VPOS="4531" HPOS="152"/>
+        <TextBlock ID="block_r001" HEIGHT="325" WIDTH="144" VPOS="4529" HPOS="328"/>
+        <TextBlock ID="block_r004" HEIGHT="393" WIDTH="2152" VPOS="4469" HPOS="880"/>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

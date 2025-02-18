@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<mets:mets LABEL="Pjsně dwě k Pánu GEžjssy" TYPE="Monograph" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:mets="http://www.loc.gov/METS/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:ndktech="http://www.ndk.cz/standardy-digitalizace/ndktech" xmlns:docmd="http://www.fcla.edu/docmd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <mets:metsHdr CREATEDATE="2024-09-16T14:04:34.346Z" LASTMODDATE="2024-09-17T13:25:42.101Z">
+        <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+            <mets:name>CreatorMZK</mets:name>
+        </mets:agent>
+        <mets:agent ROLE="ARCHIVIST" TYPE="ORGANIZATION">
+            <mets:name>ArchivistMZK</mets:name>
+        </mets:agent>
+    </mets:metsHdr>
+    <mets:dmdSec ID="MODSMD_VOLUME_0001">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_VOLUME_0001" xmlns="info:fedora/fedora-system:def/foxml#">
+                    <mods:classification authority="udc">27-185.33</mods:classification>
+                    <mods:classification authority="udc">(0.068)094</mods:classification>
+                    <mods:classification authority="udc">(0.068)098</mods:classification>
+                    <mods:classification authority="Konspekt">12</mods:classification>
+                    <mods:classification authority="udc" edition="Konspekt">094</mods:classification>
+                    <mods:genre>volume</mods:genre>
+                    <mods:genre authority="rdacontent">text</mods:genre>
+                    <mods:genre authority="czenas">staré tisky</mods:genre>
+                    <mods:genre authority="czenas">kramářské tisky</mods:genre>
+                    <mods:identifier type="uuid">1f844c3d-9b0a-4970-bbf1-8d20e1bc7ded</mods:identifier>
+                    <mods:identifier type="barcode">2610798805</mods:identifier>
+                    <mods:identifier type="urnnbn">urn:nbn:cz:mzk-0008rk</mods:identifier>
+                    <mods:language>
+                        <mods:languageTerm authority="iso639-2b" type="code">cze</mods:languageTerm>
+                    </mods:language>
+                    <mods:location>
+                        <mods:physicalLocation authority="siglaADR">BOA001</mods:physicalLocation>
+                        <mods:shelfLocator>VK-0000.821</mods:shelfLocator>
+                    </mods:location>
+                    <mods:location>
+                        <mods:physicalLocation authority="siglaADR">BOA001</mods:physicalLocation>
+                        <mods:shelfLocator>VK-0000.821</mods:shelfLocator>
+                    </mods:location>
+                    <mods:note>Rozsah: 22 a 10 nečíslovaných slok</mods:note>
+                    <mods:note>Výzdoba: Na titulní straně dřevořez (47 x 33 mm), po jeho stranách typografické ozdoby, linka; na [4b] krátká linka z typografických ozdob</mods:note>
+                    <mods:note>Ježíš Kristus (ukřižovaný)_03_046</mods:note>
+                    <mods:note>Text začíná na rubu titulního listu</mods:note>
+                    <mods:note>List [2a]: lils Krwe pro mně mnoho, kdyžto || z Těla twého tekla, pohleď má || [...]</mods:note>
+                    <mods:note>Na [3b]: Gako: Wzhůru wzhůru nedb: etc. || Mocný BOže politůg sám toho, || [...]</mods:note>
+                    <mods:originInfo eventType="publication">
+                        <mods:place>
+                            <mods:placeTerm type="text">[Olomouc?]</mods:placeTerm>
+                        </mods:place>
+                        <mods:publisher>[Josefa Terezie Hirnleová?]</mods:publisher>
+                        <mods:dateIssued>1789</mods:dateIssued>
+                        <mods:issuance>single unit</mods:issuance>
+                    </mods:originInfo>
+                    <mods:physicalDescription>
+                        <mods:form authority="marccategory">text</mods:form>
+                        <mods:form authority="marcsmd">regular print</mods:form>
+                        <mods:form authority="rdamedia" type="media">bez média</mods:form>
+                        <mods:form authority="rdacarrier" type="carrier">svazek</mods:form>
+                        <mods:extent>4 nečíslované listy ; 16° (111 mm)</mods:extent>
+                    </mods:physicalDescription>
+                    <mods:recordInfo>
+                        <mods:recordContentSource authority="marcorg">BOA001</mods:recordContentSource>
+                        <mods:recordCreationDate encoding="iso8601">20240916T140433</mods:recordCreationDate>
+                        <mods:recordChangeDate encoding="iso8601">20240917T132541</mods:recordChangeDate>
+                        <mods:recordIdentifier source="CZ BrMZK">mzk03001258835</mods:recordIdentifier>
+                        <mods:languageOfCataloging>
+                            <mods:languageTerm authority="iso639-2b" type="code">cze</mods:languageTerm>
+                        </mods:languageOfCataloging>
+                        <mods:recordOrigin>machine generated</mods:recordOrigin>
+                        <mods:descriptionStandard>rda</mods:descriptionStandard>
+                        <mods:recordInfoNote>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3.xsl
+                (Revision 1.98 2018/02/09, ProArc patch 18.1352 2022/10/12)</mods:recordInfoNote>
+                    </mods:recordInfo>
+                    <mods:relatedItem type="isReferencedBy">
+                        <mods:part>
+                            <mods:detail type="part">
+                                <mods:number>K12953</mods:number>
+                            </mods:detail>
+                        </mods:part>
+                        <mods:titleInfo>
+                            <mods:title>Knihopis,</mods:title>
+                        </mods:titleInfo>
+                    </mods:relatedItem>
+                    <mods:relatedItem type="constituent">
+                        <mods:titleInfo>
+                            <mods:title>Ach hřjssný co mám činiti</mods:title>
+                        </mods:titleInfo>
+                    </mods:relatedItem>
+                    <mods:relatedItem type="constituent">
+                        <mods:titleInfo>
+                            <mods:title>Ach hříšný co mám činiti</mods:title>
+                        </mods:titleInfo>
+                    </mods:relatedItem>
+                    <mods:relatedItem type="constituent">
+                        <mods:titleInfo>
+                            <mods:title>Ach, hříšný, co mám činiti</mods:title>
+                        </mods:titleInfo>
+                    </mods:relatedItem>
+                    <mods:relatedItem type="constituent">
+                        <mods:titleInfo>
+                            <mods:title>Mocný BOže politůg sám toho</mods:title>
+                        </mods:titleInfo>
+                    </mods:relatedItem>
+                    <mods:relatedItem type="constituent">
+                        <mods:titleInfo>
+                            <mods:title>Mocný Bože polituj sám toho</mods:title>
+                        </mods:titleInfo>
+                    </mods:relatedItem>
+                    <mods:relatedItem type="constituent">
+                        <mods:titleInfo>
+                            <mods:title>Mocný Bože, polituj sám toho</mods:title>
+                        </mods:titleInfo>
+                    </mods:relatedItem>
+                    <mods:subject authority="Konspekt">
+                        <mods:topic>Staré tisky</mods:topic>
+                    </mods:subject>
+                    <mods:subject authority="czenas">
+                        <mods:name type="personal">
+                            <mods:namePart>Ježíš Kristus</mods:namePart>
+                            <mods:nameIdentifier>ola2002103454</mods:nameIdentifier>
+                        </mods:name>
+                    </mods:subject>
+                    <mods:subject authority="czenas">
+                        <mods:topic>pokání</mods:topic>
+                    </mods:subject>
+                    <mods:subject>
+                        <mods:topic>písně duchovní</mods:topic>
+                    </mods:subject>
+                    <mods:subject>
+                        <mods:topic>píseň - Ježíš Kristus</mods:topic>
+                    </mods:subject>
+                    <mods:targetAudience authority="marctarget">specialized</mods:targetAudience>
+                    <mods:titleInfo>
+                        <mods:title>Pjsně dwě k Pánu GEžjssy</mods:title>
+                    </mods:titleInfo>
+                    <mods:titleInfo type="alternative">
+                        <mods:title>Písně dvě k Pánu Ježíši</mods:title>
+                    </mods:titleInfo>
+                    <mods:titleInfo type="alternative">
+                        <mods:title>Ach hřjssný co mám činiti</mods:title>
+                    </mods:titleInfo>
+                    <mods:titleInfo type="alternative">
+                        <mods:title>Ach hříšný co mám činiti</mods:title>
+                    </mods:titleInfo>
+                    <mods:titleInfo type="alternative">
+                        <mods:title>Ach, hříšný, co mám činiti</mods:title>
+                    </mods:titleInfo>
+                    <mods:titleInfo type="alternative">
+                        <mods:title>Mocný BOže politůg sám toho</mods:title>
+                    </mods:titleInfo>
+                    <mods:titleInfo type="alternative">
+                        <mods:title>Mocný Bože polituj sám toho</mods:title>
+                    </mods:titleInfo>
+                    <mods:titleInfo type="alternative">
+                        <mods:title>Mocný Bože, polituj sám toho</mods:title>
+                    </mods:titleInfo>
+                    <mods:typeOfResource>text</mods:typeOfResource>
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_VOLUME_0001">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[Olomouc?]</dc:coverage>
+                    <dc:date>1789</dc:date>
+                    <dc:description>Rozsah: 22 a 10 nečíslovaných slok</dc:description>
+                    <dc:description>Výzdoba: Na titulní straně dřevořez (47 x 33 mm), po jeho stranách typografické ozdoby, linka; na [4b] krátká linka z typografických ozdob</dc:description>
+                    <dc:description>Ježíš Kristus (ukřižovaný)_03_046</dc:description>
+                    <dc:description>Text začíná na rubu titulního listu</dc:description>
+                    <dc:description>List [2a]: lils Krwe pro mně mnoho, kdyžto || z Těla twého tekla, pohleď má || [...]</dc:description>
+                    <dc:description>Na [3b]: Gako: Wzhůru wzhůru nedb: etc. || Mocný BOže politůg sám toho, || [...]</dc:description>
+                    <dc:format>text</dc:format>
+                    <dc:format>regular print</dc:format>
+                    <dc:format>bez média</dc:format>
+                    <dc:format>svazek</dc:format>
+                    <dc:format>4 nečíslované listy ; 16° (111 mm)</dc:format>
+                    <dc:identifier>uuid:1f844c3d-9b0a-4970-bbf1-8d20e1bc7ded</dc:identifier>
+                    <dc:identifier>barcode:2610798805</dc:identifier>
+                    <dc:identifier>urnnbn:urn:nbn:cz:mzk-0008rk</dc:identifier>
+                    <dc:language>cze</dc:language>
+                    <dc:publisher>[Josefa Terezie Hirnleová?]</dc:publisher>
+                    <dc:source>BOA001</dc:source>
+                    <dc:source>VK-0000.821</dc:source>
+                    <dc:subject>Staré tisky</dc:subject>
+                    <dc:subject>Ježíš Kristus</dc:subject>
+                    <dc:subject>pokání</dc:subject>
+                    <dc:subject>písně duchovní</dc:subject>
+                    <dc:subject>píseň - Ježíš Kristus</dc:subject>
+                    <dc:subject>27-185.33</dc:subject>
+                    <dc:subject>(0.068)094</dc:subject>
+                    <dc:subject>(0.068)098</dc:subject>
+                    <dc:subject>12</dc:subject>
+                    <dc:subject>094</dc:subject>
+                    <dc:title>Pjsně dwě k Pánu GEžjssy</dc:title>
+                    <dc:title>Písně dvě k Pánu Ježíši</dc:title>
+                    <dc:title>Ach hřjssný co mám činiti</dc:title>
+                    <dc:title>Ach hříšný co mám činiti</dc:title>
+                    <dc:title>Ach, hříšný, co mám činiti</dc:title>
+                    <dc:title>Mocný BOže politůg sám toho</dc:title>
+                    <dc:title>Mocný Bože polituj sám toho</dc:title>
+                    <dc:title>Mocný Bože, polituj sám toho</dc:title>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0001">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0001" xmlns="info:fedora/fedora-system:def/foxml#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mods:genre type="titlePage">page</mods:genre>
+                    <mods:identifier type="uuid">f804846f-0496-4306-8287-fda3e61fa42c</mods:identifier>
+                    <mods:part type="titlePage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[1r]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[1r]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>1</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate encoding="iso8601">20240916T140347</mods:recordCreationDate>
+                        <mods:recordChangeDate encoding="iso8601">20240916T140347</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0001">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[1r]</dc:coverage>
+                    <dc:identifier>uuid:f804846f-0496-4306-8287-fda3e61fa42c</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0002">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0002" xmlns="info:fedora/fedora-system:def/foxml#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">6dd93b70-bbb4-4cda-be99-8f864798e98b</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[1v]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[1v]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>2</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate encoding="iso8601">20240916T140310</mods:recordCreationDate>
+                        <mods:recordChangeDate encoding="iso8601">20240916T140342</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0002">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[1v]</dc:coverage>
+                    <dc:identifier>uuid:6dd93b70-bbb4-4cda-be99-8f864798e98b</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0003">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0003" xmlns="info:fedora/fedora-system:def/foxml#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">c12fb3ba-1a63-4e4c-9c16-64d3ab03af58</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[2r]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[2r]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>3</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate encoding="iso8601">20240916T140310</mods:recordCreationDate>
+                        <mods:recordChangeDate encoding="iso8601">20240916T140337</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0003">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[2r]</dc:coverage>
+                    <dc:identifier>uuid:c12fb3ba-1a63-4e4c-9c16-64d3ab03af58</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0004">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0004" xmlns="info:fedora/fedora-system:def/foxml#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">3cc04d2f-09ff-437c-b6eb-d18d4a0c50f0</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[2v]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[2v]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>4</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate encoding="iso8601">20240916T140310</mods:recordCreationDate>
+                        <mods:recordChangeDate encoding="iso8601">20240916T140342</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0004">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[2v]</dc:coverage>
+                    <dc:identifier>uuid:3cc04d2f-09ff-437c-b6eb-d18d4a0c50f0</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0005">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0005" xmlns="info:fedora/fedora-system:def/foxml#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">40eb2222-c77c-46ec-aef2-6a113f16d4ca</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[3r]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[3r]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>5</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate encoding="iso8601">20240916T140310</mods:recordCreationDate>
+                        <mods:recordChangeDate encoding="iso8601">20240916T140337</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0005">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[3r]</dc:coverage>
+                    <dc:identifier>uuid:40eb2222-c77c-46ec-aef2-6a113f16d4ca</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0006">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0006" xmlns="info:fedora/fedora-system:def/foxml#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">33c8cebc-996d-45e1-9b64-3af658ebc215</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[3v]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[3v]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>6</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate encoding="iso8601">20240916T140310</mods:recordCreationDate>
+                        <mods:recordChangeDate encoding="iso8601">20240916T140342</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0006">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[3v]</dc:coverage>
+                    <dc:identifier>uuid:33c8cebc-996d-45e1-9b64-3af658ebc215</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0007">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0007" xmlns="info:fedora/fedora-system:def/foxml#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">057d7f09-4f1d-473a-9288-af716f28f2f0</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[4r]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[4r]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>7</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate encoding="iso8601">20240916T140310</mods:recordCreationDate>
+                        <mods:recordChangeDate encoding="iso8601">20240916T140337</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0007">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[4r]</dc:coverage>
+                    <dc:identifier>uuid:057d7f09-4f1d-473a-9288-af716f28f2f0</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="MODSMD_PAGE_0008">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" MDTYPEVERSION="3.6">
+            <mets:xmlData>
+                <mods:mods ID="MODS_PAGE_0008" xmlns="info:fedora/fedora-system:def/foxml#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mods:genre type="normalPage">page</mods:genre>
+                    <mods:identifier type="uuid">e9993c64-547e-44f7-ad9f-09481555dd28</mods:identifier>
+                    <mods:part type="normalPage">
+                        <mods:detail type="pageNumber">
+                            <mods:number>[4v]</mods:number>
+                        </mods:detail>
+                        <mods:extent unit="pages">
+                            <mods:start>[4v]</mods:start>
+                        </mods:extent>
+                    </mods:part>
+                    <mods:part>
+                        <mods:detail type="pageIndex">
+                            <mods:number>8</mods:number>
+                        </mods:detail>
+                    </mods:part>
+                    <mods:recordInfo>
+                        <mods:recordCreationDate encoding="iso8601">20240916T140310</mods:recordCreationDate>
+                        <mods:recordChangeDate encoding="iso8601">20240916T140342</mods:recordChangeDate>
+                    </mods:recordInfo>
+                </mods:mods>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:dmdSec ID="DCMD_PAGE_0008">
+        <mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+            <mets:xmlData>
+                <oai_dc:dc>
+                    <dc:coverage>[4v]</dc:coverage>
+                    <dc:identifier>uuid:e9993c64-547e-44f7-ad9f-09481555dd28</dc:identifier>
+                    <dc:type>model:page</dc:type>
+                </oai_dc:dc>
+            </mets:xmlData>
+        </mets:mdWrap>
+    </mets:dmdSec>
+    <mets:fileSec>
+        <mets:fileGrp ID="TXTGRP" USE="Text">
+            <mets:file ID="txt_mzk-0008rk_0001" SEQ="0" MIMETYPE="text/plain" SIZE="49" CREATED="2024-09-17T13:27:56.880+02:00" CHECKSUM="9a569fd578b011507220defa2426b766" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_mzk-0008rk_0001.txt" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="txt_mzk-0008rk_0002" SEQ="1" MIMETYPE="text/plain" SIZE="584" CREATED="2024-09-17T13:27:58.341+02:00" CHECKSUM="ed8977e0963b8f7ebc388bfa6af328d0" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_mzk-0008rk_0002.txt" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="txt_mzk-0008rk_0003" SEQ="2" MIMETYPE="text/plain" SIZE="595" CREATED="2024-09-17T13:27:59.743+02:00" CHECKSUM="7066e0beba5b23591aaea5b4fd33d993" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_mzk-0008rk_0003.txt" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="txt_mzk-0008rk_0004" SEQ="3" MIMETYPE="text/plain" SIZE="541" CREATED="2024-09-17T13:28:01.235+02:00" CHECKSUM="dc34689a0aaea52abc2d7f96287964de" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_mzk-0008rk_0004.txt" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="txt_mzk-0008rk_0005" SEQ="4" MIMETYPE="text/plain" SIZE="515" CREATED="2024-09-17T13:28:02.736+02:00" CHECKSUM="0318fb9f08568441767402a939534dfd" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_mzk-0008rk_0005.txt" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="txt_mzk-0008rk_0006" SEQ="5" MIMETYPE="text/plain" SIZE="542" CREATED="2024-09-17T13:28:04.273+02:00" CHECKSUM="772da9ef7ce1b885cd4adb4b684b13b4" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_mzk-0008rk_0006.txt" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="txt_mzk-0008rk_0007" SEQ="6" MIMETYPE="text/plain" SIZE="549" CREATED="2024-09-17T13:28:05.789+02:00" CHECKSUM="0a7e6a4043801d68a04e2e4e106f48df" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_mzk-0008rk_0007.txt" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="txt_mzk-0008rk_0008" SEQ="7" MIMETYPE="text/plain" SIZE="511" CREATED="2024-09-17T13:28:07.265+02:00" CHECKSUM="08c1a708bc95efce4b43298219e71a3d" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="txt/txt_mzk-0008rk_0008.txt" LOCTYPE="URL"/>
+            </mets:file>
+        </mets:fileGrp>
+        <mets:fileGrp ID="UC_IMGGRP" USE="Images">
+            <mets:file ID="uc_mzk-0008rk_0001" SEQ="0" MIMETYPE="image/jp2" SIZE="10511099" CREATED="2024-09-17T13:27:56.883+02:00" CHECKSUM="1933ff46e896228879a0488897e0c538" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_mzk-0008rk_0001.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="uc_mzk-0008rk_0002" SEQ="1" MIMETYPE="image/jp2" SIZE="10550856" CREATED="2024-09-17T13:27:58.344+02:00" CHECKSUM="15f5f54f44b2abd8b0fa801454e9564c" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_mzk-0008rk_0002.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="uc_mzk-0008rk_0003" SEQ="2" MIMETYPE="image/jp2" SIZE="10346965" CREATED="2024-09-17T13:27:59.747+02:00" CHECKSUM="d1a07b155e7393937fd50087b6313aab" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_mzk-0008rk_0003.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="uc_mzk-0008rk_0004" SEQ="3" MIMETYPE="image/jp2" SIZE="10418461" CREATED="2024-09-17T13:28:01.239+02:00" CHECKSUM="9487de57dc9aec50cad69f5e244915da" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_mzk-0008rk_0004.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="uc_mzk-0008rk_0005" SEQ="4" MIMETYPE="image/jp2" SIZE="10014630" CREATED="2024-09-17T13:28:02.739+02:00" CHECKSUM="bed1d88ad137a3b2e9acb4b0ac27a9c5" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_mzk-0008rk_0005.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="uc_mzk-0008rk_0006" SEQ="5" MIMETYPE="image/jp2" SIZE="10045559" CREATED="2024-09-17T13:28:04.276+02:00" CHECKSUM="fe5f432d1ae336ee9108570cb2877fd5" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_mzk-0008rk_0006.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="uc_mzk-0008rk_0007" SEQ="6" MIMETYPE="image/jp2" SIZE="10043134" CREATED="2024-09-17T13:28:05.793+02:00" CHECKSUM="be722ccc9d646e726229c514e5277d15" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_mzk-0008rk_0007.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="uc_mzk-0008rk_0008" SEQ="7" MIMETYPE="image/jp2" SIZE="10428375" CREATED="2024-09-17T13:28:07.268+02:00" CHECKSUM="a6d99c45dff065c86579b1d8a322f591" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="usercopy/uc_mzk-0008rk_0008.jp2" LOCTYPE="URL"/>
+            </mets:file>
+        </mets:fileGrp>
+        <mets:fileGrp ID="ALTOGRP" USE="Layout">
+            <mets:file ID="alto_mzk-0008rk_0001" SEQ="0" MIMETYPE="text/xml" SIZE="2973" CREATED="2024-09-17T13:27:56.969+02:00" CHECKSUM="2a5f697dc309799f549c73ac08473ba9" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_mzk-0008rk_0001.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="alto_mzk-0008rk_0002" SEQ="1" MIMETYPE="text/xml" SIZE="16410" CREATED="2024-09-17T13:27:58.430+02:00" CHECKSUM="21504a98bf18a6fde8f60ea046d283cb" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_mzk-0008rk_0002.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="alto_mzk-0008rk_0003" SEQ="2" MIMETYPE="text/xml" SIZE="16835" CREATED="2024-09-17T13:27:59.830+02:00" CHECKSUM="d6b243554f222a834c6c8b263c5cebfc" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_mzk-0008rk_0003.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="alto_mzk-0008rk_0004" SEQ="3" MIMETYPE="text/xml" SIZE="15621" CREATED="2024-09-17T13:28:01.323+02:00" CHECKSUM="2dca584fa0592fd729347eac2677651b" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_mzk-0008rk_0004.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="alto_mzk-0008rk_0005" SEQ="4" MIMETYPE="text/xml" SIZE="15744" CREATED="2024-09-17T13:28:02.826+02:00" CHECKSUM="02ec7d9bdff0d17468ca378f328ce87d" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_mzk-0008rk_0005.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="alto_mzk-0008rk_0006" SEQ="5" MIMETYPE="text/xml" SIZE="15746" CREATED="2024-09-17T13:28:04.370+02:00" CHECKSUM="34ea73b20e660529e9897c114f7315e7" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_mzk-0008rk_0006.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="alto_mzk-0008rk_0007" SEQ="6" MIMETYPE="text/xml" SIZE="15524" CREATED="2024-09-17T13:28:05.874+02:00" CHECKSUM="8d3fa718982dcc8143017ad424f06789" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_mzk-0008rk_0007.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="alto_mzk-0008rk_0008" SEQ="7" MIMETYPE="text/xml" SIZE="14898" CREATED="2024-09-17T13:28:07.353+02:00" CHECKSUM="3e15f0dd7aa07043dd5f29ac90c98b95" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="alto/alto_mzk-0008rk_0008.xml" LOCTYPE="URL"/>
+            </mets:file>
+        </mets:fileGrp>
+        <mets:fileGrp ID="TECHMDGRP" USE="Technical Metadata">
+            <mets:file ID="amd_mets_mzk-0008rk_0001" SEQ="0" MIMETYPE="text/xml" SIZE="33279" CREATED="2024-09-17T13:27:58.069+02:00" CHECKSUM="1733d9a943f12cd9b7e64f2a524f1d13" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="amdsec/amd_mets_mzk-0008rk_0001.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="amd_mets_mzk-0008rk_0002" SEQ="1" MIMETYPE="text/xml" SIZE="33282" CREATED="2024-09-17T13:27:59.476+02:00" CHECKSUM="68bf2f6e03ba29716409701e91abe72b" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="amdsec/amd_mets_mzk-0008rk_0002.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="amd_mets_mzk-0008rk_0003" SEQ="2" MIMETYPE="text/xml" SIZE="33282" CREATED="2024-09-17T13:28:00.971+02:00" CHECKSUM="0864f634b4a4a3946c864074b910c0cf" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="amdsec/amd_mets_mzk-0008rk_0003.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="amd_mets_mzk-0008rk_0004" SEQ="3" MIMETYPE="text/xml" SIZE="33282" CREATED="2024-09-17T13:28:02.465+02:00" CHECKSUM="bc3d9885eb062182da41a2e5325edc4e" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="amdsec/amd_mets_mzk-0008rk_0004.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="amd_mets_mzk-0008rk_0005" SEQ="4" MIMETYPE="text/xml" SIZE="33282" CREATED="2024-09-17T13:28:03.989+02:00" CHECKSUM="8237b99582d2f8669bd736a6bdcaf42d" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="amdsec/amd_mets_mzk-0008rk_0005.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="amd_mets_mzk-0008rk_0006" SEQ="5" MIMETYPE="text/xml" SIZE="33282" CREATED="2024-09-17T13:28:05.513+02:00" CHECKSUM="272aa409d18dd4f580390e2e2b5edd97" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="amdsec/amd_mets_mzk-0008rk_0006.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="amd_mets_mzk-0008rk_0007" SEQ="6" MIMETYPE="text/xml" SIZE="33282" CREATED="2024-09-17T13:28:06.995+02:00" CHECKSUM="00e6712fa59dafe4f275d235e2eca214" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="amdsec/amd_mets_mzk-0008rk_0007.xml" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="amd_mets_mzk-0008rk_0008" SEQ="7" MIMETYPE="text/xml" SIZE="33282" CREATED="2024-09-17T13:28:08.438+02:00" CHECKSUM="d7fed27e4de5365040d3a21890bca8f8" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="amdsec/amd_mets_mzk-0008rk_0008.xml" LOCTYPE="URL"/>
+            </mets:file>
+        </mets:fileGrp>
+        <mets:fileGrp ID="MC_IMGGRP" USE="Images">
+            <mets:file ID="mc_mzk-0008rk_0001" SEQ="0" MIMETYPE="image/jp2" SIZE="16845173" CREATED="2024-09-17T13:27:56.972+02:00" CHECKSUM="04142654234bbe05d9e893066a84c607" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_mzk-0008rk_0001.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="mc_mzk-0008rk_0002" SEQ="1" MIMETYPE="image/jp2" SIZE="16961659" CREATED="2024-09-17T13:27:58.435+02:00" CHECKSUM="795063e1db7d56e651a1d649cf32e2f5" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_mzk-0008rk_0002.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="mc_mzk-0008rk_0003" SEQ="2" MIMETYPE="image/jp2" SIZE="16597188" CREATED="2024-09-17T13:27:59.834+02:00" CHECKSUM="d36df91438d88d69c96a2472d76d910b" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_mzk-0008rk_0003.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="mc_mzk-0008rk_0004" SEQ="3" MIMETYPE="image/jp2" SIZE="16699669" CREATED="2024-09-17T13:28:01.326+02:00" CHECKSUM="d2d68474c9a0d000e0a701d84bfaa00d" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_mzk-0008rk_0004.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="mc_mzk-0008rk_0005" SEQ="4" MIMETYPE="image/jp2" SIZE="16244535" CREATED="2024-09-17T13:28:02.829+02:00" CHECKSUM="5db8999101b5106b16d8371dd1c03da1" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_mzk-0008rk_0005.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="mc_mzk-0008rk_0006" SEQ="5" MIMETYPE="image/jp2" SIZE="16359385" CREATED="2024-09-17T13:28:04.374+02:00" CHECKSUM="240d211ba7e1f0073d8f38586131c239" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_mzk-0008rk_0006.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="mc_mzk-0008rk_0007" SEQ="6" MIMETYPE="image/jp2" SIZE="16342628" CREATED="2024-09-17T13:28:05.878+02:00" CHECKSUM="33a47ce9b2366d121acacf600b2535ec" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_mzk-0008rk_0007.jp2" LOCTYPE="URL"/>
+            </mets:file>
+            <mets:file ID="mc_mzk-0008rk_0008" SEQ="7" MIMETYPE="image/jp2" SIZE="16843057" CREATED="2024-09-17T13:28:07.357+02:00" CHECKSUM="aec6338862deb2e75c2c8f346ac287b0" CHECKSUMTYPE="MD5">
+                <mets:FLocat xlink:href="mastercopy/mc_mzk-0008rk_0008.jp2" LOCTYPE="URL"/>
+            </mets:file>
+        </mets:fileGrp>
+    </mets:fileSec>
+    <mets:structMap TYPE="LOGICAL" LABEL="Logical_Structure">
+        <mets:div ID="MONOGRAPH_0001" LABEL="Pjsně dwě k Pánu GEžjssy" TYPE="MONOGRAPH">
+            <mets:div ID="VOLUME_0001" LABEL="Pjsně dwě k Pánu GEžjssy" DMDID="MODSMD_VOLUME_0001" TYPE="VOLUME"/>
+        </mets:div>
+    </mets:structMap>
+    <mets:structMap TYPE="PHYSICAL" LABEL="Physical_Structure">
+        <mets:div ID="DIV_P_0000" LABEL="Pjsně dwě k Pánu GEžjssy" DMDID="MODSMD_VOLUME_0001" TYPE="MONOGRAPH">
+            <mets:div ID="DIV_P_PAGE_0001" ORDER="1" ORDERLABEL="[1r]" TYPE="titlePage">
+                <mets:fptr FILEID="txt_mzk-0008rk_0001"/>
+                <mets:fptr FILEID="uc_mzk-0008rk_0001"/>
+                <mets:fptr FILEID="alto_mzk-0008rk_0001"/>
+                <mets:fptr FILEID="mc_mzk-0008rk_0001"/>
+                <mets:fptr FILEID="amd_mets_mzk-0008rk_0001"/>
+            </mets:div>
+            <mets:div ID="DIV_P_PAGE_0002" ORDER="2" ORDERLABEL="[1v]" TYPE="normalPage">
+                <mets:fptr FILEID="txt_mzk-0008rk_0002"/>
+                <mets:fptr FILEID="uc_mzk-0008rk_0002"/>
+                <mets:fptr FILEID="alto_mzk-0008rk_0002"/>
+                <mets:fptr FILEID="mc_mzk-0008rk_0002"/>
+                <mets:fptr FILEID="amd_mets_mzk-0008rk_0002"/>
+            </mets:div>
+            <mets:div ID="DIV_P_PAGE_0003" ORDER="3" ORDERLABEL="[2r]" TYPE="normalPage">
+                <mets:fptr FILEID="txt_mzk-0008rk_0003"/>
+                <mets:fptr FILEID="uc_mzk-0008rk_0003"/>
+                <mets:fptr FILEID="alto_mzk-0008rk_0003"/>
+                <mets:fptr FILEID="mc_mzk-0008rk_0003"/>
+                <mets:fptr FILEID="amd_mets_mzk-0008rk_0003"/>
+            </mets:div>
+            <mets:div ID="DIV_P_PAGE_0004" ORDER="4" ORDERLABEL="[2v]" TYPE="normalPage">
+                <mets:fptr FILEID="txt_mzk-0008rk_0004"/>
+                <mets:fptr FILEID="uc_mzk-0008rk_0004"/>
+                <mets:fptr FILEID="alto_mzk-0008rk_0004"/>
+                <mets:fptr FILEID="mc_mzk-0008rk_0004"/>
+                <mets:fptr FILEID="amd_mets_mzk-0008rk_0004"/>
+            </mets:div>
+            <mets:div ID="DIV_P_PAGE_0005" ORDER="5" ORDERLABEL="[3r]" TYPE="normalPage">
+                <mets:fptr FILEID="txt_mzk-0008rk_0005"/>
+                <mets:fptr FILEID="uc_mzk-0008rk_0005"/>
+                <mets:fptr FILEID="alto_mzk-0008rk_0005"/>
+                <mets:fptr FILEID="mc_mzk-0008rk_0005"/>
+                <mets:fptr FILEID="amd_mets_mzk-0008rk_0005"/>
+            </mets:div>
+            <mets:div ID="DIV_P_PAGE_0006" ORDER="6" ORDERLABEL="[3v]" TYPE="normalPage">
+                <mets:fptr FILEID="txt_mzk-0008rk_0006"/>
+                <mets:fptr FILEID="uc_mzk-0008rk_0006"/>
+                <mets:fptr FILEID="alto_mzk-0008rk_0006"/>
+                <mets:fptr FILEID="mc_mzk-0008rk_0006"/>
+                <mets:fptr FILEID="amd_mets_mzk-0008rk_0006"/>
+            </mets:div>
+            <mets:div ID="DIV_P_PAGE_0007" ORDER="7" ORDERLABEL="[4r]" TYPE="normalPage">
+                <mets:fptr FILEID="txt_mzk-0008rk_0007"/>
+                <mets:fptr FILEID="uc_mzk-0008rk_0007"/>
+                <mets:fptr FILEID="alto_mzk-0008rk_0007"/>
+                <mets:fptr FILEID="mc_mzk-0008rk_0007"/>
+                <mets:fptr FILEID="amd_mets_mzk-0008rk_0007"/>
+            </mets:div>
+            <mets:div ID="DIV_P_PAGE_0008" ORDER="8" ORDERLABEL="[4v]" TYPE="normalPage">
+                <mets:fptr FILEID="txt_mzk-0008rk_0008"/>
+                <mets:fptr FILEID="uc_mzk-0008rk_0008"/>
+                <mets:fptr FILEID="alto_mzk-0008rk_0008"/>
+                <mets:fptr FILEID="mc_mzk-0008rk_0008"/>
+                <mets:fptr FILEID="amd_mets_mzk-0008rk_0008"/>
+            </mets:div>
+        </mets:div>
+    </mets:structMap>
+    <mets:structLink>
+        <mets:smLink xlink:to="DIV_P_PAGE_0001" xlink:from="VOLUME_0001"/>
+        <mets:smLink xlink:to="DIV_P_PAGE_0002" xlink:from="VOLUME_0001"/>
+        <mets:smLink xlink:to="DIV_P_PAGE_0003" xlink:from="VOLUME_0001"/>
+        <mets:smLink xlink:to="DIV_P_PAGE_0004" xlink:from="VOLUME_0001"/>
+        <mets:smLink xlink:to="DIV_P_PAGE_0005" xlink:from="VOLUME_0001"/>
+        <mets:smLink xlink:to="DIV_P_PAGE_0006" xlink:from="VOLUME_0001"/>
+        <mets:smLink xlink:to="DIV_P_PAGE_0007" xlink:from="VOLUME_0001"/>
+        <mets:smLink xlink:to="DIV_P_PAGE_0008" xlink:from="VOLUME_0001"/>
+    </mets:structLink>
+</mets:mets>
