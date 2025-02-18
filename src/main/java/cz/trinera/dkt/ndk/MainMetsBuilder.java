@@ -203,7 +203,7 @@ public class MainMetsBuilder {
         Element volDivEl = addNewMetsEl(structMapEl, "div");
         volDivEl.addAttribute(new Attribute("ID", "DIV_P_0000"));
         volDivEl.addAttribute(new Attribute("TYPE", "MONOGRAPH"));
-        volDivEl.addAttribute(new Attribute("DMID", "MODSMD_VOLUME_0001"));
+        volDivEl.addAttribute(new Attribute("DMDID", "MODSMD_VOLUME_0001"));
         volDivEl.addAttribute(new Attribute("LABEL", monographTitle));
 
         for (NamedPage page : pages) {
@@ -234,7 +234,7 @@ public class MainMetsBuilder {
         Element volDivEl = addNewMetsEl(monDivEl, "div");
         volDivEl.addAttribute(new Attribute("ID", "VOLUME_0001"));
         volDivEl.addAttribute(new Attribute("TYPE", "VOLUME"));
-        volDivEl.addAttribute(new Attribute("DMID", "MODSMD_VOLUME_0001"));
+        volDivEl.addAttribute(new Attribute("DMDID", "MODSMD_VOLUME_0001"));
         volDivEl.addAttribute(new Attribute("LABEL", monographTitle));
     }
 
