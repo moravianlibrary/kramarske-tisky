@@ -1,0 +1,625 @@
+Feb 05, 2025 11:52:18 AM cz.incad.kramerius.processes.starter.ProcessStarter main
+INFO: STARTING PROCESS WITH USER HOME:/home/kramerius
+Feb 05, 2025 11:52:18 AM cz.incad.kramerius.processes.starter.ProcessStarter main
+INFO: STARTING PROCESS WITH FILE ENCODING:UTF-8
+Feb 05, 2025 11:52:18 AM cz.incad.kramerius.utils.conf.KConfiguration findAllConfigurations
+INFO: Replacing configuration file name from 'indexer-7.0.40-rc5' to 'indexer.properties'
+Feb 05, 2025 11:52:18 AM cz.incad.kramerius.utils.conf.KConfiguration findAllConfigurations
+INFO: Replacing configuration file name from 'common-7.0.40-rc5' to 'configuration.properties'
+Feb 05, 2025 11:52:18 AM cz.incad.kramerius.utils.conf.KConfiguration findAllConfigurations
+INFO: Replacing configuration file name from 'import-cmdtool-7.0.40-rc5' to 'migration.properties'
+Feb 05, 2025 11:52:18 AM cz.incad.kramerius.utils.conf.KConfiguration findAllConfigurations
+INFO: Replacing configuration file name from 'import-mets-7.0.40-rc5' to 'migration.properties'
+Feb 05, 2025 11:52:18 AM cz.incad.kramerius.processes.starter.ProcessUpdatingChannel$StandardProcessUpdatingChannel updatePID
+INFO: requesting url: http://localhost:8080/search//lr?action=updatePID&uuid=a818d2cd-9785-4488-b4f5-b133bc38be9c&pid=870797
+Feb 05, 2025 11:52:18 AM org.kramerius.importmets.MetsConvertor main
+INFO: Arguments :[90793822-6b8a-4acc-b15a-47a0392a08e8, PUBLIC, /home/kramerius/.kramerius4/ndk-mets-import/d374b02f-08f6-4017-90b5-ba4ee35e7df2, /home/kramerius/.kramerius4/convert-converted/d374b02f-08f6-4017-90b5-ba4ee35e7df2_250205_115213_858, true, true, -none-, -none-]
+Feb 05, 2025 11:52:18 AM org.kramerius.importmets.MetsConvertor main
+INFO: Import directory /home/kramerius/.kramerius4/ndk-mets-import/d374b02f-08f6-4017-90b5-ba4ee35e7df2
+Feb 05, 2025 11:52:18 AM org.kramerius.importmets.MetsConvertor main
+INFO: convert.useImageServer true
+Feb 05, 2025 11:52:18 AM cz.incad.kramerius.processes.starter.ProcessUpdatingChannel$StandardProcessUpdatingChannel updateName
+INFO: requesting url: http://localhost:8080/search//lr?action=updateName&uuid=a818d2cd-9785-4488-b4f5-b133bc38be9c&name=Import+NDK+METS+z+%2Fhome%2Fkramerius%2F.kramerius4%2Fndk-mets-import%2Fd374b02f-08f6-4017-90b5-ba4ee35e7df2+
+Feb 05, 2025 11:52:18 AM org.kramerius.importmets.MetsConvertor convertOneDirectory
+INFO: File /home/kramerius/.kramerius4/ndk-mets-import/d374b02f-08f6-4017-90b5-ba4ee35e7df2/mets_d374b02f-08f6-4017-90b5-ba4ee35e7df2.xml loaded: org.kramerius.mets.Mets@1b8a29df
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor loadModsAndDcMap
+INFO: Loaded 9 MODS records and 9 DC records.
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor loadFileMap
+INFO: Loaded files: 32
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008 v: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007 v: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006 v: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002 v: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005 v: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005 v: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001 v: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006 v: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004 v: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007 v: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003 v: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008 v: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002 v: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006 v: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001 v: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005 v: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004 v: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003 v: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005 v: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006 v: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003 v: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004 v: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001 v: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002 v: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007 v: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008 v: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008 v: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007 v: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001 v: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002 v: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003 v: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor convert
+INFO: FILEMAP k: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004 v: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: USING EXISTING MODS for page [1r]
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: Policy ID: policy:public
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001, SEQ: 0
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001, SEQ: 0
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001, SEQ: 0
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001, SEQ: 0
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0001.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: USING EXISTING MODS for page [1v]
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: Policy ID: policy:public
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002, SEQ: 1
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002, SEQ: 1
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002, SEQ: 1
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002, SEQ: 1
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0002.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: USING EXISTING MODS for page [2r]
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: Policy ID: policy:public
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003, SEQ: 2
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003, SEQ: 2
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003, SEQ: 2
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003, SEQ: 2
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0003.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: USING EXISTING MODS for page [2v]
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: Policy ID: policy:public
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004, SEQ: 3
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004, SEQ: 3
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004, SEQ: 3
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004, SEQ: 3
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0004.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: USING EXISTING MODS for page [3r]
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: Policy ID: policy:public
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005, SEQ: 4
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005, SEQ: 4
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005, SEQ: 4
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005, SEQ: 4
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0005.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: USING EXISTING MODS for page [3v]
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: Policy ID: policy:public
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006, SEQ: 5
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006, SEQ: 5
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006, SEQ: 5
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006, SEQ: 5
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0006.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: USING EXISTING MODS for page [4r]
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: Policy ID: policy:public
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007, SEQ: 6
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007, SEQ: 6
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007, SEQ: 6
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007, SEQ: 6
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0007.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: USING EXISTING MODS for page [4v]
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: Policy ID: policy:public
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008, SEQ: 7
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='mastercopy/mc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.jp2', fileType=MASTER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008, SEQ: 7
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='usercopy/uc_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.jp2', fileType=USER_IMAGE}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008, SEQ: 7
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='txt/txt_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.txt', fileType=OCR}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: FileType: ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008, SEQ: 7
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID.ID: alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: FileDescriptor{filename='alto/alto_d374b02f-08f6-4017-90b5-ba4ee35e7df2_0008.xml', fileType=ALTO}
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: --------------------
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr ID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: fptr FILEID: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processPages
+INFO: FileDesc: null
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processStructLink
+WARNING: Invalid structLink from: VOLUME_0001 to: DIV_P_PAGE_0001
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processStructLink
+WARNING: Invalid structLink from: VOLUME_0001 to: DIV_P_PAGE_0002
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processStructLink
+WARNING: Invalid structLink from: VOLUME_0001 to: DIV_P_PAGE_0003
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processStructLink
+WARNING: Invalid structLink from: VOLUME_0001 to: DIV_P_PAGE_0004
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processStructLink
+WARNING: Invalid structLink from: VOLUME_0001 to: DIV_P_PAGE_0005
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processStructLink
+WARNING: Invalid structLink from: VOLUME_0001 to: DIV_P_PAGE_0006
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processStructLink
+WARNING: Invalid structLink from: VOLUME_0001 to: DIV_P_PAGE_0007
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.MetsPeriodicalConvertor processStructLink
+WARNING: Invalid structLink from: VOLUME_0001 to: DIV_P_PAGE_0008
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.BaseConvertor createDigitalObject
+INFO: title=[3v]; pid=uuid:69aab45c-6537-4ff6-aa87-fd69af805c62
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.BaseConvertor createDigitalObject
+INFO: title=[3r]; pid=uuid:9594c1c0-8d64-4775-878e-bb5ff16359f1
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.BaseConvertor createDigitalObject
+INFO: title=[4v]; pid=uuid:df7dcbff-b02d-4a3e-a65d-127ad3030d2d
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.BaseConvertor createDigitalObject
+INFO: title=[4r]; pid=uuid:991335c8-f967-441c-85ba-2de328133401
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.BaseConvertor createDigitalObject
+INFO: title=[1v]; pid=uuid:c74ac4af-5ebc-46a2-a01c-1041ad7b20f0
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.BaseConvertor createDigitalObject
+INFO: title=[1r]; pid=uuid:45dd01e7-e908-4752-96ab-d2cb4b427118
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.BaseConvertor createDigitalObject
+INFO: title=[2v]; pid=uuid:c756f0d6-2436-4478-858a-adeb5bab79dd
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.convertor.BaseConvertor createDigitalObject
+INFO: title=[2r]; pid=uuid:1fc046aa-adb2-4b74-a1b4-1e8df4aace78
+Feb 05, 2025 11:52:19 AM org.kramerius.importmets.MetsConvertor convertOneDirectory
+INFO: Elapsed time: 0.55 seconds. 8 digital objects (files) written.
+Feb 05, 2025 11:52:19 AM com.hazelcast.client.HazelcastClient
+INFO: akubrasync [dev] [3.11.2] A non-empty group password is configured for the Hazelcast client. Starting with Hazelcast version 3.11, clients with the same group name, but with different group passwords (that do not use authentication) will be accepted to a cluster. The group password configuration will be removed completely in a future release.
+Feb 05, 2025 11:52:19 AM com.hazelcast.core.LifecycleService
+INFO: akubrasync [dev] [3.11.2] HazelcastClient 3.11.2 (20190216 - e302506) is STARTING
+Feb 05, 2025 11:52:20 AM com.hazelcast.client.spi.ClientInvocationService
+INFO: akubrasync [dev] [3.11.2] Running with 2 response threads
+Feb 05, 2025 11:52:20 AM com.hazelcast.core.LifecycleService
+INFO: akubrasync [dev] [3.11.2] HazelcastClient 3.11.2 (20190216 - e302506) is STARTED
+Feb 05, 2025 11:52:20 AM com.hazelcast.client.connection.ClientConnectionManager
+INFO: akubrasync [dev] [3.11.2] Trying to connect to [127.0.0.1]:5701 as owner member
+Feb 05, 2025 11:52:20 AM com.hazelcast.client.connection.ClientConnectionManager
+INFO: akubrasync [dev] [3.11.2] Setting ClientConnection{alive=true, connectionId=1, channel=NioChannel{/127.0.0.1:32799->/127.0.0.1:5701}, remoteEndpoint=[194.182.91.176]:5701, lastReadTime=2025-02-05 11:52:20.209, lastWriteTime=2025-02-05 11:52:20.206, closedTime=never, connected server version=3.11.2} as owner with principal ClientPrincipal{uuid='f927e031-9122-4f22-8bde-8f5a2f8d315f', ownerUuid='d7270d1e-9ba2-4758-b862-a0e3a4159d66'}
+Feb 05, 2025 11:52:20 AM com.hazelcast.client.connection.ClientConnectionManager
+INFO: akubrasync [dev] [3.11.2] Authenticated with server [194.182.91.176]:5701, server version:3.11.2 Local address: /127.0.0.1:32799
+Feb 05, 2025 11:52:20 AM com.hazelcast.client.spi.impl.ClientMembershipListener
+INFO: akubrasync [dev] [3.11.2] 
+
+Members [1] {
+	Member [194.182.91.176]:5701 - d7270d1e-9ba2-4758-b862-a0e3a4159d66
+}
+
+Feb 05, 2025 11:52:20 AM com.hazelcast.core.LifecycleService
+INFO: akubrasync [dev] [3.11.2] HazelcastClient 3.11.2 (20190216 - e302506) is CLIENT_CONNECTED
+Feb 05, 2025 11:52:20 AM com.hazelcast.internal.diagnostics.Diagnostics
+INFO: akubrasync [dev] [3.11.2] Diagnostics disabled. To enable add -Dhazelcast.diagnostics.enabled=true to the JVM arguments.
+Feb 05, 2025 11:52:20 AM org.ehcache.core.EhcacheManager createCache
+INFO: Cache 'DigitalObjectCache' created in EhcacheManager.
+Feb 05, 2025 11:52:20 AM org.kramerius.Import run
+INFO: INGEST - url:http://localhost:8080/fedora user:fedoraAdmin importRoot:/home/kramerius/.kramerius4/convert-converted/d374b02f-08f6-4017-90b5-ba4ee35e7df2_250205_115213_858
+Feb 05, 2025 11:52:20 AM org.kramerius.Import run
+INFO: INGEST updateExisting: false
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Merging with existing object uuid:1fc046aa-adb2-4b74-a1b4-1e8df4aace78
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Ingested:uuid:1fc046aa-adb2-4b74-a1b4-1e8df4aace78 in 138ms, count:1
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Merging with existing object uuid:c756f0d6-2436-4478-858a-adeb5bab79dd
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Ingested:uuid:c756f0d6-2436-4478-858a-adeb5bab79dd in 41ms, count:2
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Merging with existing object uuid:991335c8-f967-441c-85ba-2de328133401
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Ingested:uuid:991335c8-f967-441c-85ba-2de328133401 in 42ms, count:3
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Merging with existing object uuid:9594c1c0-8d64-4775-878e-bb5ff16359f1
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Ingested:uuid:9594c1c0-8d64-4775-878e-bb5ff16359f1 in 46ms, count:4
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Merging with existing object uuid:45dd01e7-e908-4752-96ab-d2cb4b427118
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Ingested:uuid:45dd01e7-e908-4752-96ab-d2cb4b427118 in 39ms, count:5
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Merging with existing object uuid:69aab45c-6537-4ff6-aa87-fd69af805c62
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Ingested:uuid:69aab45c-6537-4ff6-aa87-fd69af805c62 in 41ms, count:6
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Merging with existing object uuid:df7dcbff-b02d-4a3e-a65d-127ad3030d2d
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Ingested:uuid:df7dcbff-b02d-4a3e-a65d-127ad3030d2d in 36ms, count:7
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Merging with existing object uuid:c74ac4af-5ebc-46a2-a01c-1041ad7b20f0
+Feb 05, 2025 11:52:20 AM org.kramerius.Import ingest
+INFO: Ingested:uuid:c74ac4af-5ebc-46a2-a01c-1041ad7b20f0 in 38ms, count:8
+Feb 05, 2025 11:52:20 AM org.kramerius.Import run
+INFO: FINISHED INGESTION IN 0.486s, processed 8 files
+Feb 05, 2025 11:52:20 AM org.kramerius.Import run
+INFO: NO MERGED OBJECTS FOR RELATIONS SORTING FOUND.
+Feb 05, 2025 11:52:20 AM org.kramerius.Import run
+INFO: NO COLLECTIONS FOR INDEXING FOUND.
+Feb 05, 2025 11:52:20 AM org.kramerius.Import run
+INFO: NO CONVOLUTES FOR INDEXING FOUND.
+Feb 05, 2025 11:52:20 AM org.kramerius.Import run
+INFO: NO ROOT OBJECTS FOR INDEXING FOUND.
+Feb 05, 2025 11:52:21 AM cz.incad.kramerius.resourceindex.ProcessingIndexFeeder commit
+INFO: Processing index commit 
+Feb 05, 2025 11:52:21 AM cz.incad.kramerius.processes.starter.ProcessStarter main
+SEVERE: system error file contains errors
+cz.incad.kramerius.processes.WarningException: system error file contains errors
+	at cz.incad.kramerius.processes.starter.ProcessStarter.checkErrorFile(ProcessStarter.java:194)
+	at cz.incad.kramerius.processes.starter.ProcessStarter.main(ProcessStarter.java:135)
+
+Feb 05, 2025 11:52:21 AM cz.incad.kramerius.processes.starter.ProcessUpdatingChannel$StandardProcessUpdatingChannel updateStatus
+INFO: requesting url: http://localhost:8080/search//lr?action=updateStatus&uuid=a818d2cd-9785-4488-b4f5-b133bc38be9c&state=WARNING

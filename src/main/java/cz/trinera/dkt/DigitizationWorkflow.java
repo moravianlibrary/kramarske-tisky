@@ -373,12 +373,6 @@ public class DigitizationWorkflow {
             MonographMetadataExtractor monographMetadataExtractor = new MonographMetadataExtractor(modsFile, dcFile);
             String monographTitle = monographMetadataExtractor.extractTitle();
 
-            //MAIN METS
-            File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
-            MainMetsBuilder mainMetsBuilder = new MainMetsBuilder(ndkPackageDir, packageUuid, now);
-            Document mainMetsDoc = mainMetsBuilder.build(fileInfos, monographTitle, pages, modsFile, dcFile);
-            Utils.saveDocumentToFile(mainMetsDoc, mainMetsFile);
-
             //SECONDARY METS (dir, files)
             File amdsecDir = new File(ndkPackageDir, "amdsec");
             amdsecDir.mkdirs();
@@ -388,6 +382,12 @@ public class DigitizationWorkflow {
                 secMetsBuilder.buildAndSavePage(i);
             }
             Arrays.stream(amdsecDir.listFiles()).forEach(file -> fileInfos.add(new FileInfo(ndkPackageDir, "/amdsec/" + file.getName())));
+
+            //MAIN METS
+            File mainMetsFile = new File(ndkPackageDir, "mets_" + packageUuid + ".xml");
+            MainMetsBuilder mainMetsBuilder = new MainMetsBuilder(ndkPackageDir, packageUuid, now);
+            Document mainMetsDoc = mainMetsBuilder.build(fileInfos, monographTitle, pages, modsFile, dcFile);
+            Utils.saveDocumentToFile(mainMetsDoc, mainMetsFile);
 
             //MD5
             File md5File = new File(ndkPackageDir, "md5_" + packageUuid + ".md5");
