@@ -182,7 +182,7 @@ public class MainMetsBuilder {
                 .sorted(Comparator.comparing(FileInfo::getPageNumber))
                 .forEach(fileInfo -> {
                     Element fileEl = addNewMetsEl(fileGrpTechMd, "file");
-                    fileEl.addAttribute(new Attribute("ID", "amd_sec_" + packageUuid + "_" + Utils.to4CharNumber(fileInfo.getPageNumber())));
+                    fileEl.addAttribute(new Attribute("ID", "amd_mets_" + packageUuid + "_" + Utils.to4CharNumber(fileInfo.getPageNumber())));
                     fileEl.addAttribute(new Attribute("SEQ", (fileInfo.getPageNumber() - 1) + ""));
                     fileEl.addAttribute(new Attribute("MIMETYPE", "text/xml"));
                     fileEl.addAttribute(new Attribute("SIZE", fileInfo.getFileSizeBytes() + ""));
