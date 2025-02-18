@@ -114,7 +114,7 @@ public class SecMetsBuilder {
         //fileMcEl.addAttribute(new Attribute("ADMID", "MIX_002 OBJ_002 EVT_002")); //TODO
         Element fLocatMcEl = addNewMetsEl(fileMcEl, "FLocat");
         fLocatMcEl.addAttribute(new Attribute("LOCTYPE", "URL"));
-        fileMcEl.addAttribute(new Attribute("xlink:href", NS_XLINK, mcFilePath));
+        fLocatMcEl.addAttribute(new Attribute("xlink:href", NS_XLINK, mcFilePath));
 
         //fileGrp (ID=UC_IMGGRP)
         Element fileGrpUcEl = addNewMetsEl(fileSecEl, "fileGrp");
@@ -151,7 +151,7 @@ public class SecMetsBuilder {
         //fileGrpAltoEl.addAttribute(new Attribute("ADMID", "OBJ_003 EVT_003")); //TODO
         Element fLocatAltoEl = addNewMetsEl(fileAltoEl, "FLocat");
         fLocatAltoEl.addAttribute(new Attribute("LOCTYPE", "URL"));
-        fileAltoEl.addAttribute(new Attribute("xlink:href", NS_XLINK, altoFilePath));
+        fLocatAltoEl.addAttribute(new Attribute("xlink:href", NS_XLINK, altoFilePath));
 
         //fileGrp (ID=TXTGRP)
         Element fileGrpTxtEl = addNewMetsEl(fileSecEl, "fileGrp");
