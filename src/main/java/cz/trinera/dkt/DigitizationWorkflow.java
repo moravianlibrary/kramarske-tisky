@@ -193,7 +193,7 @@ public class DigitizationWorkflow {
         //prepare block dirs
         File workingDirForBlock = new File(workingDir, blockId);
         File ndkPackageWorkingDirForBlock = new File(ndkPackageWorkingDir, blockId);
-        File resultsDirForBlock = new File(resultsDir, blockId);
+        //File resultsDirForBlock = new File(resultsDir, blockId);
 
         //phase 1 - check number of pages, name pages, copy to working dir
         List<NamedPage> namedPages = processBlockPhase1(imagesToBeProcessed, barcode, workingDirForBlock);
@@ -204,9 +204,29 @@ public class DigitizationWorkflow {
         processBlockPhase2(namedPages, barcode, workingDirForBlock);
 
         //phase 3 - build NDK package
-        processBlockPhase3(namedPages, barcode, workingDirForBlock, ndkPackageWorkingDirForBlock, ts);
+        UUID packageUuid = processBlockPhase3(namedPages, barcode, workingDirForBlock, ndkPackageWorkingDirForBlock, ts);
+        if (packageUuid == null) { //NDK package creation failed, must have been something unexpected
+            throw new RuntimeException("Package creation failed, exiting");
+        }
 
-        //TODO: phase 4: copy result to resultsDir, cleanup
+        //phase 4: copy result to resultsDir, cleanup
+        System.out.println("PHASE 4");
+        System.out.println("resultsDir: " + resultsDir);
+
+        //1. make deep copy from ndkPackageWorkingDirForBlock/packageUuid to resultsDir/packageUuid
+        File inputPackage = new File(ndkPackageWorkingDirForBlock, packageUuid.toString());
+        File resultsPackage = new File(resultsDir, packageUuid.toString());
+        makeSureReadableWritableDirExists(resultsPackage);
+        System.out.println("copying " + ndkPackageWorkingDirForBlock.getAbsolutePath() + " to " + resultsPackage.getAbsolutePath());
+        Utils.copyDirectory(inputPackage, resultsPackage);
+
+        //2. cleanup package dirs
+        System.out.println("cleaning up for package uuid=" + packageUuid + ", blockId=" + blockId);
+        System.out.println("deleting " + workingDirForBlock.getAbsolutePath());
+        Utils.deleteDirectory(workingDirForBlock);
+        System.out.println("deleting " + ndkPackageWorkingDirForBlock.getAbsolutePath());
+        Utils.deleteDirectory(ndkPackageWorkingDirForBlock);
+        //TODO: move input images (tiffs) to /finished and /failed dirs
     }
 
 
@@ -297,8 +317,10 @@ public class DigitizationWorkflow {
 
     /**
      * Builds NDK package from data in blockWorkingDir into ndkPackageWorkingDir
+     *
+     * @return UUID of the created package
      */
-    private void processBlockPhase3(List<NamedPage> pages, Barcode barcode, File blockWorkingDir, File ndkPackageWorkingDir, Timestamp now) {
+    private UUID processBlockPhase3(List<NamedPage> pages, Barcode barcode, File blockWorkingDir, File ndkPackageWorkingDir, Timestamp now) {
         System.out.println("PHASE 3");
         try {
             makeSureReadableWritableDirExists(ndkPackageWorkingDir);
@@ -399,9 +421,11 @@ public class DigitizationWorkflow {
             InfoXmlBuilder infoXmlBuilder = new InfoXmlBuilder();
             Document infoXmlDoc = infoXmlBuilder.build(now, packageUuid, fileInfos, md5File);
             Utils.saveDocumentToFile(infoXmlDoc, infoXmlFile);
+            return packageUuid;
         } catch (Throwable e) {
             System.err.println("Error while creating NDK package: " + e.getMessage());
             e.printStackTrace();
+            return null;
         }
     }
 

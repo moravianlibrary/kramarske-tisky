@@ -19,6 +19,8 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -262,6 +264,63 @@ public class Utils {
         } catch (IOException | NoSuchAlgorithmException e) {
             System.err.println("Error while computing MD5 checksum: " + e.getMessage());
             throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Creates deep copy of the directory structure. Throws exception if something goes wrong (access rights, filesystem error, etc)
+     *
+     * @param inputDir  input directory containing data
+     * @param outputDir output directory, probably not existing
+     * @throws IOException if an I/O error occurs
+     */
+    public static void copyDirectory(File inputDir, File outputDir) {
+        try {
+            if (!inputDir.exists() || !inputDir.isDirectory()) {
+                throw new IllegalArgumentException("Input directory does not exist or is not a directory: " + inputDir);
+            }
+            if (!outputDir.exists() && !outputDir.mkdirs()) {
+                throw new IOException("Failed to create output directory: " + outputDir);
+            }
+            File[] files = inputDir.listFiles();
+            if (files == null) {
+                throw new IOException("Failed to list contents of directory: " + inputDir);
+            }
+            for (File file : files) {
+                File destFile = new File(outputDir, file.getName());
+                if (file.isDirectory()) {
+                    copyDirectory(file, destFile); // Recursive copy for subdirectories
+                } else {
+                    Files.copy(file.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Deletes the directory and all its contents recursively.
+     *
+     * @param dir
+     */
+    public static void deleteDirectory(File dir) {
+        if (dir.exists()) {
+            File[] files = dir.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        deleteDirectory(file);
+                    } else {
+                        if (!file.delete()) {
+                            System.err.println("Failed to delete file: " + file);
+                        }
+                    }
+                }
+            }
+            if (!dir.delete()) {
+                System.err.println("Failed to delete directory: " + dir);
+            }
         }
     }
 }

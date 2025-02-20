@@ -40,16 +40,22 @@ public class Main {
             //config
             File configFile = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/dkt-workflow/src/main/resources/config.properties");
 
-            //SAMPLE1: 0001.tif - 0027.tif (3 packages), ~/TrineraProjects/KramarskeTisky/data/input/sample1
-            File inputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample1/input");
-            File tmpDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample1/tmp");
+            //SAMPLE1: 0001.tif - 0027.tif (3 packages), ~/TrineraProjects/KramarskeTisky/data/input/sample3
+            File inputDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample3/input");
+            File tmpDir = new File(inputDir, "tmp");
 
             File _pngInputDir = new File(tmpDir, "_png-input");
             File _workingDir = new File(tmpDir, "_working");
             File _ndkPackageWorkingDir = new File(tmpDir, "_ndk-package");
 
-            File resultsDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample1/results");
+            File resultsDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample3/results");
             run(configFile, inputDir, _pngInputDir, _workingDir, _ndkPackageWorkingDir, resultsDir);
+
+            //cleanup
+            _workingDir.delete();
+            _ndkPackageWorkingDir.delete();
+            //_pngInputDir.delete(); //TODO: once original tiffs are moved
+            //tmpDir.delete(); //TODO: once original tiffs are moved
         } else {
             // Create Options object
             Options options = new Options();
@@ -74,8 +80,6 @@ public class Main {
             optTestDependencies.setRequired(false);
             options.addOption(optTestDependencies);
 
-            //TODO: option "cleanup" for cleaning temporary files afterwards (default true)
-
             // Parse command line arguments
             CommandLineParser parser = new DefaultParser();
             HelpFormatter formatter = new HelpFormatter();
@@ -93,7 +97,7 @@ public class Main {
             // Retrieve the values of the options
             String configFilePath = cmd.getOptionValue(OPT_CONFIG_FILE);
             String inputDirectoryPath = cmd.getOptionValue(OPT_INPUT_DIR);
-            String resultsDirectoryPath = cmd.getOptionValue(OPT_OUTPUT_DIR);
+            String outputDirectoryPath = cmd.getOptionValue(OPT_OUTPUT_DIR);
 
             //config file
             File configFile = new File(configFilePath);
@@ -105,12 +109,16 @@ public class Main {
             File _workingDir = new File(tmpDir, "_working");
             File _ndkPackageWorkingDir = new File(tmpDir, "_ndk-package");
             //results directory
-            File resultsDir = new File(resultsDirectoryPath);
+            File resultsDir = new File(outputDirectoryPath);
 
             if (cmd.hasOption(OPT_TEST_DEPENDENCIES)) {
                 testDependencies(configFile);
             } else {
                 run(configFile, inputDir, _pngInputDir, _workingDir, _ndkPackageWorkingDir, resultsDir);
+                _workingDir.delete();
+                _ndkPackageWorkingDir.delete();
+                //_pngInputDir.delete();//TODO: once original tiffs are moved
+                //tmpDir.delete(); //TODO: once original tiffs are moved
             }
         }
     }
