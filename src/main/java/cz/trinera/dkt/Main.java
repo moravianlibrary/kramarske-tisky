@@ -31,7 +31,8 @@ public class Main {
     private static final String OPT_INPUT_DIR = "input_dir";
     private static final String OPT_OUTPUT_DIR = "output_dir";
 
-    private static final boolean DEV_MODE = false;
+    public static final boolean DEV_MODE = false;
+    public static final boolean DISABLE_CLEANUP = false;
 
     public static void main(String[] args) throws ToolAvailabilityError {
         if (DEV_MODE) {
@@ -50,12 +51,21 @@ public class Main {
 
             File resultsDir = new File(homeDir.getAbsolutePath() + "/TrineraProjects/KramarskeTisky/data/input/sample3/results");
             run(configFile, inputDir, _pngInputDir, _workingDir, _ndkPackageWorkingDir, resultsDir);
-
+            System.out.println("====================================");
+            System.out.println("ALL PACKAGES PROCESSED");
+            System.out.println();
             //cleanup
-            _workingDir.delete();
-            _ndkPackageWorkingDir.delete();
-            //_pngInputDir.delete(); //TODO: once original tiffs are moved
-            //tmpDir.delete(); //TODO: once original tiffs are moved
+            if (!DISABLE_CLEANUP) {
+                System.out.println("Cleaning up temporary directories");
+                System.out.println("Deleting " + _workingDir.getAbsolutePath());
+                _workingDir.delete();
+                System.out.println("Deleting " + _ndkPackageWorkingDir.getAbsolutePath());
+                _ndkPackageWorkingDir.delete();
+                System.out.println("Deleting " + _pngInputDir.getAbsolutePath());
+                Utils.deleteDirectory(_pngInputDir);
+                System.out.println("Deleting " + tmpDir.getAbsolutePath());
+                tmpDir.delete();
+            }
         } else {
             // Create Options object
             Options options = new Options();
@@ -115,10 +125,20 @@ public class Main {
                 testDependencies(configFile);
             } else {
                 run(configFile, inputDir, _pngInputDir, _workingDir, _ndkPackageWorkingDir, resultsDir);
-                _workingDir.delete();
-                _ndkPackageWorkingDir.delete();
-                //_pngInputDir.delete();//TODO: once original tiffs are moved
-                //tmpDir.delete(); //TODO: once original tiffs are moved
+                System.out.println("====================================");
+                System.out.println("ALL PACKAGES PROCESSED");
+                System.out.println();
+                if (!DISABLE_CLEANUP) {
+                    System.out.println("Cleaning up temporary directories");
+                    System.out.println("Deleting " + _workingDir.getAbsolutePath());
+                    _workingDir.delete();
+                    System.out.println("Deleting " + _ndkPackageWorkingDir.getAbsolutePath());
+                    _ndkPackageWorkingDir.delete();
+                    System.out.println("Deleting " + _pngInputDir.getAbsolutePath());
+                    Utils.deleteDirectory(_pngInputDir);
+                    System.out.println("Deleting " + tmpDir.getAbsolutePath());
+                    tmpDir.delete();
+                }
             }
         }
     }

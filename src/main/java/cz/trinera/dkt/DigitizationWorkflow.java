@@ -211,22 +211,24 @@ public class DigitizationWorkflow {
 
         //phase 4: copy result to resultsDir, cleanup
         System.out.println("PHASE 4");
-        System.out.println("resultsDir: " + resultsDir);
+        //System.out.println("resultsDir: " + resultsDir);
 
         //1. make deep copy from ndkPackageWorkingDirForBlock/packageUuid to resultsDir/packageUuid
         File inputPackage = new File(ndkPackageWorkingDirForBlock, packageUuid.toString());
         File resultsPackage = new File(resultsDir, packageUuid.toString());
         makeSureReadableWritableDirExists(resultsPackage);
-        System.out.println("copying " + ndkPackageWorkingDirForBlock.getAbsolutePath() + " to " + resultsPackage.getAbsolutePath());
+        System.out.println("Copying " + ndkPackageWorkingDirForBlock.getAbsolutePath() + " to " + resultsPackage.getAbsolutePath());
         Utils.copyDirectory(inputPackage, resultsPackage);
 
         //2. cleanup package dirs
-        System.out.println("cleaning up for package uuid=" + packageUuid + ", blockId=" + blockId);
-        System.out.println("deleting " + workingDirForBlock.getAbsolutePath());
-        Utils.deleteDirectory(workingDirForBlock);
-        System.out.println("deleting " + ndkPackageWorkingDirForBlock.getAbsolutePath());
-        Utils.deleteDirectory(ndkPackageWorkingDirForBlock);
-        //TODO: move input images (tiffs) to /finished and /failed dirs
+        if (!Main.DISABLE_CLEANUP) {
+            System.out.println("Cleaning up after package uuid=" + packageUuid + ", blockId=" + blockId);
+            System.out.println("Deleting " + workingDirForBlock.getAbsolutePath());
+            Utils.deleteDirectory(workingDirForBlock);
+            System.out.println("Deleting " + ndkPackageWorkingDirForBlock.getAbsolutePath());
+            Utils.deleteDirectory(ndkPackageWorkingDirForBlock);
+            //TODO: move input images (tiffs) to /finished and /failed dirs
+        }
     }
 
 
