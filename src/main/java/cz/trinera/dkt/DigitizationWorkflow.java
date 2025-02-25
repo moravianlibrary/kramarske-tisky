@@ -221,7 +221,7 @@ public class DigitizationWorkflow {
         Utils.copyDirectory(inputPackage, resultsPackage);
 
         //2. cleanup package dirs
-        if (!Main.DISABLE_CLEANUP) {
+        if (!Config.instanceOf().isDevDisableCleanUp()) {
             System.out.println("Cleaning up after package uuid=" + packageUuid + ", blockId=" + blockId);
             System.out.println("Deleting " + workingDirForBlock.getAbsolutePath());
             Utils.deleteDirectory(workingDirForBlock);

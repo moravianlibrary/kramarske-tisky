@@ -22,14 +22,14 @@ public class TifToPngConverterImpl implements TifToPngConverter {
     @Override
     public void convertAllTifFilesToPng(File inputDir, File outputDir) {
         //copy all tif files from inputDir to outputDir
-        System.out.println("copying tif files from " + inputDir.getAbsolutePath() + " to " + outputDir.getAbsolutePath());
+        System.out.println("Copying tif files from " + inputDir.getAbsolutePath() + " to " + outputDir.getAbsolutePath());
         File[] inputTifFiles = inputDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".tif"));
         for (File inputTifFile : inputTifFiles) {
             //convert tif file to png
             File outputTifFile = new File(outputDir, inputTifFile.getName());
             Utils.copyFile(inputTifFile, outputTifFile);
         }
-        System.out.println("copied " + inputTifFiles.length + " tif files");
+        System.out.println("Copied " + inputTifFiles.length + " tif files");
 
         //run conversion script over outputDir
         System.out.println("Running tif2png conversion script on " + outputDir.getAbsolutePath());

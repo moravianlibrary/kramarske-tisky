@@ -31,6 +31,7 @@ public class Config {
     //dev configuration properties
     private final boolean devDisableTifToPngConversion;
     private final Integer devMaxBlocksToProcess;
+    private final boolean devDisableCleanUp;
 
 
     public static void init(File propertiesFile) throws IOException {
@@ -57,6 +58,11 @@ public class Config {
             devMaxBlocksToProcess = Integer.parseInt(properties.getProperty("dev.max_blocks_to_process"));
         } else {
             devMaxBlocksToProcess = null;
+        }
+        if (properties.containsKey("dev.disable_cleanup")) {
+            devDisableCleanUp = Boolean.parseBoolean(properties.getProperty("dev.disable_cleanup"));
+        } else {
+            devDisableCleanUp = false;
         }
         barcodeDetectorPythonDependencyCheckScript = getNonemptyProperty(properties, "barcode_detector.python_dependency_check_script");
         barcodeDetectorPythonScript = getNonemptyProperty(properties, "barcode_detector.python_script");
@@ -97,6 +103,10 @@ public class Config {
 
     public Integer getDevMaxBlocksToProcess() {
         return devMaxBlocksToProcess;
+    }
+
+    public boolean isDevDisableCleanUp() {
+        return devDisableCleanUp;
     }
 
     public String getPythonExecutable() {
@@ -188,6 +198,7 @@ public class Config {
                 ", marcXmlProviderBase='" + marcXmlProviderBase + '\'' +
                 ", devDisableTifToPngConversion=" + devDisableTifToPngConversion +
                 ", devMaxBlocksToProcess=" + devMaxBlocksToProcess +
+                ", devDisableCleanUp=" + devDisableCleanUp +
                 '}';
     }
 }

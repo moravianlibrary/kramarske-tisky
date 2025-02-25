@@ -32,7 +32,6 @@ public class Main {
     private static final String OPT_OUTPUT_DIR = "output_dir";
 
     public static final boolean DEV_MODE = false;
-    public static final boolean DISABLE_CLEANUP = false;
 
     public static void main(String[] args) throws ToolAvailabilityError {
         if (DEV_MODE) {
@@ -55,7 +54,7 @@ public class Main {
             System.out.println("ALL PACKAGES PROCESSED");
             System.out.println();
             //cleanup
-            if (!DISABLE_CLEANUP) {
+            if (!Config.instanceOf().isDevDisableCleanUp()) {
                 System.out.println("Cleaning up temporary directories");
                 System.out.println("Deleting " + _workingDir.getAbsolutePath());
                 _workingDir.delete();
@@ -128,7 +127,7 @@ public class Main {
                 System.out.println("====================================");
                 System.out.println("ALL PACKAGES PROCESSED");
                 System.out.println();
-                if (!DISABLE_CLEANUP) {
+                if (!Config.instanceOf().isDevDisableCleanUp()) {
                     System.out.println("Cleaning up temporary directories");
                     System.out.println("Deleting " + _workingDir.getAbsolutePath());
                     _workingDir.delete();
