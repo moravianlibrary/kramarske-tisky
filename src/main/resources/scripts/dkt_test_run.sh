@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CONFIG=~/dkt/config/config.properties
-SAMPLE_DIR=~/data/test_i1-i9
+CONFIG="$HOME/dkt/config/config-test.properties"
+SAMPLE_DIR="$HOME/data/test/test_i1-i9"
 
 INPUT_DIR=$SAMPLE_DIR/input
 OUTPUT_DIR=$SAMPLE_DIR/output
 LOG_FILE=$SAMPLE_DIR/log.txt
 
-echo "Tento skript spouští DKT workflow nad testovacími daty"
+echo "Spouštím DKT workflow nad testovacími daty"
 echo "Konfigurační soubor: $CONFIG"
 echo "Adresář s testovacími daty: $SAMPLE_DIR"
 echo

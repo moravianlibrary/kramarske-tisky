@@ -1,8 +1,8 @@
 #!/bin/bash
 
-CONFIG=~/dkt/config/config.properties
+CONFIG="$HOME/dkt/config/config-test.properties"
 
-echo "Tento skript kontroluje dostupnost runtime závislostí pro DKT workflow"
+echo "Kontroluji dostupnost runtime závislostí pro DKT workflow"
 echo "Konfigurační soubor: $CONFIG"
 echo
 
