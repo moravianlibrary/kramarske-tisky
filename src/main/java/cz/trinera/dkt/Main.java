@@ -150,8 +150,8 @@ public class Main {
             DigitizationWorkflow digitizationWorkflow = getDigitizationWorkflow();
             Map<String, ToolAvailabilityError> errors = digitizationWorkflow.checkAvailabilitiesReturningErrors();
             System.out.println();
-            System.out.println("Testing dependencies");
-            System.out.println("--------------------");
+            System.out.println("Runtime závislosti DKT workflow ");
+            System.out.println("--------------------------------");
             for (String errorKey : errors.keySet()) {
                 ToolAvailabilityError error = errors.get(errorKey);
                 System.out.println(errorKey + " " + (error == null ? "✅" : "❌"));
