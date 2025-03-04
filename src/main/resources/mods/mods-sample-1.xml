@@ -1,6 +1,6 @@
-<?xml version="1.0"?>
-<modsCollection xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<modsCollection xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd"
+                xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <mods version="3.6">
         <titleInfo>
             <title>Pjsně dwě k Pánu GEžjssy</title>
@@ -46,11 +46,15 @@
             <form type="carrier" authority="rdacarrier">svazek</form>
         </physicalDescription>
         <note>Rozsah: 22 a 10 nečíslovaných slok</note>
-        <note>Výzdoba: Na titulní straně dřevořez (47 x 33 mm), po jeho stranách typografické ozdoby, linka; na [4b] krátká linka z typografických ozdob</note>
+        <note>Výzdoba: Na titulní straně dřevořez (47 x 33 mm), po jeho
+            stranách typografické ozdoby, linka; na [4b] krátká linka z
+            typografických ozdob</note>
         <note>Ježíš Kristus (ukřižovaný)_03_046</note>
         <note>Text začíná na rubu titulního listu</note>
-        <note>List [2a]: lils Krwe pro mně mnoho, kdyžto || z Těla twého tekla, pohleď má || [...]</note>
-        <note>Na [3b]: Gako: Wzhůru wzhůru nedb: etc. || Mocný BOže politůg sám toho, || [...]</note>
+        <note>List [2a]: lils Krwe pro mně mnoho, kdyžto || z Těla twého
+            tekla, pohleď má || [...]</note>
+        <note>Na [3b]: Gako: Wzhůru wzhůru nedb: etc. || Mocný BOže politůg
+            sám toho, || [...]</note>
         <subject authority="Konspekt">
             <topic>Staré tisky</topic>
         </subject>
@@ -125,6 +129,10 @@
         <location>
             <shelfLocator>VK-0000.821</shelfLocator>
         </location>
+        <note displayLabel="inicipit">Ach, hříšný, co mám činiti</note>
+        <note displayLabel="tunes">Barboro, panenko svatá</note>
+        <note displayLabel="inicipit">Mocný Bože, polituj sám toho</note>
+        <note displayLabel="tunes">Vzhůru, vzhůru nedb</note>
         <recordInfo>
             <descriptionStandard>rda</descriptionStandard>
             <recordContentSource authority="marcorg">BOA001</recordContentSource>

@@ -2960,6 +2960,11 @@ Revision 1.02 - Added Log Comment  2003/03/24 19:37:42  ckeith
         </xsl:for-each>
         -->
 
+        <!--dkt 2025-03-04 START-->
+        <xsl:for-each select="marc:datafield[@tag='924']">
+            <xsl:call-template name="createNoteFrom924"/>
+        </xsl:for-each>
+        <!--dkt 2025-03-04 END-->
 
         <xsl:for-each select="marc:datafield[@tag=856][@ind2=2][marc:subfield[@code='u']]">
             <relatedItem>
@@ -4206,6 +4211,20 @@ Revision 1.02 - Added Log Comment  2003/03/24 19:37:42  ckeith
         <xsl:if test="//marc:datafield/marc:subfield[@code='6']"> </xsl:if>
     </xsl:template>
 
+    <!--dkt 2025-03-04 START-->
+    <xsl:template name="createNoteFrom924">
+        <xsl:if test="marc:subfield[@code='a']">
+            <note displayLabel="inicipit">
+                <xsl:value-of select="marc:subfield[@code='a']"/>
+            </note>
+        </xsl:if>
+        <xsl:if test="marc:subfield[@code='d']">
+            <note displayLabel="tunes">
+                <xsl:value-of select="marc:subfield[@code='d']"/>
+            </note>
+        </xsl:if>
+    </xsl:template>
+    <!--dkt 2025-03-04 END-->
 
     <xsl:template name="true880">
         <xsl:variable name="sf06" select="normalize-space(marc:subfield[@code='6'])"/>

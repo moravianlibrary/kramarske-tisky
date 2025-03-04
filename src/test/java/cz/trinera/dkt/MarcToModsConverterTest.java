@@ -15,7 +15,7 @@ public class MarcToModsConverterTest {
     //MarcToModsConverter converter = new MarcToModsConverterImpl("src/main/resources/xslt/MARC21slim2MODS3NoIncludes.xsl");
 
     @Test
-    public void convertSample1() {
+    public void convertMarcxmlSample1() {
         //1st package - image 0001.png, barcode 2610798805
         File marcxmlInputFile = new File("src/main/resources/marcxml/marcxml-sample-1.xml");
         Document marcDoc = Utils.loadXmlFromFile(marcxmlInputFile);
@@ -27,7 +27,7 @@ public class MarcToModsConverterTest {
     }
 
     @Test
-    public void convertSample2() {
+    public void convertMarcxmlSample2() {
         //3rd package - image 0019.png, barcode 2610798810
         File marcxmlInputFile = new File("src/main/resources/marcxml/marcxml-sample-2.xml");
         Document marcDoc = Utils.loadXmlFromFile(marcxmlInputFile);
@@ -39,7 +39,7 @@ public class MarcToModsConverterTest {
     }
 
     @Test
-    public void convertSample3() {
+    public void convertMarc2MarcxmlSample1() {
         //converted from marc21
         File marcxmlInputFile = new File("src/main/resources/marc21ToMarcxml/sample1.xml");
         Document marcDoc = Utils.loadXmlFromFile(marcxmlInputFile);

@@ -1,5 +1,6 @@
-<?xml version="1.0"?>
-<modsCollection xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<modsCollection xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd"
+                xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <mods version="3.6">
         <titleInfo>
             <title>Pjseň Postnj ku Pánu Gežjssy</title>
@@ -102,6 +103,7 @@
         <location>
             <shelfLocator>VK-0000.826</shelfLocator>
         </location>
+        <note displayLabel="inicipit">Ach, Ježíši, lásko moje, po tobě touží srdce mé_(+)</note>
         <recordInfo>
             <descriptionStandard>rda</descriptionStandard>
             <recordContentSource authority="marcorg">BOA001</recordContentSource>
