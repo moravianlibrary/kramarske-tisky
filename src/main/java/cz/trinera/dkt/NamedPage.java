@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class NamedPage {
 
-    private final int position;
+    private int position;
     private final String name;
     private final File pngImageFile;
     private final File tifImageFile;
@@ -16,6 +16,10 @@ public class NamedPage {
         this.name = name;
         this.pngImageFile = pngImageFile;
         this.tifImageFile = tifImageFile;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public int getPosition() {

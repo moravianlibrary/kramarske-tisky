@@ -16,6 +16,7 @@ import java.io.File;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.*;
+import java.util.function.Function;
 
 public class DigitizationWorkflow {
 
@@ -241,24 +242,41 @@ public class DigitizationWorkflow {
         String pngImageFilesStr = imagesToBeProcessed.stream().map((InputImage t) -> t.pngFile.getName()).reduce((a, b) -> a + ", " + b).orElse("");
         System.out.println("Processing " + imagesToBeProcessed.size() + " files with barcode " + barcode.getValue() + ": " + pngImageFilesStr);
         //test if correct number of pages
+        int pageCount = imagesToBeProcessed.size();
         int[] expectedNumbersOfPages = {4, 8, 16}; //musí být sudý počet stránek
-        if (Arrays.stream(expectedNumbersOfPages).noneMatch(count -> count == imagesToBeProcessed.size())) {
+        if (Arrays.stream(expectedNumbersOfPages).noneMatch(count -> count == pageCount)) {
             System.out.println("Invalid number of pages in block: " + imagesToBeProcessed.size() + ", ignoring block with barcode " + barcode.getValue());
             return null;
         }
-        //name pages: 1r, 1v, 2r, 2v, ...
+
+        //reorder pages to named pages: 1r, 1v, 2r, 2v, ...
         List<NamedPage> pages = new ArrayList<>();
-        for (int i = 0, num = 1; i < imagesToBeProcessed.size(); i++) {
-            char side = i % 2 == 0 ? 'r' : 'v';
-            String pageName = "" + num + side;
-            pages.add(new NamedPage(i + 1, pageName, imagesToBeProcessed.get(i).pngFile, imagesToBeProcessed.get(i).tifFile));
-            if (i % 2 == 1) {
-                num++;
+
+        // A. right pages: 1r, 2r, 3r, 4r
+        for (int i = 0, pageNumber = 1; i < imagesToBeProcessed.size() / 2; i++, pageNumber++) {
+            String pageName = "" + pageNumber + 'r';
+            pages.add(new NamedPage(pageNumber, pageName, imagesToBeProcessed.get(i).pngFile, imagesToBeProcessed.get(i).tifFile));
+        }
+        // B. left pages: 1v, 2v, 3v, 4v
+        for (int i = imagesToBeProcessed.size() / 2, pageNumber = 1; i < imagesToBeProcessed.size(); i++, pageNumber++) {
+            String pageName = "" + pageNumber + 'v';
+            pages.add(new NamedPage(pageNumber, pageName, imagesToBeProcessed.get(i).pngFile, imagesToBeProcessed.get(i).tifFile));
+        }
+        //sort pages by pageName to get 1r, 1v, 2r, 2v, ...
+        pages.sort((p1, p2) -> {
+            if (p1.getPosition() != p2.getPosition()) {
+                return Integer.compare(p1.getPosition(), p2.getPosition());
+            } else {
+                //v případě stejného čísla (1r, 1v) je 1r před 1v
+                return Character.compare(p1.getName().charAt(p1.getName().length() - 1), p2.getName().charAt(p2.getName().length() - 1));
             }
+        });
+        //update positions for pages not to have 1, 1, 2, 2, ...
+        for (int i = 0; i < pages.size(); i++) {
+            pages.get(i).setPosition(i + 1);
         }
 
         //create working dir and fill with copies of original images
-
         makeSureReadableWritableDirExists(workingDirForBlock);
         File blockWorkingDirImagesDir = new File(workingDirForBlock, "images-in");
         makeSureReadableWritableDirExists(blockWorkingDirImagesDir);
